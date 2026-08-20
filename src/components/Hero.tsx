@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { GithubIcon } from './Icons';
-import { FileText, Send, Terminal, Sparkles, Cpu, Code2, ArrowDown } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './Icons';
+import { Send, Terminal, Sparkles, Cpu, Code2, Mail, Briefcase, Trophy, ArrowRight } from 'lucide-react';
 
 interface HeroProps {
   onContactClick: () => void;
@@ -12,8 +12,21 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
   const p = PORTFOLIO_DATA.personal;
 
   return (
-    <section id="home" className="section" style={{ paddingTop: '9rem', paddingBottom: '5rem', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+    <section
+      id="home"
+      style={{
+        paddingTop: '7.5rem',
+        paddingBottom: '4rem',
+        minHeight: '94vh',
+        display: 'flex',
+        alignItems: 'center',
+        background: 'var(--bg-primary)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
       <div className="container">
+        {/* ================= HERO TWO-COLUMN GRID ================= */}
         <div
           style={{
             display: 'grid',
@@ -21,129 +34,207 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             gap: '3.5rem',
             alignItems: 'center',
           }}
-          className="hero-grid"
+          className="hero-main-grid"
         >
-          {/* Left Column: Text & CTAs */}
-          <div className="animate-slide-up" style={{ zIndex: 2 }}>
-            {/* Status Badge */}
-            <div className="section-badge">
+          {/* ----- LEFT COLUMN: HERO CONTENT ----- */}
+          <div className="hero-text-col" style={{ zIndex: 2 }}>
+            {/* Eyebrow / Status Tag */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                marginBottom: '1.25rem',
+              }}
+            >
               <span
                 style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: 'var(--accent-cyan)',
-                  boxShadow: '0 0 10px var(--accent-cyan)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.84rem',
+                  fontWeight: 700,
+                  color: 'var(--accent-cyan)',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                ENGINEERING STUDENT · OPEN TO OPPORTUNITIES
+              </span>
+              <span
+                style={{
+                  width: '36px',
+                  height: '1.5px',
+                  background: 'var(--accent-cyan-border)',
                   display: 'inline-block',
                 }}
               />
-              <span>{p.statusBadge}</span>
             </div>
 
-            {/* Main Hero Name */}
+            {/* Main Headline */}
             <h1
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(2.8rem, 6vw, 4.5rem)',
+                fontSize: 'clamp(3.4rem, 6.8vw, 5.2rem)',
                 fontWeight: 800,
-                lineHeight: 1.08,
                 letterSpacing: '-0.03em',
+                lineHeight: 1.03,
                 marginBottom: '1.25rem',
-                color: 'var(--text-main)',
               }}
             >
-              Divyansh <br />
+              <span style={{ color: 'var(--text-primary)', display: 'block' }}>Divyansh</span>
               <span
                 style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, #00f2fe 60%, #4facfe 100%)',
+                  background: 'linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-cyan-hover) 50%, var(--accent-blue) 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
+                  display: 'block',
+                  marginTop: '0.1rem',
                 }}
               >
                 Gupta
               </span>
             </h1>
 
-            {/* Short Bio Statement */}
+            {/* Bio Statement */}
             <p
               style={{
-                fontSize: '1.15rem',
-                color: 'var(--text-muted)',
-                maxWidth: '560px',
-                lineHeight: 1.6,
+                fontSize: '1.08rem',
+                color: 'var(--text-secondary)',
+                maxWidth: '490px',
+                lineHeight: 1.65,
                 marginBottom: '2rem',
+                fontWeight: 400,
               }}
             >
-              {p.bio}
+              Building practical software, AI systems, and hardware edge engineering projects that solve real problems.
             </p>
 
-            {/* Hero Highlights / Quick Stats Bar */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                gap: '0.85rem',
-                marginBottom: '2.5rem',
-                maxWidth: '560px',
-              }}
-            >
-              {p.highlights.map((item, i) => (
-                <div
-                  key={i}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid var(--border-subtle)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '0.75rem 1rem',
-                  }}
-                >
-                  <div style={{ fontSize: '0.72rem', color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    {item.label}
-                  </div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-main)', marginTop: '0.2rem' }}>
-                    {item.value}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Hero CTA Buttons */}
+            {/* Hero Action Buttons */}
             <div
               style={{
                 display: 'flex',
-                flexWrap: 'wrap',
-                gap: '1rem',
                 alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: '1.25rem',
+                marginBottom: '2rem',
               }}
+              className="hero-buttons-row"
             >
-              <button onClick={onContactClick} className="btn btn-primary">
-                <Send size={18} />
+              <button
+                onClick={onContactClick}
+                className="hero-primary-btn"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.6rem',
+                  background: 'var(--accent-cyan)',
+                  color: 'var(--text-on-accent)',
+                  fontWeight: 750,
+                  fontSize: '0.96rem',
+                  padding: '0.8rem 1.8rem',
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  boxShadow: '0 0 22px var(--accent-cyan-glow)',
+                }}
+              >
+                <Send size={15} />
                 <span>Get In Touch</span>
               </button>
 
               <a
+                href="#projects"
+                className="hero-secondary-link"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  color: 'var(--accent-cyan)',
+                  fontWeight: 650,
+                  fontSize: '0.96rem',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  padding: '0.4rem 0',
+                }}
+              >
+                <span>View Projects</span>
+                <ArrowRight size={15} />
+              </a>
+            </div>
+
+            {/* Social Channels Icons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <a
                 href={p.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-secondary"
+                aria-label="GitHub Profile"
+                className="hero-social-btn"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-strong)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
               >
                 <GithubIcon size={18} />
-                <span>GitHub Profile</span>
               </a>
 
               <a
-                href={p.resumePath}
+                href={p.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline"
+                aria-label="LinkedIn Profile"
+                className="hero-social-btn"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-strong)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
               >
-                <FileText size={18} />
-                <span>Resume</span>
+                <LinkedinIcon size={18} />
+              </a>
+
+              <a
+                href={`mailto:${p.email}`}
+                aria-label="Email Divyansh Gupta"
+                className="hero-social-btn"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-strong)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
+              >
+                <Mail size={18} />
               </a>
             </div>
           </div>
 
-          {/* Right Column: High-Tech Framed Portrait */}
+          {/* ----- RIGHT COLUMN: PROFILE VISUAL & FLOATING BADGES ----- */}
           <div
             style={{
               display: 'flex',
@@ -151,9 +242,9 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               alignItems: 'center',
               position: 'relative',
             }}
-            className="animate-fade-in"
+            className="hero-visual-col"
           >
-            {/* Outer Geometric Frame & Tech Ring Container */}
+            {/* Portrait Framing Container */}
             <div
               style={{
                 position: 'relative',
@@ -165,53 +256,56 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 justifyContent: 'center',
               }}
             >
-              {/* Animated HUD Tech Rings */}
+              {/* Layer 1: Subtle Outer Purple/Cyan Glow */}
               <div
                 style={{
                   position: 'absolute',
-                  inset: '-15px',
+                  inset: '-10px',
                   borderRadius: '50%',
-                  border: '1px dashed var(--border-cyan)',
-                  opacity: 0.5,
-                  animation: 'spin 40s linear infinite',
-                  pointerEvents: 'none',
-                }}
-              />
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: '-30px',
-                  borderRadius: '50%',
-                  border: '1px solid rgba(0, 242, 254, 0.15)',
-                  pointerEvents: 'none',
-                }}
-              />
-
-              {/* Cyan Glow Layer */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: '10px',
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(0, 242, 254, 0.25) 0%, rgba(7, 8, 13, 0) 70%)',
+                  background: 'radial-gradient(circle, var(--accent-cyan-glow) 0%, var(--accent-purple-glow) 50%, transparent 75%)',
                   filter: 'blur(30px)',
                   pointerEvents: 'none',
                 }}
               />
 
-              {/* Portrait Container Card */}
+              {/* Layer 2: Outer Purple Accent Ring */}
               <div
                 style={{
-                  width: '100%',
-                  height: '100%',
+                  position: 'absolute',
+                  inset: '-22px',
                   borderRadius: '50%',
-                  padding: '10px',
-                  background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.4) 0%, rgba(15, 18, 30, 0.8) 50%, rgba(59, 130, 246, 0.4) 100%)',
-                  border: '1px solid var(--border-cyan)',
-                  boxShadow: '0 20px 50px rgba(0, 242, 254, 0.2)',
-                  position: 'relative',
-                  overflow: 'hidden',
+                  border: '1px solid var(--accent-purple-border)',
+                  pointerEvents: 'none',
                 }}
+              />
+
+              {/* Layer 3: Middle Cyan/Blue Dashed Technical Ring */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: '-10px',
+                  borderRadius: '50%',
+                  border: '1px dashed var(--accent-cyan-border)',
+                  pointerEvents: 'none',
+                }}
+              />
+
+              {/* Layer 4: Portrait Circular Frame */}
+              <div
+                style={{
+                  width: '330px',
+                  height: '330px',
+                  borderRadius: '50%',
+                  padding: '4px',
+                  background: 'linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-cyan-border) 40%, var(--accent-purple) 100%)',
+                  boxShadow: 'var(--shadow-card-hover)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden',
+                  position: 'relative',
+                }}
+                className="portrait-circle-frame"
               >
                 <div
                   style={{
@@ -223,23 +317,23 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    position: 'relative',
                   }}
                 >
                   {!imageError ? (
                     <img
                       src={p.portraitPath}
-                      alt={p.name}
+                      alt="Divyansh Gupta - Engineering Student & Software Developer"
                       onError={() => setImageError(true)}
+                      loading="eager"
                       style={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        filter: 'contrast(1.05) brightness(1.02)',
+                        objectPosition: 'center',
+                        filter: 'contrast(1.03) brightness(1.01)',
                       }}
                     />
                   ) : (
-                    /* High-Tech Developer Avatar Graphic Fallback */
                     <div
                       style={{
                         width: '100%',
@@ -248,7 +342,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        background: 'radial-gradient(circle at center, #111625 0%, #07080d 100%)',
+                        background: 'var(--bg-card)',
                         color: 'var(--accent-cyan)',
                         padding: '1.5rem',
                         textAlign: 'center',
@@ -256,177 +350,349 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                     >
                       <div
                         style={{
-                          width: '90px',
-                          height: '90px',
+                          width: '72px',
+                          height: '72px',
                           borderRadius: '50%',
                           background: 'var(--accent-cyan-subtle)',
-                          border: '2px solid var(--border-cyan)',
+                          border: '2px solid var(--accent-cyan)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          fontSize: '2.2rem',
+                          fontSize: '1.8rem',
                           fontWeight: 800,
                           fontFamily: 'var(--font-heading)',
-                          marginBottom: '0.75rem',
-                          boxShadow: '0 0 25px rgba(0, 242, 254, 0.3)',
+                          marginBottom: '0.4rem',
                         }}
                       >
                         {p.avatarPlaceholderText}
                       </div>
-                      <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.1rem', color: 'var(--text-main)' }}>
+                      <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)' }}>
                         Divyansh Gupta
-                      </div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginTop: '0.2rem' }}>
-                        Software & AI Engineer
                       </div>
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Floating Technology Badges around Portrait */}
+              {/* ----- 4 FLOATING TECHNICAL BADGES ----- */}
+              {/* 1. Upper-Left: C++ */}
               <div
                 style={{
                   position: 'absolute',
-                  top: '5%',
+                  top: '12%',
+                  left: '-6%',
+                  background: 'var(--bg-card-elevated)',
+                  border: '1px solid var(--accent-cyan-border)',
+                  borderRadius: '10px',
+                  padding: '0.5rem 0.95rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  boxShadow: 'var(--shadow-card)',
+                  zIndex: 10,
+                }}
+                className="hero-tech-badge badge-cpp"
+              >
+                <Code2 size={16} color="var(--accent-cyan)" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  C++
+                </span>
+              </div>
+
+              {/* 2. Upper-Right: AI / ML */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '20%',
+                  right: '-8%',
+                  background: 'var(--bg-card-elevated)',
+                  border: '1px solid var(--accent-purple-border)',
+                  borderRadius: '10px',
+                  padding: '0.5rem 0.95rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  boxShadow: 'var(--shadow-card)',
+                  zIndex: 10,
+                }}
+                className="hero-tech-badge badge-aiml"
+              >
+                <Sparkles size={16} color="var(--accent-purple)" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  AI / ML
+                </span>
+              </div>
+
+              {/* 3. Lower-Left: Python */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '22%',
                   left: '-10%',
-                  background: 'var(--bg-card-glass)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid var(--border-cyan)',
-                  borderRadius: 'var(--radius-full)',
-                  padding: '0.4rem 0.9rem',
+                  background: 'var(--bg-card-elevated)',
+                  border: '1px solid var(--accent-amber-border)',
+                  borderRadius: '10px',
+                  padding: '0.5rem 0.95rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--text-main)',
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
+                  gap: '0.5rem',
+                  boxShadow: 'var(--shadow-card)',
+                  zIndex: 10,
                 }}
-                className="animate-float"
+                className="hero-tech-badge badge-python"
               >
-                <Code2 size={14} color="var(--accent-cyan)" />
-                <span>C++</span>
+                <Terminal size={16} color="var(--accent-amber)" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  Python
+                </span>
               </div>
 
+              {/* 4. Lower-Right: Arduino UNO Q */}
               <div
                 style={{
                   position: 'absolute',
-                  top: '60%',
-                  left: '-15%',
-                  background: 'var(--bg-card-glass)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: 'var(--radius-full)',
-                  padding: '0.4rem 0.9rem',
+                  bottom: '12%',
+                  right: '-6%',
+                  background: 'var(--bg-card-elevated)',
+                  border: '1px solid var(--accent-emerald-border)',
+                  borderRadius: '10px',
+                  padding: '0.5rem 0.95rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--text-main)',
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
-                  animationDelay: '1s',
+                  gap: '0.5rem',
+                  boxShadow: 'var(--shadow-card)',
+                  zIndex: 10,
                 }}
-                className="animate-float"
+                className="hero-tech-badge badge-arduino"
               >
-                <Terminal size={14} color="#38bdf8" />
-                <span>Python</span>
-              </div>
-
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '15%',
-                  right: '-10%',
-                  background: 'var(--bg-card-glass)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: 'var(--radius-full)',
-                  padding: '0.4rem 0.9rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--text-main)',
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
-                  animationDelay: '2s',
-                }}
-                className="animate-float"
-              >
-                <Sparkles size={14} color="#a855f7" />
-                <span>AI / ML</span>
-              </div>
-
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '5%',
-                  right: '-5%',
-                  background: 'var(--bg-card-glass)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: 'var(--radius-full)',
-                  padding: '0.4rem 0.9rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--text-main)',
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
-                  animationDelay: '3s',
-                }}
-                className="animate-float"
-              >
-                <Cpu size={14} color="#10b981" />
-                <span>Arduino UNO Q</span>
+                <Cpu size={16} color="var(--accent-emerald)" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  Arduino UNO Q
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* ================= LOWER HERO 3 SUMMARY CARDS ================= */}
         <div
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: '4rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '1.5rem',
+            marginTop: '4.5rem',
           }}
+          className="hero-summary-grid"
         >
-          <a
-            href="#about"
+          {/* Card 1: ENGINEERING STUDENT */}
+          <div
             style={{
-              color: 'var(--text-dim)',
-              textDecoration: 'none',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-card)',
+              borderRadius: '12px',
+              padding: '1.35rem 1.6rem',
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
-              gap: '0.4rem',
-              fontSize: '0.8rem',
-              fontFamily: 'var(--font-mono)',
-              transition: 'color 0.2s ease',
+              gap: '1rem',
+              transition: 'all var(--transition-normal)',
             }}
+            className="hero-summary-card"
           >
-            <span>SCROLL TO EXPLORE</span>
-            <ArrowDown size={16} className="animate-float" />
-          </a>
+            <div
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '8px',
+                background: 'var(--accent-cyan-subtle)',
+                border: '1px solid var(--accent-cyan-border)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Briefcase size={18} color="var(--accent-cyan)" />
+            </div>
+            <div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.88rem',
+                  fontWeight: 750,
+                  color: 'var(--accent-cyan)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                ENGINEERING STUDENT
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: AI/ML & SOFTWARE */}
+          <div
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-card)',
+              borderRadius: '12px',
+              padding: '1.35rem 1.6rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              transition: 'all var(--transition-normal)',
+            }}
+            className="hero-summary-card"
+          >
+            <div
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '8px',
+                background: 'var(--accent-purple-subtle)',
+                border: '1px solid var(--accent-purple-border)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Sparkles size={18} color="var(--accent-purple)" />
+            </div>
+            <div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.88rem',
+                  fontWeight: 750,
+                  color: 'var(--accent-purple)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                AI/ML &amp; SOFTWARE
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: HACKATHON & EDGE */}
+          <div
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-card)',
+              borderRadius: '12px',
+              padding: '1.35rem 1.6rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              transition: 'all var(--transition-normal)',
+            }}
+            className="hero-summary-card"
+          >
+            <div
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '8px',
+                background: 'var(--accent-emerald-subtle)',
+                border: '1px solid var(--accent-emerald-border)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Trophy size={18} color="var(--accent-emerald)" />
+            </div>
+            <div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.88rem',
+                  fontWeight: 750,
+                  color: 'var(--accent-emerald)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                HACKATHON &amp; EDGE
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
+      {/* Embedded Component Styles for Hover & Responsive Adaptability */}
       <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+        .hero-primary-btn:hover {
+          background: var(--accent-cyan-hover) !important;
+          box-shadow: 0 0 28px var(--accent-cyan-glow) !important;
+          transform: translateY(-1px);
         }
+        .hero-secondary-link:hover {
+          color: var(--accent-cyan-hover) !important;
+          transform: translateX(3px);
+        }
+        .hero-social-btn:hover {
+          border-color: var(--accent-cyan) !important;
+          color: var(--accent-cyan) !important;
+          background: var(--bg-card-hover) !important;
+          transform: translateY(-2px);
+        }
+        .hero-summary-card:hover {
+          border-color: var(--accent-cyan-border) !important;
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-card-hover) !important;
+        }
+
         @media (min-width: 968px) {
-          .hero-grid {
-            grid-template-columns: 1.2fr 0.8fr !important;
+          .hero-main-grid {
+            grid-template-columns: 1.12fr 0.88fr !important;
+            gap: 3.5rem !important;
+          }
+        }
+
+        @media (max-width: 967px) {
+          .hero-summary-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+            margin-top: 3.5rem !important;
+          }
+          .hero-main-grid {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+          }
+          .hero-visual-col {
+            order: 2;
+          }
+          .hero-text-col {
+            order: 1;
+          }
+        }
+
+        @media (max-width: 520px) {
+          .portrait-circle-frame {
+            width: 260px !important;
+            height: 260px !important;
+          }
+          .badge-cpp {
+            top: 5% !important;
+            left: -2% !important;
+            padding: 0.35rem 0.65rem !important;
+          }
+          .badge-aiml {
+            top: 15% !important;
+            right: -2% !important;
+            padding: 0.35rem 0.65rem !important;
+          }
+          .badge-python {
+            bottom: 15% !important;
+            left: -2% !important;
+            padding: 0.35rem 0.65rem !important;
+          }
+          .badge-arduino {
+            bottom: 5% !important;
+            right: -2% !important;
+            padding: 0.35rem 0.65rem !important;
           }
         }
       `}</style>

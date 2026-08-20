@@ -1,7 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
-import { Mail, FileText, ArrowUp, Code2 } from 'lucide-react';
+import { Mail, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const p = PORTFOLIO_DATA.personal;
@@ -10,179 +10,263 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'What I Do', href: '#capabilities' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Journey', href: '#journey' },
+    { name: 'Open To', href: '#opportunities' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   return (
     <footer
       style={{
-        background: 'var(--bg-dark)',
-        borderTop: '1px solid var(--border-subtle)',
-        padding: '4rem 0 2.5rem 0',
+        background: 'var(--bg-secondary)',
+        borderTop: '1px solid var(--border-card)',
+        padding: '4.5rem 0 2rem 0',
       }}
     >
       <div className="container">
+        {/* Main Footer Columns */}
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '2rem',
-            marginBottom: '3rem',
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '3rem',
+            marginBottom: '3.5rem',
           }}
+          className="footer-grid"
         >
-          {/* Brand Info */}
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-              <div
+          {/* Brand Info & Socials */}
+          <div style={{ maxWidth: '380px' }}>
+            <a
+              href="#home"
+              style={{
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.2rem',
+                fontFamily: 'var(--font-heading)',
+                fontSize: '1.5rem',
+                fontWeight: 800,
+                color: 'var(--text-primary)',
+                letterSpacing: '-0.03em',
+                marginBottom: '0.85rem',
+              }}
+            >
+              <span>DG</span>
+              <span style={{ color: 'var(--accent-cyan)' }}>.</span>
+            </a>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
+              Building software, AI systems, and engineering solutions that make a real-world impact.
+            </p>
+
+            {/* Social Icons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <a
+                href={p.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
                 style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '6px',
-                  background: 'var(--accent-cyan-subtle)',
-                  border: '1px solid var(--border-cyan)',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '8px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-card)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--accent-cyan)',
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
                 }}
+                className="social-icon-btn"
               >
-                <Code2 size={16} />
-              </div>
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-main)' }}>
-                Divyansh Gupta
-              </span>
+                <GithubIcon size={16} />
+              </a>
+
+              <a
+                href={p.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '8px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-card)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
+                className="social-icon-btn"
+              >
+                <LinkedinIcon size={16} />
+              </a>
+
+              <a
+                href={`mailto:${p.email}`}
+                aria-label="Email"
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '8px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-card)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--text-secondary)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
+                className="social-icon-btn"
+              >
+                <Mail size={16} />
+              </a>
             </div>
-            <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', maxWidth: '380px' }}>
-              Building software, AI systems, and engineering solutions that address real-world challenges.
-            </p>
           </div>
 
-          {/* Social Links & Back to Top */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-            <a
-              href={p.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-main)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'var(--transition-fast)',
-              }}
-              className="tech-badge"
-            >
-              <GithubIcon size={18} />
-            </a>
+          {/* Links Grid */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '2rem',
+            }}
+            className="footer-links-grid"
+          >
+            {/* Navigation Column */}
+            <div>
+              <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+                Navigation
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                {navLinks.slice(0, 5).map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    style={{
+                      color: 'var(--text-secondary)',
+                      textDecoration: 'none',
+                      fontSize: '0.9rem',
+                      transition: 'color 0.2s ease',
+                    }}
+                    className="footer-link"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </div>
 
-            <a
-              href={p.linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-main)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'var(--transition-fast)',
-              }}
-              className="tech-badge"
-            >
-              <LinkedinIcon size={18} />
-            </a>
+            {/* Projects Column */}
+            <div>
+              <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+                Projects
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                  BenefitOS
+                </a>
+                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                  JanSetu
+                </a>
+                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                  TRON
+                </a>
+              </div>
+            </div>
 
-            <a
-              href={`mailto:${p.email}`}
-              aria-label="Email"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-main)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'var(--transition-fast)',
-              }}
-              className="tech-badge"
-            >
-              <Mail size={18} />
-            </a>
-
-            <a
-              href={p.resumePath}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Resume"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-main)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'var(--transition-fast)',
-              }}
-              className="tech-badge"
-            >
-              <FileText size={18} />
-            </a>
-
-            <button
-              onClick={scrollToTop}
-              aria-label="Scroll to Top"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'var(--accent-cyan-subtle)',
-                border: '1px solid var(--border-cyan)',
-                color: 'var(--accent-cyan)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)',
-              }}
-            >
-              <ArrowUp size={18} />
-            </button>
+            {/* Resources Column */}
+            <div>
+              <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+                Resources
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                <a href={p.resumePath} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                  Resume
+                </a>
+                <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                  GitHub
+                </a>
+                <a href={p.linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Copyright Notice */}
         <div
           style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.04)',
-            paddingTop: '1.5rem',
+            borderTop: '1px solid var(--border-subtle)',
+            paddingTop: '1.75rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            fontSize: '0.82rem',
-            color: 'var(--text-dim)',
+            fontSize: '0.84rem',
+            color: 'var(--text-secondary)',
             fontFamily: 'var(--font-mono)',
+            fontWeight: 500,
+            flexWrap: 'wrap',
+            gap: '1rem',
           }}
         >
           <div>© {new Date().getFullYear()} Divyansh Gupta. All rights reserved.</div>
           <div>Engineering Student · Developer · AI Enthusiast</div>
+          <button
+            onClick={scrollToTop}
+            aria-label="Scroll to Top"
+            style={{
+              width: '36px',
+              height: '36px',
+              borderRadius: '50%',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-card)',
+              color: 'var(--accent-cyan)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+            }}
+            className="scroll-top-footer-btn"
+          >
+            <ArrowUp size={16} />
+          </button>
         </div>
       </div>
+
+      <style>{`
+        .footer-link:hover {
+          color: var(--accent-cyan) !important;
+        }
+        .scroll-top-footer-btn:hover {
+          border-color: var(--accent-cyan) !important;
+          background: var(--accent-cyan-subtle) !important;
+          transform: translateY(-2px);
+        }
+        @media (min-width: 900px) {
+          .footer-grid {
+            grid-template-columns: 1.1fr 1.3fr !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .footer-links-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 };
