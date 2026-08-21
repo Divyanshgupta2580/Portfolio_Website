@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
             if (req.method === 'OPTIONS') {
               res.setHeader('Access-Control-Allow-Origin', '*')
               res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
-              res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+              res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept')
               res.statusCode = 200
               res.end()
               return
@@ -57,10 +57,11 @@ export default defineConfig(({ mode }) => {
 
               try {
                 await handler(customReq, customRes)
-              } catch {
+              } catch (e: any) {
+                console.error('[Local API Error]:', e)
                 res.statusCode = 500
                 res.setHeader('Content-Type', 'application/json')
-                res.end(JSON.stringify({ success: false, message: 'Local API server error' }))
+                res.end(JSON.stringify({ success: false, message: `Local API error: ${e?.message || 'Server exception'}` }))
               }
             })
           })

@@ -45,10 +45,17 @@ export default async function handler(req: any, res: any) {
   const trimmedOpportunity = typeof opportunityType === 'string' ? opportunityType.trim() : 'General';
   const trimmedMessage = typeof message === 'string' ? message.trim() : '';
 
-  if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+  if (!trimmedName) {
     return res.status(400).json({
       success: false,
-      message: 'Name, Email, and Message are required fields.',
+      message: 'Name is required.',
+    });
+  }
+
+  if (!trimmedEmail) {
+    return res.status(400).json({
+      success: false,
+      message: 'Email address is required.',
     });
   }
 
@@ -56,14 +63,14 @@ export default async function handler(req: any, res: any) {
   if (!emailRegex.test(trimmedEmail) || trimmedEmail.length > 254) {
     return res.status(400).json({
       success: false,
-      message: 'Please provide a valid email address.',
+      message: 'Please provide a valid email address format (e.g. name@domain.com).',
     });
   }
 
-  if (trimmedMessage.length < 5) {
+  if (!trimmedMessage || trimmedMessage.length < 5) {
     return res.status(400).json({
       success: false,
-      message: 'Message must be at least 5 characters long.',
+      message: 'Message details must be at least 5 characters long.',
     });
   }
 
@@ -75,21 +82,21 @@ export default async function handler(req: any, res: any) {
   }
 
   // 2. Server Environment Variables
-  const resendApiKey = process.env.RESEND_API_KEY;
+  const resendApiKey = (process.env.RESEND_API_KEY || '').trim();
   const toEmail = (process.env.CONTACT_TO_EMAIL || 'inbox.divyanshgupta1@protonmail.com').trim().toLowerCase();
-  const fromEmail = process.env.CONTACT_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>';
+  const fromEmail = (process.env.CONTACT_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>').trim();
 
   if (!resendApiKey) {
     return res.status(500).json({
       success: false,
-      message: 'Email delivery service is unconfigured. Please set RESEND_API_KEY in environment variables.',
+      message: 'Email delivery service is not configured on the server. Please contact Divyansh directly via inbox.DivyanshGupta1@protonmail.com.',
     });
   }
 
   // 3. Sanitized HTML Email Template
   const safeName = escapeHtml(trimmedName);
   const safeEmail = escapeHtml(trimmedEmail);
-  const safeSubject = escapeHtml(trimmedSubject || `Inquiry: ${trimmedOpportunity} from ${trimmedName}`);
+  const safeSubject = escapeHtml(trimmedSubject || `Portfolio Inquiry: ${trimmedOpportunity} from ${trimmedName}`);
   const safeOpportunity = escapeHtml(trimmedOpportunity);
   const safeMessage = escapeHtml(trimmedMessage);
 
@@ -99,6 +106,7 @@ export default async function handler(req: any, res: any) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${resendApiKey}`,
+        'User-Agent': 'Portfolio-Contact-Service/1.0',
       },
       body: JSON.stringify({
         from: fromEmail,
@@ -106,35 +114,35 @@ export default async function handler(req: any, res: any) {
         reply_to: trimmedEmail,
         subject: safeSubject,
         html: `
-          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; color: #1e293b; line-height: 1.6;">
-            <div style="border-bottom: 2px solid #00f2fe; padding-bottom: 12px; margin-bottom: 16px;">
-              <h2 style="margin: 0; color: #0f172a; font-size: 20px;">New Portfolio Contact Submission</h2>
-              <p style="margin: 4px 0 0 0; font-size: 13px; color: #64748b;">Received via divyansh.dev portfolio</p>
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; color: #1e293b; line-height: 1.6;">
+            <div style="border-bottom: 2px solid #00f2fe; padding-bottom: 14px; margin-bottom: 18px;">
+              <h2 style="margin: 0; color: #0f172a; font-size: 20px; font-weight: 700;">New Portfolio Inquiry Received</h2>
+              <p style="margin: 4px 0 0 0; font-size: 13px; color: #64748b;">Direct message from portfolio contact form</p>
             </div>
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 14px;">
               <tr>
-                <td style="padding: 6px 0; color: #64748b; width: 140px;"><strong>Sender Name:</strong></td>
-                <td style="padding: 6px 0; color: #0f172a; font-weight: 600;">${safeName}</td>
+                <td style="padding: 8px 0; color: #64748b; width: 140px;"><strong>Sender Name:</strong></td>
+                <td style="padding: 8px 0; color: #0f172a; font-weight: 600;">${safeName}</td>
               </tr>
               <tr>
-                <td style="padding: 6px 0; color: #64748b;"><strong>Sender Email:</strong></td>
-                <td style="padding: 6px 0; color: #0284c7;"><a href="mailto:${safeEmail}" style="color: #0284c7; text-decoration: none;">${safeEmail}</a></td>
+                <td style="padding: 8px 0; color: #64748b;"><strong>Sender Email:</strong></td>
+                <td style="padding: 8px 0; color: #0284c7;"><a href="mailto:${safeEmail}" style="color: #0284c7; text-decoration: none;">${safeEmail}</a></td>
               </tr>
               <tr>
-                <td style="padding: 6px 0; color: #64748b;"><strong>Opportunity Type:</strong></td>
-                <td style="padding: 6px 0; color: #0f172a;"><span style="background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 13px;">${safeOpportunity}</span></td>
+                <td style="padding: 8px 0; color: #64748b;"><strong>Opportunity Type:</strong></td>
+                <td style="padding: 8px 0; color: #0f172a;"><span style="background: #f1f5f9; padding: 3px 10px; border-radius: 6px; font-size: 13px; font-weight: 600;">${safeOpportunity}</span></td>
               </tr>
               <tr>
-                <td style="padding: 6px 0; color: #64748b;"><strong>Subject:</strong></td>
-                <td style="padding: 6px 0; color: #0f172a;">${safeSubject}</td>
+                <td style="padding: 8px 0; color: #64748b;"><strong>Subject:</strong></td>
+                <td style="padding: 8px 0; color: #0f172a;">${safeSubject}</td>
               </tr>
             </table>
-            <div style="background-color: #f8fafc; border-left: 4px solid #00f2fe; padding: 14px 16px; margin: 16px 0; border-radius: 4px;">
-              <h4 style="margin: 0 0 8px 0; color: #334155; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Message:</h4>
-              <p style="white-space: pre-wrap; margin: 0; color: #1e293b; font-size: 14px; line-height: 1.6;">${safeMessage}</p>
+            <div style="background-color: #f8fafc; border-left: 4px solid #00f2fe; padding: 16px; margin: 18px 0; border-radius: 6px;">
+              <h4 style="margin: 0 0 8px 0; color: #334155; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Project / Role Details:</h4>
+              <p style="white-space: pre-wrap; margin: 0; color: #1e293b; font-size: 14px; line-height: 1.65;">${safeMessage}</p>
             </div>
-            <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; border-top: 1px solid #f1f5f9; padding-top: 12px;">
-              This inquiry was sent directly through Divyansh Gupta's personal portfolio contact form.
+            <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+              Sent to ${toEmail} via Divyansh Gupta's Portfolio. Hit 'Reply' to respond directly to ${safeEmail}.
             </p>
           </div>
         `,
@@ -146,19 +154,23 @@ export default async function handler(req: any, res: any) {
     if (emailResponse.ok) {
       return res.status(200).json({
         success: true,
-        message: 'Your message has been sent successfully. Divyansh will get back to you shortly!',
+        message: 'Your inquiry has been delivered successfully! Divyansh will get back to you shortly.',
         id: data?.id,
       });
     } else {
+      console.error('[Resend API Error]:', data);
       return res.status(emailResponse.status || 500).json({
         success: false,
-        message: data?.message || 'Failed to deliver message via email provider. Please use direct email.',
+        message: data?.message || 'Email delivery provider error. Please contact Divyansh directly via inbox.DivyanshGupta1@protonmail.com.',
       });
     }
   } catch (error: any) {
-    return res.status(500).json({
+    console.error('[Contact Handler Exception]:', error);
+    return res.status(502).json({
       success: false,
-      message: 'An unexpected server error occurred while sending your message.',
+      message: error?.message 
+        ? `Communication error with email service (${error.message}). Please reach out directly to inbox.DivyanshGupta1@protonmail.com.`
+        : 'Communication error with email delivery service. Please use the direct email button below.',
     });
   }
 }
