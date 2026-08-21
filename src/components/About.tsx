@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollReveal } from './ScrollReveal';
 import {
   UserRound,
   GraduationCap,
@@ -102,7 +103,7 @@ export const About: React.FC<AboutProps> = () => {
     <section id="about" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
       <div className="container" style={{ maxWidth: '1260px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
         {/* ================= SECTION HEADER ================= */}
-        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+        <ScrollReveal direction="heading" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div
             style={{
               display: 'inline-flex',
@@ -146,7 +147,7 @@ export const About: React.FC<AboutProps> = () => {
           >
             I am Divyansh Gupta, an engineering student and developer focused on building dependable software systems, intelligent algorithms, and hardware edge solutions.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* ================= TWO-COLUMN MAIN CONTENT ================= */}
         <div
@@ -168,21 +169,21 @@ export const About: React.FC<AboutProps> = () => {
             }}
           >
             {focusPoints.map((item, idx) => (
-              <div
-                key={idx}
-                className="about-focus-card"
-                style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: '14px',
-                  padding: '1.25rem 1.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1.25rem',
-                  transition: 'all 0.25s ease',
-                  boxShadow: 'var(--shadow-card)',
-                }}
-              >
+              <ScrollReveal key={idx} direction="up" delay={idx * 60}>
+                <div
+                  className="about-focus-card"
+                  style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-card)',
+                    borderRadius: '14px',
+                    padding: '1.25rem 1.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1.25rem',
+                    transition: 'all 0.25s ease',
+                    boxShadow: 'var(--shadow-card)',
+                  }}
+                >
                 <div
                   style={{
                     width: '48px',
@@ -223,6 +224,7 @@ export const About: React.FC<AboutProps> = () => {
                   </div>
                 </div>
               </div>
+            </ScrollReveal>
             ))}
           </div>
 
@@ -236,89 +238,92 @@ export const About: React.FC<AboutProps> = () => {
             className="about-stats-grid"
           >
             {statCards.map((stat, idx) => (
-              <div
-                key={idx}
-                className="about-stat-box"
-                style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: '16px',
-                  padding: '1.75rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.25s ease',
-                  boxShadow: 'var(--shadow-card)',
-                }}
-              >
-                {/* Top Row: Big Number & Decorative Upper-Right Icon */}
+              <ScrollReveal key={idx} direction="up" delay={idx * 60 + 40}>
                 <div
+                  className="about-stat-box"
                   style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-card)',
+                    borderRadius: '16px',
+                    padding: '1.75rem',
                     display: 'flex',
-                    alignItems: 'flex-start',
+                    flexDirection: 'column',
                     justifyContent: 'space-between',
-                    marginBottom: '1.25rem',
+                    transition: 'all 0.25s ease',
+                    boxShadow: 'var(--shadow-card)',
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '2.75rem',
-                      fontWeight: 800,
-                      color: stat.color,
-                      lineHeight: 1,
-                    }}
-                  >
-                    {stat.value}
-                  </span>
-
+                  {/* Top Row: Big Number & Decorative Upper-Right Icon */}
                   <div
                     style={{
-                      width: '42px',
-                      height: '42px',
-                      borderRadius: '50%',
-                      background: stat.subtle,
-                      border: `1px solid ${stat.border}`,
-                      boxShadow: `0 0 14px ${stat.glow}`,
                       display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
+                      alignItems: 'flex-start',
+                      justifyContent: 'space-between',
+                      marginBottom: '1.25rem',
                     }}
                   >
-                    {stat.icon}
-                  </div>
-                </div>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '2.75rem',
+                        fontWeight: 800,
+                        color: stat.color,
+                        lineHeight: 1,
+                      }}
+                    >
+                      {stat.value}
+                    </span>
 
-                {/* Bottom Labels */}
-                <div>
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontWeight: 700,
-                      fontSize: '1.05rem',
-                      color: 'var(--text-primary)',
-                      marginBottom: '0.2rem',
-                    }}
-                  >
-                    {stat.label}
+                    <div
+                      style={{
+                        width: '42px',
+                        height: '42px',
+                        borderRadius: '50%',
+                        background: stat.subtle,
+                        border: `1px solid ${stat.border}`,
+                        boxShadow: `0 0 14px ${stat.glow}`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {stat.icon}
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: '0.84rem',
-                      color: 'var(--text-secondary)',
-                    }}
-                  >
-                    {stat.sub}
+
+                  {/* Bottom Labels */}
+                  <div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontWeight: 700,
+                        fontSize: '1.05rem',
+                        color: 'var(--text-primary)',
+                        marginBottom: '0.2rem',
+                      }}
+                    >
+                      {stat.label}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '0.84rem',
+                        color: 'var(--text-secondary)',
+                      }}
+                    >
+                      {stat.sub}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
 
         {/* ================= BOTTOM QUOTE STRIP ================= */}
-        <div
+        <ScrollReveal
+          direction="up"
+          delay={150}
           style={{
             background: 'var(--bg-card)',
             border: '1px solid var(--border-card)',
@@ -357,7 +362,7 @@ export const About: React.FC<AboutProps> = () => {
               Engineering is not just what I study — it's what I live every day.
             </span>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       <style>{`

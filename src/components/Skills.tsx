@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 import { Code2, Layers, Sparkles, Database, Cpu, LayoutGrid } from 'lucide-react';
 
 export const Skills: React.FC = () => {
@@ -104,7 +105,7 @@ export const Skills: React.FC = () => {
     <section id="skills" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
       <div className="container" style={{ maxWidth: '1260px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
         {/* ================= SECTION HEADER ================= */}
-        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+        <ScrollReveal direction="heading" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div
             style={{
               display: 'inline-flex',
@@ -192,7 +193,7 @@ export const Skills: React.FC = () => {
               );
             })}
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ================= PRIMARY SKILLS GRID ================= */}
         <div
@@ -212,160 +213,162 @@ export const Skills: React.FC = () => {
           {displayedCategories.map((category, idx) => {
             const theme = getCategoryTheme(category.title);
             return (
-              <div
-                key={idx}
-                className="skill-category-box"
-                style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: '16px',
-                  padding: '1.6rem 1.4rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: 'var(--shadow-card)',
-                  transition: 'all 0.25s ease',
-                }}
-              >
-                <div>
-                  {/* Category Header: Icon + Title */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.85rem',
-                      marginBottom: '0.75rem',
-                    }}
-                  >
+              <ScrollReveal key={category.title} direction="up" delay={idx * 80}>
+                <div
+                  className="skill-category-box"
+                  style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-card)',
+                    borderRadius: '16px',
+                    padding: '1.6rem 1.4rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: 'var(--shadow-card)',
+                    transition: 'all 0.25s ease',
+                    height: '100%',
+                  }}
+                >
+                  <div>
+                    {/* Category Header: Icon + Title */}
                     <div
                       style={{
-                        width: '42px',
-                        height: '42px',
-                        borderRadius: '10px',
-                        background: theme.subtle,
-                        border: `1px solid ${theme.border}`,
-                        boxShadow: `0 0 14px ${theme.glow}`,
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
+                        gap: '0.85rem',
+                        marginBottom: '0.75rem',
                       }}
                     >
-                      {theme.icon}
+                      <div
+                        style={{
+                          width: '42px',
+                          height: '42px',
+                          borderRadius: '10px',
+                          background: theme.subtle,
+                          border: `1px solid ${theme.border}`,
+                          boxShadow: `0 0 14px ${theme.glow}`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        {theme.icon}
+                      </div>
+
+                      <h3
+                        style={{
+                          fontFamily: 'var(--font-heading)',
+                          fontSize: '1.15rem',
+                          fontWeight: 700,
+                          color: 'var(--text-primary)',
+                          lineHeight: 1.25,
+                        }}
+                      >
+                        {category.title}
+                      </h3>
                     </div>
 
-                    <h3
+                    {/* Category Description */}
+                    <p
                       style={{
-                        fontFamily: 'var(--font-heading)',
-                        fontSize: '1.15rem',
-                        fontWeight: 700,
-                        color: 'var(--text-primary)',
-                        lineHeight: 1.25,
+                        fontSize: '0.86rem',
+                        color: 'var(--text-secondary)',
+                        lineHeight: 1.5,
+                        marginBottom: '1.5rem',
+                        minHeight: '2.6rem',
                       }}
                     >
-                      {category.title}
-                    </h3>
-                  </div>
+                      {category.description}
+                    </p>
 
-                  {/* Category Description */}
-                  <p
-                    style={{
-                      fontSize: '0.86rem',
-                      color: 'var(--text-secondary)',
-                      lineHeight: 1.5,
-                      marginBottom: '1.5rem',
-                      minHeight: '2.6rem',
-                    }}
-                  >
-                    {category.description}
-                  </p>
+                    {/* 2-Column Internal Grid of Individual Skill Cards */}
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(2, 1fr)',
+                        gap: '0.75rem',
+                      }}
+                      className="skill-cards-subgrid"
+                    >
+                      {category.skills.map((skill, sIdx) => {
+                        const isIntermediate = skill.level?.toLowerCase() === 'intermediate';
+                        const badgeColor = isIntermediate ? 'var(--accent-purple)' : theme.accent;
+                        const badgeBg = isIntermediate
+                          ? 'var(--accent-purple-subtle)'
+                          : theme.subtle;
+                        const badgeBorder = isIntermediate
+                          ? 'var(--accent-purple-border)'
+                          : theme.border;
 
-                  {/* 2-Column Internal Grid of Individual Skill Cards */}
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(2, 1fr)',
-                      gap: '0.75rem',
-                    }}
-                    className="skill-cards-subgrid"
-                  >
-                    {category.skills.map((skill, sIdx) => {
-                      const isIntermediate = skill.level?.toLowerCase() === 'intermediate';
-                      const badgeColor = isIntermediate ? 'var(--accent-purple)' : theme.accent;
-                      const badgeBg = isIntermediate
-                        ? 'var(--accent-purple-subtle)'
-                        : theme.subtle;
-                      const badgeBorder = isIntermediate
-                        ? 'var(--accent-purple-border)'
-                        : theme.border;
+                        const isLastOdd = category.skills.length % 2 !== 0 && sIdx === category.skills.length - 1;
 
-                      const isLastOdd = category.skills.length % 2 !== 0 && sIdx === category.skills.length - 1;
-
-                      return (
-                        <div
-                          key={sIdx}
-                          className="individual-skill-card"
-                          style={{
-                            gridColumn: isLastOdd ? 'span 2' : 'auto',
-                            background: 'var(--bg-secondary)',
-                            border: '1px solid var(--border-subtle)',
-                            borderRadius: '10px',
-                            padding: '0.9rem 1rem',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'space-between',
-                            minHeight: '92px',
-                            transition: 'all 0.2s ease',
-                          }}
-                        >
-                          <div>
-                            <div
-                              style={{
-                                fontWeight: 700,
-                                fontSize: '0.94rem',
-                                color: 'var(--text-primary)',
-                                marginBottom: '0.2rem',
-                              }}
-                            >
-                              {skill.name}
+                        return (
+                          <div
+                            key={sIdx}
+                            className="individual-skill-card"
+                            style={{
+                              gridColumn: isLastOdd ? 'span 2' : 'auto',
+                              background: 'var(--bg-secondary)',
+                              border: '1px solid var(--border-subtle)',
+                              borderRadius: '10px',
+                              padding: '0.9rem 1rem',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              justifyContent: 'space-between',
+                              minHeight: '92px',
+                              transition: 'all 0.2s ease',
+                            }}
+                          >
+                            <div>
+                              <div
+                                style={{
+                                  fontWeight: 700,
+                                  fontSize: '0.94rem',
+                                  color: 'var(--text-primary)',
+                                  marginBottom: '0.2rem',
+                                }}
+                              >
+                                {skill.name}
+                              </div>
+                              <div
+                                style={{
+                                  fontSize: '0.76rem',
+                                  color: 'var(--text-secondary)',
+                                  lineHeight: 1.35,
+                                  marginBottom: '0.65rem',
+                                }}
+                              >
+                                {skill.tag}
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                fontSize: '0.76rem',
-                                color: 'var(--text-secondary)',
-                                lineHeight: 1.35,
-                                marginBottom: '0.65rem',
-                              }}
-                            >
-                              {skill.tag}
+
+                            <div>
+                              <span
+                                style={{
+                                  fontSize: '0.68rem',
+                                  fontFamily: 'var(--font-mono)',
+                                  fontWeight: 700,
+                                  textTransform: 'uppercase',
+                                  letterSpacing: '0.04em',
+                                  padding: '0.2rem 0.55rem',
+                                  borderRadius: '4px',
+                                  color: badgeColor,
+                                  background: badgeBg,
+                                  border: `1px solid ${badgeBorder}`,
+                                  display: 'inline-flex',
+                                }}
+                              >
+                                {skill.level}
+                              </span>
                             </div>
                           </div>
-
-                          <div>
-                            <span
-                              style={{
-                                fontSize: '0.68rem',
-                                fontFamily: 'var(--font-mono)',
-                                fontWeight: 700,
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.04em',
-                                padding: '0.2rem 0.55rem',
-                                borderRadius: '4px',
-                                color: badgeColor,
-                                background: badgeBg,
-                                border: `1px solid ${badgeBorder}`,
-                                display: 'inline-flex',
-                              }}
-                            >
-                              {skill.level}
-                            </span>
-                          </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
@@ -374,7 +377,9 @@ export const Skills: React.FC = () => {
         {/* NEW SKILLS ADD-ON: DATABASES & HARDWARE 2-COL GRID */}
         {/* ================================================== */}
         {(activeTab === 'all' || activeTab === 'databases' || activeTab === 'hardware') && (
-          <div
+          <ScrollReveal
+            direction="up"
+            delay={100}
             style={{
               marginTop: '4rem',
               position: 'relative',
@@ -604,7 +609,7 @@ export const Skills: React.FC = () => {
                 </div>
               </div>
             )}
-          </div>
+          </ScrollReveal>
         )}
 
       </div>

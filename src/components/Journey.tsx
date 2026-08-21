@@ -1,5 +1,6 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 import { Trophy, Cpu, Bot, Code2, CheckCircle2 } from 'lucide-react';
 
 export const Journey: React.FC = () => {
@@ -95,16 +96,16 @@ export const Journey: React.FC = () => {
               const details = getItemDetails(idx);
 
               return (
-                <div
-                  key={idx}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '2.25rem',
-                    position: 'relative',
-                  }}
-                  className="journey-item-row"
-                >
+                <ScrollReveal key={idx} direction="up" delay={idx * 80}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '2.25rem',
+                      position: 'relative',
+                    }}
+                    className="journey-item-row"
+                  >
                   {/* Glowing Circular Timeline Node */}
                   <div
                     style={{
@@ -259,8 +260,9 @@ export const Journey: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              </ScrollReveal>
+            );
+          })}
           </div>
         </div>
       </div>

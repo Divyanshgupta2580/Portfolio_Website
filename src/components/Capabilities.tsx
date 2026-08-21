@@ -1,5 +1,6 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 import { Code2, Network, Layers, Cpu, Server, Cloud } from 'lucide-react';
 
 export const Capabilities: React.FC = () => {
@@ -68,7 +69,7 @@ export const Capabilities: React.FC = () => {
     <section id="capabilities" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
       <div className="container">
         {/* ================= SECTION HEADER ================= */}
-        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+        <ScrollReveal direction="heading" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div
             style={{
               display: 'inline-flex',
@@ -110,7 +111,7 @@ export const Capabilities: React.FC = () => {
           >
             Core domains of practical software engineering, artificial intelligence systems, and hardware edge solutions I build with.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* ================= 3-COLUMN × 2-ROW GRID ================= */}
         <div
@@ -121,30 +122,36 @@ export const Capabilities: React.FC = () => {
           }}
           className="capabilities-grid-layout"
         >
-          {PORTFOLIO_DATA.capabilities.map((cap) => {
+          {PORTFOLIO_DATA.capabilities.map((cap, capIdx) => {
             const theme = getCardTheme(cap.num);
             return (
-              <div
+              <ScrollReveal
                 key={cap.id}
-                className="cap-feature-card"
-                style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: '16px',
-                  padding: '28px 24px',
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  textAlign: 'center',
-                  transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                  boxShadow: 'var(--shadow-card)',
-                  ['--card-accent' as any]: theme.accentVar,
-                  ['--card-border' as any]: theme.borderVar,
-                  ['--card-glow' as any]: theme.glowVar,
-                }}
+                direction="up"
+                delay={capIdx * 70}
+                style={{ height: '100%' }}
               >
-                {/* Top-Left Monospace Number */}
+                <div
+                  className="cap-feature-card"
+                  style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-card)',
+                    borderRadius: '16px',
+                    padding: '28px 24px',
+                    position: 'relative',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    textAlign: 'center',
+                    height: '100%',
+                    transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+                    boxShadow: 'var(--shadow-card)',
+                    ['--card-accent' as any]: theme.accentVar,
+                    ['--card-border' as any]: theme.borderVar,
+                    ['--card-glow' as any]: theme.glowVar,
+                  }}
+                >
+                  {/* Top-Left Monospace Number */}
                 <span
                   style={{
                     position: 'absolute',
@@ -240,8 +247,9 @@ export const Capabilities: React.FC = () => {
                   ))}
                 </div>
               </div>
-            );
-          })}
+            </ScrollReveal>
+          );
+        })}
         </div>
       </div>
 

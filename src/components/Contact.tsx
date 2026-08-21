@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { submitContactForm } from '../services/contactService';
 import { GithubIcon, LinkedinIcon } from './Icons';
+import { ScrollReveal } from './ScrollReveal';
 import {
   Mail,
   Send,
@@ -88,7 +89,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
     <section id="contact" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
       <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 1.5rem' }}>
         {/* ================= TOP HEADER ================= */}
-        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+        <ScrollReveal direction="heading" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div
             style={{
               display: 'inline-flex',
@@ -131,7 +132,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
           >
             I am open to engineering internships, freelance technical challenges, AI/ML collaborations, and full-time software developer opportunities.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* ================= MAIN 2-COLUMN CONTACT AREA ================= */}
         <div
@@ -144,11 +145,14 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
           className="contact-main-grid"
         >
           {/* ----- LEFT COLUMN: DIRECT CHANNELS ----- */}
-          <div
+          <ScrollReveal
+            direction="up"
+            delay={0}
             style={{
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
+              height: '100%',
             }}
           >
             <div>
@@ -465,10 +469,12 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 <span>Download My Resume</span>
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* ----- RIGHT COLUMN: SEND A MESSAGE FORM ----- */}
-          <div
+          <ScrollReveal
+            direction="up"
+            delay={100}
             style={{
               background: 'var(--bg-card)',
               border: '1px solid var(--border-card)',
@@ -477,6 +483,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
               display: 'flex',
               flexDirection: 'column',
               boxShadow: 'var(--shadow-card)',
+              height: '100%',
             }}
           >
             <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
@@ -860,11 +867,13 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 </div>
               </form>
             )}
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* ================= BOTTOM HORIZONTAL INFORMATION STRIP ================= */}
-        <div
+        <ScrollReveal
+          direction="up"
+          delay={150}
           style={{
             background: 'var(--bg-card)',
             border: '1px solid var(--border-card)',
@@ -983,7 +992,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       <style>{`

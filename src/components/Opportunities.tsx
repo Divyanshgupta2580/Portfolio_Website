@@ -1,5 +1,6 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 import { Sparkles, CheckCircle2, ArrowRight, Code2, Briefcase, Cpu } from 'lucide-react';
 
 interface OpportunitiesProps {
@@ -82,7 +83,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
         {/* ================================================== */}
         {/* SECTION HEADER                                      */}
         {/* ================================================== */}
-        <div style={{ textAlign: 'center', marginBottom: '3.75rem' }}>
+        <ScrollReveal direction="heading" style={{ textAlign: 'center', marginBottom: '3.75rem' }}>
           {/* Eyebrow */}
           <div
             style={{
@@ -129,7 +130,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
           >
             I am actively seeking opportunities to collaborate, learn, and build impactful engineering solutions.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* ================================================== */}
         {/* THREE OPPORTUNITY CARDS                            */}
@@ -143,25 +144,31 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
           }}
           className="opportunities-grid"
         >
-          {PORTFOLIO_DATA.opportunities.map((opp) => {
+          {PORTFOLIO_DATA.opportunities.map((opp, oppIdx) => {
             const theme = getCardTheme(opp.opportunityType);
 
             return (
-              <div
+              <ScrollReveal
                 key={opp.id}
-                style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
-                  borderRadius: '16px',
-                  padding: '2.25rem 2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: 'var(--shadow-card)',
-                  transition: 'all 0.25s ease',
-                }}
-                className="opportunity-card-modern"
+                direction="up"
+                delay={oppIdx * 100}
+                style={{ height: '100%' }}
               >
+                <div
+                  style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-card)',
+                    borderRadius: '16px',
+                    padding: '2.25rem 2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: 'var(--shadow-card)',
+                    transition: 'all 0.25s ease',
+                    height: '100%',
+                  }}
+                  className="opportunity-card-modern"
+                >
                 <div>
                   {/* Top: Icon Box (Left) + Badge (Right) */}
                   <div
@@ -286,7 +293,8 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
                   <span>Let's Talk</span>
                   <ArrowRight size={16} className="btn-arrow" />
                 </button>
-              </div>
+                </div>
+              </ScrollReveal>
             );
           })}
         </div>

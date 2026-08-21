@@ -1,6 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
+import { ScrollReveal } from './ScrollReveal';
 import { Mail, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -30,6 +31,7 @@ export const Footer: React.FC = () => {
       }}
     >
       <div className="container">
+        <ScrollReveal direction="up" delay={0}>
         {/* Main Footer Columns */}
         <div
           style={{
@@ -242,6 +244,7 @@ export const Footer: React.FC = () => {
             <ArrowUp size={16} />
           </button>
         </div>
+        </ScrollReveal>
       </div>
 
       <style>{`

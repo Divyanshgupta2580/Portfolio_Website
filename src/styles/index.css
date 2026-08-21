@@ -525,3 +525,47 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     padding: 0 1.25rem;
   }
 }
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATION SYSTEM
+   Engineering-grade subtle entrance transitions with hardware acceleration
+   ========================================================================== */
+
+.reveal-init {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-init.reveal-up {
+  transform: translateY(22px);
+}
+
+.reveal-init.reveal-heading {
+  transform: translateY(16px);
+}
+
+.reveal-init.reveal-fade {
+  transform: none;
+}
+
+.reveal-init.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion accessibility override */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init,
+  .reveal-init.reveal-up,
+  .reveal-init.reveal-heading,
+  .reveal-init.reveal-fade,
+  .reveal-init.reveal-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+

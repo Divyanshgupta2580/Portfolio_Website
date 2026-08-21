@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
+import { ScrollReveal } from './ScrollReveal';
 import {
   Award,
   Smartphone,
@@ -42,7 +43,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
         {/* ================================================== */}
         {/* PROJECT 01: BENEFITOS (TEXT LEFT / VISUAL RIGHT)   */}
         {/* ================================================== */}
-        <div>
+        <ScrollReveal direction="up" delay={0}>
           {/* Metadata Row */}
           <div
             style={{
@@ -398,12 +399,16 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               )}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ================================================== */}
         {/* PROJECT 02: JANSETU (VISUAL LEFT / TEXT RIGHT)     */}
         {/* ================================================== */}
-        <div style={{ marginTop: '5.5rem', paddingTop: '3.5rem', borderTop: '1px solid var(--border-subtle)' }}>
+        <ScrollReveal
+          direction="up"
+          delay={0}
+          style={{ marginTop: '5.5rem', paddingTop: '3.5rem', borderTop: '1px solid var(--border-subtle)' }}
+        >
           {/* Metadata Row */}
           <div
             style={{
@@ -729,12 +734,16 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ================================================== */}
         {/* PROJECT 03: TRON (TEXT LEFT / VISUAL RIGHT)        */}
         {/* ================================================== */}
-        <div style={{ marginTop: '5.5rem', paddingTop: '3.5rem', borderTop: '1px solid var(--border-subtle)' }}>
+        <ScrollReveal
+          direction="up"
+          delay={0}
+          style={{ marginTop: '5.5rem', paddingTop: '3.5rem', borderTop: '1px solid var(--border-subtle)' }}
+        >
           {/* Metadata Row */}
           <div
             style={{
@@ -1133,7 +1142,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               )}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* Deep Dive Technical Specs Modal */}

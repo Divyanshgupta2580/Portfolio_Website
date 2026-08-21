@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
+import { ScrollReveal } from './ScrollReveal';
 import { Send, Terminal, Sparkles, Cpu, Code2, Mail, Briefcase, Trophy, ArrowRight } from 'lucide-react';
 
 interface HeroProps {
@@ -37,7 +38,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
           className="hero-main-grid"
         >
           {/* ----- LEFT COLUMN: HERO CONTENT ----- */}
-          <div className="hero-text-col" style={{ zIndex: 2 }}>
+          <ScrollReveal direction="up" delay={0} className="hero-text-col" style={{ zIndex: 2 }}>
             {/* Eyebrow / Status Tag */}
             <div
               style={{
@@ -224,10 +225,12 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 <Mail size={17} />
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* ----- RIGHT COLUMN: PORTRAIT WITH TECHNICAL RINGS & FLOATING BADGES ----- */}
-          <div
+          <ScrollReveal
+            direction="up"
+            delay={120}
             style={{
               position: 'relative',
               display: 'flex',
@@ -265,8 +268,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             <div
               style={{
                 position: 'relative',
-                width: '260px',
-                height: '260px',
+                width: '340px',
+                height: '340px',
                 borderRadius: '50%',
                 background: 'var(--bg-card)',
                 border: '2.5px solid var(--accent-cyan)',
@@ -408,11 +411,13 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 Arduino UNO Q
               </span>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* ================= 3 EQUAL LOWER SUMMARY CARDS ================= */}
-        <div
+        <ScrollReveal
+          direction="up"
+          delay={200}
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -570,7 +575,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       <style>{`
@@ -608,8 +613,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             margin-top: 3rem !important;
           }
           .hero-avatar-frame {
-            width: 220px !important;
-            height: 220px !important;
+            width: 280px !important;
+            height: 280px !important;
           }
           .hero-outer-ring {
             width: 320px !important;
