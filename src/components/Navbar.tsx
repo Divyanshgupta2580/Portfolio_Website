@@ -13,7 +13,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
 
       const sections = ['home', 'capabilities', 'about', 'skills', 'projects', 'journey', 'opportunities', 'contact'];
       const scrollPosition = window.scrollY + 200;
@@ -55,14 +59,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
         right: 0,
         zIndex: 100,
         transition: 'all 0.3s ease',
-        background: scrolled ? 'var(--bg-navbar)' : 'var(--bg-navbar-transparent)',
+        background: scrolled ? 'rgba(8, 11, 18, 0.94)' : 'rgba(8, 11, 18, 0.85)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: '1px solid var(--border-subtle)',
+        borderBottom: '1px solid rgba(120, 150, 180, 0.15)',
         padding: '0.85rem 0',
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Brand Logo: DG. */}
         <a
           href="#home"
@@ -74,12 +78,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
             fontFamily: 'var(--font-heading)',
             fontSize: '1.45rem',
             fontWeight: 800,
-            color: 'var(--text-primary)',
+            color: '#F5F7FA',
             letterSpacing: '-0.03em',
           }}
         >
           <span>DG</span>
-          <span style={{ color: 'var(--accent-cyan)' }}>.</span>
+          <span style={{ color: '#22D3EE' }}>.</span>
         </a>
 
         {/* Desktop Nav Links */}
@@ -99,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
                 href={link.href}
                 style={{
                   textDecoration: 'none',
-                  color: isActive ? 'var(--accent-cyan)' : 'var(--text-muted)',
+                  color: isActive ? '#22D3EE' : '#9CA3AF',
                   fontSize: '0.9rem',
                   fontWeight: isActive ? 650 : 500,
                   transition: 'color 0.2s ease',
@@ -120,8 +124,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
                       width: '4px',
                       height: '4px',
                       borderRadius: '50%',
-                      background: 'var(--accent-cyan)',
-                      boxShadow: '0 0 6px var(--accent-cyan)',
+                      background: '#22D3EE',
+                      boxShadow: '0 0 6px #22D3EE',
                     }}
                   />
                 )}
@@ -144,16 +148,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
               height: '38px',
               padding: '0 1rem',
               borderRadius: '8px',
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-strong)',
-              color: 'var(--text-primary)',
+              background: 'rgba(16, 23, 34, 0.7)',
+              border: '1px solid rgba(120, 150, 180, 0.25)',
+              color: '#F5F7FA',
               fontSize: '0.86rem',
               fontWeight: 600,
               textDecoration: 'none',
               transition: 'all 0.2s ease',
             }}
           >
-            <FileText size={14} />
+            <FileText size={14} color="#F5F7FA" />
             <span>Resume</span>
           </a>
 
@@ -167,17 +171,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
               height: '38px',
               padding: '0 1.15rem',
               borderRadius: '8px',
-              background: 'var(--accent-cyan)',
-              color: 'var(--text-on-accent)',
+              background: '#22D3EE',
+              color: '#080B12',
               fontSize: '0.86rem',
               fontWeight: 750,
               border: 'none',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
-              boxShadow: '0 0 15px var(--accent-cyan-glow)',
+              boxShadow: '0 0 15px rgba(34, 211, 238, 0.25)',
             }}
           >
-            <Send size={14} />
+            <Send size={14} color="#080B12" />
             <span>Hire Me</span>
           </button>
         </div>
@@ -188,9 +192,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
           aria-label="Toggle Navigation Menu"
           className="mobile-toggle"
           style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-strong)',
-            color: 'var(--text-primary)',
+            background: '#101722',
+            border: '1px solid rgba(120, 150, 180, 0.25)',
+            color: '#F5F7FA',
             width: '38px',
             height: '38px',
             borderRadius: '8px',
@@ -212,15 +216,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
             top: '100%',
             left: 0,
             right: 0,
-            background: 'var(--bg-modal)',
+            background: 'rgba(8, 11, 18, 0.98)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
-            borderBottom: '1px solid var(--accent-cyan-border)',
+            borderBottom: '1px solid rgba(34, 211, 238, 0.3)',
             padding: '1.5rem',
             display: 'flex',
             flexDirection: 'column',
             gap: '0.85rem',
-            boxShadow: 'var(--shadow-card-hover)',
+            boxShadow: '0 25px 60px rgba(0,0,0,0.8)',
           }}
           className="mobile-drawer"
         >
@@ -231,11 +235,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
               onClick={() => setMobileMenuOpen(false)}
               style={{
                 textDecoration: 'none',
-                color: activeSection === link.href.substring(1) ? 'var(--accent-cyan)' : 'var(--text-primary)',
+                color: activeSection === link.href.substring(1) ? '#22D3EE' : '#F5F7FA',
                 fontSize: '1rem',
                 fontWeight: 600,
                 padding: '0.45rem 0',
-                borderBottom: '1px solid var(--border-subtle)',
+                borderBottom: '1px solid rgba(120, 150, 180, 0.12)',
               }}
             >
               {link.name}
@@ -255,9 +259,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
                 gap: '0.45rem',
                 height: '42px',
                 borderRadius: '8px',
-                background: 'var(--bg-card)',
-                border: '1px solid var(--border-strong)',
-                color: 'var(--text-primary)',
+                background: 'rgba(16, 23, 34, 0.8)',
+                border: '1px solid rgba(120, 150, 180, 0.25)',
+                color: '#F5F7FA',
                 fontSize: '0.9rem',
                 fontWeight: 600,
                 textDecoration: 'none',
@@ -279,8 +283,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
                 gap: '0.45rem',
                 height: '42px',
                 borderRadius: '8px',
-                background: 'var(--accent-cyan)',
-                color: 'var(--text-on-accent)',
+                background: '#22D3EE',
+                color: '#080B12',
                 fontSize: '0.9rem',
                 fontWeight: 750,
                 border: 'none',
@@ -297,16 +301,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
       {/* Responsive Media Query & Hover Styles */}
       <style>{`
         .nav-link-item:hover {
-          color: var(--text-primary) !important;
+          color: #F5F7FA !important;
         }
         .navbar-resume-btn:hover {
-          border-color: var(--accent-cyan) !important;
-          color: var(--accent-cyan) !important;
-          background: var(--accent-cyan-subtle) !important;
+          border-color: #22D3EE !important;
+          color: #22D3EE !important;
+          background: rgba(34, 211, 238, 0.05) !important;
         }
         .navbar-hireme-btn:hover {
-          background: var(--accent-cyan-hover) !important;
-          box-shadow: 0 0 22px var(--accent-cyan-glow) !important;
+          background: #38BDF8 !important;
+          box-shadow: 0 0 22px rgba(34, 211, 238, 0.45) !important;
           transform: translateY(-1px);
         }
         @media (min-width: 992px) {

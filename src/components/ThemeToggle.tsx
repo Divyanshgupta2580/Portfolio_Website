@@ -7,18 +7,13 @@ export const ThemeToggle: React.FC = () => {
   useEffect(() => {
     const savedTheme = (localStorage.getItem('dg-theme') as 'dark' | 'light') || 'dark';
     setTheme(savedTheme);
-    applyTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
-
-  const applyTheme = (t: 'dark' | 'light') => {
-    document.documentElement.setAttribute('data-theme', t);
-    document.documentElement.style.colorScheme = t;
-  };
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
-    applyTheme(nextTheme);
+    document.documentElement.setAttribute('data-theme', nextTheme);
     localStorage.setItem('dg-theme', nextTheme);
   };
 
@@ -33,16 +28,16 @@ export const ThemeToggle: React.FC = () => {
         width: '48px',
         height: '48px',
         borderRadius: '50%',
-        background: 'var(--bg-card)',
-        border: '1px solid var(--border-card)',
+        background: 'var(--bg-modal)',
+        border: '1.5px solid var(--border-card)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         cursor: 'pointer',
         zIndex: 90,
-        boxShadow: 'var(--shadow-card)',
+        boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
         transition: 'all 0.3s ease',
-        color: theme === 'dark' ? 'var(--accent-amber)' : 'var(--accent-cyan)',
+        color: theme === 'dark' ? '#fbbf24' : 'var(--accent-cyan)',
       }}
       className="theme-toggle-btn"
     >

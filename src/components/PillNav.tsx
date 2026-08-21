@@ -61,13 +61,13 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
           <div
             style={{
               background: 'var(--bg-modal)',
-              border: '1px solid var(--accent-cyan-border)',
+              border: '1px solid var(--border-cyan)',
               borderRadius: 'var(--radius-lg)',
               padding: '1rem',
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
               gap: '0.6rem',
-              boxShadow: 'var(--shadow-card-hover)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.8)',
               maxWidth: '350px',
               width: '90vw',
             }}
@@ -89,9 +89,9 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
                   color: activeSection === item.id ? 'var(--accent-cyan)' : 'var(--text-primary)',
                   fontSize: '0.76rem',
                   fontWeight: 700,
-                  background: activeSection === item.id ? 'var(--accent-cyan-subtle)' : 'var(--bg-card)',
+                  background: activeSection === item.id ? 'var(--accent-cyan-subtle)' : 'rgba(255, 255, 255, 0.03)',
                   border: '1px solid',
-                  borderColor: activeSection === item.id ? 'var(--accent-cyan-border)' : 'var(--border-subtle)',
+                  borderColor: activeSection === item.id ? 'var(--border-cyan)' : 'var(--border-subtle)',
                 }}
               >
                 {item.icon}
@@ -112,8 +112,8 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
                 gap: '0.5rem',
                 padding: '0.75rem',
                 borderRadius: 'var(--radius-md)',
-                background: 'var(--accent-cyan)',
-                color: 'var(--text-on-accent)',
+                background: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)',
+                color: '#07080d',
                 fontWeight: 800,
                 fontSize: '0.92rem',
                 cursor: 'pointer',
@@ -130,13 +130,13 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
         <div
           style={{
             background: 'var(--bg-modal)',
-            border: '1px solid var(--accent-cyan-border)',
+            border: '1px solid var(--border-cyan)',
             borderRadius: 'var(--radius-full)',
             padding: '0.45rem 0.75rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
-            boxShadow: 'var(--shadow-card-hover)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.6)',
           }}
         >
           <button
@@ -146,7 +146,7 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
               display: 'flex',
               alignItems: 'center',
               gap: '0.4rem',
-              background: 'var(--bg-card)',
+              background: 'rgba(255, 255, 255, 0.08)',
               border: '1px solid var(--border-card)',
               borderRadius: 'var(--radius-full)',
               padding: '0.45rem 0.85rem',
@@ -166,10 +166,10 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
               display: 'flex',
               alignItems: 'center',
               gap: '0.4rem',
-              background: 'var(--accent-cyan)',
+              background: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)',
               borderRadius: 'var(--radius-full)',
               padding: '0.45rem 0.95rem',
-              color: 'var(--text-on-accent)',
+              color: '#07080d',
               fontSize: '0.86rem',
               fontWeight: 800,
               cursor: 'pointer',

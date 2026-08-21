@@ -20,12 +20,12 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
         minHeight: '94vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'var(--bg-primary)',
+        background: '#080B12',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      <div className="container">
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
         {/* ================= HERO TWO-COLUMN GRID ================= */}
         <div
           style={{
@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.84rem',
                   fontWeight: 700,
-                  color: 'var(--accent-cyan)',
+                  color: '#22D3EE',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                 }}
@@ -63,7 +63,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 style={{
                   width: '36px',
                   height: '1.5px',
-                  background: 'var(--accent-cyan-border)',
+                  background: 'rgba(34, 211, 238, 0.6)',
                   display: 'inline-block',
                 }}
               />
@@ -80,10 +80,10 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 marginBottom: '1.25rem',
               }}
             >
-              <span style={{ color: 'var(--text-primary)', display: 'block' }}>Divyansh</span>
+              <span style={{ color: '#F5F7FA', display: 'block' }}>Divyansh</span>
               <span
                 style={{
-                  background: 'linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-cyan-hover) 50%, var(--accent-blue) 100%)',
+                  background: 'linear-gradient(135deg, #22D3EE 0%, #38BDF8 50%, #3B82F6 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   display: 'block',
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             <p
               style={{
                 fontSize: '1.08rem',
-                color: 'var(--text-secondary)',
+                color: '#9CA3AF',
                 maxWidth: '490px',
                 lineHeight: 1.65,
                 marginBottom: '2rem',
@@ -127,8 +127,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.6rem',
-                  background: 'var(--accent-cyan)',
-                  color: 'var(--text-on-accent)',
+                  background: 'linear-gradient(135deg, #22D3EE 0%, #38BDF8 100%)',
+                  color: '#080B12',
                   fontWeight: 750,
                   fontSize: '0.96rem',
                   padding: '0.8rem 1.8rem',
@@ -136,10 +136,10 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
-                  boxShadow: '0 0 22px var(--accent-cyan-glow)',
+                  boxShadow: '0 0 22px rgba(34, 211, 238, 0.35)',
                 }}
               >
-                <Send size={15} />
+                <Send size={15} color="#080B12" />
                 <span>Get In Touch</span>
               </button>
 
@@ -150,7 +150,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.45rem',
-                  color: 'var(--accent-cyan)',
+                  color: '#38BDF8',
                   fontWeight: 650,
                   fontSize: '0.96rem',
                   textDecoration: 'none',
@@ -175,12 +175,12 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   width: '40px',
                   height: '40px',
                   borderRadius: '8px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-strong)',
+                  background: '#101722',
+                  border: '1px solid rgba(120, 150, 180, 0.22)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-secondary)',
+                  color: '#9CA3AF',
                   transition: 'all 0.2s ease',
                   textDecoration: 'none',
                 }}
@@ -198,12 +198,12 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   width: '40px',
                   height: '40px',
                   borderRadius: '8px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-strong)',
+                  background: '#101722',
+                  border: '1px solid rgba(120, 150, 180, 0.22)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-secondary)',
+                  color: '#9CA3AF',
                   transition: 'all 0.2s ease',
                   textDecoration: 'none',
                 }}
@@ -219,12 +219,12 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   width: '40px',
                   height: '40px',
                   borderRadius: '8px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-strong)',
+                  background: '#101722',
+                  border: '1px solid rgba(120, 150, 180, 0.22)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-secondary)',
+                  color: '#9CA3AF',
                   transition: 'all 0.2s ease',
                   textDecoration: 'none',
                 }}
@@ -262,7 +262,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   position: 'absolute',
                   inset: '-10px',
                   borderRadius: '50%',
-                  background: 'radial-gradient(circle, var(--accent-cyan-glow) 0%, var(--accent-purple-glow) 50%, transparent 75%)',
+                  background: 'radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, rgba(168, 85, 247, 0.12) 50%, transparent 75%)',
                   filter: 'blur(30px)',
                   pointerEvents: 'none',
                 }}
@@ -274,7 +274,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   position: 'absolute',
                   inset: '-22px',
                   borderRadius: '50%',
-                  border: '1px solid var(--accent-purple-border)',
+                  border: '1px solid rgba(168, 85, 247, 0.25)',
                   pointerEvents: 'none',
                 }}
               />
@@ -285,7 +285,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   position: 'absolute',
                   inset: '-10px',
                   borderRadius: '50%',
-                  border: '1px dashed var(--accent-cyan-border)',
+                  border: '1px dashed rgba(56, 189, 248, 0.35)',
                   pointerEvents: 'none',
                 }}
               />
@@ -297,8 +297,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   height: '330px',
                   borderRadius: '50%',
                   padding: '4px',
-                  background: 'linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-cyan-border) 40%, var(--accent-purple) 100%)',
-                  boxShadow: 'var(--shadow-card-hover)',
+                  background: 'linear-gradient(135deg, #22D3EE 0%, rgba(56, 189, 248, 0.4) 40%, rgba(168, 85, 247, 0.8) 100%)',
+                  boxShadow: '0 0 35px rgba(34, 211, 238, 0.25), 0 20px 45px rgba(0, 0, 0, 0.7)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -313,7 +313,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                     height: '100%',
                     borderRadius: '50%',
                     overflow: 'hidden',
-                    background: 'var(--bg-card)',
+                    background: '#101722',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -342,8 +342,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        background: 'var(--bg-card)',
-                        color: 'var(--accent-cyan)',
+                        background: '#101722',
+                        color: '#22D3EE',
                         padding: '1.5rem',
                         textAlign: 'center',
                       }}
@@ -353,8 +353,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                           width: '72px',
                           height: '72px',
                           borderRadius: '50%',
-                          background: 'var(--accent-cyan-subtle)',
-                          border: '2px solid var(--accent-cyan)',
+                          background: 'rgba(34, 211, 238, 0.1)',
+                          border: '2px solid #22D3EE',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -366,7 +366,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                       >
                         {p.avatarPlaceholderText}
                       </div>
-                      <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)' }}>
+                      <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: '#F5F7FA' }}>
                         Divyansh Gupta
                       </div>
                     </div>
@@ -381,20 +381,20 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   position: 'absolute',
                   top: '12%',
                   left: '-6%',
-                  background: 'var(--bg-card-elevated)',
-                  border: '1px solid var(--accent-cyan-border)',
+                  background: '#0D121B',
+                  border: '1px solid rgba(56, 189, 248, 0.35)',
                   borderRadius: '10px',
                   padding: '0.5rem 0.95rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  boxShadow: 'var(--shadow-card)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
                   zIndex: 10,
                 }}
                 className="hero-tech-badge badge-cpp"
               >
-                <Code2 size={16} color="var(--accent-cyan)" />
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                <Code2 size={16} color="#38BDF8" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: '#F5F7FA' }}>
                   C++
                 </span>
               </div>
@@ -405,20 +405,20 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   position: 'absolute',
                   top: '20%',
                   right: '-8%',
-                  background: 'var(--bg-card-elevated)',
-                  border: '1px solid var(--accent-purple-border)',
+                  background: '#0D121B',
+                  border: '1px solid rgba(168, 85, 247, 0.4)',
                   borderRadius: '10px',
                   padding: '0.5rem 0.95rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  boxShadow: 'var(--shadow-card)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
                   zIndex: 10,
                 }}
                 className="hero-tech-badge badge-aiml"
               >
-                <Sparkles size={16} color="var(--accent-purple)" />
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                <Sparkles size={16} color="#C084FC" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: '#F5F7FA' }}>
                   AI / ML
                 </span>
               </div>
@@ -429,20 +429,20 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   position: 'absolute',
                   bottom: '22%',
                   left: '-10%',
-                  background: 'var(--bg-card-elevated)',
-                  border: '1px solid var(--accent-amber-border)',
+                  background: '#0D121B',
+                  border: '1px solid rgba(251, 191, 36, 0.35)',
                   borderRadius: '10px',
                   padding: '0.5rem 0.95rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  boxShadow: 'var(--shadow-card)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
                   zIndex: 10,
                 }}
                 className="hero-tech-badge badge-python"
               >
-                <Terminal size={16} color="var(--accent-amber)" />
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                <Terminal size={16} color="#FBBF24" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: '#F5F7FA' }}>
                   Python
                 </span>
               </div>
@@ -453,20 +453,20 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   position: 'absolute',
                   bottom: '12%',
                   right: '-6%',
-                  background: 'var(--bg-card-elevated)',
-                  border: '1px solid var(--accent-emerald-border)',
+                  background: '#0D121B',
+                  border: '1px solid rgba(16, 185, 129, 0.4)',
                   borderRadius: '10px',
                   padding: '0.5rem 0.95rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  boxShadow: 'var(--shadow-card)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
                   zIndex: 10,
                 }}
                 className="hero-tech-badge badge-arduino"
               >
-                <Cpu size={16} color="var(--accent-emerald)" />
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                <Cpu size={16} color="#34D399" />
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, color: '#F5F7FA' }}>
                   Arduino UNO Q
                 </span>
               </div>
@@ -487,14 +487,14 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
           {/* Card 1: ENGINEERING STUDENT */}
           <div
             style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-card)',
+              background: '#101722',
+              border: '1px solid rgba(120, 150, 180, 0.20)',
               borderRadius: '12px',
               padding: '1.35rem 1.6rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
-              transition: 'all var(--transition-normal)',
+              transition: 'all 0.25s ease',
             }}
             className="hero-summary-card"
           >
@@ -503,15 +503,15 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 width: '40px',
                 height: '40px',
                 borderRadius: '8px',
-                background: 'var(--accent-cyan-subtle)',
-                border: '1px solid var(--accent-cyan-border)',
+                background: 'rgba(34, 211, 238, 0.08)',
+                border: '1px solid rgba(34, 211, 238, 0.35)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Briefcase size={18} color="var(--accent-cyan)" />
+              <Briefcase size={18} color="#22D3EE" />
             </div>
             <div>
               <div
@@ -519,7 +519,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   fontFamily: 'var(--font-heading)',
                   fontSize: '0.88rem',
                   fontWeight: 750,
-                  color: 'var(--accent-cyan)',
+                  color: '#22D3EE',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
                 }}
@@ -532,14 +532,14 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
           {/* Card 2: AI/ML & SOFTWARE */}
           <div
             style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-card)',
+              background: '#101722',
+              border: '1px solid rgba(120, 150, 180, 0.20)',
               borderRadius: '12px',
               padding: '1.35rem 1.6rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
-              transition: 'all var(--transition-normal)',
+              transition: 'all 0.25s ease',
             }}
             className="hero-summary-card"
           >
@@ -548,15 +548,15 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 width: '40px',
                 height: '40px',
                 borderRadius: '8px',
-                background: 'var(--accent-purple-subtle)',
-                border: '1px solid var(--accent-purple-border)',
+                background: 'rgba(168, 85, 247, 0.08)',
+                border: '1px solid rgba(168, 85, 247, 0.35)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Sparkles size={18} color="var(--accent-purple)" />
+              <Sparkles size={18} color="#A855F7" />
             </div>
             <div>
               <div
@@ -564,12 +564,12 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   fontFamily: 'var(--font-heading)',
                   fontSize: '0.88rem',
                   fontWeight: 750,
-                  color: 'var(--accent-purple)',
+                  color: '#A855F7',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
                 }}
               >
-                AI/ML &amp; SOFTWARE
+                AI/ML & SOFTWARE
               </div>
             </div>
           </div>
@@ -577,14 +577,14 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
           {/* Card 3: HACKATHON & EDGE */}
           <div
             style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-card)',
+              background: '#101722',
+              border: '1px solid rgba(120, 150, 180, 0.20)',
               borderRadius: '12px',
               padding: '1.35rem 1.6rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
-              transition: 'all var(--transition-normal)',
+              transition: 'all 0.25s ease',
             }}
             className="hero-summary-card"
           >
@@ -593,15 +593,15 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 width: '40px',
                 height: '40px',
                 borderRadius: '8px',
-                background: 'var(--accent-emerald-subtle)',
-                border: '1px solid var(--accent-emerald-border)',
+                background: 'rgba(16, 185, 129, 0.08)',
+                border: '1px solid rgba(16, 185, 129, 0.35)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Trophy size={18} color="var(--accent-emerald)" />
+              <Trophy size={18} color="#10B981" />
             </div>
             <div>
               <div
@@ -609,12 +609,12 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                   fontFamily: 'var(--font-heading)',
                   fontSize: '0.88rem',
                   fontWeight: 750,
-                  color: 'var(--accent-emerald)',
+                  color: '#10B981',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
                 }}
               >
-                HACKATHON &amp; EDGE
+                HACKATHON & EDGE
               </div>
             </div>
           </div>
@@ -624,24 +624,24 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
       {/* Embedded Component Styles for Hover & Responsive Adaptability */}
       <style>{`
         .hero-primary-btn:hover {
-          background: var(--accent-cyan-hover) !important;
-          box-shadow: 0 0 28px var(--accent-cyan-glow) !important;
+          background: linear-gradient(135deg, #38BDF8 0%, #22D3EE 100%) !important;
+          box-shadow: 0 0 28px rgba(34, 211, 238, 0.5) !important;
           transform: translateY(-1px);
         }
         .hero-secondary-link:hover {
-          color: var(--accent-cyan-hover) !important;
+          color: #22D3EE !important;
           transform: translateX(3px);
         }
         .hero-social-btn:hover {
-          border-color: var(--accent-cyan) !important;
-          color: var(--accent-cyan) !important;
-          background: var(--bg-card-hover) !important;
+          border-color: #22D3EE !important;
+          color: #22D3EE !important;
+          background: #151C27 !important;
           transform: translateY(-2px);
         }
         .hero-summary-card:hover {
-          border-color: var(--accent-cyan-border) !important;
+          border-color: rgba(34, 211, 238, 0.35) !important;
           transform: translateY(-2px);
-          box-shadow: var(--shadow-card-hover) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
         }
 
         @media (min-width: 968px) {

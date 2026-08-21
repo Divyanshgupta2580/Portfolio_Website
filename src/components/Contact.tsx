@@ -85,8 +85,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
   };
 
   return (
-    <section id="contact" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
-      <div className="container">
+    <section id="contact" className="section" style={{ background: '#080B12', padding: '6rem 0' }}>
+      <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 1.5rem' }}>
         {/* ================= TOP HEADER ================= */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div
@@ -94,7 +94,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.45rem',
-              color: 'var(--accent-cyan)',
+              color: '#22D3EE',
               fontSize: '0.85rem',
               fontWeight: 600,
               fontFamily: 'var(--font-mono)',
@@ -102,7 +102,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
               marginBottom: '0.85rem',
             }}
           >
-            <Sparkles size={14} />
+            <Sparkles size={14} color="#22D3EE" />
             <span>Let's Connect</span>
           </div>
 
@@ -111,19 +111,19 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)',
               fontWeight: 800,
-              color: 'var(--text-primary)',
+              color: '#F5F7FA',
               letterSpacing: '-0.02em',
               marginBottom: '1rem',
               lineHeight: 1.15,
             }}
           >
-            Let's Build Something <span style={{ color: 'var(--accent-cyan)' }}>Real</span>
+            Let's Build Something <span style={{ color: '#22D3EE' }}>Real</span>
           </h2>
 
           <p
             style={{
               fontSize: '1rem',
-              color: 'var(--text-secondary)',
+              color: '#9CA3AF',
               maxWidth: '680px',
               margin: '0 auto',
               lineHeight: 1.65,
@@ -158,13 +158,13 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.4rem',
                     fontWeight: 700,
-                    color: 'var(--text-primary)',
+                    color: '#F5F7FA',
                     marginBottom: '0.4rem',
                   }}
                 >
                   Direct Channels
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                <p style={{ fontSize: '0.9rem', color: '#9CA3AF', lineHeight: 1.5 }}>
                   Have an opportunity, project idea, or technical proposal? Reach out directly.
                 </p>
               </div>
@@ -184,8 +184,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   href={`mailto:${p.email}`}
                   className="contact-card-box"
                   style={{
-                    background: 'var(--bg-card)',
-                    border: '1px solid var(--border-card)',
+                    background: '#101722',
+                    border: '1px solid rgba(120, 150, 180, 0.20)',
                     borderRadius: '14px',
                     padding: '1.6rem 0.65rem 1.25rem 0.65rem',
                     display: 'flex',
@@ -193,8 +193,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     alignItems: 'center',
                     textAlign: 'center',
                     textDecoration: 'none',
-                    transition: 'all var(--transition-normal)',
-                    boxShadow: 'var(--shadow-card)',
+                    transition: 'all 0.25s ease',
                   }}
                 >
                   <div
@@ -202,16 +201,16 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       width: '58px',
                       height: '58px',
                       borderRadius: '50%',
-                      background: 'var(--accent-cyan-subtle)',
-                      border: '1.5px solid var(--accent-cyan-border)',
-                      boxShadow: '0 0 16px var(--accent-cyan-glow)',
+                      background: 'rgba(34, 211, 238, 0.08)',
+                      border: '1.5px solid rgba(34, 211, 238, 0.35)',
+                      boxShadow: '0 0 16px rgba(34, 211, 238, 0.12)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '1rem',
                     }}
                   >
-                    <Mail size={22} color="var(--accent-cyan)" />
+                    <Mail size={22} color="#22D3EE" />
                   </div>
 
                   <span
@@ -219,7 +218,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.76rem',
                       fontWeight: 700,
-                      color: 'var(--accent-cyan)',
+                      color: '#22D3EE',
                       letterSpacing: '0.06em',
                       marginBottom: '0.45rem',
                       textTransform: 'uppercase',
@@ -231,7 +230,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   <span
                     style={{
                       fontSize: '0.76rem',
-                      color: 'var(--text-secondary)',
+                      color: '#9CA3AF',
                       lineHeight: 1.35,
                       marginBottom: '1.25rem',
                       minHeight: '2.1rem',
@@ -250,12 +249,12 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       width: '32px',
                       height: '32px',
                       borderRadius: '50%',
-                      background: 'var(--bg-secondary)',
-                      border: '1px solid var(--border-subtle)',
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(120, 150, 180, 0.22)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--accent-cyan)',
+                      color: '#22D3EE',
                       transition: 'all 0.2s ease',
                     }}
                   >
@@ -270,8 +269,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   rel="noopener noreferrer"
                   className="contact-card-box"
                   style={{
-                    background: 'var(--bg-card)',
-                    border: '1px solid var(--border-card)',
+                    background: '#101722',
+                    border: '1px solid rgba(120, 150, 180, 0.20)',
                     borderRadius: '14px',
                     padding: '1.6rem 0.65rem 1.25rem 0.65rem',
                     display: 'flex',
@@ -279,8 +278,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     alignItems: 'center',
                     textAlign: 'center',
                     textDecoration: 'none',
-                    transition: 'all var(--transition-normal)',
-                    boxShadow: 'var(--shadow-card)',
+                    transition: 'all 0.25s ease',
                   }}
                 >
                   <div
@@ -288,16 +286,16 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       width: '58px',
                       height: '58px',
                       borderRadius: '50%',
-                      background: 'var(--accent-purple-subtle)',
-                      border: '1.5px solid var(--accent-purple-border)',
-                      boxShadow: '0 0 16px var(--accent-purple-glow)',
+                      background: 'rgba(168, 85, 247, 0.08)',
+                      border: '1.5px solid rgba(168, 85, 247, 0.35)',
+                      boxShadow: '0 0 16px rgba(168, 85, 247, 0.12)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '1rem',
                     }}
                   >
-                    <GithubIcon size={24} color="var(--accent-purple)" />
+                    <GithubIcon size={24} color="#F5F7FA" />
                   </div>
 
                   <span
@@ -305,7 +303,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.76rem',
                       fontWeight: 700,
-                      color: 'var(--accent-purple)',
+                      color: '#A855F7',
                       letterSpacing: '0.06em',
                       marginBottom: '0.45rem',
                       textTransform: 'uppercase',
@@ -317,7 +315,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   <span
                     style={{
                       fontSize: '0.76rem',
-                      color: 'var(--text-secondary)',
+                      color: '#9CA3AF',
                       lineHeight: 1.35,
                       marginBottom: '1.25rem',
                       minHeight: '2.1rem',
@@ -336,12 +334,12 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       width: '32px',
                       height: '32px',
                       borderRadius: '50%',
-                      background: 'var(--bg-secondary)',
-                      border: '1px solid var(--border-subtle)',
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(120, 150, 180, 0.22)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--accent-purple)',
+                      color: '#A855F7',
                       transition: 'all 0.2s ease',
                     }}
                   >
@@ -356,8 +354,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   rel="noopener noreferrer"
                   className="contact-card-box"
                   style={{
-                    background: 'var(--bg-card)',
-                    border: '1px solid var(--border-card)',
+                    background: '#101722',
+                    border: '1px solid rgba(120, 150, 180, 0.20)',
                     borderRadius: '14px',
                     padding: '1.6rem 0.65rem 1.25rem 0.65rem',
                     display: 'flex',
@@ -365,8 +363,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     alignItems: 'center',
                     textAlign: 'center',
                     textDecoration: 'none',
-                    transition: 'all var(--transition-normal)',
-                    boxShadow: 'var(--shadow-card)',
+                    transition: 'all 0.25s ease',
                   }}
                 >
                   <div
@@ -374,16 +371,16 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       width: '58px',
                       height: '58px',
                       borderRadius: '50%',
-                      background: 'var(--accent-emerald-subtle)',
-                      border: '1.5px solid var(--accent-emerald-border)',
-                      boxShadow: '0 0 16px var(--accent-emerald-glow)',
+                      background: 'rgba(16, 185, 129, 0.08)',
+                      border: '1.5px solid rgba(16, 185, 129, 0.35)',
+                      boxShadow: '0 0 16px rgba(16, 185, 129, 0.12)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '1rem',
                     }}
                   >
-                    <LinkedinIcon size={22} color="var(--accent-emerald)" />
+                    <LinkedinIcon size={22} color="#10B981" />
                   </div>
 
                   <span
@@ -391,7 +388,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.76rem',
                       fontWeight: 700,
-                      color: 'var(--accent-emerald)',
+                      color: '#10B981',
                       letterSpacing: '0.06em',
                       marginBottom: '0.45rem',
                       textTransform: 'uppercase',
@@ -403,7 +400,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   <span
                     style={{
                       fontSize: '0.76rem',
-                      color: 'var(--text-secondary)',
+                      color: '#9CA3AF',
                       lineHeight: 1.35,
                       marginBottom: '1.25rem',
                       minHeight: '2.1rem',
@@ -422,12 +419,12 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       width: '32px',
                       height: '32px',
                       borderRadius: '50%',
-                      background: 'var(--bg-secondary)',
-                      border: '1px solid var(--border-subtle)',
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(120, 150, 180, 0.22)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--accent-emerald)',
+                      color: '#10B981',
                       transition: 'all 0.2s ease',
                     }}
                   >
@@ -452,16 +449,16 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   width: '100%',
                   height: '48px',
                   borderRadius: '10px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-strong)',
-                  color: 'var(--text-primary)',
+                  background: 'rgba(16, 23, 34, 0.8)',
+                  border: '1px solid rgba(120, 150, 180, 0.25)',
+                  color: '#F5F7FA',
                   fontWeight: 600,
                   fontSize: '0.92rem',
                   textDecoration: 'none',
                   transition: 'all 0.2s ease',
                 }}
               >
-                <FileText size={17} color="var(--accent-cyan)" />
+                <FileText size={17} color="#22D3EE" />
                 <span>Download My Resume</span>
               </a>
             </div>
@@ -470,13 +467,13 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
           {/* ----- RIGHT COLUMN: SEND A MESSAGE FORM ----- */}
           <div
             style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-card)',
+              background: '#101722',
+              border: '1px solid rgba(120, 150, 180, 0.20)',
               borderRadius: '16px',
               padding: '2.25rem 2rem',
               display: 'flex',
               flexDirection: 'column',
-              boxShadow: 'var(--shadow-card)',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
             }}
           >
             <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
@@ -485,17 +482,17 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.55rem',
-                  color: 'var(--text-primary)',
+                  color: '#F5F7FA',
                   fontFamily: 'var(--font-heading)',
                   fontSize: '1.35rem',
                   fontWeight: 700,
                   marginBottom: '0.35rem',
                 }}
               >
-                <Send size={18} color="var(--accent-cyan)" />
+                <Send size={18} color="#22D3EE" />
                 <span>Send a Message</span>
               </div>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+              <p style={{ fontSize: '0.88rem', color: '#9CA3AF', lineHeight: 1.4 }}>
                 Fill out the form and I'll get back to you as soon as possible.
               </p>
             </div>
@@ -503,8 +500,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
             {status === 'success' ? (
               <div
                 style={{
-                  background: 'var(--accent-emerald-subtle)',
-                  border: '1px solid var(--accent-emerald-border)',
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  border: '1px solid rgba(16, 185, 129, 0.35)',
                   borderRadius: '12px',
                   padding: '2.5rem 1.5rem',
                   textAlign: 'center',
@@ -512,11 +509,11 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 }}
                 className="animate-fade-in"
               >
-                <CheckCircle2 size={44} color="var(--accent-emerald)" style={{ margin: '0 auto 1rem auto' }} />
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.45rem' }}>
+                <CheckCircle2 size={44} color="#10B981" style={{ margin: '0 auto 1rem auto' }} />
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800, color: '#F5F7FA', marginBottom: '0.45rem' }}>
                   Message Delivered!
                 </h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+                <p style={{ color: '#9CA3AF', fontSize: '0.92rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
                   {feedbackMessage || 'Thank you for reaching out. Divyansh will get back to you shortly!'}
                 </p>
                 <button
@@ -536,7 +533,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       background: 'rgba(239, 68, 68, 0.15)',
                       border: '1px solid rgba(239, 68, 68, 0.4)',
                       borderRadius: '8px',
-                      color: '#ef4444',
+                      color: '#fca5a5',
                       fontSize: '0.88rem',
                       display: 'flex',
                       alignItems: 'center',
@@ -566,7 +563,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                         display: 'block',
                         fontSize: '0.84rem',
                         fontWeight: 600,
-                        color: 'var(--text-primary)',
+                        color: '#F5F7FA',
                         marginBottom: '0.4rem',
                       }}
                     >
@@ -575,7 +572,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     <div style={{ position: 'relative' }}>
                       <UserRound
                         size={16}
-                        color="var(--accent-cyan)"
+                        color="#22D3EE"
                         style={{
                           position: 'absolute',
                           left: '1rem',
@@ -599,10 +596,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                           height: '46px',
                           paddingLeft: '2.75rem',
                           paddingRight: '1rem',
-                          background: 'var(--bg-input)',
-                          border: '1px solid var(--border-input)',
+                          background: '#0D121B',
+                          border: '1px solid rgba(120, 150, 180, 0.22)',
                           borderRadius: '8px',
-                          color: 'var(--text-primary)',
+                          color: '#F5F7FA',
                           fontSize: '0.88rem',
                           outline: 'none',
                           transition: 'all 0.2s ease',
@@ -619,7 +616,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                         display: 'block',
                         fontSize: '0.84rem',
                         fontWeight: 600,
-                        color: 'var(--text-primary)',
+                        color: '#F5F7FA',
                         marginBottom: '0.4rem',
                       }}
                     >
@@ -628,7 +625,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     <div style={{ position: 'relative' }}>
                       <Mail
                         size={16}
-                        color="var(--accent-cyan)"
+                        color="#22D3EE"
                         style={{
                           position: 'absolute',
                           left: '1rem',
@@ -643,7 +640,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="your-email@example.com"
+                        placeholder="email@company.com"
                         required
                         disabled={status === 'submitting'}
                         className="form-input-field"
@@ -652,10 +649,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                           height: '46px',
                           paddingLeft: '2.75rem',
                           paddingRight: '1rem',
-                          background: 'var(--bg-input)',
-                          border: '1px solid var(--border-input)',
+                          background: '#0D121B',
+                          border: '1px solid rgba(120, 150, 180, 0.22)',
                           borderRadius: '8px',
-                          color: 'var(--text-primary)',
+                          color: '#F5F7FA',
                           fontSize: '0.88rem',
                           outline: 'none',
                           transition: 'all 0.2s ease',
@@ -673,7 +670,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       display: 'block',
                       fontSize: '0.84rem',
                       fontWeight: 600,
-                      color: 'var(--text-primary)',
+                      color: '#F5F7FA',
                       marginBottom: '0.4rem',
                     }}
                   >
@@ -682,7 +679,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   <div style={{ position: 'relative' }}>
                     <BriefcaseBusiness
                       size={16}
-                      color="var(--accent-cyan)"
+                      color="#22D3EE"
                       style={{
                         position: 'absolute',
                         left: '1rem',
@@ -703,10 +700,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                         height: '46px',
                         paddingLeft: '2.75rem',
                         paddingRight: '2.5rem',
-                        background: 'var(--bg-input)',
-                        border: '1px solid var(--border-input)',
+                        background: '#0D121B',
+                        border: '1px solid rgba(120, 150, 180, 0.22)',
                         borderRadius: '8px',
-                        color: 'var(--text-primary)',
+                        color: '#F5F7FA',
                         fontSize: '0.88rem',
                         outline: 'none',
                         appearance: 'none',
@@ -715,14 +712,14 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       }}
                     >
                       {PORTFOLIO_DATA.opportunityTypes.map((type, idx) => (
-                        <option key={idx} value={type} style={{ background: 'var(--bg-card)', color: 'var(--text-primary)' }}>
+                        <option key={idx} value={type} style={{ background: '#0D121B', color: '#F5F7FA' }}>
                           {type}
                         </option>
                       ))}
                     </select>
                     <ChevronDown
                       size={16}
-                      color="var(--text-muted)"
+                      color="#9CA3AF"
                       style={{
                         position: 'absolute',
                         right: '1rem',
@@ -742,7 +739,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       display: 'block',
                       fontSize: '0.84rem',
                       fontWeight: 600,
-                      color: 'var(--text-primary)',
+                      color: '#F5F7FA',
                       marginBottom: '0.4rem',
                     }}
                   >
@@ -751,7 +748,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   <div style={{ position: 'relative' }}>
                     <FileText
                       size={16}
-                      color="var(--accent-cyan)"
+                      color="#22D3EE"
                       style={{
                         position: 'absolute',
                         left: '1rem',
@@ -773,10 +770,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                         width: '100%',
                         minHeight: '120px',
                         padding: '0.85rem 1rem 0.85rem 2.75rem',
-                        background: 'var(--bg-input)',
-                        border: '1px solid var(--border-input)',
+                        background: '#0D121B',
+                        border: '1px solid rgba(120, 150, 180, 0.22)',
                         borderRadius: '8px',
-                        color: 'var(--text-primary)',
+                        color: '#F5F7FA',
                         fontSize: '0.88rem',
                         outline: 'none',
                         resize: 'vertical',
@@ -804,8 +801,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     style={{
                       flex: '1.2',
                       height: '46px',
-                      background: 'var(--accent-cyan)',
-                      color: 'var(--text-on-accent)',
+                      background: '#22D3EE',
+                      color: '#080B12',
                       border: 'none',
                       borderRadius: '8px',
                       fontWeight: 750,
@@ -816,7 +813,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       gap: '0.55rem',
                       cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
                       transition: 'all 0.2s ease',
-                      boxShadow: '0 0 15px var(--accent-cyan-glow)',
+                      boxShadow: '0 0 15px rgba(34, 211, 238, 0.25)',
                     }}
                   >
                     {status === 'submitting' ? (
@@ -832,7 +829,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                     )}
                   </button>
 
-                  <div className="action-divider" style={{ width: '1px', height: '24px', background: 'var(--border-subtle)' }} />
+                  <div className="action-divider" style={{ width: '1px', height: '24px', background: 'rgba(120, 150, 180, 0.25)' }} />
 
                   <button
                     type="button"
@@ -842,7 +839,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       flex: '1',
                       height: '46px',
                       background: 'transparent',
-                      color: 'var(--accent-cyan)',
+                      color: '#22D3EE',
                       border: 'none',
                       fontWeight: 650,
                       fontSize: '0.92rem',
@@ -854,7 +851,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       transition: 'all 0.2s ease',
                     }}
                   >
-                    <Mail size={16} color="var(--accent-cyan)" />
+                    <Mail size={16} color="#22D3EE" />
                     <span>Direct Email</span>
                   </button>
                 </div>
@@ -866,8 +863,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
         {/* ================= BOTTOM HORIZONTAL INFORMATION STRIP ================= */}
         <div
           style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-card)',
+            background: '#0D121B',
+            border: '1px solid rgba(120, 150, 180, 0.20)',
             borderRadius: '14px',
             padding: '1.6rem 2.25rem',
             marginTop: '3.5rem',
@@ -875,7 +872,6 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
             gridTemplateColumns: '1fr 1fr 1fr',
             alignItems: 'center',
             gap: '2rem',
-            boxShadow: 'var(--shadow-card)',
           }}
           className="bottom-info-strip"
         >
@@ -893,22 +889,22 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                background: 'var(--accent-cyan-subtle)',
-                border: '1.5px solid var(--accent-cyan-border)',
-                boxShadow: '0 0 14px var(--accent-cyan-glow)',
+                background: 'rgba(34, 211, 238, 0.08)',
+                border: '1.5px solid rgba(34, 211, 238, 0.35)',
+                boxShadow: '0 0 14px rgba(34, 211, 238, 0.12)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Clock size={20} color="var(--accent-cyan)" />
+              <Clock size={20} color="#22D3EE" />
             </div>
             <div>
-              <div style={{ fontWeight: 700, fontSize: '0.96rem', color: 'var(--text-primary)', marginBottom: '0.2rem' }}>
+              <div style={{ fontWeight: 700, fontSize: '0.96rem', color: '#F5F7FA', marginBottom: '0.2rem' }}>
                 Quick Response
               </div>
-              <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+              <div style={{ fontSize: '0.82rem', color: '#9CA3AF' }}>
                 I typically respond within 24 hours
               </div>
             </div>
@@ -928,22 +924,22 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                background: 'var(--accent-purple-subtle)',
-                border: '1.5px solid var(--accent-purple-border)',
-                boxShadow: '0 0 14px var(--accent-purple-glow)',
+                background: 'rgba(168, 85, 247, 0.08)',
+                border: '1.5px solid rgba(168, 85, 247, 0.35)',
+                boxShadow: '0 0 14px rgba(168, 85, 247, 0.12)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Users size={20} color="var(--accent-purple)" />
+              <Users size={20} color="#A855F7" />
             </div>
             <div>
-              <div style={{ fontWeight: 700, fontSize: '0.96rem', color: 'var(--text-primary)', marginBottom: '0.2rem' }}>
+              <div style={{ fontWeight: 700, fontSize: '0.96rem', color: '#F5F7FA', marginBottom: '0.2rem' }}>
                 Open to Opportunities
               </div>
-              <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+              <div style={{ fontSize: '0.82rem', color: '#9CA3AF' }}>
                 Internships, projects and collaborations
               </div>
             </div>
@@ -963,22 +959,22 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                background: 'var(--accent-emerald-subtle)',
-                border: '1.5px solid var(--accent-emerald-border)',
-                boxShadow: '0 0 14px var(--accent-emerald-glow)',
+                background: 'rgba(16, 185, 129, 0.08)',
+                border: '1.5px solid rgba(16, 185, 129, 0.35)',
+                boxShadow: '0 0 14px rgba(16, 185, 129, 0.12)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Target size={20} color="var(--accent-emerald)" />
+              <Target size={20} color="#10B981" />
             </div>
             <div>
-              <div style={{ fontWeight: 700, fontSize: '0.96rem', color: 'var(--text-primary)', marginBottom: '0.2rem' }}>
+              <div style={{ fontWeight: 700, fontSize: '0.96rem', color: '#F5F7FA', marginBottom: '0.2rem' }}>
                 Let's Create Impact
               </div>
-              <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+              <div style={{ fontSize: '0.82rem', color: '#9CA3AF' }}>
                 Building practical solutions that matter
               </div>
             </div>
@@ -989,31 +985,31 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
       <style>{`
         .contact-card-box:hover {
           transform: translateY(-3px);
-          border-color: var(--accent-cyan-border) !important;
-          box-shadow: var(--shadow-card-hover) !important;
+          border-color: rgba(34, 211, 238, 0.4) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
         }
         .contact-card-box:hover .card-arrow-btn {
-          background: var(--accent-cyan-subtle) !important;
-          border-color: var(--accent-cyan) !important;
+          background: rgba(34, 211, 238, 0.15) !important;
+          border-color: #22D3EE !important;
           transform: translateX(2px);
         }
         .resume-download-btn:hover {
-          border-color: var(--accent-cyan) !important;
-          color: var(--accent-cyan) !important;
-          background: var(--accent-cyan-subtle) !important;
+          border-color: #22D3EE !important;
+          color: #22D3EE !important;
+          background: rgba(34, 211, 238, 0.05) !important;
           transform: translateY(-2px);
         }
         .form-input-field:focus {
-          border-color: var(--accent-cyan) !important;
-          box-shadow: 0 0 0 2px var(--accent-cyan-glow) !important;
+          border-color: #22D3EE !important;
+          box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.18) !important;
         }
         .submit-inquiry-btn:hover:not(:disabled) {
-          background: var(--accent-cyan-hover) !important;
-          box-shadow: 0 0 22px var(--accent-cyan-glow) !important;
+          background: #38BDF8 !important;
+          box-shadow: 0 0 22px rgba(34, 211, 238, 0.45) !important;
           transform: translateY(-1px);
         }
         .direct-email-btn:hover {
-          color: var(--accent-cyan-hover) !important;
+          color: #38BDF8 !important;
           transform: translateY(-1px);
         }
 
@@ -1023,7 +1019,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
             gap: 2.5rem !important;
           }
           .info-strip-item:not(.info-strip-item-last) {
-            border-right: 1px solid var(--border-subtle);
+            border-right: 1px solid rgba(120, 150, 180, 0.15);
             padding-right: 1.5rem;
           }
         }

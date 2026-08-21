@@ -40,7 +40,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         position: 'fixed',
         inset: 0,
         zIndex: 300,
-        background: 'var(--overlay-bg)',
+        background: 'rgba(3, 6, 12, 0.88)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         display: 'flex',
@@ -56,12 +56,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     >
       <div
         style={{
-          background: 'var(--bg-modal)',
-          border: '1px solid var(--border-card)',
+          background: 'rgba(8, 13, 23, 0.98)',
+          border: '1px solid var(--border-cyan)',
           borderRadius: '20px',
           width: 'min(820px, 100%)',
           maxHeight: 'calc(100dvh - 32px)',
-          boxShadow: 'var(--shadow-card-hover)',
+          boxShadow: '0 25px 70px rgba(0, 0, 0, 0.9)',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
@@ -79,7 +79,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            background: 'var(--bg-modal)',
+            background: 'rgba(8, 13, 23, 0.98)',
             zIndex: 10,
           }}
         >
@@ -100,7 +100,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               width: '36px',
               height: '36px',
               borderRadius: '50%',
-              background: 'var(--bg-card)',
+              background: 'rgba(255, 255, 255, 0.08)',
               border: '1px solid var(--border-card)',
               color: 'var(--text-primary)',
               display: 'flex',
@@ -151,7 +151,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '1rem',
                 marginBottom: '1.75rem',
-                background: 'var(--bg-secondary)',
+                background: 'rgba(255, 255, 255, 0.04)',
                 border: '1px solid var(--border-card)',
                 borderRadius: 'var(--radius-md)',
                 padding: '1.25rem',
@@ -184,8 +184,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div
             style={{
               marginBottom: '1.75rem',
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--accent-cyan-border)',
+              background: 'rgba(0, 0, 0, 0.3)',
+              border: '1px solid var(--border-cyan)',
               borderRadius: 'var(--radius-md)',
               padding: '1.5rem',
             }}
@@ -203,7 +203,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               }}
             >
               <Server size={18} color="var(--accent-cyan)" />
-              System Architecture &amp; Data Flow
+              System Architecture & Data Flow
             </h4>
             <p style={{ fontSize: '0.94rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
               {project.architectureOverview}

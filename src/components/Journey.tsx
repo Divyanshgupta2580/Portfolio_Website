@@ -7,72 +7,72 @@ export const Journey: React.FC = () => {
     switch (idx) {
       case 0: // BenefitOS
         return {
-          icon: <Trophy size={18} color="var(--accent-purple)" />,
-          accentColor: 'var(--accent-purple)',
-          glowShadow: '0 0 16px var(--accent-purple-glow)',
-          nodeBorder: '1px solid var(--accent-purple-border)',
-          badgeBg: 'var(--accent-purple-subtle)',
-          badgeBorder: '1px solid var(--accent-purple-border)',
-          badgeColor: 'var(--accent-purple)',
+          icon: <Trophy size={18} color="#A855F7" />,
+          accentColor: '#A855F7',
+          glowShadow: '0 0 16px rgba(168, 85, 247, 0.35)',
+          nodeBorder: '1px solid rgba(168, 85, 247, 0.5)',
+          badgeBg: 'rgba(168, 85, 247, 0.08)',
+          badgeBorder: '1px solid rgba(168, 85, 247, 0.35)',
+          badgeColor: '#C084FC',
           renderTitle: () => (
             <>
               <span>Benefit</span>
-              <span style={{ color: 'var(--accent-cyan)' }}>OS</span>
+              <span style={{ color: '#22D3EE' }}>OS</span>
               <span> — AI Citizen Welfare Discovery Platform</span>
             </>
           ),
         };
       case 1: // JanSetu
         return {
-          icon: <Cpu size={18} color="var(--accent-emerald)" />,
-          accentColor: 'var(--accent-emerald)',
-          glowShadow: '0 0 16px var(--accent-emerald-glow)',
-          nodeBorder: '1px solid var(--accent-emerald-border)',
-          badgeBg: 'var(--accent-emerald-subtle)',
-          badgeBorder: '1px solid var(--accent-emerald-border)',
-          badgeColor: 'var(--accent-emerald)',
+          icon: <Cpu size={18} color="#10B981" />,
+          accentColor: '#10B981',
+          glowShadow: '0 0 16px rgba(16, 185, 129, 0.35)',
+          nodeBorder: '1px solid rgba(16, 185, 129, 0.5)',
+          badgeBg: 'rgba(16, 185, 129, 0.08)',
+          badgeBorder: '1px solid rgba(16, 185, 129, 0.35)',
+          badgeColor: '#34D399',
           renderTitle: () => (
             <>
               <span>Jan</span>
-              <span style={{ color: 'var(--accent-emerald)' }}>Setu</span>
+              <span style={{ color: '#10B981' }}>Setu</span>
               <span> — Autonomous Streetlight Failure System</span>
             </>
           ),
         };
       case 2: // TRON
         return {
-          icon: <Bot size={18} color="var(--accent-cyan-hover)" />,
-          accentColor: 'var(--accent-cyan-hover)',
-          glowShadow: '0 0 16px var(--accent-cyan-glow)',
-          nodeBorder: '1px solid var(--accent-cyan-border)',
-          badgeBg: 'var(--accent-cyan-subtle)',
-          badgeBorder: '1px solid var(--accent-cyan-border)',
-          badgeColor: 'var(--accent-cyan-hover)',
+          icon: <Bot size={18} color="#38BDF8" />,
+          accentColor: '#38BDF8',
+          glowShadow: '0 0 16px rgba(56, 189, 248, 0.35)',
+          nodeBorder: '1px solid rgba(56, 189, 248, 0.5)',
+          badgeBg: 'rgba(56, 189, 248, 0.08)',
+          badgeBorder: '1px solid rgba(56, 189, 248, 0.35)',
+          badgeColor: '#38BDF8',
           renderTitle: () => (
             <>
               <span>TR</span>
-              <span style={{ color: 'var(--accent-cyan-hover)' }}>ON</span>
+              <span style={{ color: '#38BDF8' }}>ON</span>
               <span> — Autonomous AI Agent</span>
             </>
           ),
         };
       default: // Ongoing
         return {
-          icon: <Code2 size={18} color="var(--accent-blue)" />,
-          accentColor: 'var(--accent-blue)',
-          glowShadow: '0 0 16px var(--accent-cyan-glow)',
-          nodeBorder: '1px solid var(--border-strong)',
-          badgeBg: 'var(--accent-cyan-subtle)',
-          badgeBorder: '1px solid var(--border-subtle)',
-          badgeColor: 'var(--accent-blue)',
+          icon: <Code2 size={18} color="#3B82F6" />,
+          accentColor: '#3B82F6',
+          glowShadow: '0 0 16px rgba(59, 130, 246, 0.35)',
+          nodeBorder: '1px solid rgba(59, 130, 246, 0.5)',
+          badgeBg: 'rgba(59, 130, 246, 0.08)',
+          badgeBorder: '1px solid rgba(59, 130, 246, 0.35)',
+          badgeColor: '#60A5FA',
           renderTitle: () => <span>Building &amp; Technical Collaboration</span>,
         };
     }
   };
 
   return (
-    <section id="journey" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
-      <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 2rem', width: '100%' }}>
+    <section id="journey" className="section" style={{ background: '#080B12', padding: '6rem 0' }}>
+      <div className="container" style={{ maxWidth: '1080px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
         {/* Continuous Left Timeline Container */}
         <div style={{ position: 'relative' }} className="journey-timeline-wrapper">
           {/* Vertical Connecting Line */}
@@ -83,7 +83,7 @@ export const Journey: React.FC = () => {
               bottom: '40px',
               left: '21px',
               width: '2px',
-              background: 'linear-gradient(180deg, var(--accent-purple) 0%, var(--accent-emerald) 35%, var(--accent-cyan) 70%, var(--accent-blue) 100%)',
+              background: 'linear-gradient(180deg, #A855F7 0%, #10B981 35%, #38BDF8 70%, #3B82F6 100%)',
               zIndex: 1,
             }}
             className="journey-vertical-line"
@@ -111,7 +111,7 @@ export const Journey: React.FC = () => {
                       width: '44px',
                       height: '44px',
                       borderRadius: '50%',
-                      background: 'var(--bg-card)',
+                      background: '#0B121C',
                       border: details.nodeBorder,
                       boxShadow: details.glowShadow,
                       display: 'flex',
@@ -156,7 +156,7 @@ export const Journey: React.FC = () => {
                           style={{
                             fontSize: '0.82rem',
                             fontWeight: 650,
-                            color: 'var(--text-secondary)',
+                            color: '#9CA3AF',
                             letterSpacing: '0.04em',
                           }}
                         >
@@ -187,12 +187,12 @@ export const Journey: React.FC = () => {
                     {/* Timeline Milestone Card */}
                     <div
                       style={{
-                        background: 'var(--bg-card)',
-                        border: '1px solid var(--border-card)',
+                        background: '#0B121C',
+                        border: '1px solid rgba(148, 163, 184, 0.18)',
                         borderRadius: '16px',
                         padding: '2.25rem 2.5rem',
-                        boxShadow: 'var(--shadow-card)',
-                        transition: 'all var(--transition-normal)',
+                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.35)',
+                        transition: 'all 0.25s ease',
                       }}
                       className="journey-card"
                     >
@@ -202,7 +202,7 @@ export const Journey: React.FC = () => {
                           fontFamily: 'var(--font-heading)',
                           fontSize: 'clamp(1.15rem, 2.5vw, 1.35rem)',
                           fontWeight: 750,
-                          color: 'var(--text-primary)',
+                          color: '#F5F7FA',
                           textAlign: 'center',
                           margin: '0 0 0.65rem 0',
                           lineHeight: 1.3,
@@ -215,7 +215,7 @@ export const Journey: React.FC = () => {
                       <p
                         style={{
                           fontSize: '0.94rem',
-                          color: 'var(--text-secondary)',
+                          color: '#9CA3AF',
                           lineHeight: 1.65,
                           textAlign: 'center',
                           maxWidth: '720px',
@@ -242,7 +242,7 @@ export const Journey: React.FC = () => {
                               display: 'flex',
                               alignItems: 'flex-start',
                               gap: '0.65rem',
-                              color: 'var(--text-primary)',
+                              color: '#F5F7FA',
                               fontSize: '0.92rem',
                               lineHeight: 1.5,
                             }}
@@ -268,9 +268,9 @@ export const Journey: React.FC = () => {
       {/* Responsive Journey Styles */}
       <style>{`
         .journey-card:hover {
-          border-color: var(--border-strong) !important;
+          border-color: rgba(148, 163, 184, 0.35) !important;
           transform: translateY(-2px);
-          box-shadow: var(--shadow-card-hover) !important;
+          box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45) !important;
         }
 
         @media (max-width: 768px) {

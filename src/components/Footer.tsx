@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
   return (
     <footer
       style={{
-        background: 'var(--bg-secondary)',
+        background: 'var(--bg-dark)',
         borderTop: '1px solid var(--border-card)',
         padding: '4.5rem 0 2rem 0',
       }}
@@ -150,7 +150,7 @@ export const Footer: React.FC = () => {
                 Navigation
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                {navLinks.slice(0, 5).map((link) => (
+                {navLinks.slice(0, 4).map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
@@ -179,9 +179,6 @@ export const Footer: React.FC = () => {
                 </a>
                 <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
                   JanSetu
-                </a>
-                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
-                  TRON
                 </a>
               </div>
             </div>

@@ -18,29 +18,29 @@ interface AboutProps {
 export const About: React.FC<AboutProps> = () => {
   const focusPoints = [
     {
-      icon: <GraduationCap size={22} color="var(--accent-cyan)" />,
-      accent: 'var(--accent-cyan)',
+      icon: <GraduationCap size={22} color="#22D3EE" />,
+      accent: '#22D3EE',
       accentRgb: '34, 211, 238',
       title: 'Engineering Student',
       desc: 'Computer Science & Systems Engineering',
     },
     {
-      icon: <Target size={22} color="var(--accent-cyan-hover)" />,
-      accent: 'var(--accent-cyan-hover)',
+      icon: <Target size={22} color="#38BDF8" />,
+      accent: '#38BDF8',
       accentRgb: '56, 189, 248',
       title: 'Problem Solver',
       desc: 'Love solving complex real-world engineering problems',
     },
     {
-      icon: <Layers size={22} color="var(--accent-purple)" />,
-      accent: 'var(--accent-purple)',
+      icon: <Layers size={22} color="#A855F7" />,
+      accent: '#A855F7',
       accentRgb: '168, 85, 247',
       title: 'Builder',
       desc: 'Enjoy architecting robust, end-to-end applications',
     },
     {
-      icon: <TrendingUp size={22} color="var(--accent-emerald)" />,
-      accent: 'var(--accent-emerald)',
+      icon: <TrendingUp size={22} color="#10B981" />,
+      accent: '#10B981',
       accentRgb: '16, 185, 129',
       title: 'Lifelong Learner',
       desc: 'Always exploring cutting-edge AI and edge technologies',
@@ -52,39 +52,39 @@ export const About: React.FC<AboutProps> = () => {
       value: '2+',
       label: 'Major Projects',
       sub: 'Built & Deployed',
-      color: 'var(--accent-cyan)',
+      color: '#22D3EE',
       colorRgb: '34, 211, 238',
-      icon: <Code2 size={18} color="var(--accent-cyan)" />,
+      icon: <Code2 size={18} color="#22D3EE" />,
     },
     {
       value: '10+',
       label: 'Technologies',
       sub: 'Worked With',
-      color: 'var(--accent-cyan-hover)',
+      color: '#38BDF8',
       colorRgb: '56, 189, 248',
-      icon: <Layers size={18} color="var(--accent-cyan-hover)" />,
+      icon: <Layers size={18} color="#38BDF8" />,
     },
     {
       value: '15+',
       label: 'Hackathon',
       sub: 'Participations',
-      color: 'var(--accent-purple)',
+      color: '#A855F7',
       colorRgb: '168, 85, 247',
-      icon: <Trophy size={18} color="var(--accent-purple)" />,
+      icon: <Trophy size={18} color="#A855F7" />,
     },
     {
       value: '∞',
       label: 'Learning',
       sub: 'Everyday',
-      color: 'var(--accent-emerald)',
+      color: '#10B981',
       colorRgb: '16, 185, 129',
-      icon: <BookOpen size={18} color="var(--accent-emerald)" />,
+      icon: <BookOpen size={18} color="#10B981" />,
     },
   ];
 
   return (
-    <section id="about" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
-      <div className="container">
+    <section id="about" className="section" style={{ background: '#080B12', padding: '6rem 0' }}>
+      <div className="container" style={{ maxWidth: '1260px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
         {/* ================= SECTION HEADER ================= */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div
@@ -93,7 +93,7 @@ export const About: React.FC<AboutProps> = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.45rem',
-              color: 'var(--accent-cyan)',
+              color: '#22D3EE',
               fontSize: '0.88rem',
               fontWeight: 600,
               fontFamily: 'var(--font-mono)',
@@ -101,7 +101,7 @@ export const About: React.FC<AboutProps> = () => {
               marginBottom: '0.85rem',
             }}
           >
-            <UserRound size={15} />
+            <UserRound size={15} color="#22D3EE" />
             <span>About Me</span>
           </div>
 
@@ -115,10 +115,10 @@ export const About: React.FC<AboutProps> = () => {
               lineHeight: 1.15,
             }}
           >
-            <span style={{ color: 'var(--text-primary)' }}>Driven by Code, </span>
+            <span style={{ color: '#F5F7FA' }}>Driven by Code, </span>
             <span
               style={{
-                background: 'linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-cyan-hover) 50%, var(--accent-blue) 100%)',
+                background: 'linear-gradient(135deg, #22D3EE 0%, #38BDF8 50%, #3B82F6 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -130,7 +130,7 @@ export const About: React.FC<AboutProps> = () => {
           <p
             style={{
               fontSize: '1.02rem',
-              color: 'var(--text-secondary)',
+              color: '#9CA3AF',
               maxWidth: '680px',
               margin: '0 auto',
               lineHeight: 1.65,
@@ -164,15 +164,15 @@ export const About: React.FC<AboutProps> = () => {
                 key={idx}
                 className="about-focus-card"
                 style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
+                  background: '#0B121C',
+                  border: '1px solid rgba(148, 163, 184, 0.20)',
                   borderRadius: '14px',
                   padding: '1.25rem 1.5rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '1.25rem',
-                  transition: 'all var(--transition-normal)',
-                  boxShadow: 'var(--shadow-card)',
+                  transition: 'all 0.25s ease',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
                 }}
               >
                 <div
@@ -198,7 +198,7 @@ export const About: React.FC<AboutProps> = () => {
                       fontFamily: 'var(--font-heading)',
                       fontWeight: 700,
                       fontSize: '1.08rem',
-                      color: 'var(--text-primary)',
+                      color: '#F5F7FA',
                       marginBottom: '0.2rem',
                     }}
                   >
@@ -207,7 +207,7 @@ export const About: React.FC<AboutProps> = () => {
                   <div
                     style={{
                       fontSize: '0.88rem',
-                      color: 'var(--text-secondary)',
+                      color: '#9CA3AF',
                       lineHeight: 1.45,
                     }}
                   >
@@ -232,15 +232,15 @@ export const About: React.FC<AboutProps> = () => {
                 key={idx}
                 className="about-stat-box"
                 style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
+                  background: '#0B121C',
+                  border: '1px solid rgba(148, 163, 184, 0.20)',
                   borderRadius: '16px',
                   padding: '1.75rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  transition: 'all var(--transition-normal)',
-                  boxShadow: 'var(--shadow-card)',
+                  transition: 'all 0.25s ease',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
                 }}
               >
                 {/* Top Row: Big Number & Decorative Upper-Right Icon */}
@@ -289,7 +289,7 @@ export const About: React.FC<AboutProps> = () => {
                       fontFamily: 'var(--font-heading)',
                       fontWeight: 700,
                       fontSize: '1.05rem',
-                      color: 'var(--text-primary)',
+                      color: '#F5F7FA',
                       marginBottom: '0.2rem',
                     }}
                   >
@@ -298,7 +298,7 @@ export const About: React.FC<AboutProps> = () => {
                   <div
                     style={{
                       fontSize: '0.84rem',
-                      color: 'var(--text-secondary)',
+                      color: '#9CA3AF',
                     }}
                   >
                     {stat.sub}
@@ -312,15 +312,15 @@ export const About: React.FC<AboutProps> = () => {
         {/* ================= BOTTOM QUOTE STRIP ================= */}
         <div
           style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-card)',
+            background: '#0B121C',
+            border: '1px solid rgba(148, 163, 184, 0.20)',
             borderRadius: '14px',
             padding: '1.4rem 2rem',
             marginTop: '3rem',
             display: 'flex',
             alignItems: 'center',
             gap: '1.5rem',
-            boxShadow: 'var(--shadow-card)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
           }}
           className="about-quote-strip"
         >
@@ -329,23 +329,23 @@ export const About: React.FC<AboutProps> = () => {
               width: '44px',
               height: '44px',
               borderRadius: '10px',
-              background: 'var(--accent-cyan-subtle)',
-              border: '1px solid var(--accent-cyan-border)',
+              background: 'rgba(34, 211, 238, 0.08)',
+              border: '1px solid rgba(34, 211, 238, 0.35)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
             }}
           >
-            <Quote size={22} color="var(--accent-cyan)" />
+            <Quote size={22} color="#22D3EE" />
           </div>
 
           <div style={{ fontSize: '0.96rem', lineHeight: 1.6 }}>
-            <span style={{ color: 'var(--text-primary)' }}>
+            <span style={{ color: '#F5F7FA' }}>
               I build with purpose, solve with curiosity, and learn with consistency.
             </span>
             <br />
-            <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>
+            <span style={{ color: '#22D3EE', fontWeight: 600 }}>
               Engineering is not just what I study — it's what I live every day.
             </span>
           </div>
@@ -355,13 +355,13 @@ export const About: React.FC<AboutProps> = () => {
       <style>{`
         .about-focus-card:hover {
           transform: translateY(-2px);
-          border-color: var(--accent-cyan-border) !important;
-          box-shadow: var(--shadow-card-hover) !important;
+          border-color: rgba(34, 211, 238, 0.4) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
         }
         .about-stat-box:hover {
           transform: translateY(-3px);
-          border-color: var(--accent-cyan-border) !important;
-          box-shadow: var(--shadow-card-hover) !important;
+          border-color: rgba(34, 211, 238, 0.4) !important;
+          box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
         }
 
         @media (min-width: 968px) {
