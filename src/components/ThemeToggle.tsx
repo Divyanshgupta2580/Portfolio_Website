@@ -8,12 +8,14 @@ export const ThemeToggle: React.FC = () => {
     const savedTheme = (localStorage.getItem('dg-theme') as 'dark' | 'light') || 'dark';
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
+    document.documentElement.style.colorScheme = savedTheme;
   }, []);
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
     document.documentElement.setAttribute('data-theme', nextTheme);
+    document.documentElement.style.colorScheme = nextTheme;
     localStorage.setItem('dg-theme', nextTheme);
   };
 
@@ -35,9 +37,9 @@ export const ThemeToggle: React.FC = () => {
         justifyContent: 'center',
         cursor: 'pointer',
         zIndex: 90,
-        boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
+        boxShadow: 'var(--shadow-card-hover)',
         transition: 'all 0.3s ease',
-        color: theme === 'dark' ? '#fbbf24' : 'var(--accent-cyan)',
+        color: theme === 'dark' ? 'var(--accent-amber)' : 'var(--accent-cyan)',
       }}
       className="theme-toggle-btn"
     >

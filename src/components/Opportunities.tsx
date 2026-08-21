@@ -11,73 +11,73 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
     switch (type) {
       case 'Internship':
         return {
-          icon: <Code2 size={22} color="#22D3EE" />,
-          accentColor: '#22D3EE',
-          badgeColor: '#22D3EE',
-          badgeBg: 'rgba(34, 211, 238, 0.08)',
-          badgeBorder: '1px solid rgba(34, 211, 238, 0.35)',
-          iconBg: 'rgba(34, 211, 238, 0.08)',
-          iconBorder: '1px solid rgba(34, 211, 238, 0.35)',
-          iconGlow: '0 0 16px rgba(34, 211, 238, 0.15)',
-          btnBorder: '1px solid #22D3EE',
-          btnColor: '#22D3EE',
-          btnBg: 'rgba(34, 211, 238, 0.05)',
-          btnHoverGlow: '0 0 20px rgba(34, 211, 238, 0.35)',
+          icon: <Code2 size={22} color="var(--accent-cyan)" />,
+          accentColor: 'var(--accent-cyan)',
+          badgeColor: 'var(--accent-cyan)',
+          badgeBg: 'var(--accent-cyan-subtle)',
+          badgeBorder: '1px solid var(--accent-cyan-border)',
+          iconBg: 'var(--accent-cyan-subtle)',
+          iconBorder: '1px solid var(--accent-cyan-border)',
+          iconGlow: '0 0 16px var(--accent-cyan-glow)',
+          btnBorder: '1px solid var(--accent-cyan)',
+          btnColor: 'var(--accent-cyan)',
+          btnBg: 'var(--accent-cyan-subtle)',
+          btnHoverGlow: '0 0 20px var(--accent-cyan-glow)',
           className: 'btn-talk-cyan',
         };
       case 'Collaboration':
         return {
-          icon: <Sparkles size={22} color="#A855F7" />,
-          accentColor: '#A855F7',
-          badgeColor: '#C084FC',
-          badgeBg: 'rgba(168, 85, 247, 0.08)',
-          badgeBorder: '1px solid rgba(168, 85, 247, 0.35)',
-          iconBg: 'rgba(168, 85, 247, 0.08)',
-          iconBorder: '1px solid rgba(168, 85, 247, 0.35)',
-          iconGlow: '0 0 16px rgba(168, 85, 247, 0.15)',
-          btnBorder: '1px solid #A855F7',
-          btnColor: '#C084FC',
-          btnBg: 'rgba(168, 85, 247, 0.05)',
-          btnHoverGlow: '0 0 20px rgba(168, 85, 247, 0.35)',
+          icon: <Sparkles size={22} color="var(--accent-purple)" />,
+          accentColor: 'var(--accent-purple)',
+          badgeColor: 'var(--accent-purple)',
+          badgeBg: 'var(--accent-purple-subtle)',
+          badgeBorder: '1px solid var(--accent-purple-border)',
+          iconBg: 'var(--accent-purple-subtle)',
+          iconBorder: '1px solid var(--accent-purple-border)',
+          iconGlow: '0 0 16px var(--accent-purple-glow)',
+          btnBorder: '1px solid var(--accent-purple)',
+          btnColor: 'var(--accent-purple)',
+          btnBg: 'var(--accent-purple-subtle)',
+          btnHoverGlow: '0 0 20px var(--accent-purple-glow)',
           className: 'btn-talk-purple',
         };
       case 'Freelance / Project':
         return {
-          icon: <Cpu size={22} color="#10B981" />,
-          accentColor: '#10B981',
-          badgeColor: '#34D399',
-          badgeBg: 'rgba(16, 185, 129, 0.08)',
-          badgeBorder: '1px solid rgba(16, 185, 129, 0.35)',
-          iconBg: 'rgba(16, 185, 129, 0.08)',
-          iconBorder: '1px solid rgba(16, 185, 129, 0.35)',
-          iconGlow: '0 0 16px rgba(16, 185, 129, 0.15)',
-          btnBorder: '1px solid #10B981',
-          btnColor: '#34D399',
-          btnBg: 'rgba(16, 185, 129, 0.05)',
-          btnHoverGlow: '0 0 20px rgba(16, 185, 129, 0.35)',
+          icon: <Cpu size={22} color="var(--accent-emerald)" />,
+          accentColor: 'var(--accent-emerald)',
+          badgeColor: 'var(--accent-emerald)',
+          badgeBg: 'var(--accent-emerald-subtle)',
+          badgeBorder: '1px solid var(--accent-emerald-border)',
+          iconBg: 'var(--accent-emerald-subtle)',
+          iconBorder: '1px solid var(--accent-emerald-border)',
+          iconGlow: '0 0 16px var(--accent-emerald-glow)',
+          btnBorder: '1px solid var(--accent-emerald)',
+          btnColor: 'var(--accent-emerald)',
+          btnBg: 'var(--accent-emerald-subtle)',
+          btnHoverGlow: '0 0 20px var(--accent-emerald-glow)',
           className: 'btn-talk-green',
         };
       default:
         return {
-          icon: <Code2 size={22} color="#22D3EE" />,
-          accentColor: '#22D3EE',
-          badgeColor: '#22D3EE',
-          badgeBg: 'rgba(34, 211, 238, 0.08)',
-          badgeBorder: '1px solid rgba(34, 211, 238, 0.35)',
-          iconBg: 'rgba(34, 211, 238, 0.08)',
-          iconBorder: '1px solid rgba(34, 211, 238, 0.35)',
-          iconGlow: '0 0 16px rgba(34, 211, 238, 0.15)',
-          btnBorder: '1px solid #22D3EE',
-          btnColor: '#22D3EE',
-          btnBg: 'rgba(34, 211, 238, 0.05)',
-          btnHoverGlow: '0 0 20px rgba(34, 211, 238, 0.35)',
+          icon: <Code2 size={22} color="var(--accent-cyan)" />,
+          accentColor: 'var(--accent-cyan)',
+          badgeColor: 'var(--accent-cyan)',
+          badgeBg: 'var(--accent-cyan-subtle)',
+          badgeBorder: '1px solid var(--accent-cyan-border)',
+          iconBg: 'var(--accent-cyan-subtle)',
+          iconBorder: '1px solid var(--accent-cyan-border)',
+          iconGlow: '0 0 16px var(--accent-cyan-glow)',
+          btnBorder: '1px solid var(--accent-cyan)',
+          btnColor: 'var(--accent-cyan)',
+          btnBg: 'var(--accent-cyan-subtle)',
+          btnHoverGlow: '0 0 20px var(--accent-cyan-glow)',
           className: 'btn-talk-cyan',
         };
     }
   };
 
   return (
-    <section id="opportunities" className="section" style={{ background: '#080B12', padding: '6rem 0' }}>
+    <section id="opportunities" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
       <div className="container" style={{ maxWidth: '1260px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
         {/* ================================================== */}
         {/* SECTION HEADER                                      */}
@@ -90,7 +90,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.45rem',
-              color: '#22D3EE',
+              color: 'var(--accent-cyan)',
               fontSize: '0.86rem',
               fontWeight: 600,
               fontFamily: 'var(--font-mono)',
@@ -98,7 +98,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
               letterSpacing: '0.05em',
             }}
           >
-            <Briefcase size={14} color="#22D3EE" />
+            <Briefcase size={14} color="var(--accent-cyan)" />
             <span>Opportunities</span>
           </div>
 
@@ -113,23 +113,15 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
               lineHeight: 1.15,
             }}
           >
-            <span style={{ color: '#F5F7FA' }}>What I'm </span>
-            <span
-              style={{
-                background: 'linear-gradient(135deg, #22D3EE 0%, #38BDF8 50%, #3B82F6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Open To
-            </span>
+            <span style={{ color: 'var(--text-primary)' }}>What I'm </span>
+            <span className="text-gradient">Open To</span>
           </h2>
 
           {/* Subtitle */}
           <p
             style={{
               fontSize: '0.98rem',
-              color: '#9CA3AF',
+              color: 'var(--text-secondary)',
               maxWidth: '640px',
               margin: '0.65rem auto 0 auto',
               lineHeight: 1.6,
@@ -158,14 +150,14 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
               <div
                 key={opp.id}
                 style={{
-                  background: '#0B121C',
-                  border: '1px solid rgba(148, 163, 184, 0.18)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-card)',
                   borderRadius: '16px',
                   padding: '2.25rem 2rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  boxShadow: '0 8px 30px rgba(0, 0, 0, 0.35)',
+                  boxShadow: 'var(--shadow-card)',
                   transition: 'all 0.25s ease',
                 }}
                 className="opportunity-card-modern"
@@ -223,7 +215,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
                       fontFamily: 'var(--font-heading)',
                       fontSize: '1.32rem',
                       fontWeight: 750,
-                      color: '#F5F7FA',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.45rem',
                       lineHeight: 1.25,
                     }}
@@ -235,7 +227,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
                   <p
                     style={{
                       fontSize: '0.92rem',
-                      color: '#9CA3AF',
+                      color: 'var(--text-secondary)',
                       lineHeight: 1.6,
                       marginBottom: '1.4rem',
                       minHeight: '44px',
@@ -248,7 +240,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
                   <div
                     style={{
                       height: '1px',
-                      background: 'rgba(148, 163, 184, 0.14)',
+                      background: 'var(--border-subtle)',
                       marginBottom: '1.4rem',
                     }}
                   />
@@ -262,7 +254,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
                           color={theme.accentColor}
                           style={{ marginTop: '0.15rem', flexShrink: 0 }}
                         />
-                        <span style={{ fontSize: '0.9rem', color: '#F5F7FA', lineHeight: 1.5, fontWeight: 550 }}>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-primary)', lineHeight: 1.5, fontWeight: 550 }}>
                           {feat}
                         </span>
                       </div>
@@ -304,24 +296,24 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
       <style>{`
         .opportunity-card-modern:hover {
           transform: translateY(-4px);
-          border-color: rgba(148, 163, 184, 0.35) !important;
-          box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5) !important;
+          border-color: var(--accent-cyan-border) !important;
+          box-shadow: var(--shadow-card-hover) !important;
         }
 
         .btn-talk-action:hover {
           transform: translateY(-2px);
         }
         .btn-talk-cyan:hover {
-          box-shadow: 0 0 20px rgba(34, 211, 238, 0.4) !important;
-          background: rgba(34, 211, 238, 0.12) !important;
+          box-shadow: 0 0 20px var(--accent-cyan-glow) !important;
+          background: var(--accent-cyan-subtle) !important;
         }
         .btn-talk-purple:hover {
-          box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
-          background: rgba(168, 85, 247, 0.12) !important;
+          box-shadow: 0 0 20px var(--accent-purple-glow) !important;
+          background: var(--accent-purple-subtle) !important;
         }
         .btn-talk-green:hover {
-          box-shadow: 0 0 20px rgba(16, 185, 129, 0.4) !important;
-          background: rgba(16, 185, 129, 0.12) !important;
+          box-shadow: 0 0 20px var(--accent-emerald-glow) !important;
+          background: var(--accent-emerald-subtle) !important;
         }
         .btn-talk-action:hover .btn-arrow {
           transform: translateX(3px);

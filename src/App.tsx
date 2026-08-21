@@ -19,6 +19,7 @@ import { PillNav } from './components/PillNav';
 export const App: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedOpportunity, setSelectedOpportunity] = useState<string>('Internship');
+  const [initialDetails, setInitialDetails] = useState<string>('');
 
   const scrollToContact = () => {
     const el = document.getElementById('contact');
@@ -29,6 +30,19 @@ export const App: React.FC = () => {
 
   const handleSelectOpportunity = (opportunityType: string) => {
     setSelectedOpportunity(opportunityType);
+    setInitialDetails('');
+    setModalOpen(true);
+  };
+
+  const handleOpenHireMe = () => {
+    setSelectedOpportunity('Internship');
+    setInitialDetails('');
+    setModalOpen(true);
+  };
+
+  const handleRequestCode = (projectName: string) => {
+    setSelectedOpportunity('Technical Project / Source Code Request');
+    setInitialDetails(`I would like to request access to the source code for ${projectName}.`);
     setModalOpen(true);
   };
 
@@ -44,15 +58,15 @@ export const App: React.FC = () => {
       <div className="bg-tech-pattern" />
 
       {/* Top Fixed Header Navbar */}
-      <Navbar onOpenHireMe={() => setModalOpen(true)} />
+      <Navbar onOpenHireMe={handleOpenHireMe} />
 
       {/* Main Portfolio Content */}
       <main style={{ flex: 1 }}>
         <Hero onContactClick={scrollToContact} />
         <Capabilities />
-        <About onContactClick={() => setModalOpen(true)} />
+        <About onContactClick={handleOpenHireMe} />
         <Skills />
-        <Projects />
+        <Projects onRequestCode={handleRequestCode} />
         <Journey />
         <Opportunities onSelectOpportunity={handleSelectOpportunity} />
         <Contact selectedOpportunity={selectedOpportunity} />
@@ -64,13 +78,17 @@ export const App: React.FC = () => {
       {/* Floating Utilities */}
       <ScrollProgress />
       <ThemeToggle />
-      <PillNav onOpenHireMe={() => setModalOpen(true)} />
+      <PillNav onOpenHireMe={handleOpenHireMe} />
 
       {/* Strictly Styled Reference Contact / Engineering Inquiry Modal */}
       <ContactModal
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          setInitialDetails('');
+        }}
         initialOpportunity={selectedOpportunity}
+        initialDetails={initialDetails}
       />
     </div>
   );

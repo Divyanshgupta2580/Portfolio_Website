@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import type { Project } from '../data/portfolioData';
 import { GithubIcon } from './Icons';
-import { X, ExternalLink, CheckCircle2, Server, Award } from 'lucide-react';
+import { X, ExternalLink, CheckCircle2, Server, Award, Code2 } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
+  onRequestCode?: (projectName: string) => void;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, onRequestCode }) => {
   // Listen for Escape key and lock body scroll
   useEffect(() => {
     if (!project) return;
@@ -40,7 +41,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         position: 'fixed',
         inset: 0,
         zIndex: 300,
-        background: 'rgba(3, 6, 12, 0.88)',
+        background: 'var(--overlay-bg)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         display: 'flex',
@@ -56,12 +57,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     >
       <div
         style={{
-          background: 'rgba(8, 13, 23, 0.98)',
+          background: 'var(--bg-modal)',
           border: '1px solid var(--border-cyan)',
           borderRadius: '20px',
           width: 'min(820px, 100%)',
           maxHeight: 'calc(100dvh - 32px)',
-          boxShadow: '0 25px 70px rgba(0, 0, 0, 0.9)',
+          boxShadow: 'var(--shadow-card-hover)',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
@@ -79,7 +80,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            background: 'rgba(8, 13, 23, 0.98)',
+            background: 'var(--bg-modal)',
             zIndex: 10,
           }}
         >
@@ -100,7 +101,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               width: '36px',
               height: '36px',
               borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.08)',
+              background: 'var(--bg-secondary)',
               border: '1px solid var(--border-card)',
               color: 'var(--text-primary)',
               display: 'flex',
@@ -151,7 +152,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '1rem',
                 marginBottom: '1.75rem',
-                background: 'rgba(255, 255, 255, 0.04)',
+                background: 'var(--bg-secondary)',
                 border: '1px solid var(--border-card)',
                 borderRadius: 'var(--radius-md)',
                 padding: '1.25rem',
@@ -184,7 +185,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div
             style={{
               marginBottom: '1.75rem',
-              background: 'rgba(0, 0, 0, 0.3)',
+              background: 'var(--bg-secondary)',
               border: '1px solid var(--border-cyan)',
               borderRadius: 'var(--radius-md)',
               padding: '1.5rem',
@@ -247,10 +248,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 <span>GitHub Repository</span>
               </a>
             ) : (
-              <span className="btn btn-outline" style={{ opacity: 0.85, cursor: 'default' }}>
-                <GithubIcon size={18} />
-                <span>Code Available on Request</span>
-              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  onRequestCode?.(project.title);
+                }}
+                className="btn btn-secondary"
+                style={{
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.55rem',
+                }}
+              >
+                <Code2 size={18} color="var(--accent-cyan)" />
+                <span>Request Source Code</span>
+              </button>
             )}
 
             {project.demoUrl && (

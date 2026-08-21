@@ -56,7 +56,7 @@ export const ScrollProgress: React.FC = () => {
         transform: visible ? 'translateY(0)' : 'translateY(16px)',
         pointerEvents: visible ? 'auto' : 'none',
         transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease',
-        boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
+        boxShadow: 'var(--shadow-card)',
       }}
       className="scroll-progress-btn"
     >
@@ -77,7 +77,7 @@ export const ScrollProgress: React.FC = () => {
           cy="24"
           r={radius}
           fill="none"
-          stroke="rgba(255, 255, 255, 0.12)"
+          stroke="var(--border-subtle)"
           strokeWidth="3"
         />
         {/* Progress stroke */}

@@ -420,6 +420,7 @@ export const PORTFOLIO_DATA = {
     "Internship",
     "Freelance / Project",
     "Collaboration",
+    "Technical Project / Source Code Request",
     "Full-time Opportunity",
     "Other"
   ]

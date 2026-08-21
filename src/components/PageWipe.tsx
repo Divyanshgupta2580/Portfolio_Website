@@ -36,8 +36,8 @@ export const PageWipe: React.FC = () => {
         inset: 0,
         width: '100%',
         height: '100dvh',
-        background: 'radial-gradient(circle at center, rgba(0, 242, 254, 0.08), transparent 45%), #050B14',
-        backgroundColor: '#050B14',
+        background: 'var(--bg-primary)',
+        backgroundColor: 'var(--bg-primary)',
         zIndex: 99999,
         display: 'flex',
         flexDirection: 'column',
@@ -56,13 +56,13 @@ export const PageWipe: React.FC = () => {
             fontFamily: 'var(--font-heading)',
             fontSize: 'clamp(2.75rem, 7vw, 4.25rem)',
             fontWeight: 800,
-            color: '#F5F7FA',
+            color: 'var(--text-primary)',
             letterSpacing: '-0.03em',
             marginBottom: '1rem',
-            textShadow: '0 0 30px rgba(0, 242, 254, 0.20)',
+            textShadow: '0 0 30px var(--accent-cyan-glow)',
           }}
         >
-          DG<span style={{ color: '#00F2FE' }}>.</span>
+          DG<span style={{ color: 'var(--accent-cyan)' }}>.</span>
         </div>
 
         {/* Minimal Engineering Loading Indicator Track */}
@@ -70,7 +70,7 @@ export const PageWipe: React.FC = () => {
           style={{
             width: '130px',
             height: '2px',
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'var(--border-subtle)',
             borderRadius: '2px',
             overflow: 'hidden',
             margin: '0 auto',
@@ -79,10 +79,10 @@ export const PageWipe: React.FC = () => {
           <div
             style={{
               height: '100%',
-              background: '#00F2FE',
+              background: 'var(--accent-cyan)',
               width: '0',
               animation: 'dgLoadBar 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              boxShadow: '0 0 10px #00F2FE',
+              boxShadow: '0 0 10px var(--accent-cyan-glow)',
             }}
           />
         </div>

@@ -18,30 +18,38 @@ interface AboutProps {
 export const About: React.FC<AboutProps> = () => {
   const focusPoints = [
     {
-      icon: <GraduationCap size={22} color="#22D3EE" />,
-      accent: '#22D3EE',
-      accentRgb: '34, 211, 238',
+      icon: <GraduationCap size={22} color="var(--accent-cyan)" />,
+      accent: 'var(--accent-cyan)',
+      subtle: 'var(--accent-cyan-subtle)',
+      border: 'var(--accent-cyan-border)',
+      glow: 'var(--accent-cyan-glow)',
       title: 'Engineering Student',
       desc: 'Computer Science & Systems Engineering',
     },
     {
-      icon: <Target size={22} color="#38BDF8" />,
-      accent: '#38BDF8',
-      accentRgb: '56, 189, 248',
+      icon: <Target size={22} color="var(--accent-blue)" />,
+      accent: 'var(--accent-blue)',
+      subtle: 'rgba(59, 130, 246, 0.10)',
+      border: 'rgba(59, 130, 246, 0.35)',
+      glow: 'rgba(59, 130, 246, 0.20)',
       title: 'Problem Solver',
       desc: 'Love solving complex real-world engineering problems',
     },
     {
-      icon: <Layers size={22} color="#A855F7" />,
-      accent: '#A855F7',
-      accentRgb: '168, 85, 247',
+      icon: <Layers size={22} color="var(--accent-purple)" />,
+      accent: 'var(--accent-purple)',
+      subtle: 'var(--accent-purple-subtle)',
+      border: 'var(--accent-purple-border)',
+      glow: 'var(--accent-purple-glow)',
       title: 'Builder',
       desc: 'Enjoy architecting robust, end-to-end applications',
     },
     {
-      icon: <TrendingUp size={22} color="#10B981" />,
-      accent: '#10B981',
-      accentRgb: '16, 185, 129',
+      icon: <TrendingUp size={22} color="var(--accent-emerald)" />,
+      accent: 'var(--accent-emerald)',
+      subtle: 'var(--accent-emerald-subtle)',
+      border: 'var(--accent-emerald-border)',
+      glow: 'var(--accent-emerald-glow)',
       title: 'Lifelong Learner',
       desc: 'Always exploring cutting-edge AI and edge technologies',
     },
@@ -52,38 +60,46 @@ export const About: React.FC<AboutProps> = () => {
       value: '2+',
       label: 'Major Projects',
       sub: 'Built & Deployed',
-      color: '#22D3EE',
-      colorRgb: '34, 211, 238',
-      icon: <Code2 size={18} color="#22D3EE" />,
+      color: 'var(--accent-cyan)',
+      subtle: 'var(--accent-cyan-subtle)',
+      border: 'var(--accent-cyan-border)',
+      glow: 'var(--accent-cyan-glow)',
+      icon: <Code2 size={18} color="var(--accent-cyan)" />,
     },
     {
       value: '10+',
       label: 'Technologies',
       sub: 'Worked With',
-      color: '#38BDF8',
-      colorRgb: '56, 189, 248',
-      icon: <Layers size={18} color="#38BDF8" />,
+      color: 'var(--accent-blue)',
+      subtle: 'rgba(59, 130, 246, 0.10)',
+      border: 'rgba(59, 130, 246, 0.35)',
+      glow: 'rgba(59, 130, 246, 0.20)',
+      icon: <Layers size={18} color="var(--accent-blue)" />,
     },
     {
       value: '15+',
       label: 'Hackathon',
       sub: 'Participations',
-      color: '#A855F7',
-      colorRgb: '168, 85, 247',
-      icon: <Trophy size={18} color="#A855F7" />,
+      color: 'var(--accent-purple)',
+      subtle: 'var(--accent-purple-subtle)',
+      border: 'var(--accent-purple-border)',
+      glow: 'var(--accent-purple-glow)',
+      icon: <Trophy size={18} color="var(--accent-purple)" />,
     },
     {
       value: '∞',
       label: 'Learning',
       sub: 'Everyday',
-      color: '#10B981',
-      colorRgb: '16, 185, 129',
-      icon: <BookOpen size={18} color="#10B981" />,
+      color: 'var(--accent-emerald)',
+      subtle: 'var(--accent-emerald-subtle)',
+      border: 'var(--accent-emerald-border)',
+      glow: 'var(--accent-emerald-glow)',
+      icon: <BookOpen size={18} color="var(--accent-emerald)" />,
     },
   ];
 
   return (
-    <section id="about" className="section" style={{ background: '#080B12', padding: '6rem 0' }}>
+    <section id="about" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
       <div className="container" style={{ maxWidth: '1260px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
         {/* ================= SECTION HEADER ================= */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
@@ -93,7 +109,7 @@ export const About: React.FC<AboutProps> = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.45rem',
-              color: '#22D3EE',
+              color: 'var(--accent-cyan)',
               fontSize: '0.88rem',
               fontWeight: 600,
               fontFamily: 'var(--font-mono)',
@@ -101,7 +117,7 @@ export const About: React.FC<AboutProps> = () => {
               marginBottom: '0.85rem',
             }}
           >
-            <UserRound size={15} color="#22D3EE" />
+            <UserRound size={15} color="var(--accent-cyan)" />
             <span>About Me</span>
           </div>
 
@@ -115,22 +131,14 @@ export const About: React.FC<AboutProps> = () => {
               lineHeight: 1.15,
             }}
           >
-            <span style={{ color: '#F5F7FA' }}>Driven by Code, </span>
-            <span
-              style={{
-                background: 'linear-gradient(135deg, #22D3EE 0%, #38BDF8 50%, #3B82F6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Focused on Engineering
-            </span>
+            <span style={{ color: 'var(--text-primary)' }}>Driven by Code, </span>
+            <span className="text-gradient">Focused on Engineering</span>
           </h2>
 
           <p
             style={{
               fontSize: '1.02rem',
-              color: '#9CA3AF',
+              color: 'var(--text-secondary)',
               maxWidth: '680px',
               margin: '0 auto',
               lineHeight: 1.65,
@@ -164,15 +172,15 @@ export const About: React.FC<AboutProps> = () => {
                 key={idx}
                 className="about-focus-card"
                 style={{
-                  background: '#0B121C',
-                  border: '1px solid rgba(148, 163, 184, 0.20)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-card)',
                   borderRadius: '14px',
                   padding: '1.25rem 1.5rem',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '1.25rem',
                   transition: 'all 0.25s ease',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
+                  boxShadow: 'var(--shadow-card)',
                 }}
               >
                 <div
@@ -180,9 +188,9 @@ export const About: React.FC<AboutProps> = () => {
                     width: '48px',
                     height: '48px',
                     borderRadius: '12px',
-                    background: `rgba(${item.accentRgb}, 0.08)`,
-                    border: `1px solid rgba(${item.accentRgb}, 0.35)`,
-                    boxShadow: `0 0 16px rgba(${item.accentRgb}, 0.12)`,
+                    background: item.subtle,
+                    border: `1px solid ${item.border}`,
+                    boxShadow: `0 0 16px ${item.glow}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -198,7 +206,7 @@ export const About: React.FC<AboutProps> = () => {
                       fontFamily: 'var(--font-heading)',
                       fontWeight: 700,
                       fontSize: '1.08rem',
-                      color: '#F5F7FA',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.2rem',
                     }}
                   >
@@ -207,7 +215,7 @@ export const About: React.FC<AboutProps> = () => {
                   <div
                     style={{
                       fontSize: '0.88rem',
-                      color: '#9CA3AF',
+                      color: 'var(--text-secondary)',
                       lineHeight: 1.45,
                     }}
                   >
@@ -232,15 +240,15 @@ export const About: React.FC<AboutProps> = () => {
                 key={idx}
                 className="about-stat-box"
                 style={{
-                  background: '#0B121C',
-                  border: '1px solid rgba(148, 163, 184, 0.20)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-card)',
                   borderRadius: '16px',
                   padding: '1.75rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   transition: 'all 0.25s ease',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
+                  boxShadow: 'var(--shadow-card)',
                 }}
               >
                 {/* Top Row: Big Number & Decorative Upper-Right Icon */}
@@ -269,9 +277,9 @@ export const About: React.FC<AboutProps> = () => {
                       width: '42px',
                       height: '42px',
                       borderRadius: '50%',
-                      background: `rgba(${stat.colorRgb}, 0.08)`,
-                      border: `1px solid rgba(${stat.colorRgb}, 0.35)`,
-                      boxShadow: `0 0 14px rgba(${stat.colorRgb}, 0.12)`,
+                      background: stat.subtle,
+                      border: `1px solid ${stat.border}`,
+                      boxShadow: `0 0 14px ${stat.glow}`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -289,7 +297,7 @@ export const About: React.FC<AboutProps> = () => {
                       fontFamily: 'var(--font-heading)',
                       fontWeight: 700,
                       fontSize: '1.05rem',
-                      color: '#F5F7FA',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.2rem',
                     }}
                   >
@@ -298,7 +306,7 @@ export const About: React.FC<AboutProps> = () => {
                   <div
                     style={{
                       fontSize: '0.84rem',
-                      color: '#9CA3AF',
+                      color: 'var(--text-secondary)',
                     }}
                   >
                     {stat.sub}
@@ -312,15 +320,15 @@ export const About: React.FC<AboutProps> = () => {
         {/* ================= BOTTOM QUOTE STRIP ================= */}
         <div
           style={{
-            background: '#0B121C',
-            border: '1px solid rgba(148, 163, 184, 0.20)',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-card)',
             borderRadius: '14px',
             padding: '1.4rem 2rem',
             marginTop: '3rem',
             display: 'flex',
             alignItems: 'center',
             gap: '1.5rem',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
+            boxShadow: 'var(--shadow-card)',
           }}
           className="about-quote-strip"
         >
@@ -329,23 +337,23 @@ export const About: React.FC<AboutProps> = () => {
               width: '44px',
               height: '44px',
               borderRadius: '10px',
-              background: 'rgba(34, 211, 238, 0.08)',
-              border: '1px solid rgba(34, 211, 238, 0.35)',
+              background: 'var(--accent-cyan-subtle)',
+              border: '1px solid var(--accent-cyan-border)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
             }}
           >
-            <Quote size={22} color="#22D3EE" />
+            <Quote size={22} color="var(--accent-cyan)" />
           </div>
 
           <div style={{ fontSize: '0.96rem', lineHeight: 1.6 }}>
-            <span style={{ color: '#F5F7FA' }}>
+            <span style={{ color: 'var(--text-primary)' }}>
               I build with purpose, solve with curiosity, and learn with consistency.
             </span>
             <br />
-            <span style={{ color: '#22D3EE', fontWeight: 600 }}>
+            <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>
               Engineering is not just what I study — it's what I live every day.
             </span>
           </div>
@@ -355,13 +363,13 @@ export const About: React.FC<AboutProps> = () => {
       <style>{`
         .about-focus-card:hover {
           transform: translateY(-2px);
-          border-color: rgba(34, 211, 238, 0.4) !important;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+          border-color: var(--accent-cyan-border) !important;
+          box-shadow: var(--shadow-card-hover) !important;
         }
         .about-stat-box:hover {
           transform: translateY(-3px);
-          border-color: rgba(34, 211, 238, 0.4) !important;
-          box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+          border-color: var(--accent-cyan-border) !important;
+          box-shadow: var(--shadow-card-hover) !important;
         }
 
         @media (min-width: 968px) {

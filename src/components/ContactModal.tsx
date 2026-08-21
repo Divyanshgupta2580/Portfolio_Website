@@ -7,12 +7,14 @@ interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialOpportunity?: string;
+  initialDetails?: string;
 }
 
 export const ContactModal: React.FC<ContactModalProps> = ({
   isOpen,
   onClose,
   initialOpportunity = 'Internship',
+  initialDetails = '',
 }) => {
   const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [message, setMessage] = React.useState('');
@@ -20,17 +22,21 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     name: '',
     email: '',
     opportunity: initialOpportunity,
-    details: '',
+    details: initialDetails,
   });
 
   const firstInputRef = useRef<HTMLInputElement>(null);
 
-  // Sync opportunity type when passed or modal opens
+  // Sync opportunity type and initial details when passed or modal opens
   useEffect(() => {
-    if (initialOpportunity) {
-      setFormData((prev) => ({ ...prev, opportunity: initialOpportunity }));
+    if (isOpen) {
+      setFormData((prev) => ({
+        ...prev,
+        opportunity: initialOpportunity || prev.opportunity || 'Internship',
+        details: initialDetails !== undefined ? initialDetails : prev.details,
+      }));
     }
-  }, [initialOpportunity, isOpen]);
+  }, [initialOpportunity, initialDetails, isOpen]);
 
   // Handle Body Scroll Locking, Escape Key, and Auto Focus
   useEffect(() => {
@@ -109,7 +115,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         position: 'fixed',
         inset: 0,
         zIndex: 300,
-        background: 'rgba(3, 6, 12, 0.88)',
+        background: 'var(--overlay-bg)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         display: 'flex',
@@ -125,10 +131,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         style={{
           width: 'min(740px, 100%)',
           maxHeight: 'calc(100dvh - 32px)',
-          background: 'rgba(8, 13, 23, 0.98)',
-          border: '1px solid rgba(0, 242, 254, 0.25)',
+          background: 'var(--bg-modal)',
+          border: '1px solid var(--border-cyan)',
           borderRadius: '20px',
-          boxShadow: '0 25px 70px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 242, 254, 0.08)',
+          boxShadow: 'var(--shadow-card-hover)',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
@@ -145,8 +151,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            background: 'rgba(8, 13, 23, 0.98)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+            background: 'var(--bg-modal)',
+            borderBottom: '1px solid var(--border-subtle)',
             zIndex: 10,
           }}
         >
@@ -183,8 +189,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               width: '36px',
               height: '36px',
               borderRadius: '50%',
-              background: 'rgba(255, 255, 255, 0.06)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border-card)',
               color: 'var(--text-primary)',
               display: 'flex',
               alignItems: 'center',
@@ -232,7 +238,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)',
                   fontWeight: 800,
-                  color: '#ffffff',
+                  color: 'var(--text-primary)',
                   lineHeight: 1.15,
                   marginBottom: '0.45rem',
                   letterSpacing: '-0.02em',
@@ -264,11 +270,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 }}
               >
                 <CheckCircle2 size={44} color="#10b981" style={{ margin: '0 auto 1rem auto' }} />
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.5rem', fontFamily: 'var(--font-heading)' }}>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.5rem', fontFamily: 'var(--font-heading)' }}>
                   Inquiry Dispatched Successfully!
                 </h3>
                 <p style={{ fontSize: '0.96rem', color: 'var(--text-secondary)', maxWidth: '440px', margin: '0 auto 1.5rem auto', lineHeight: 1.6 }}>
-                  {message || 'Thank you for reaching out. Your message has been sent directly to Divyansh Gupta via Resend.'}
+                  {message || 'Thank you for reaching out. Your message has been sent directly to Divyansh Gupta.'}
                 </p>
                 <button
                   type="button"
@@ -310,7 +316,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       gap: '0.5rem',
                       fontSize: '0.88rem',
                       fontWeight: 600,
-                      color: '#f1f5f9',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.45rem',
                     }}
                   >
@@ -330,10 +336,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       width: '100%',
                       height: '48px',
                       padding: '0 1.15rem',
-                      background: 'rgba(12, 18, 29, 0.9)',
-                      border: '1px solid rgba(100, 140, 170, 0.3)',
+                      background: 'var(--bg-input)',
+                      border: '1px solid var(--border-input)',
                       borderRadius: '10px',
-                      color: '#ffffff',
+                      color: 'var(--text-primary)',
                       fontSize: '0.94rem',
                       outline: 'none',
                       transition: 'all 0.2s ease',
@@ -352,7 +358,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       gap: '0.5rem',
                       fontSize: '0.88rem',
                       fontWeight: 600,
-                      color: '#f1f5f9',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.45rem',
                     }}
                   >
@@ -371,10 +377,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       width: '100%',
                       height: '48px',
                       padding: '0 1.15rem',
-                      background: 'rgba(12, 18, 29, 0.9)',
-                      border: '1px solid rgba(100, 140, 170, 0.3)',
+                      background: 'var(--bg-input)',
+                      border: '1px solid var(--border-input)',
                       borderRadius: '10px',
-                      color: '#ffffff',
+                      color: 'var(--text-primary)',
                       fontSize: '0.94rem',
                       outline: 'none',
                       transition: 'all 0.2s ease',
@@ -393,7 +399,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       gap: '0.5rem',
                       fontSize: '0.88rem',
                       fontWeight: 600,
-                      color: '#f1f5f9',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.45rem',
                     }}
                   >
@@ -409,10 +415,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       width: '100%',
                       height: '48px',
                       padding: '0 1.15rem',
-                      background: 'rgba(12, 18, 29, 0.9)',
-                      border: '1px solid rgba(100, 140, 170, 0.3)',
+                      background: 'var(--bg-input)',
+                      border: '1px solid var(--border-input)',
                       borderRadius: '10px',
-                      color: '#ffffff',
+                      color: 'var(--text-primary)',
                       fontSize: '0.94rem',
                       outline: 'none',
                       cursor: 'pointer',
@@ -421,7 +427,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     className="modal-form-input"
                   >
                     {PORTFOLIO_DATA.opportunityTypes.map((opt, idx) => (
-                      <option key={idx} value={opt} style={{ background: '#0a0f19', color: '#ffffff' }}>
+                      <option key={idx} value={opt} style={{ background: 'var(--bg-card)', color: 'var(--text-primary)' }}>
                         {opt}
                       </option>
                     ))}
@@ -438,7 +444,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       gap: '0.5rem',
                       fontSize: '0.88rem',
                       fontWeight: 600,
-                      color: '#f1f5f9',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.45rem',
                     }}
                   >
@@ -458,10 +464,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                       minHeight: '110px',
                       maxHeight: '160px',
                       padding: '0.85rem 1.15rem',
-                      background: 'rgba(12, 18, 29, 0.9)',
-                      border: '1px solid rgba(100, 140, 170, 0.3)',
+                      background: 'var(--bg-input)',
+                      border: '1px solid var(--border-input)',
                       borderRadius: '10px',
-                      color: '#ffffff',
+                      color: 'var(--text-primary)',
                       fontSize: '0.94rem',
                       lineHeight: 1.55,
                       outline: 'none',
@@ -482,8 +488,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               style={{
                 flexShrink: 0,
                 padding: '0.85rem 2rem 1.25rem 2rem',
-                background: 'rgba(8, 13, 23, 0.98)',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'var(--bg-modal)',
+                borderTop: '1px solid var(--border-subtle)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '1rem',
@@ -498,10 +504,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   flex: '1.4',
                   minHeight: '48px',
                   padding: '0 1.75rem',
-                  background: 'linear-gradient(135deg, #00f2fe 0%, #00d2ff 100%)',
+                  background: 'var(--accent-cyan)',
                   border: 'none',
                   borderRadius: '10px',
-                  color: '#07080d',
+                  color: 'var(--text-on-accent)',
                   fontFamily: 'var(--font-main)',
                   fontSize: '0.96rem',
                   fontWeight: 750,
@@ -510,7 +516,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   justifyContent: 'center',
                   gap: '0.6rem',
                   cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
-                  boxShadow: '0 4px 20px rgba(0, 242, 254, 0.3)',
+                  boxShadow: '0 4px 20px var(--accent-cyan-glow)',
                   transition: 'all 0.2s ease',
                 }}
                 className="modal-submit-btn"
@@ -533,7 +539,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 style={{
                   width: '1px',
                   height: '30px',
-                  background: 'rgba(255, 255, 255, 0.1)',
+                  background: 'var(--border-subtle)',
                   display: 'none',
                 }}
                 className="modal-action-divider"
@@ -548,7 +554,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   minHeight: '48px',
                   padding: '0 1.25rem',
                   background: 'transparent',
-                  border: '1px solid transparent',
+                  border: '1px solid var(--border-card)',
                   borderRadius: '10px',
                   color: 'var(--accent-cyan)',
                   fontFamily: 'var(--font-main)',
@@ -572,44 +578,23 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       </div>
 
       <style>{`
-        /* Scrollbar Styling inside Modal */
-        .contact-modal-scroll-area::-webkit-scrollbar {
-          width: 6px;
-        }
-        .contact-modal-scroll-area::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 3px;
-        }
-        .contact-modal-scroll-area::-webkit-scrollbar-thumb {
-          background: rgba(0, 242, 254, 0.25);
-          border-radius: 3px;
-        }
-        .contact-modal-scroll-area::-webkit-scrollbar-thumb:hover {
-          background: rgba(0, 242, 254, 0.45);
-        }
-
         .modal-form-input:focus {
-          border-color: #00f2fe !important;
-          box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.12) !important;
-          background: #0d1421 !important;
-        }
-        .modal-form-input::placeholder {
-          color: #8d98a8 !important;
-          opacity: 1;
+          border-color: var(--accent-cyan) !important;
+          box-shadow: 0 0 0 3px var(--accent-cyan-glow) !important;
         }
         .modal-close-btn:hover {
-          background: rgba(255, 255, 255, 0.12) !important;
-          border-color: rgba(0, 242, 254, 0.4) !important;
-          color: #00f2fe !important;
+          background: var(--bg-card-hover) !important;
+          border-color: var(--accent-cyan) !important;
+          color: var(--accent-cyan) !important;
         }
         .modal-submit-btn:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 6px 28px rgba(0, 242, 254, 0.45) !important;
+          background: var(--accent-cyan-hover) !important;
+          box-shadow: 0 6px 28px var(--accent-cyan-glow) !important;
         }
         .modal-direct-email-btn:hover {
-          background: rgba(0, 242, 254, 0.08) !important;
-          border-color: rgba(0, 242, 254, 0.25) !important;
-          color: #33f5ff !important;
+          background: var(--accent-cyan-subtle) !important;
+          border-color: var(--accent-cyan-border) !important;
         }
         @media (min-width: 640px) {
           .modal-action-divider {

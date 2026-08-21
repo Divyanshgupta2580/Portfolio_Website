@@ -7,59 +7,66 @@ export const Capabilities: React.FC = () => {
     switch (num) {
       case '01':
         return {
-          accent: '#22D3EE',
-          accentRgb: '34, 211, 238',
-          tagText: '#38BDF8',
-          icon: <Code2 size={22} color="#22D3EE" />,
+          accentVar: 'var(--accent-cyan)',
+          subtleVar: 'var(--accent-cyan-subtle)',
+          borderVar: 'var(--accent-cyan-border)',
+          glowVar: 'var(--accent-cyan-glow)',
+          icon: <Code2 size={22} color="var(--accent-cyan)" />,
         };
       case '02':
         return {
-          accent: '#A855F7',
-          accentRgb: '168, 85, 247',
-          tagText: '#C084FC',
-          icon: <Network size={22} color="#A855F7" />,
+          accentVar: 'var(--accent-purple)',
+          subtleVar: 'var(--accent-purple-subtle)',
+          borderVar: 'var(--accent-purple-border)',
+          glowVar: 'var(--accent-purple-glow)',
+          icon: <Network size={22} color="var(--accent-purple)" />,
         };
       case '03':
         return {
-          accent: '#3B82F6',
-          accentRgb: '59, 130, 246',
-          tagText: '#60A5FA',
-          icon: <Layers size={22} color="#3B82F6" />,
+          accentVar: 'var(--accent-blue)',
+          subtleVar: 'rgba(59, 130, 246, 0.10)',
+          borderVar: 'rgba(59, 130, 246, 0.35)',
+          glowVar: 'rgba(59, 130, 246, 0.25)',
+          icon: <Layers size={22} color="var(--accent-blue)" />,
         };
       case '04':
         return {
-          accent: '#10B981',
-          accentRgb: '16, 185, 129',
-          tagText: '#34D399',
-          icon: <Cpu size={22} color="#10B981" />,
+          accentVar: 'var(--accent-emerald)',
+          subtleVar: 'var(--accent-emerald-subtle)',
+          borderVar: 'var(--accent-emerald-border)',
+          glowVar: 'var(--accent-emerald-glow)',
+          icon: <Cpu size={22} color="var(--accent-emerald)" />,
         };
       case '05':
         return {
-          accent: '#22D3EE',
-          accentRgb: '34, 211, 238',
-          tagText: '#38BDF8',
-          icon: <Server size={22} color="#22D3EE" />,
+          accentVar: 'var(--accent-cyan)',
+          subtleVar: 'var(--accent-cyan-subtle)',
+          borderVar: 'var(--accent-cyan-border)',
+          glowVar: 'var(--accent-cyan-glow)',
+          icon: <Server size={22} color="var(--accent-cyan)" />,
         };
       case '06':
         return {
-          accent: '#F59E0B',
-          accentRgb: '245, 158, 11',
-          tagText: '#FBBF24',
-          icon: <Cloud size={22} color="#F59E0B" />,
+          accentVar: 'var(--accent-amber)',
+          subtleVar: 'var(--accent-amber-subtle)',
+          borderVar: 'var(--accent-amber-border)',
+          glowVar: 'var(--accent-amber-glow)',
+          icon: <Cloud size={22} color="var(--accent-amber)" />,
         };
       default:
         return {
-          accent: '#22D3EE',
-          accentRgb: '34, 211, 238',
-          tagText: '#38BDF8',
-          icon: <Code2 size={22} color="#22D3EE" />,
+          accentVar: 'var(--accent-cyan)',
+          subtleVar: 'var(--accent-cyan-subtle)',
+          borderVar: 'var(--accent-cyan-border)',
+          glowVar: 'var(--accent-cyan-glow)',
+          icon: <Code2 size={22} color="var(--accent-cyan)" />,
         };
     }
   };
 
   return (
-    <section id="capabilities" className="section" style={{ background: '#080B12', padding: '6rem 0' }}>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+    <section id="capabilities" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
+      <div className="container">
         {/* ================= SECTION HEADER ================= */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <div
@@ -67,7 +74,7 @@ export const Capabilities: React.FC = () => {
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#22D3EE',
+              color: 'var(--accent-cyan)',
               fontSize: '0.9rem',
               fontWeight: 700,
               fontFamily: 'var(--font-mono)',
@@ -88,22 +95,14 @@ export const Capabilities: React.FC = () => {
               lineHeight: 1.15,
             }}
           >
-            <span style={{ color: '#F5F7FA' }}>Engineering </span>
-            <span
-              style={{
-                background: 'linear-gradient(135deg, #22D3EE 0%, #38BDF8 50%, #3B82F6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Capabilities
-            </span>
+            <span style={{ color: 'var(--text-primary)' }}>Engineering </span>
+            <span className="text-gradient">Capabilities</span>
           </h2>
 
           <p
             style={{
               fontSize: '1.02rem',
-              color: '#9CA3AF',
+              color: 'var(--text-secondary)',
               maxWidth: '640px',
               margin: '0 auto',
               lineHeight: 1.65,
@@ -129,8 +128,8 @@ export const Capabilities: React.FC = () => {
                 key={cap.id}
                 className="cap-feature-card"
                 style={{
-                  background: '#0B121C',
-                  border: '1px solid rgba(148, 163, 184, 0.22)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-card)',
                   borderRadius: '16px',
                   padding: '28px 24px',
                   position: 'relative',
@@ -139,9 +138,10 @@ export const Capabilities: React.FC = () => {
                   justifyContent: 'space-between',
                   textAlign: 'center',
                   transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-                  ['--card-accent' as any]: theme.accent,
-                  ['--card-accent-rgb' as any]: theme.accentRgb,
+                  boxShadow: 'var(--shadow-card)',
+                  ['--card-accent' as any]: theme.accentVar,
+                  ['--card-border' as any]: theme.borderVar,
+                  ['--card-glow' as any]: theme.glowVar,
                 }}
               >
                 {/* Top-Left Monospace Number */}
@@ -153,7 +153,7 @@ export const Capabilities: React.FC = () => {
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.95rem',
                     fontWeight: 700,
-                    color: theme.accent,
+                    color: theme.accentVar,
                     letterSpacing: '0.04em',
                   }}
                 >
@@ -167,9 +167,9 @@ export const Capabilities: React.FC = () => {
                       width: '52px',
                       height: '52px',
                       borderRadius: '12px',
-                      background: `rgba(${theme.accentRgb}, 0.08)`,
-                      border: `1px solid rgba(${theme.accentRgb}, 0.35)`,
-                      boxShadow: `0 0 16px rgba(${theme.accentRgb}, 0.12)`,
+                      background: theme.subtleVar,
+                      border: `1px solid ${theme.borderVar}`,
+                      boxShadow: `0 0 16px ${theme.glowVar}`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -187,7 +187,7 @@ export const Capabilities: React.FC = () => {
                       fontFamily: 'var(--font-heading)',
                       fontSize: '1.25rem',
                       fontWeight: 700,
-                      color: '#F5F7FA',
+                      color: 'var(--text-primary)',
                       marginBottom: '0.85rem',
                       lineHeight: 1.3,
                       textAlign: 'center',
@@ -200,7 +200,7 @@ export const Capabilities: React.FC = () => {
                   <p
                     style={{
                       fontSize: '0.9rem',
-                      color: '#9CA3AF',
+                      color: 'var(--text-secondary)',
                       lineHeight: 1.6,
                       marginBottom: '1.6rem',
                       textAlign: 'center',
@@ -228,9 +228,9 @@ export const Capabilities: React.FC = () => {
                         fontWeight: 600,
                         padding: '0.32rem 0.72rem',
                         borderRadius: '6px',
-                        background: 'rgba(255, 255, 255, 0.02)',
-                        border: `1px solid rgba(${theme.accentRgb}, 0.28)`,
-                        color: theme.tagText,
+                        background: 'var(--bg-secondary)',
+                        border: `1px solid ${theme.borderVar}`,
+                        color: theme.accentVar,
                         transition: 'all 0.2s ease',
                       }}
                       className="cap-tag-item"
@@ -248,12 +248,11 @@ export const Capabilities: React.FC = () => {
       <style>{`
         .cap-feature-card:hover {
           transform: translateY(-4px);
-          border-color: rgba(var(--card-accent-rgb), 0.45) !important;
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 20px rgba(var(--card-accent-rgb), 0.15) !important;
+          border-color: var(--card-border) !important;
+          box-shadow: var(--shadow-card-hover) !important;
         }
         .cap-feature-card:hover .cap-icon-box {
-          border-color: var(--card-accent) !important;
-          box-shadow: 0 0 22px rgba(var(--card-accent-rgb), 0.3) !important;
+          box-shadow: 0 0 22px var(--card-glow) !important;
         }
 
         @media (max-width: 992px) {
