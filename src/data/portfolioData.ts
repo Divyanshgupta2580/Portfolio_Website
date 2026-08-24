@@ -408,15 +408,15 @@ export const PORTFOLIO_DATA = {
     },
     {
       year: "2026",
-      title: "JanSetu — Deployed Civic Issue Reporting & Escalation Platform",
-      organization: "CIVIC TECH PROJECT",
-      type: "Engineering",
-      badge: "Deployed Platform",
-      description: "Engineered a deployed civic issue reporting and tracking platform that enables citizens to report public infrastructure issues with an automated 48-hour officer escalation workflow.",
+      title: "Snapdragon Multiverse Hackathon",
+      organization: "HACKATHON EXPERIENCE",
+      type: "Hackathon",
+      badge: "Qualcomm Hackathon",
+      description: "Participated in the Qualcomm Snapdragon Multiverse Hackathon, collaborating on an AI-focused project built around Qualcomm's on-device computing ecosystem and exploring optimized AI inference for edge devices.",
       highlights: [
-        "Implemented automated 48-hour hierarchical escalation workflow",
-        "Built citizen issue reporting and real-time status tracking pipeline",
-        "Integrated responsible officer assignment and SLA monitoring"
+        "Developed and integrated AI capabilities for efficient on-device inference",
+        "Worked with Qualcomm AI Hub tooling and device-optimized AI workflows",
+        "Contributed to building and testing an AI solution for Qualcomm-powered hardware"
       ]
     },
     {
