@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Journey', href: '#journey' },
-    { name: 'Open To', href: '#opportunities' },
+    { name: 'Open to Work', href: '#opportunities' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -182,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
             }}
           >
             <Send size={14} color="var(--text-on-accent)" />
-            <span>Hire Me</span>
+            <span>Let's Connect</span>
           </button>
         </div>
 
@@ -290,7 +290,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHireMe }) => {
               }}
             >
               <Send size={15} />
-              <span>Hire Me</span>
+              <span>Let's Connect</span>
             </button>
           </div>
         </div>

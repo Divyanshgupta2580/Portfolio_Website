@@ -31,6 +31,14 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    setOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navItems = [
     { id: 'home', label: 'Home', icon: <Home size={16} /> },
     { id: 'capabilities', label: 'What I Do', icon: <Code2 size={16} /> },
@@ -38,7 +46,7 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
     { id: 'skills', label: 'Skills', icon: <Layers size={16} /> },
     { id: 'projects', label: 'Projects', icon: <Briefcase size={16} /> },
     { id: 'journey', label: 'Journey', icon: <Compass size={16} /> },
-    { id: 'opportunities', label: 'Open To', icon: <Briefcase size={16} /> },
+    { id: 'opportunities', label: 'Open to Work', icon: <Briefcase size={16} /> },
   ];
 
   return (
@@ -68,36 +76,38 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
               gridTemplateColumns: 'repeat(4, 1fr)',
               gap: '0.6rem',
               boxShadow: 'var(--shadow-card-hover)',
-              maxWidth: '350px',
-              width: '90vw',
+              maxWidth: '360px',
+              width: 'calc(100vw - 2rem)',
             }}
             className="animate-slide-up"
           >
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={() => setOpen(false)}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '0.3rem',
-                  padding: '0.6rem 0.2rem',
-                  borderRadius: 'var(--radius-sm)',
-                  textDecoration: 'none',
-                  color: activeSection === item.id ? 'var(--accent-cyan)' : 'var(--text-primary)',
-                  fontSize: '0.76rem',
-                  fontWeight: 700,
-                  background: activeSection === item.id ? 'var(--accent-cyan-subtle)' : 'var(--bg-card)',
-                  border: '1px solid',
-                  borderColor: activeSection === item.id ? 'var(--border-cyan)' : 'var(--border-subtle)',
-                }}
-              >
-                {item.icon}
-                <span>{item.label}</span>
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '0.3rem',
+                    padding: '0.6rem 0.3rem',
+                    borderRadius: 'var(--radius-sm)',
+                    background: isActive ? 'var(--accent-cyan-subtle)' : 'var(--bg-secondary)',
+                    border: `1px solid ${isActive ? 'var(--accent-cyan-border)' : 'var(--border-card)'}`,
+                    color: isActive ? 'var(--accent-cyan)' : 'var(--text-secondary)',
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    transition: 'var(--transition-fast)',
+                  }}
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                </button>
+              );
+            })}
             <button
               onClick={() => {
                 setOpen(false);
@@ -122,7 +132,7 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
               }}
             >
               <Send size={16} />
-              <span>Contact / Hire Me</span>
+              <span>Let's Connect</span>
             </button>
           </div>
         )}
@@ -179,7 +189,7 @@ export const PillNav: React.FC<PillNavProps> = ({ onOpenHireMe }) => {
             }}
           >
             <Send size={16} />
-            <span>Hire Me</span>
+            <span>Let's Connect</span>
           </button>
         </div>
       </div>

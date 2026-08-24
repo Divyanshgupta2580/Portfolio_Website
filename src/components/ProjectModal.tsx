@@ -171,14 +171,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             </div>
           )}
 
-          {/* Deep Dive Description */}
+          {/* Deep Dive Description / Overview */}
           <div style={{ marginBottom: '1.75rem' }}>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.65rem' }}>
-              Engineering Deep-Dive
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.55rem' }}>
+              Overview
             </h3>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.98rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.96rem' }}>
               {project.fullDescription}
             </p>
+          </div>
+
+          {/* Key Engineering Implementations / What I Built */}
+          <div style={{ marginBottom: '1.75rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
+              What I Built
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.65rem' }}>
+              {project.highlights.slice(0, 5).map((h, idx) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                  <CheckCircle2 size={17} color="var(--accent-cyan)" style={{ marginTop: '0.15rem', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.94rem', color: 'var(--text-primary)', lineHeight: 1.5, fontWeight: 500 }}>{h}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Architecture Overview */}
@@ -188,48 +203,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
               background: 'var(--bg-secondary)',
               border: '1px solid var(--border-cyan)',
               borderRadius: 'var(--radius-md)',
-              padding: '1.5rem',
+              padding: '1.35rem 1.5rem',
             }}
           >
             <h4
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '1.1rem',
+                fontSize: '1.05rem',
                 fontWeight: 700,
                 color: 'var(--text-primary)',
-                marginBottom: '0.6rem',
+                marginBottom: '0.5rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.55rem',
               }}
             >
-              <Server size={18} color="var(--accent-cyan)" />
-              System Architecture & Data Flow
+              <Server size={17} color="var(--accent-cyan)" />
+              Architecture & Data Flow
             </h4>
-            <p style={{ fontSize: '0.94rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+            <p style={{ fontSize: '0.93rem', color: 'var(--text-secondary)', lineHeight: 1.65, margin: 0 }}>
               {project.architectureOverview}
             </p>
-          </div>
-
-          {/* Key Engineering Highlights */}
-          <div style={{ marginBottom: '1.75rem' }}>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.85rem' }}>
-              Key Technical Implementations
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
-              {project.highlights.map((h, idx) => (
-                <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <CheckCircle2 size={18} color="var(--accent-cyan)" style={{ marginTop: '0.15rem', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.95rem', color: 'var(--text-primary)', lineHeight: 1.5, fontWeight: 500 }}>{h}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Tech Stack Badges */}
           <div style={{ marginBottom: '2rem' }}>
             <h3 style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '0.75rem', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>
-              Technologies Used
+              Stack
             </h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem' }}>
               {project.technologies.map((t, idx) => (
@@ -240,7 +240,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             </div>
           </div>
 
-          {/* Modal Links */}
+          {/* Modal Links & Actions */}
           <div style={{ display: 'flex', gap: '1rem', borderTop: '1px solid var(--border-subtle)', paddingTop: '1.5rem', flexWrap: 'wrap' }}>
             {project.githubUrl ? (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
@@ -262,8 +262,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                   gap: '0.55rem',
                 }}
               >
-                <Code2 size={18} color="var(--accent-cyan)" />
-                <span>Request Source Code</span>
+                <Code2 size={17} color="var(--accent-cyan)" />
+                <span>Request Code Access</span>
               </button>
             )}
 

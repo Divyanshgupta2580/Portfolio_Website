@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Journey', href: '#journey' },
-    { name: 'Open To', href: '#opportunities' },
+    { name: 'Open to Work', href: '#opportunities' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
       style={{
         background: 'var(--bg-dark)',
         borderTop: '1px solid var(--border-card)',
-        padding: '4.5rem 0 2rem 0',
+        padding: '3.75rem 0 2rem 0',
       }}
     >
       <div className="container">
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             display: 'grid',
             gridTemplateColumns: '1fr',
             gap: '3rem',
-            marginBottom: '3.5rem',
+            marginBottom: '3rem',
           }}
           className="footer-grid"
         >
@@ -52,18 +52,21 @@ export const Footer: React.FC = () => {
                 alignItems: 'center',
                 gap: '0.2rem',
                 fontFamily: 'var(--font-heading)',
-                fontSize: '1.5rem',
+                fontSize: '1.45rem',
                 fontWeight: 800,
                 color: 'var(--text-primary)',
                 letterSpacing: '-0.03em',
-                marginBottom: '0.85rem',
+                marginBottom: '0.5rem',
               }}
             >
-              <span>DG</span>
+              <span>Divyansh Gupta</span>
               <span style={{ color: 'var(--accent-cyan)' }}>.</span>
             </a>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-              Building software, AI systems, and engineering solutions that make a real-world impact.
+            <div style={{ color: 'var(--accent-cyan)', fontSize: '0.86rem', fontFamily: 'var(--font-mono)', fontWeight: 600, marginBottom: '0.85rem' }}>
+              Engineering Student · AI & Software Engineering
+            </div>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+              Building software, AI systems, and engineering solutions that solve practical problems.
             </p>
 
             {/* Social Icons */}
@@ -148,10 +151,10 @@ export const Footer: React.FC = () => {
           >
             {/* Navigation Column */}
             <div>
-              <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '0.85rem' }}>
                 Navigation
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                 {navLinks.slice(0, 4).map((link) => (
                   <a
                     key={link.name}
@@ -159,7 +162,7 @@ export const Footer: React.FC = () => {
                     style={{
                       color: 'var(--text-secondary)',
                       textDecoration: 'none',
-                      fontSize: '0.9rem',
+                      fontSize: '0.88rem',
                       transition: 'color 0.2s ease',
                     }}
                     className="footer-link"
@@ -172,33 +175,42 @@ export const Footer: React.FC = () => {
 
             {/* Projects Column */}
             <div>
-              <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '0.85rem' }}>
                 Projects
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
                   BenefitOS
                 </a>
-                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
                   JanSetu
+                </a>
+                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
+                  Tron
+                </a>
+                <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
+                  RailGuard-AI
                 </a>
               </div>
             </div>
 
             {/* Resources Column */}
             <div>
-              <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '1rem' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', marginBottom: '0.85rem' }}>
                 Resources
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                <a href={p.resumePath} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                <a href={p.resumePath} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
                   Resume
                 </a>
-                <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
                   GitHub
                 </a>
-                <a href={p.linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }} className="footer-link">
+                <a href={p.linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
                   LinkedIn
+                </a>
+                <a href={`mailto:${p.email}`} style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem' }} className="footer-link">
+                  Email
                 </a>
               </div>
             </div>
@@ -209,7 +221,7 @@ export const Footer: React.FC = () => {
         <div
           style={{
             borderTop: '1px solid var(--border-subtle)',
-            paddingTop: '1.75rem',
+            paddingTop: '1.5rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -222,7 +234,7 @@ export const Footer: React.FC = () => {
           }}
         >
           <div>© {new Date().getFullYear()} Divyansh Gupta. All rights reserved.</div>
-          <div>Engineering Student · Developer · AI Enthusiast</div>
+          <div>Engineering Student · AI & Software Engineering</div>
           <button
             onClick={scrollToTop}
             aria-label="Scroll to Top"

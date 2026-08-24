@@ -244,8 +244,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             <div
               style={{
                 position: 'absolute',
-                width: '420px',
-                height: '420px',
+                width: '450px',
+                height: '450px',
                 borderRadius: '50%',
                 border: '1px solid var(--border-subtle)',
                 pointerEvents: 'none',
@@ -255,8 +255,8 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             <div
               style={{
                 position: 'absolute',
-                width: '340px',
-                height: '340px',
+                width: '395px',
+                height: '395px',
                 borderRadius: '50%',
                 border: '1px dashed var(--border-subtle)',
                 pointerEvents: 'none',
@@ -264,16 +264,16 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               className="hero-mid-ring"
             />
 
-            {/* Central Circular Avatar Frame */}
+            {/* Central Circular Avatar Frame (Increased by ~13% for strong visual presence) */}
             <div
               style={{
                 position: 'relative',
-                width: '340px',
-                height: '340px',
+                width: '385px',
+                height: '385px',
                 borderRadius: '50%',
                 background: 'var(--bg-card)',
                 border: '2.5px solid var(--accent-cyan)',
-                boxShadow: '0 0 40px var(--accent-cyan-glow)',
+                boxShadow: '0 0 25px var(--accent-cyan-glow)',
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center',
@@ -308,13 +308,13 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               )}
             </div>
 
-            {/* FLOATING BADGE 1: C++ (Top-Left) */}
+            {/* FLOATING BADGE 1: C++ (Top-Left - Hugs avatar border) */}
             <div
               className="floating-tech-badge badge-top-left"
               style={{
                 position: 'absolute',
-                top: '15px',
-                left: '20px',
+                top: '25px',
+                left: '15px',
                 zIndex: 3,
                 background: 'var(--bg-card-glass)',
                 backdropFilter: 'blur(12px)',
@@ -334,13 +334,13 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               </span>
             </div>
 
-            {/* FLOATING BADGE 2: AI / ML (Top-Right) */}
+            {/* FLOATING BADGE 2: AI / ML (Top-Right - Hugs avatar border) */}
             <div
               className="floating-tech-badge badge-top-right"
               style={{
                 position: 'absolute',
-                top: '25px',
-                right: '15px',
+                top: '35px',
+                right: '10px',
                 zIndex: 3,
                 background: 'var(--bg-card-glass)',
                 backdropFilter: 'blur(12px)',
@@ -360,13 +360,13 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               </span>
             </div>
 
-            {/* FLOATING BADGE 3: Python (Bottom-Left) */}
+            {/* FLOATING BADGE 3: Python (Bottom-Left - Hugs avatar border) */}
             <div
               className="floating-tech-badge badge-bottom-left"
               style={{
                 position: 'absolute',
-                bottom: '30px',
-                left: '15px',
+                bottom: '40px',
+                left: '12px',
                 zIndex: 3,
                 background: 'var(--bg-card-glass)',
                 backdropFilter: 'blur(12px)',
@@ -386,13 +386,13 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               </span>
             </div>
 
-            {/* FLOATING BADGE 4: TypeScript (Bottom-Right) */}
+            {/* FLOATING BADGE 4: TypeScript (Bottom-Right - Hugs avatar border) */}
             <div
               className="floating-tech-badge badge-bottom-right"
               style={{
                 position: 'absolute',
-                bottom: '15px',
-                right: '10px',
+                bottom: '30px',
+                right: '8px',
                 zIndex: 3,
                 background: 'var(--bg-card-glass)',
                 backdropFilter: 'blur(12px)',
@@ -613,20 +613,32 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             margin-top: 3rem !important;
           }
           .hero-avatar-frame {
-            width: 280px !important;
-            height: 280px !important;
+            width: 310px !important;
+            height: 310px !important;
           }
           .hero-outer-ring {
-            width: 320px !important;
-            height: 320px !important;
+            width: 360px !important;
+            height: 360px !important;
           }
           .hero-mid-ring {
-            width: 260px !important;
-            height: 260px !important;
+            width: 310px !important;
+            height: 310px !important;
           }
         }
 
         @media (max-width: 580px) {
+          .hero-avatar-frame {
+            width: 270px !important;
+            height: 270px !important;
+          }
+          .hero-outer-ring {
+            width: 310px !important;
+            height: 310px !important;
+          }
+          .hero-mid-ring {
+            width: 270px !important;
+            height: 270px !important;
+          }
           .floating-tech-badge {
             display: none !important;
           }

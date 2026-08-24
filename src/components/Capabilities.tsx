@@ -1,58 +1,34 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
-import { Code2, Network, Layers, Database, Server, Cloud } from 'lucide-react';
+import { Sparkles, Layers, Code2 } from 'lucide-react';
 
 export const Capabilities: React.FC = () => {
   const getCardTheme = (num: string) => {
     switch (num) {
       case '01':
         return {
-          accentVar: 'var(--accent-cyan)',
-          subtleVar: 'var(--accent-cyan-subtle)',
-          borderVar: 'var(--accent-cyan-border)',
-          glowVar: 'var(--accent-cyan-glow)',
-          icon: <Code2 size={22} color="var(--accent-cyan)" />,
-        };
-      case '02':
-        return {
           accentVar: 'var(--accent-purple)',
           subtleVar: 'var(--accent-purple-subtle)',
           borderVar: 'var(--accent-purple-border)',
           glowVar: 'var(--accent-purple-glow)',
-          icon: <Network size={22} color="var(--accent-purple)" />,
+          icon: <Sparkles size={22} color="var(--accent-purple)" />,
+        };
+      case '02':
+        return {
+          accentVar: 'var(--accent-cyan)',
+          subtleVar: 'var(--accent-cyan-subtle)',
+          borderVar: 'var(--accent-cyan-border)',
+          glowVar: 'var(--accent-cyan-glow)',
+          icon: <Layers size={22} color="var(--accent-cyan)" />,
         };
       case '03':
-        return {
-          accentVar: 'var(--accent-blue)',
-          subtleVar: 'rgba(59, 130, 246, 0.10)',
-          borderVar: 'rgba(59, 130, 246, 0.35)',
-          glowVar: 'rgba(59, 130, 246, 0.25)',
-          icon: <Layers size={22} color="var(--accent-blue)" />,
-        };
-      case '04':
         return {
           accentVar: 'var(--accent-emerald)',
           subtleVar: 'var(--accent-emerald-subtle)',
           borderVar: 'var(--accent-emerald-border)',
           glowVar: 'var(--accent-emerald-glow)',
-          icon: <Database size={22} color="var(--accent-emerald)" />,
-        };
-      case '05':
-        return {
-          accentVar: 'var(--accent-cyan)',
-          subtleVar: 'var(--accent-cyan-subtle)',
-          borderVar: 'var(--accent-cyan-border)',
-          glowVar: 'var(--accent-cyan-glow)',
-          icon: <Server size={22} color="var(--accent-cyan)" />,
-        };
-      case '06':
-        return {
-          accentVar: 'var(--accent-amber)',
-          subtleVar: 'var(--accent-amber-subtle)',
-          borderVar: 'var(--accent-amber-border)',
-          glowVar: 'var(--accent-amber-glow)',
-          icon: <Cloud size={22} color="var(--accent-amber)" />,
+          icon: <Code2 size={22} color="var(--accent-emerald)" />,
         };
       default:
         return {

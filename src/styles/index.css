@@ -31,28 +31,28 @@
   /* Accent Colors */
   --accent-cyan: #22D3EE;
   --accent-cyan-hover: #38BDF8;
-  --accent-cyan-subtle: rgba(34, 211, 238, 0.10);
-  --accent-cyan-border: rgba(34, 211, 238, 0.35);
-  --accent-cyan-glow: rgba(34, 211, 238, 0.25);
+  --accent-cyan-subtle: rgba(34, 211, 238, 0.08);
+  --accent-cyan-border: rgba(34, 211, 238, 0.28);
+  --accent-cyan-glow: rgba(34, 211, 238, 0.16);
   --text-on-accent: #080B12;
 
   --accent-purple: #A855F7;
   --accent-purple-hover: #C084FC;
-  --accent-purple-subtle: rgba(168, 85, 247, 0.10);
-  --accent-purple-border: rgba(168, 85, 247, 0.35);
-  --accent-purple-glow: rgba(168, 85, 247, 0.25);
+  --accent-purple-subtle: rgba(168, 85, 247, 0.08);
+  --accent-purple-border: rgba(168, 85, 247, 0.28);
+  --accent-purple-glow: rgba(168, 85, 247, 0.16);
 
   --accent-emerald: #10B981;
   --accent-emerald-hover: #34D399;
-  --accent-emerald-subtle: rgba(16, 185, 129, 0.10);
-  --accent-emerald-border: rgba(16, 185, 129, 0.35);
-  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  --accent-emerald-subtle: rgba(16, 185, 129, 0.08);
+  --accent-emerald-border: rgba(16, 185, 129, 0.28);
+  --accent-emerald-glow: rgba(16, 185, 129, 0.16);
 
   --accent-amber: #FBBF24;
   --accent-amber-hover: #FCD34D;
-  --accent-amber-subtle: rgba(251, 191, 36, 0.10);
-  --accent-amber-border: rgba(251, 191, 36, 0.35);
-  --accent-amber-glow: rgba(251, 191, 36, 0.25);
+  --accent-amber-subtle: rgba(251, 191, 36, 0.08);
+  --accent-amber-border: rgba(251, 191, 36, 0.28);
+  --accent-amber-glow: rgba(251, 191, 36, 0.16);
 
   --accent-blue: #3B82F6;
   --accent-teal: #06B6D4;
@@ -122,28 +122,28 @@
   /* High-Contrast Professional Light Accents */
   --accent-cyan: #0284C7;
   --accent-cyan-hover: #0369A1;
-  --accent-cyan-subtle: rgba(2, 132, 199, 0.10);
-  --accent-cyan-border: rgba(2, 132, 199, 0.35);
-  --accent-cyan-glow: rgba(2, 132, 199, 0.20);
+  --accent-cyan-subtle: rgba(2, 132, 199, 0.08);
+  --accent-cyan-border: rgba(2, 132, 199, 0.28);
+  --accent-cyan-glow: rgba(2, 132, 199, 0.14);
   --text-on-accent: #FFFFFF;
 
   --accent-purple: #7C3AED;
   --accent-purple-hover: #6D28D9;
-  --accent-purple-subtle: rgba(124, 58, 237, 0.10);
-  --accent-purple-border: rgba(124, 58, 237, 0.35);
-  --accent-purple-glow: rgba(124, 58, 237, 0.20);
+  --accent-purple-subtle: rgba(124, 58, 237, 0.08);
+  --accent-purple-border: rgba(124, 58, 237, 0.28);
+  --accent-purple-glow: rgba(124, 58, 237, 0.14);
 
   --accent-emerald: #059669;
   --accent-emerald-hover: #047857;
-  --accent-emerald-subtle: rgba(5, 150, 105, 0.10);
-  --accent-emerald-border: rgba(5, 150, 105, 0.35);
-  --accent-emerald-glow: rgba(5, 150, 105, 0.20);
+  --accent-emerald-subtle: rgba(5, 150, 105, 0.08);
+  --accent-emerald-border: rgba(5, 150, 105, 0.28);
+  --accent-emerald-glow: rgba(5, 150, 105, 0.14);
 
   --accent-amber: #D97706;
   --accent-amber-hover: #B45309;
-  --accent-amber-subtle: rgba(217, 119, 6, 0.10);
-  --accent-amber-border: rgba(217, 119, 6, 0.35);
-  --accent-amber-glow: rgba(217, 119, 6, 0.20);
+  --accent-amber-subtle: rgba(217, 119, 6, 0.08);
+  --accent-amber-border: rgba(217, 119, 6, 0.28);
+  --accent-amber-glow: rgba(217, 119, 6, 0.14);
 
   --accent-blue: #2563EB;
   --accent-teal: #0891B2;

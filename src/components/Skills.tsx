@@ -9,17 +9,17 @@ export const Skills: React.FC = () => {
   const filterTabs = [
     { id: 'all', label: 'All', icon: <LayoutGrid size={15} /> },
     { id: 'languages', label: 'Languages', icon: <Code2 size={15} /> },
-    { id: 'frameworks', label: 'Frameworks', icon: <Layers size={15} /> },
     { id: 'ai', label: 'AI / ML', icon: <Sparkles size={15} /> },
-    { id: 'databases', label: 'Databases & Tools', icon: <Database size={15} /> },
+    { id: 'backend', label: 'Backend / Systems', icon: <Layers size={15} /> },
+    { id: 'tools', label: 'Tools', icon: <Database size={15} /> },
   ];
 
   // Map category to tab ID
   const mapCategoryToTab = (title: string) => {
     if (title.includes('Languages')) return 'languages';
-    if (title.includes('Software') || title.includes('Web')) return 'frameworks';
-    if (title.includes('AI') || title.includes('Machine')) return 'ai';
-    if (title.includes('Databases')) return 'databases';
+    if (title.includes('AI')) return 'ai';
+    if (title.includes('Backend') || title.includes('Systems')) return 'backend';
+    if (title.includes('Tools')) return 'tools';
     return 'all';
   };
 
@@ -33,16 +33,7 @@ export const Skills: React.FC = () => {
         icon: <Code2 size={20} color="var(--accent-cyan)" />,
       };
     }
-    if (title.includes('Software') || title.includes('Web')) {
-      return {
-        accent: 'var(--accent-blue)',
-        subtle: 'rgba(59, 130, 246, 0.10)',
-        border: 'rgba(59, 130, 246, 0.35)',
-        glow: 'rgba(59, 130, 246, 0.20)',
-        icon: <Layers size={20} color="var(--accent-blue)" />,
-      };
-    }
-    if (title.includes('AI') || title.includes('Machine')) {
+    if (title.includes('AI')) {
       return {
         accent: 'var(--accent-purple)',
         subtle: 'var(--accent-purple-subtle)',
@@ -51,7 +42,16 @@ export const Skills: React.FC = () => {
         icon: <Sparkles size={20} color="var(--accent-purple)" />,
       };
     }
-    if (title.includes('Databases')) {
+    if (title.includes('Backend') || title.includes('Systems')) {
+      return {
+        accent: 'var(--accent-blue)',
+        subtle: 'rgba(59, 130, 246, 0.08)',
+        border: 'rgba(59, 130, 246, 0.28)',
+        glow: 'rgba(59, 130, 246, 0.16)',
+        icon: <Layers size={20} color="var(--accent-blue)" />,
+      };
+    }
+    if (title.includes('Tools')) {
       return {
         accent: 'var(--accent-emerald)',
         subtle: 'var(--accent-emerald-subtle)',

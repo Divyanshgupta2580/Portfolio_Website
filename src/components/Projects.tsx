@@ -64,8 +64,8 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               fontSize: '0.92rem',
             }}
           >
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
-              <Award size={16} color="var(--accent-cyan)" /> Built for HackHazards'26
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
+              <Award size={16} color="var(--accent-emerald)" /> Deployed
             </span>
             <span style={{ color: 'var(--border-subtle)' }}>|</span>
             <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1rem' }}>01</span>
@@ -429,8 +429,8 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               fontSize: '0.92rem',
             }}
           >
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
-              <Award size={16} color="var(--accent-emerald)" /> Deployed Civic Platform
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-purple)', fontWeight: 600 }}>
+              <Award size={16} color="var(--accent-purple)" /> Hackathon Project
             </span>
             <span style={{ color: 'var(--border-subtle)' }}>|</span>
             <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1rem' }}>02</span>
@@ -781,7 +781,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
             }}
           >
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-purple)', fontWeight: 600 }}>
-              <Award size={16} color="var(--accent-purple)" /> Autonomous AI Project
+              <Award size={16} color="var(--accent-purple)" /> Hackathon Project
             </span>
             <span style={{ color: 'var(--border-subtle)' }}>|</span>
             <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1rem' }}>03</span>
@@ -1188,8 +1188,8 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               fontSize: '0.92rem',
             }}
           >
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
-              <Award size={16} color="var(--accent-cyan)" /> Built for FAR AWAY Hackathon
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
+              <Award size={16} color="var(--accent-emerald)" /> Deployed
             </span>
             <span style={{ color: 'var(--border-subtle)' }}>|</span>
             <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1rem' }}>04</span>

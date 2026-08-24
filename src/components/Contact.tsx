@@ -521,10 +521,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
               >
                 <CheckCircle2 size={44} color="#10B981" style={{ margin: '0 auto 1rem auto' }} />
                 <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.45rem' }}>
-                  Message Delivered!
+                  Message sent successfully
                 </h4>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                  {feedbackMessage || 'Thank you for reaching out. Divyansh will get back to you shortly!'}
+                  {feedbackMessage || "Thanks for reaching out. I'll get back to you soon."}
                 </p>
                 <button
                   onClick={() => setStatus('idle')}
@@ -539,20 +539,27 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 {status === 'error' && (
                   <div
                     style={{
-                      padding: '0.75rem 1rem',
-                      background: 'rgba(239, 68, 68, 0.15)',
-                      border: '1px solid rgba(239, 68, 68, 0.4)',
+                      padding: '0.9rem 1rem',
+                      background: 'rgba(239, 68, 68, 0.12)',
+                      border: '1px solid rgba(239, 68, 68, 0.35)',
                       borderRadius: '8px',
                       color: '#fca5a5',
                       fontSize: '0.88rem',
                       display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.6rem',
+                      alignItems: 'flex-start',
+                      gap: '0.75rem',
                       fontWeight: 500,
                     }}
                   >
-                    <AlertCircle size={17} style={{ flexShrink: 0 }} />
-                    <span>{feedbackMessage}</span>
+                    <AlertCircle size={18} style={{ flexShrink: 0, marginTop: '0.1rem', color: '#ef4444' }} />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, color: '#fca5a5', marginBottom: '0.2rem' }}>
+                        Unable to send message
+                      </div>
+                      <div style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
+                        {feedbackMessage || 'Please try again or use Direct Email.'}
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -828,8 +835,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                   >
                     {status === 'submitting' ? (
                       <>
-                        <Loader2 size={16} className="animate-float" />
-                        <span>Sending...</span>
+                        <Loader2 size={16} className="animate-spin" />
+                        <span>Sending your message...</span>
                       </>
                     ) : (
                       <>

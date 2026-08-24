@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   subtitle: string;
   badge: string;
+  status?: string;
   category: 'Software / AI';
   shortDescription: string;
   fullDescription: string;
@@ -126,56 +127,32 @@ export const PORTFOLIO_DATA = {
     {
       id: "cap-1",
       num: "01",
-      title: "Software & Systems Development",
-      description: "Writing maintainable C++, Python, and TypeScript software with clean modular structure, robust logic, and high-performance execution.",
-      iconName: "Code2",
-      tags: ["C++", "Python", "TypeScript", "Systems"]
+      title: "AI Engineering",
+      description: "AI systems, RAG pipelines, LLM applications and intelligent workflows.",
+      iconName: "Sparkles",
+      tags: ["AI Systems", "RAG Pipelines", "LLMs", "AI Agents"]
     },
     {
       id: "cap-2",
       num: "02",
-      title: "AI & RAG Architectures",
-      description: "Engineering retrieval-augmented generation (RAG) pipelines, OCR document extraction workflows, and intelligent recommendation systems.",
-      iconName: "Network",
-      tags: ["RAG", "OCR", "Generative AI", "Vector Search"]
+      title: "Software Engineering",
+      description: "Backend systems, APIs, databases and production web applications.",
+      iconName: "Layers",
+      tags: ["React", "Node.js", "Express", "REST APIs"]
     },
     {
       id: "cap-3",
       num: "03",
-      title: "Full-Stack Web Engineering",
-      description: "Building responsive, maintainable web applications and interfaces using React, TypeScript, and modern state architecture.",
-      iconName: "Layers",
-      tags: ["React", "TypeScript", "Web UI", "Frontend"]
-    },
-    {
-      id: "cap-4",
-      num: "04",
-      title: "Graph Systems & Data Modeling",
-      description: "Modeling complex data relationships using graph databases like Neo4j and building high-performance query workflows.",
-      iconName: "Database",
-      tags: ["Neo4j", "Graph Database", "Cypher", "Data Modeling"]
-    },
-    {
-      id: "cap-5",
-      num: "05",
-      title: "Backend APIs & Integrations",
-      description: "Designing secure RESTful APIs, database schemas, and third-party integrations that power scalable and reliable applications.",
-      iconName: "Server",
-      tags: ["Node.js", "Express", "MongoDB", "REST"]
-    },
-    {
-      id: "cap-6",
-      num: "06",
-      title: "Data & Cloud Infrastructure",
-      description: "Leveraging data structures, algorithms, and cloud services to build scalable, reliable, and high-performance systems.",
-      iconName: "Cloud",
-      tags: ["Data Structures", "Algorithms", "AWS / Cloud", "Databases"]
+      title: "Systems & Problem Solving",
+      description: "Algorithms, distributed workflows and engineering solutions for real-world problems.",
+      iconName: "Code2",
+      tags: ["C++", "Algorithms", "Databases", "Distributed Workflows"]
     }
   ] as CapabilityItem[],
 
   skills: [
     {
-      title: "Programming Languages",
+      title: "Languages",
       description: "Core languages used for systems engineering, backend logic, and AI workflows.",
       iconName: "Code2",
       skills: [
@@ -186,36 +163,37 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
-      title: "Software & Web Development",
-      description: "Frameworks and libraries for web applications and backend services.",
-      iconName: "Layers",
-      skills: [
-        { name: "React", tag: "Web UI", level: "Proficient" },
-        { name: "Node.js", tag: "Backend Runtime", level: "Proficient" },
-        { name: "Express", tag: "REST Microservices", level: "Proficient" },
-        { name: "RESTful APIs", tag: "API Architecture", level: "Proficient" },
-      ],
-    },
-    {
-      title: "AI / Machine Learning",
-      description: "Intelligent systems, document parsing, and graph-assisted retrieval.",
+      title: "AI / ML",
+      description: "Intelligent systems, document parsing, and agentic workflows.",
       iconName: "Sparkles",
       skills: [
-        { name: "RAG Architectures", tag: "Retrieval Pipelines", level: "Proficient" },
-        { name: "OCR Workflows", tag: "Document Parsing", level: "Proficient" },
-        { name: "Generative AI APIs", tag: "Model Inference", level: "Intermediate" },
-        { name: "Machine Learning Concepts", tag: "Foundations", level: "Intermediate" },
+        { name: "LLMs", tag: "Model Inference", level: "Proficient" },
+        { name: "RAG", tag: "Retrieval Pipelines", level: "Proficient" },
+        { name: "OCR", tag: "Document Extraction", level: "Proficient" },
+        { name: "AI Agents", tag: "Autonomous Workflows", level: "Proficient" },
       ],
     },
     {
-      title: "Databases & Infrastructure",
-      description: "Graph databases, version control, and containerized deployment.",
+      title: "Backend / Systems",
+      description: "Runtime engines, API microservices, and database architectures.",
+      iconName: "Layers",
+      skills: [
+        { name: "Node.js", tag: "Backend Runtime", level: "Proficient" },
+        { name: "Express", tag: "REST Microservices", level: "Proficient" },
+        { name: "REST APIs", tag: "API Architecture", level: "Proficient" },
+        { name: "Databases", tag: "Data Storage & Graph", level: "Proficient" },
+      ],
+    },
+    {
+      title: "Tools",
+      description: "Version control, containerization, deployment platforms, and graph infrastructure.",
       iconName: "Database",
       skills: [
-        { name: "Neo4j", tag: "Graph Relationships", level: "Proficient" },
-        { name: "Git & GitHub", tag: "Version Control", level: "Proficient" },
-        { name: "SQL & Relational", tag: "Data Storage", level: "Proficient" },
+        { name: "Git", tag: "Version Control", level: "Proficient" },
+        { name: "GitHub", tag: "Collaboration / CI", level: "Proficient" },
         { name: "Docker", tag: "Containerization", level: "Intermediate" },
+        { name: "Vercel", tag: "Deployment", level: "Proficient" },
+        { name: "Neo4j", tag: "Graph Database", level: "Proficient" },
       ],
     },
   ] as SkillCategory[],
@@ -225,7 +203,8 @@ export const PORTFOLIO_DATA = {
       id: "benefit-os",
       title: "BenefitOS",
       subtitle: "AI-Powered Citizen Welfare Discovery Platform",
-      badge: "Built for HackHazards'26",
+      badge: "Deployed",
+      status: "Deployed",
       category: "Software / AI",
       shortDescription: "A citizen-focused platform designed to help people discover welfare schemes, understand eligibility, prepare required documents, and navigate application workflows.",
       fullDescription: "BenefitOS addresses the administrative complexity citizens face when discovering and applying for public welfare schemes. By combining graph data modeling (Neo4j) with AI-powered RAG pipelines and OCR document parsing, BenefitOS maps user profiles against eligibility criteria, detects missing paperwork, and provides an interactive AI assistant to guide applicants step-by-step.",
@@ -240,6 +219,7 @@ export const PORTFOLIO_DATA = {
       ],
       technologies: ["TypeScript", "Node.js", "Express", "Neo4j", "AI / RAG", "OCR", "React"],
       technicalSpecs: [
+        { label: "Status", value: "Deployed" },
         { label: "Architecture", value: "Decoupled Client & Express API Gateway" },
         { label: "Data Model", value: "Neo4j Graph Nodes & Traversal Edges" },
         { label: "AI Integration", value: "RAG Recommendation & OCR Parser" }
@@ -252,7 +232,8 @@ export const PORTFOLIO_DATA = {
       id: "jansetu",
       title: "JanSetu",
       subtitle: "Deployed Civic Issue Reporting & Escalation Platform",
-      badge: "Deployed Civic Platform",
+      badge: "Hackathon Project",
+      status: "Hackathon Project",
       category: "Software / AI",
       shortDescription: "A deployed civic issue reporting and tracking platform that enables citizens to report problems in their surrounding neighborhoods with automated 48-hour officer escalation.",
       fullDescription: "JanSetu is a deployed civic issue reporting and tracking platform that enables citizens to report problems in their surrounding neighborhoods, such as potholes, broken streetlights, and other public-infrastructure issues. When a citizen reports a local issue, the system records and tracks the complaint, assigning it to the responsible officer. The assigned officer is expected to resolve the issue within 48 hours. If the assigned officer does not resolve the issue within 48 hours, the platform automatically escalates the complaint to a higher-level officer, establishing an administrative accountability workflow for unresolved civic complaints.",
@@ -266,7 +247,8 @@ export const PORTFOLIO_DATA = {
       ],
       technologies: ["TypeScript", "Python", "Node.js", "C++", "IoT", "Edge Computing"],
       technicalSpecs: [
-        { label: "Platform Type", value: "Deployed Civic Issue & Escalation Platform" },
+        { label: "Status", value: "Hackathon Project" },
+        { label: "Platform Type", value: "Civic Issue & Escalation Platform" },
         { label: "Resolution SLA", value: "48-Hour Automatic Hierarchical Escalation" },
         { label: "Workflow Engine", value: "Citizen Report -> Officer Assignment -> Escalation" }
       ],
@@ -278,7 +260,8 @@ export const PORTFOLIO_DATA = {
       id: "tron",
       title: "Tron",
       subtitle: "Autonomous AI Agent",
-      badge: "Autonomous AI Project",
+      badge: "Hackathon Project",
+      status: "Hackathon Project",
       category: "Software / AI",
       shortDescription: "An autonomous AI agent that discovers relevant topics, evaluates candidates, makes editorial decisions, generates content, validates sources, maintains persistent memory, and publishes autonomously.",
       fullDescription: "Tron is an autonomous AI agent engineered for intelligent content discovery, editorial scoring, and end-to-end publishing. Featuring multi-model LLM generation (Gemini with Groq fallback), citation verification against primary sources and arXiv, schema-validated output structuring, and fail-closed duplicate detection via persistent SQLite memory, Tron operates entirely autonomously without manual intervention.",
@@ -293,6 +276,7 @@ export const PORTFOLIO_DATA = {
       ],
       technologies: ["Gemini", "Groq", "arXiv", "SQLite", "Python", "Autonomous Agents", "LLMs", "API"],
       technicalSpecs: [
+        { label: "Status", value: "Hackathon Project" },
         { label: "AI Generation Core", value: "Gemini Pro / Flash (Primary) + Groq (Fallback)" },
         { label: "Memory & Persistence", value: "SQLite Persistent State & Deduplication Hashes" },
         { label: "Source Retrieval", value: "Primary Research APIs & arXiv Query Fallback" },
@@ -306,7 +290,8 @@ export const PORTFOLIO_DATA = {
       id: "railguard-ai",
       title: "RailGuard-AI",
       subtitle: "Autonomous Central Rail Operations & Safety Platform",
-      badge: "Built for FAR AWAY Hackathon",
+      badge: "Deployed",
+      status: "Deployed",
       category: "Software / AI",
       shortDescription: "An autonomous central rail infrastructure orchestration layer and real-time operations platform developed during the FAR AWAY hackathon, combining edge telemetry with LLM reasoning.",
       fullDescription: "RailGuard-AI is an autonomous central rail infrastructure orchestration platform built during the FAR AWAY hackathon. The system addresses low-visibility winter fog hazards and fragmented rail operations by providing a real-time data bus with sub-15ms WebSocket state synchronization across loco-pilot cabs, ticket examiners, and control centers. It integrates FogSafe edge telemetry with Gemini LLM reasoning grounded in a deterministic railway sector graph and Indian Railway G&SR operating rules to predict track anomalies and optimize network scheduling.",
@@ -320,6 +305,7 @@ export const PORTFOLIO_DATA = {
       ],
       technologies: ["React", "Node.js", "Express", "Socket.IO", "Google Gemini AI", "TypeScript", "IoT / LoRa", "Python"],
       technicalSpecs: [
+        { label: "Status", value: "Deployed" },
         { label: "Event / Context", value: "FAR AWAY Hackathon (Railways Theme)" },
         { label: "Role", value: "Contributor / Team Member" },
         { label: "Real-Time Bus", value: "Sub-15ms WebSocket State Sync Engine" },
@@ -385,25 +371,12 @@ export const PORTFOLIO_DATA = {
       title: "BenefitOS — AI Citizen Welfare Discovery Platform",
       organization: "HACKHAZARDS'26",
       type: "Hackathon",
-      badge: "Built for HackHazards'26",
+      badge: "Deployed",
       description: "Designed and built an AI-powered platform to streamline government welfare scheme discovery, document validation, and application workflows using graph databases and OCR.",
       highlights: [
         "Mapped scheme dependencies using Neo4j graph nodes",
         "Integrated OCR document parsing with RAG query systems",
         "Engineered intelligent eligibility workflows and API microservices"
-      ]
-    },
-    {
-      year: "2026",
-      title: "RailGuard-AI — Autonomous Rail Operations & Safety Platform",
-      organization: "FAR AWAY HACKATHON",
-      type: "Hackathon",
-      badge: "Built for FAR AWAY",
-      description: "Contributed as a team member to RailGuard-AI during the FAR AWAY hackathon, developing an autonomous rail infrastructure orchestration platform combining real-time edge telemetry and Gemini AI dispatch reasoning.",
-      highlights: [
-        "Real-time WebSocket telemetry synchronization across rail operations",
-        "Integrated FogSafe edge telemetry for zero-optical low-visibility cab signaling",
-        "Grounded Gemini agent reasoning on deterministic track graphs and G&SR safety rules"
       ]
     },
     {
@@ -424,12 +397,25 @@ export const PORTFOLIO_DATA = {
       title: "TRON — Autonomous AI Agent",
       organization: "AB TALKS",
       type: "Engineering",
-      badge: "Built for AB Talks",
+      badge: "Hackathon Project",
       description: "An autonomous AI agent project developed for AB Talks, focused on intelligent task execution, multi-model evaluation, source verification, and autonomous publishing workflows.",
       highlights: [
         "Built autonomous topic discovery, candidate scoring, and rejection logic",
         "Multi-model synthesis using Gemini with automatic Groq fallback",
         "Persistent SQLite deduplication memory and schema-validated output"
+      ]
+    },
+    {
+      year: "2026",
+      title: "RailGuard-AI — Autonomous Rail Operations & Safety Platform",
+      organization: "FAR AWAY HACKATHON",
+      type: "Hackathon",
+      badge: "Deployed",
+      description: "Contributed as a team member to RailGuard-AI during the FAR AWAY hackathon, developing an autonomous rail infrastructure orchestration platform combining real-time edge telemetry and Gemini AI dispatch reasoning.",
+      highlights: [
+        "Real-time WebSocket telemetry synchronization across rail operations",
+        "Integrated FogSafe edge telemetry for zero-optical low-visibility cab signaling",
+        "Grounded Gemini agent reasoning on deterministic track graphs and G&SR safety rules"
       ]
     },
     {

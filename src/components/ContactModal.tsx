@@ -271,10 +271,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               >
                 <CheckCircle2 size={44} color="#10b981" style={{ margin: '0 auto 1rem auto' }} />
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.5rem', fontFamily: 'var(--font-heading)' }}>
-                  Inquiry Dispatched Successfully!
+                  Message sent successfully
                 </h3>
                 <p style={{ fontSize: '0.96rem', color: 'var(--text-secondary)', maxWidth: '440px', margin: '0 auto 1.5rem auto', lineHeight: 1.6 }}>
-                  {message || 'Thank you for reaching out. Your message has been sent directly to Divyansh Gupta.'}
+                  {message || "Thanks for reaching out. I'll get back to you soon."}
                 </p>
                 <button
                   type="button"
@@ -289,20 +289,27 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 {status === 'error' && (
                   <div
                     style={{
-                      padding: '0.75rem 1rem',
-                      background: 'rgba(239, 68, 68, 0.15)',
-                      border: '1px solid rgba(239, 68, 68, 0.4)',
+                      padding: '0.9rem 1rem',
+                      background: 'rgba(239, 68, 68, 0.12)',
+                      border: '1px solid rgba(239, 68, 68, 0.35)',
                       borderRadius: '10px',
                       color: '#fca5a5',
                       fontSize: '0.88rem',
                       display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.6rem',
+                      alignItems: 'flex-start',
+                      gap: '0.75rem',
                       fontWeight: 500,
                     }}
                   >
-                    <AlertCircle size={17} style={{ flexShrink: 0 }} />
-                    <span>{message}</span>
+                    <AlertCircle size={18} style={{ flexShrink: 0, marginTop: '0.1rem', color: '#ef4444' }} />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, color: '#fca5a5', marginBottom: '0.2rem' }}>
+                        Unable to send message
+                      </div>
+                      <div style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
+                        {message || 'Please try again or use Direct Email.'}
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -523,8 +530,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               >
                 {status === 'submitting' ? (
                   <>
-                    <Loader2 size={17} className="animate-float" />
-                    <span>Submitting...</span>
+                    <Loader2 size={17} className="animate-spin" />
+                    <span>Sending your message...</span>
                   </>
                 ) : (
                   <>
