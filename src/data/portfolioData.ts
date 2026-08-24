@@ -194,6 +194,8 @@ export const PORTFOLIO_DATA = {
         { name: "Docker", tag: "Containerization", level: "Intermediate" },
         { name: "Vercel", tag: "Deployment", level: "Proficient" },
         { name: "Neo4j", tag: "Graph Database", level: "Proficient" },
+        { name: "MongoDB", tag: "Document Database", level: "Proficient" },
+        { name: "Firebase", tag: "Cloud & Backend", level: "Proficient" },
       ],
     },
   ] as SkillCategory[],
@@ -382,7 +384,7 @@ export const PORTFOLIO_DATA = {
     {
       year: "2026",
       title: "JanSetu — Deployed Civic Issue Reporting & Escalation Platform",
-      organization: "HACKATHON EXPERIENCE",
+      organization: "QUALCOMM HACKATHON",
       type: "Hackathon",
       badge: "Qualcomm Hackathon",
       description: "Participated in the Qualcomm Snapdragon Multiverse Hackathon, collaborating on an AI-focused project built around Qualcomm's on-device computing ecosystem and exploring optimized AI inference for edge devices.",

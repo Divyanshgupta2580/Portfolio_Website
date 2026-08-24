@@ -23,24 +23,7 @@ export const Journey: React.FC = () => {
             </>
           ),
         };
-      case 1: // RailGuard-AI
-        return {
-          icon: <Shield size={18} color="var(--accent-cyan)" />,
-          accentColor: 'var(--accent-cyan)',
-          glowShadow: '0 0 16px var(--accent-cyan-glow)',
-          nodeBorder: '1px solid var(--accent-cyan-border)',
-          badgeBg: 'var(--accent-cyan-subtle)',
-          badgeBorder: '1px solid var(--accent-cyan-border)',
-          badgeColor: 'var(--accent-cyan)',
-          renderTitle: () => (
-            <>
-              <span>RailGuard</span>
-              <span style={{ color: 'var(--accent-cyan)' }}>-AI</span>
-              <span> — Autonomous Rail Operations &amp; Safety Platform</span>
-            </>
-          ),
-        };
-      case 2: // JanSetu
+      case 1: // JanSetu
         return {
           icon: <Cpu size={18} color="var(--accent-emerald)" />,
           accentColor: 'var(--accent-emerald)',
@@ -57,7 +40,7 @@ export const Journey: React.FC = () => {
             </>
           ),
         };
-      case 3: // TRON
+      case 2: // TRON
         return {
           icon: <Bot size={18} color="var(--accent-blue)" />,
           accentColor: 'var(--accent-blue)',
@@ -71,6 +54,23 @@ export const Journey: React.FC = () => {
               <span>TR</span>
               <span style={{ color: 'var(--accent-blue)' }}>ON</span>
               <span> — Autonomous AI Agent</span>
+            </>
+          ),
+        };
+      case 3: // RailGuard-AI
+        return {
+          icon: <Shield size={18} color="var(--accent-cyan)" />,
+          accentColor: 'var(--accent-cyan)',
+          glowShadow: '0 0 16px var(--accent-cyan-glow)',
+          nodeBorder: '1px solid var(--accent-cyan-border)',
+          badgeBg: 'var(--accent-cyan-subtle)',
+          badgeBorder: '1px solid var(--accent-cyan-border)',
+          badgeColor: 'var(--accent-cyan)',
+          renderTitle: () => (
+            <>
+              <span>RailGuard</span>
+              <span style={{ color: 'var(--accent-cyan)' }}>-AI</span>
+              <span> — Autonomous Rail Operations &amp; Safety Platform</span>
             </>
           ),
         };
