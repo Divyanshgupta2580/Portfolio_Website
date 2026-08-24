@@ -12,6 +12,7 @@ import {
   Users,
   Target,
   FileText,
+  Download,
   UserRound,
   BriefcaseBusiness,
   ChevronDown,
@@ -441,32 +442,102 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
               </div>
             </div>
 
-            {/* WIDE OUTLINED RESUME BUTTON */}
-            <div>
+            {/* WIDE HORIZONTAL RESUME CTA CARD */}
+            <div style={{ marginTop: 'auto' }}>
               <a
                 href={p.resumePath}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="resume-download-btn"
+                download="Divyansh_Gupta_Resume.pdf"
+                className="resume-cta-card"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.65rem',
+                  justifyContent: 'space-between',
                   width: '100%',
-                  height: '48px',
-                  borderRadius: '10px',
+                  minHeight: '110px',
+                  padding: '1.35rem 1.6rem',
+                  borderRadius: '14px',
                   background: 'var(--bg-card)',
-                  border: '1px solid var(--border-card)',
-                  color: 'var(--text-primary)',
-                  fontWeight: 600,
-                  fontSize: '0.92rem',
+                  border: '1px solid var(--accent-cyan-border)',
+                  boxShadow: '0 0 16px var(--accent-cyan-glow)',
                   textDecoration: 'none',
-                  transition: 'all 0.2s ease',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s ease',
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
               >
-                <FileText size={17} color="var(--accent-cyan)" />
-                <span>Download My Resume</span>
+                {/* Left Side: File Icon + Title & Subtitle */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', minWidth: 0 }}>
+                  {/* File Icon Container */}
+                  <div
+                    style={{
+                      width: '52px',
+                      height: '52px',
+                      borderRadius: '12px',
+                      background: 'var(--accent-cyan-subtle)',
+                      border: '1px solid var(--accent-cyan-border)',
+                      boxShadow: '0 0 14px var(--accent-cyan-glow)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <FileText size={24} color="var(--accent-cyan)" />
+                  </div>
+
+                  {/* Text Container */}
+                  <div style={{ minWidth: 0 }}>
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '1.15rem',
+                        fontWeight: 750,
+                        color: 'var(--text-primary)',
+                        lineHeight: 1.25,
+                        letterSpacing: '-0.01em',
+                      }}
+                    >
+                      Download My Resume
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '0.86rem',
+                        color: 'var(--text-secondary)',
+                        lineHeight: 1.4,
+                        marginTop: '0.3rem',
+                      }}
+                    >
+                      Get a copy of my latest resume
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side: Divider + Download Icon */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.35rem', flexShrink: 0, marginLeft: '1rem' }}>
+                  <div
+                    style={{
+                      width: '1px',
+                      height: '38px',
+                      background: 'var(--border-card)',
+                    }}
+                    className="resume-card-divider"
+                  />
+                  <div
+                    className="resume-download-icon-box"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--accent-cyan)',
+                      transition: 'transform 0.2s ease',
+                    }}
+                  >
+                    <Download size={24} color="var(--accent-cyan)" />
+                  </div>
+                </div>
               </a>
             </div>
           </ScrollReveal>
@@ -1013,11 +1084,13 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
           border-color: var(--accent-cyan) !important;
           transform: translateX(2px);
         }
-        .resume-download-btn:hover {
+        .resume-cta-card:hover {
           border-color: var(--accent-cyan) !important;
-          color: var(--accent-cyan) !important;
-          background: var(--accent-cyan-subtle) !important;
+          box-shadow: 0 0 24px var(--accent-cyan-glow) !important;
           transform: translateY(-2px);
+        }
+        .resume-cta-card:hover .resume-download-icon-box {
+          transform: translateY(2px);
         }
         .form-input-field:focus {
           border-color: var(--accent-cyan) !important;
@@ -1064,6 +1137,16 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
             align-items: stretch !important;
           }
           .action-divider {
+            display: none !important;
+          }
+          .resume-cta-card {
+            padding: 1.15rem 1.25rem !important;
+            min-height: auto !important;
+          }
+        }
+
+        @media (max-width: 440px) {
+          .resume-card-divider {
             display: none !important;
           }
         }
