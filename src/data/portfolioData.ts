@@ -386,7 +386,7 @@ export const PORTFOLIO_DATA = {
       title: "JanSetu — Deployed Civic Issue Reporting & Escalation Platform",
       organization: "QUALCOMM HACKATHON",
       type: "Hackathon",
-      badge: "Qualcomm Hackathon",
+      badge: "Hackathon Project",
       description: "Participated in the Qualcomm Snapdragon Multiverse Hackathon, collaborating on an AI-focused project built around Qualcomm's on-device computing ecosystem and exploring optimized AI inference for edge devices.",
       highlights: [
         "Developed and integrated AI capabilities for efficient on-device inference",
