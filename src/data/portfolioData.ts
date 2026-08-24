@@ -61,6 +61,8 @@ export interface JourneyItem {
   badge?: string;
 }
 
+export const RESUME_URL = "https://drive.google.com/file/d/1XbqOPOtspT1fE-rc5Om4RG5dNWelJBru/view?usp=sharing";
+
 export const PORTFOLIO_DATA = {
   personal: {
     name: "Divyansh Gupta",
@@ -117,7 +119,7 @@ export const PORTFOLIO_DATA = {
     ],
     avatarPlaceholderText: "DG",
     portraitPath: "/assets/divyansh_portrait.jpg",
-    resumePath: "/assets/resume.pdf",
+    resumePath: RESUME_URL,
     email: "inbox.DivyanshGupta1@protonmail.com",
     githubUrl: "https://github.com/Divyanshgupta2580",
     linkedinUrl: "https://www.linkedin.com/in/divyanshgupta2007/",

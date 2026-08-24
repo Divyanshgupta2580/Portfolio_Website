@@ -448,7 +448,6 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                 href={p.resumePath}
                 target="_blank"
                 rel="noopener noreferrer"
-                download="Divyansh_Gupta_Resume.pdf"
                 className="resume-cta-card"
                 style={{
                   display: 'flex',
