@@ -19,6 +19,8 @@ import {
   UserCheck,
   Clock,
   ShieldAlert,
+  Radio,
+  Activity,
 } from 'lucide-react';
 
 interface ProjectsProps {
@@ -34,10 +36,13 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
   const [janTab, setJanTab] = useState<'escalation' | 'sla' | 'arch'>('escalation');
   // Active preview tab for Tron
   const [tronTab, setTronTab] = useState<'flow' | 'decision' | 'memory'>('flow');
+  // Active preview tab for RailGuard-AI
+  const [railTab, setRailTab] = useState<'flow' | 'agent' | 'telemetry'>('flow');
 
   const p1 = PORTFOLIO_DATA.projects[0]; // BenefitOS
   const p2 = PORTFOLIO_DATA.projects[1]; // JanSetu
   const p3 = PORTFOLIO_DATA.projects[2]; // Tron
+  const p4 = PORTFOLIO_DATA.projects[3]; // RailGuard-AI
 
   return (
     <section id="projects" className="section" style={{ background: 'var(--bg-primary)', padding: '5rem 0 6rem 0' }}>
@@ -59,7 +64,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               fontSize: '0.92rem',
             }}
           >
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', fontWeight: 600 }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
               <Award size={16} color="var(--accent-cyan)" /> Built for HackHazards'26
             </span>
             <span style={{ color: 'var(--border-subtle)' }}>|</span>
@@ -1161,6 +1166,379 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
             </div>
           </div>
         </ScrollReveal>
+
+        {/* ================================================== */}
+        {/* PROJECT 04: RAILGUARD-AI (VISUAL LEFT / TEXT RIGHT) */}
+        {/* ================================================== */}
+        <ScrollReveal
+          direction="up"
+          delay={0}
+          style={{ marginTop: '5.5rem', paddingTop: '3.5rem', borderTop: '1px solid var(--border-subtle)' }}
+        >
+          {/* Metadata Row */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1.25rem',
+              marginBottom: '1.75rem',
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.92rem',
+            }}
+          >
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
+              <Award size={16} color="var(--accent-cyan)" /> Built for FAR AWAY Hackathon
+            </span>
+            <span style={{ color: 'var(--border-subtle)' }}>|</span>
+            <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1rem' }}>04</span>
+          </div>
+
+          {/* RailGuard Interactive Tabs */}
+          <div
+            style={{
+              display: 'flex',
+              gap: '0.65rem',
+              marginBottom: '1.5rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            <button
+              onClick={() => setRailTab('flow')}
+              style={{
+                padding: '0.45rem 1.15rem',
+                borderRadius: '8px',
+                background: railTab === 'flow' ? 'var(--accent-cyan-subtle)' : 'var(--bg-card)',
+                border: '1px solid',
+                borderColor: railTab === 'flow' ? 'var(--accent-cyan)' : 'var(--border-card)',
+                color: railTab === 'flow' ? 'var(--accent-cyan)' : 'var(--text-secondary)',
+                fontWeight: 650,
+                fontSize: '0.88rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: railTab === 'flow' ? '0 0 12px var(--accent-cyan-glow)' : 'none',
+              }}
+            >
+              System Flow
+            </button>
+            <button
+              onClick={() => setRailTab('agent')}
+              style={{
+                padding: '0.45rem 1.15rem',
+                borderRadius: '8px',
+                background: railTab === 'agent' ? 'var(--accent-purple-subtle)' : 'var(--bg-card)',
+                border: '1px solid',
+                borderColor: railTab === 'agent' ? 'var(--accent-purple)' : 'var(--border-card)',
+                color: railTab === 'agent' ? 'var(--accent-purple)' : 'var(--text-secondary)',
+                fontWeight: 650,
+                fontSize: '0.88rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: railTab === 'agent' ? '0 0 12px var(--accent-purple-glow)' : 'none',
+              }}
+            >
+              Agentic Triage
+            </button>
+            <button
+              onClick={() => setRailTab('telemetry')}
+              style={{
+                padding: '0.45rem 1.15rem',
+                borderRadius: '8px',
+                background: railTab === 'telemetry' ? 'var(--accent-emerald-subtle)' : 'var(--bg-card)',
+                border: '1px solid',
+                borderColor: railTab === 'telemetry' ? 'var(--accent-emerald)' : 'var(--border-card)',
+                color: railTab === 'telemetry' ? 'var(--accent-emerald)' : 'var(--text-secondary)',
+                fontWeight: 650,
+                fontSize: '0.88rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: railTab === 'telemetry' ? '0 0 12px var(--accent-emerald-glow)' : 'none',
+              }}
+            >
+              FogSafe &amp; Telemetry
+            </button>
+          </div>
+
+          {/* RailGuard Two-Column Layout: VISUAL LEFT / TEXT RIGHT */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '0.95fr 1.05fr',
+              gap: '3.5rem',
+              alignItems: 'center',
+            }}
+            className="project-grid-railguard"
+          >
+            {/* ----- LEFT: RAILGUARD TECHNICAL/SYSTEM CARD ----- */}
+            <div
+              style={{
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-card)',
+                borderRadius: '16px',
+                padding: '2.25rem 2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.85rem',
+                boxShadow: 'var(--shadow-card)',
+                minHeight: '340px',
+              }}
+              className="project-visual-railguard"
+            >
+              {railTab === 'flow' && (
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+                  {/* Node 1: FogSafe Edge Nodes */}
+                  <div
+                    style={{
+                      width: '100%',
+                      padding: '0.85rem 1.25rem',
+                      background: 'var(--accent-cyan-subtle)',
+                      border: '1px solid var(--accent-cyan-border)',
+                      borderRadius: '10px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      boxShadow: '0 0 14px var(--accent-cyan-glow)',
+                    }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--text-primary)', fontWeight: 650, fontSize: '0.92rem' }}>
+                      <Radio size={18} color="var(--accent-cyan)" /> FogSafe Edge Telemetry
+                    </span>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>ESP32 + LoRa 433MHz</span>
+                  </div>
+
+                  {/* Arrow 1 */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-secondary)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', padding: '0.1rem 0' }}>
+                    <span>↓</span>
+                    <span>Sub-15ms WebSocket State Bus</span>
+                  </div>
+
+                  {/* Node 2: Central Express & State Engine */}
+                  <div
+                    style={{
+                      width: '100%',
+                      padding: '0.85rem 1.25rem',
+                      background: 'rgba(59, 130, 246, 0.08)',
+                      border: '1px solid rgba(59, 130, 246, 0.35)',
+                      borderRadius: '10px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      boxShadow: '0 0 14px rgba(59, 130, 246, 0.12)',
+                    }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--text-primary)', fontWeight: 650, fontSize: '0.92rem' }}>
+                      <Server size={18} color="var(--accent-blue)" /> Central State Bus
+                    </span>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>Node.js &amp; Socket.IO</span>
+                  </div>
+
+                  {/* Arrow 2 */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--accent-blue)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', padding: '0.1rem 0' }}>
+                    <span>↓</span>
+                    <span>Synchronized Role Broadcasts</span>
+                  </div>
+
+                  {/* Split Nodes */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', width: '100%' }}>
+                    {/* Node 3: Driver Cab HUD */}
+                    <div
+                      style={{
+                        padding: '0.9rem 0.8rem',
+                        background: 'var(--accent-emerald-subtle)',
+                        border: '1px solid var(--accent-emerald-border)',
+                        borderRadius: '10px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                        color: 'var(--accent-emerald)',
+                        fontWeight: 650,
+                        fontSize: '0.86rem',
+                        textAlign: 'center',
+                        boxShadow: '0 0 14px var(--accent-emerald-glow)',
+                      }}
+                    >
+                      <Activity size={16} color="var(--accent-emerald)" />
+                      <span>Loco-Pilot Cab HUD</span>
+                    </div>
+
+                    {/* Node 4: Gemini OCC Dispatch Agent */}
+                    <div
+                      style={{
+                        padding: '0.9rem 0.8rem',
+                        background: 'var(--accent-purple-subtle)',
+                        border: '1px solid var(--accent-purple-border)',
+                        borderRadius: '10px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                        color: 'var(--accent-purple)',
+                        fontWeight: 650,
+                        fontSize: '0.86rem',
+                        textAlign: 'center',
+                        boxShadow: '0 0 14px var(--accent-purple-glow)',
+                      }}
+                    >
+                      <Bot size={16} color="var(--accent-purple)" />
+                      <span>Gemini OCC Agent</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {railTab === 'agent' && (
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-purple)', fontWeight: 700, fontSize: '1rem' }}>
+                    <Bot size={18} /> Deterministic Track Graph &amp; Gemini Function Calling
+                  </div>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
+                    • <strong>106km Sector Graph:</strong> Represents 53 automatic blocks and Clear Standing Room (CSR) loop line capacities.<br />
+                    • <strong>Tool-Calling Grounding:</strong> Invokes mathematical functions (<code style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)' }}>get_loop_capacity</code>, <code style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)' }}>calculate_braking_distance</code>) to eliminate hallucinations.<br />
+                    • <strong>G&amp;SR Rule Enforcement:</strong> Enforces Indian Railway safety rules for loop line clearance and dynamic wrong-way overtake advisories.
+                  </p>
+                </div>
+              )}
+
+              {railTab === 'telemetry' && (
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '1rem' }}>
+                    <Radio size={18} /> Zero-Optical Cab Signaling &amp; Passenger Relay
+                  </div>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
+                    • <strong>LoRa 433MHz Mesh:</strong> Relays signal aspect and visibility telemetry directly into locomotive cabs &gt;3.5 km in advance during severe winter fog.<br />
+                    • <strong>Sub-15ms Passenger SOS:</strong> Instant WebSocket relay from passenger berth beacons to conductor split-flap matrix.<br />
+                    • <strong>Kinetic Deceleration:</strong> Physics calculations for heavy freight and passenger express stopping distances.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* ----- RIGHT: RAILGUARD TEXT & DETAILS ----- */}
+            <div className="project-text-railguard">
+              <h3
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 'clamp(2.4rem, 4.5vw, 3.2rem)',
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.1,
+                  marginBottom: '0.35rem',
+                }}
+              >
+                <span style={{ color: 'var(--text-primary)' }}>RailGuard</span>
+                <span style={{ color: 'var(--accent-cyan)' }}>-AI</span>
+              </h3>
+
+              <div
+                style={{
+                  fontSize: '1.1rem',
+                  fontWeight: 650,
+                  color: 'var(--text-primary)',
+                  marginBottom: '1.25rem',
+                }}
+              >
+                Autonomous Rail Operations &amp; Safety Platform
+              </div>
+
+              <p
+                style={{
+                  fontSize: '0.94rem',
+                  color: 'var(--text-secondary)',
+                  lineHeight: 1.65,
+                  marginBottom: '1.6rem',
+                }}
+              >
+                An autonomous central rail infrastructure orchestration layer and real-time operations platform developed during the FAR AWAY hackathon, combining edge telemetry with LLM reasoning.
+              </p>
+
+              {/* Feature List with Checkmarks */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
+                  <CheckCircle2 size={18} color="var(--accent-cyan)" style={{ flexShrink: 0 }} />
+                  <span>Zero-Optical Cab Signaling &amp; FogSafe Edge Telemetry</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
+                  <CheckCircle2 size={18} color="var(--accent-cyan)" style={{ flexShrink: 0 }} />
+                  <span>Central Real-Time WebSocket State Synchronization Engine</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
+                  <CheckCircle2 size={18} color="var(--accent-purple)" style={{ flexShrink: 0 }} />
+                  <span>Gemini Tool-Calling Agent Grounded in Deterministic Track Graph</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
+                  <CheckCircle2 size={18} color="var(--accent-purple)" style={{ flexShrink: 0 }} />
+                  <span>Automated Conflict Prediction &amp; Dynamic Route Arbitration</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
+                  <CheckCircle2 size={18} color="var(--accent-emerald)" style={{ flexShrink: 0 }} />
+                  <span>Synchronized Loco-Pilot Cab HUD &amp; Conductor Manifest Matrix</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
+                  <CheckCircle2 size={18} color="var(--accent-emerald)" style={{ flexShrink: 0 }} />
+                  <span>FAR AWAY Hackathon Contributor / Team Member</span>
+                </div>
+              </div>
+
+              {/* Technology Badges */}
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem',
+                  marginBottom: '1.75rem',
+                }}
+              >
+                {['React', 'Node.js', 'Express', 'Socket.IO', 'Google Gemini AI', 'TypeScript', 'IoT / LoRa', 'Python'].map((t, idx) => (
+                  <span
+                    key={idx}
+                    style={{
+                      background: 'var(--bg-secondary)',
+                      border: '1px solid var(--border-subtle)',
+                      color: 'var(--text-primary)',
+                      fontSize: '0.78rem',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 600,
+                      padding: '0.35rem 0.75rem',
+                      borderRadius: '6px',
+                    }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <div>
+                <button
+                  onClick={() => setSelectedProject(p4)}
+                  style={{
+                    background: 'var(--accent-cyan-subtle)',
+                    border: '1px solid var(--accent-cyan)',
+                    color: 'var(--accent-cyan)',
+                    padding: '0.75rem 1.6rem',
+                    borderRadius: '8px',
+                    fontWeight: 750,
+                    fontSize: '0.92rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 0 16px var(--accent-cyan-glow)',
+                  }}
+                  className="project-cta-btn"
+                >
+                  <span>View Technical Specs</span>
+                  <ArrowUpRight size={16} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Deep Dive Technical Specs Modal */}
@@ -1186,7 +1564,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
         }
 
         @media (max-width: 968px) {
-          .project-grid-benefit, .project-grid-jansetu, .project-grid-tron {
+          .project-grid-benefit, .project-grid-jansetu, .project-grid-tron, .project-grid-railguard {
             grid-template-columns: 1fr !important;
             gap: 2.5rem !important;
           }
@@ -1206,6 +1584,12 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
             order: 1 !important;
           }
           .project-visual-tron {
+            order: 2 !important;
+          }
+          .project-visual-railguard {
+            order: 1 !important;
+          }
+          .project-text-railguard {
             order: 2 !important;
           }
         }

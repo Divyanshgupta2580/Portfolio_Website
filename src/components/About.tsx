@@ -78,7 +78,7 @@ export const About: React.FC<AboutProps> = () => {
       icon: <Layers size={18} color="var(--accent-blue)" />,
     },
     {
-      value: '15+',
+      value: '5+',
       label: 'Hackathon',
       sub: 'Participations',
       color: 'var(--accent-purple)',

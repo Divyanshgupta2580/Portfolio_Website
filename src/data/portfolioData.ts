@@ -301,6 +301,33 @@ export const PORTFOLIO_DATA = {
       architectureOverview: "Tron runs an autonomous evaluation and synthesis loop. Discovered candidate topics undergo editorial scoring and rejection filtering. Qualifying candidates trigger structured generation via Gemini (failing over to Groq). Output is verified against primary citations and arXiv, checked against SQLite persistent memory to guarantee zero duplicates, and published autonomously.",
       githubUrl: undefined,
       demoUrl: undefined,
+    },
+    {
+      id: "railguard-ai",
+      title: "RailGuard-AI",
+      subtitle: "Autonomous Central Rail Operations & Safety Platform",
+      badge: "Built for FAR AWAY Hackathon",
+      category: "Software / AI",
+      shortDescription: "An autonomous central rail infrastructure orchestration layer and real-time operations platform developed during the FAR AWAY hackathon, combining edge telemetry with LLM reasoning.",
+      fullDescription: "RailGuard-AI is an autonomous central rail infrastructure orchestration platform built during the FAR AWAY hackathon. The system addresses low-visibility winter fog hazards and fragmented rail operations by providing a real-time data bus with sub-15ms WebSocket state synchronization across loco-pilot cabs, ticket examiners, and control centers. It integrates FogSafe edge telemetry with Gemini LLM reasoning grounded in a deterministic railway sector graph and Indian Railway G&SR operating rules to predict track anomalies and optimize network scheduling.",
+      highlights: [
+        "Zero-Optical Cab Signaling & FogSafe Edge Telemetry Integration",
+        "Central Real-Time WebSocket State Synchronization Engine (Sub-15ms)",
+        "Gemini Function-Calling Agent Grounded in Track Graph & G&SR Rules",
+        "Automated Conflict Prediction & Dynamic Loop Line Route Arbitration",
+        "Synchronized Loco-Pilot Cab HUD & Conductor Manifest Matrix",
+        "FAR AWAY Hackathon Contributor / Team Member"
+      ],
+      technologies: ["React", "Node.js", "Express", "Socket.IO", "Google Gemini AI", "TypeScript", "IoT / LoRa", "Python"],
+      technicalSpecs: [
+        { label: "Event / Context", value: "FAR AWAY Hackathon (Railways Theme)" },
+        { label: "Role", value: "Contributor / Team Member" },
+        { label: "Real-Time Bus", value: "Sub-15ms WebSocket State Sync Engine" },
+        { label: "AI Reasoning", value: "Gemini Tool Calling over Deterministic Track Graph" }
+      ],
+      architectureOverview: "RailGuard-AI implements a unified real-time architecture where physical edge telemetry feeds into a Node.js/Socket.IO central state bus. A deterministic 106km track graph model enforces safety clearances and braking physics while a Gemini AI agent uses function-calling tools to evaluate track capacity and issue conflict-free dispatch advisories to driver and conductor interfaces.",
+      githubUrl: "https://github.com/rishav-raj-genx/RailGuard-AI",
+      demoUrl: undefined,
     }
   ] as Project[],
 
@@ -364,6 +391,19 @@ export const PORTFOLIO_DATA = {
         "Mapped scheme dependencies using Neo4j graph nodes",
         "Integrated OCR document parsing with RAG query systems",
         "Engineered intelligent eligibility workflows and API microservices"
+      ]
+    },
+    {
+      year: "2026",
+      title: "RailGuard-AI — Autonomous Rail Operations & Safety Platform",
+      organization: "FAR AWAY HACKATHON",
+      type: "Hackathon",
+      badge: "Built for FAR AWAY",
+      description: "Contributed as a team member to RailGuard-AI during the FAR AWAY hackathon, developing an autonomous rail infrastructure orchestration platform combining real-time edge telemetry and Gemini AI dispatch reasoning.",
+      highlights: [
+        "Real-time WebSocket telemetry synchronization across rail operations",
+        "Integrated FogSafe edge telemetry for zero-optical low-visibility cab signaling",
+        "Grounded Gemini agent reasoning on deterministic track graphs and G&SR safety rules"
       ]
     },
     {
