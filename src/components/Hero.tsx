@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { ScrollReveal } from './ScrollReveal';
-import { Send, Terminal, Sparkles, Cpu, Code2, Mail, Briefcase, Trophy, ArrowRight } from 'lucide-react';
+import { Send, Terminal, Sparkles, Code2, Mail, Briefcase, Trophy, ArrowRight } from 'lucide-react';
 
 interface HeroProps {
   onContactClick: () => void;
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 fontWeight: 400,
               }}
             >
-              Building practical software, AI systems, and hardware edge engineering projects that solve real problems.
+              {p.bio}
             </p>
 
             {/* Hero Action Buttons */}
@@ -386,7 +386,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               </span>
             </div>
 
-            {/* FLOATING BADGE 4: Arduino UNO Q (Bottom-Right) */}
+            {/* FLOATING BADGE 4: TypeScript (Bottom-Right) */}
             <div
               className="floating-tech-badge badge-bottom-right"
               style={{
@@ -406,9 +406,9 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 boxShadow: 'var(--shadow-card)',
               }}
             >
-              <Cpu size={16} color="var(--accent-emerald)" />
+              <Code2 size={16} color="var(--accent-emerald)" />
               <span style={{ fontSize: '0.84rem', fontWeight: 650, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>
-                Arduino UNO Q
+                TypeScript
               </span>
             </div>
           </ScrollReveal>
@@ -571,7 +571,7 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 FOCUS
               </div>
               <div style={{ fontWeight: 750, fontSize: '1.05rem', color: 'var(--text-primary)' }}>
-                Hackathon & Edge Systems
+                Hackathons & AI Systems
               </div>
             </div>
           </div>

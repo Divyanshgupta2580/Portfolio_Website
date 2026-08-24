@@ -36,7 +36,7 @@ export const Journey: React.FC = () => {
             <>
               <span>Jan</span>
               <span style={{ color: 'var(--accent-emerald)' }}>Setu</span>
-              <span> — Autonomous Streetlight Failure System</span>
+              <span> — Deployed Civic Issue Reporting &amp; Escalation Platform</span>
             </>
           ),
         };

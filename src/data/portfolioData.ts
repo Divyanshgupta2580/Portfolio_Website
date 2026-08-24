@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   subtitle: string;
   badge: string;
-  category: 'Software / AI' | 'Hardware / Edge';
+  category: 'Software / AI';
   shortDescription: string;
   fullDescription: string;
   highlights: string[];
@@ -54,7 +54,7 @@ export interface JourneyItem {
   year: string;
   title: string;
   organization: string;
-  type: 'Education' | 'Hackathon' | 'Industry/Hardware' | 'Engineering';
+  type: 'Education' | 'Hackathon' | 'Industry' | 'Engineering' | 'Systems';
   description: string;
   highlights: string[];
   badge?: string;
@@ -65,23 +65,23 @@ export const PORTFOLIO_DATA = {
     name: "Divyansh Gupta",
     headline: "Engineering Student · Software Developer · AI/ML Enthusiast",
     statusBadge: "Engineering Student · Open to Opportunities",
-    bio: "Building practical software, AI systems, and hardware edge engineering projects that solve real problems.",
-    aboutP1: "I am Divyansh Gupta, an engineering student and developer focused on building dependable software systems, intelligent algorithms, and hardware edge solutions.",
-    aboutP2: "I engineer production-minded applications — combining robust full-stack software architectures with AI-powered RAG pipelines, graph data modeling, and embedded hardware edge systems.",
-    aboutP3: "From building the BenefitOS welfare discovery platform for HackHazards'26 to developing the JanSetu autonomous streetlight monitoring system for Qualcomm, my focus is on practical, high-impact engineering.",
+    bio: "Building practical software, AI systems, and backend architectures that solve real problems.",
+    aboutP1: "I am Divyansh Gupta, an engineering student and developer focused on building dependable software systems, intelligent algorithms, and practical software solutions.",
+    aboutP2: "I engineer production-minded applications — combining robust full-stack software architectures with AI-powered RAG pipelines, graph data modeling, and distributed backend systems.",
+    aboutP3: "From building the BenefitOS welfare discovery platform for HackHazards'26 to developing the JanSetu civic issue reporting and escalation platform, my focus is on practical, high-impact engineering.",
     aboutChips: [
       "C++",
       "Python",
       "TypeScript",
-      "React Native",
+      "React",
       "Node.js",
       "Express",
       "Neo4j",
-      "Arduino UNO Q",
-      "IoT",
+      "Docker",
       "RAG / AI",
-      "Expo",
-      "Docker"
+      "OCR",
+      "REST APIs",
+      "Git & GitHub"
     ],
     aboutCards: [
       {
@@ -97,22 +97,22 @@ export const PORTFOLIO_DATA = {
         line2: "Platform"
       },
       {
-        iconName: "Cpu",
+        iconName: "Network",
         label: "JanSetu",
-        line1: "Qualcomm",
-        line2: "Edge Project"
+        line1: "Civic Issue",
+        line2: "Platform"
       },
       {
         iconName: "Code2",
         label: "Technical Stack",
         line1: "Software, AI",
-        line2: "& Hardware"
+        line2: "& Systems"
       }
     ] as AboutCard[],
     highlights: [
       { label: "Role", value: "Engineering Student" },
       { label: "Domains", value: "AI/ML & Software Dev" },
-      { label: "Focus", value: "Hackathon & Edge Systems Builder" },
+      { label: "Focus", value: "Hackathons & AI Systems" },
     ],
     avatarPlaceholderText: "DG",
     portraitPath: "/assets/divyansh_portrait.jpg",
@@ -142,18 +142,18 @@ export const PORTFOLIO_DATA = {
     {
       id: "cap-3",
       num: "03",
-      title: "Cross-Platform Mobile Apps",
-      description: "Developing responsive, accessible mobile applications using React Native and Expo paired with type-safe state management.",
+      title: "Full-Stack Web Engineering",
+      description: "Building responsive, maintainable web applications and interfaces using React, TypeScript, and modern state architecture.",
       iconName: "Layers",
-      tags: ["React Native", "Expo", "Mobile UI", "TypeScript"]
+      tags: ["React", "TypeScript", "Web UI", "Frontend"]
     },
     {
       id: "cap-4",
       num: "04",
-      title: "Hardware & Embedded Systems",
-      description: "Building embedded solutions with Arduino, custom sensor integration, and real-time control systems for practical applications.",
-      iconName: "Cpu",
-      tags: ["Arduino", "Sensors", "C / C++", "Embedded"]
+      title: "Graph Systems & Data Modeling",
+      description: "Modeling complex data relationships using graph databases like Neo4j and building high-performance query workflows.",
+      iconName: "Database",
+      tags: ["Neo4j", "Graph Database", "Cypher", "Data Modeling"]
     },
     {
       id: "cap-5",
@@ -179,22 +179,21 @@ export const PORTFOLIO_DATA = {
       description: "Core languages used for systems engineering, backend logic, and AI workflows.",
       iconName: "Code2",
       skills: [
-        { name: "C++", tag: "Systems / Embedded", level: "Proficient" },
+        { name: "C++", tag: "Systems / Logic", level: "Proficient" },
         { name: "Python", tag: "AI / Scripting", level: "Proficient" },
         { name: "TypeScript", tag: "Type-Safe Fullstack", level: "Proficient" },
-        { name: "JavaScript", tag: "Web & Mobile", level: "Proficient" },
+        { name: "JavaScript", tag: "Web & Fullstack", level: "Proficient" },
       ],
     },
     {
-      title: "Software & Mobile Development",
-      description: "Frameworks for cross-platform mobile apps and web backends.",
+      title: "Software & Web Development",
+      description: "Frameworks and libraries for web applications and backend services.",
       iconName: "Layers",
       skills: [
         { name: "React", tag: "Web UI", level: "Proficient" },
-        { name: "React Native", tag: "Cross-Platform Mobile", level: "Proficient" },
         { name: "Node.js", tag: "Backend Runtime", level: "Proficient" },
         { name: "Express", tag: "REST Microservices", level: "Proficient" },
-        { name: "Expo", tag: "Mobile Ecosystem", level: "Proficient" },
+        { name: "RESTful APIs", tag: "API Architecture", level: "Proficient" },
       ],
     },
     {
@@ -215,19 +214,8 @@ export const PORTFOLIO_DATA = {
       skills: [
         { name: "Neo4j", tag: "Graph Relationships", level: "Proficient" },
         { name: "Git & GitHub", tag: "Version Control", level: "Proficient" },
-        { name: "RESTful APIs", tag: "Integration", level: "Proficient" },
+        { name: "SQL & Relational", tag: "Data Storage", level: "Proficient" },
         { name: "Docker", tag: "Containerization", level: "Intermediate" },
-      ],
-    },
-    {
-      title: "Hardware & Edge Computing",
-      description: "Edge computing, microcontrollers, and sensor integration.",
-      iconName: "Cpu",
-      skills: [
-        { name: "Arduino UNO Q", tag: "MCU + Linux MPU", level: "Proficient" },
-        { name: "Embedded C++", tag: "Microcontroller Logic", level: "Proficient" },
-        { name: "IoT Sensor Arrays", tag: "LDR & Telemetry", level: "Proficient" },
-        { name: "Edge Computing", tag: "Local Diagnostics", level: "Intermediate" },
       ],
     },
   ] as SkillCategory[],
@@ -247,42 +235,42 @@ export const PORTFOLIO_DATA = {
         "Document Readiness & Verification Workflow via OCR",
         "Conversational AI Assistant for Scheme Guidance",
         "Graph-Based Scheme & Beneficiary Relationship Mapping (Neo4j)",
-        "Cross-Platform Mobile App built with React Native & Expo",
+        "Decoupled Client-Server & API Architecture",
         "Express & Node.js API Microservice Architecture"
       ],
-      technologies: ["React Native", "Expo", "TypeScript", "Node.js", "Express", "Neo4j", "AI / RAG", "OCR"],
+      technologies: ["TypeScript", "Node.js", "Express", "Neo4j", "AI / RAG", "OCR", "React"],
       technicalSpecs: [
-        { label: "Target Platform", value: "Cross-Platform Mobile (React Native / Expo)" },
+        { label: "Architecture", value: "Decoupled Client & Express API Gateway" },
         { label: "Data Model", value: "Neo4j Graph Nodes & Traversal Edges" },
         { label: "AI Integration", value: "RAG Recommendation & OCR Parser" }
       ],
-      architectureOverview: "BenefitOS uses a decoupled architecture where a React Native mobile application connects to an Express gateway. Scheme requirements are represented as nodes and edges in Neo4j to allow deep relationship queries. An OCR service processes uploaded identity documents, feeding verified metadata into the RAG recommendation pipeline.",
+      architectureOverview: "BenefitOS uses a decoupled architecture where a client application connects to an Express gateway. Scheme requirements are represented as nodes and edges in Neo4j to allow deep relationship queries. An OCR service processes uploaded identity documents, feeding verified metadata into the RAG recommendation pipeline.",
       githubUrl: undefined,
       demoUrl: undefined,
     },
     {
       id: "jansetu",
       title: "JanSetu",
-      subtitle: "Autonomous Streetlight Failure Detection System",
-      badge: "Built for Qualcomm",
-      category: "Hardware / Edge",
-      shortDescription: "An autonomous streetlight monitoring and failure-detection system designed around an edge device and sensor-based monitoring.",
-      fullDescription: "JanSetu is a smart hardware innovation engineered to monitor lighting infrastructure without manual inspection. Leveraging light-dependent resistor (LDR) sensor arrays coupled with the dual MCU + Linux MPU architecture of the Arduino UNO Q, JanSetu identifies lamp outages and grid failures, transmitting diagnostic alerts to central monitoring endpoints.",
+      subtitle: "Deployed Civic Issue Reporting & Escalation Platform",
+      badge: "Deployed Civic Platform",
+      category: "Software / AI",
+      shortDescription: "A deployed civic issue reporting and tracking platform that enables citizens to report problems in their surrounding neighborhoods with automated 48-hour officer escalation.",
+      fullDescription: "JanSetu is a deployed civic issue reporting and tracking platform that enables citizens to report problems in their surrounding neighborhoods, such as potholes, broken streetlights, and other public-infrastructure issues. When a citizen reports a local issue, the system records and tracks the complaint, assigning it to the responsible officer. The assigned officer is expected to resolve the issue within 48 hours. If the assigned officer does not resolve the issue within 48 hours, the platform automatically escalates the complaint to a higher-level officer, establishing an administrative accountability workflow for unresolved civic complaints.",
       highlights: [
-        "LDR-Based Streetlight Intensity & Power Monitoring",
-        "Automatic Fault Detection Engine",
-        "Dual-Core Arduino UNO Q Edge Architecture (MCU Firmware + Linux MPU OS)",
-        "Embedded C++ Sensor Interfacing & Threshold Logic",
-        "Python-Based Edge Networking & Asynchronous Communication",
-        "Automated Fault Incident Reporting & Diagnostic Logging"
+        "Citizen Civic Issue Reporting & Tracking Workflow",
+        "Automated Responsible Officer Assignment",
+        "48-Hour Resolution SLA Monitoring",
+        "Automatic Escalation to Higher-Level Officers for Unresolved Issues",
+        "Administrative Accountability & Resolution Status Tracking",
+        "Infrastructure Diagnostics & Incident Alert Generation"
       ],
-      technologies: ["Arduino UNO Q", "C++", "Python", "IoT", "Edge Computing", "Embedded Systems"],
+      technologies: ["TypeScript", "Python", "Node.js", "C++", "IoT", "Edge Computing"],
       technicalSpecs: [
-        { label: "Hardware Platform", value: "Arduino UNO Q" },
-        { label: "Core Processing", value: "MCU (C++ Firmware) + MPU (Linux Python)" },
-        { label: "Sensor Mechanism", value: "LDR Array & Circuit Power Monitor" }
+        { label: "Platform Type", value: "Deployed Civic Issue & Escalation Platform" },
+        { label: "Resolution SLA", value: "48-Hour Automatic Hierarchical Escalation" },
+        { label: "Workflow Engine", value: "Citizen Report -> Officer Assignment -> Escalation" }
       ],
-      architectureOverview: "JanSetu pairs low-level C++ microcontroller sensor acquisition loops on the Arduino UNO Q's MCU with a Linux-based MPU running Python daemon scripts. Sensor readings are processed locally to evaluate thresholds before transmitting diagnostic payload reports to central monitoring servers.",
+      architectureOverview: "JanSetu is built around an end-to-end civic reporting and accountability workflow. Citizens submit local infrastructure complaints through the platform. The system records each issue, assigns it to the designated local officer, and tracks the resolution status. An automated SLA monitoring engine tracks the 48-hour resolution window; if unresolved, the complaint is escalated to a higher-level officer to enforce administrative accountability.",
       githubUrl: undefined,
       docsUrl: undefined,
     },
@@ -325,7 +313,7 @@ export const PORTFOLIO_DATA = {
       badge: "Open to Internships",
       description: "Full-stack and backend software engineering roles focusing on building robust, scalable applications.",
       features: [
-        "Full-Stack Web & Mobile Development (React, React Native, TypeScript)",
+        "Full-Stack Web Development (React, TypeScript, Modern UI)",
         "Backend & Microservice Architectures (Node.js, Express, REST APIs)",
         "Systems Programming & Algorithm Design (C++, Python)",
         "Clean, Maintainable, Modular Codebases"
@@ -348,19 +336,19 @@ export const PORTFOLIO_DATA = {
       ctaLabel: "Discuss AI Collaboration"
     },
     {
-      id: "opp-hardware",
+      id: "opp-backend",
       num: "03",
-      title: "Hardware & Edge Systems",
+      title: "Backend & Distributed Systems",
       opportunityType: "Freelance / Project",
-      badge: "Embedded & Edge",
-      description: "Engineering collaborations involving embedded microcontrollers, IoT sensor telemetry, and edge diagnostics.",
+      badge: "Systems & APIs",
+      description: "Engineering collaborations involving backend architectures, API integrations, and scalable database systems.",
       features: [
-        "Embedded C++ Microcontroller Programming (Arduino UNO Q)",
-        "Linux MPU Daemon & Telemetry Scripting (Python)",
-        "Autonomous Sensor Interfacing & Fault Detection Logic",
-        "Physical Device & Gateway Communication"
+        "Backend API Design & Microservice Integration (Node.js, Express)",
+        "Graph & Relational Database Architecture (Neo4j, SQL)",
+        "High-Performance System Logic & Algorithms (C++, Python)",
+        "Secure, Production-Minded Software Deployments"
       ],
-      ctaLabel: "Discuss Hardware Projects"
+      ctaLabel: "Discuss Backend Projects"
     }
   ] as OpportunityItem[],
 
@@ -375,20 +363,20 @@ export const PORTFOLIO_DATA = {
       highlights: [
         "Mapped scheme dependencies using Neo4j graph nodes",
         "Integrated OCR document parsing with RAG query systems",
-        "Developed cross-platform mobile interfaces with React Native & Expo"
+        "Engineered intelligent eligibility workflows and API microservices"
       ]
     },
     {
       year: "2026",
-      title: "JanSetu — Autonomous Streetlight Failure System",
-      organization: "QUALCOMM PROJECT",
-      type: "Industry/Hardware",
-      badge: "Built for Qualcomm",
-      description: "Engineered an edge hardware system on the Arduino UNO Q platform for autonomous municipal streetlight failure detection and incident reporting.",
+      title: "JanSetu — Deployed Civic Issue Reporting & Escalation Platform",
+      organization: "CIVIC TECH PROJECT",
+      type: "Engineering",
+      badge: "Deployed Platform",
+      description: "Engineered a deployed civic issue reporting and tracking platform that enables citizens to report public infrastructure issues with an automated 48-hour officer escalation workflow.",
       highlights: [
-        "Programmed MCU sensor reading loops in Embedded C++",
-        "Developed MPU networking & telemetry scripts in Python",
-        "Achieved autonomous fault detection using LDR sensor arrays"
+        "Implemented automated 48-hour hierarchical escalation workflow",
+        "Built citizen issue reporting and real-time status tracking pipeline",
+        "Integrated responsible officer assignment and SLA monitoring"
       ]
     },
     {
@@ -407,9 +395,9 @@ export const PORTFOLIO_DATA = {
     {
       year: "Ongoing",
       title: "Building & Technical Collaboration",
-      organization: "SOFTWARE & HARDWARE DEVELOPMENT",
+      organization: "SOFTWARE & AI SYSTEMS",
       type: "Engineering",
-      description: "Continuously experimenting with AI APIs, software architectures, embedded IoT networks, and developer tooling.",
+      description: "Continuously experimenting with AI APIs, software architectures, RAG pipelines, and developer tooling.",
       highlights: [
         "Building practical software that addresses real-world challenges"
       ]

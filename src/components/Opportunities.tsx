@@ -1,7 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
-import { Sparkles, CheckCircle2, ArrowRight, Code2, Briefcase, Cpu } from 'lucide-react';
+import { Sparkles, CheckCircle2, ArrowRight, Code2, Briefcase, Server } from 'lucide-react';
 
 interface OpportunitiesProps {
   onSelectOpportunity: (opportunityType: string) => void;
@@ -44,7 +44,7 @@ export const Opportunities: React.FC<OpportunitiesProps> = ({ onSelectOpportunit
         };
       case 'Freelance / Project':
         return {
-          icon: <Cpu size={22} color="var(--accent-emerald)" />,
+          icon: <Server size={22} color="var(--accent-emerald)" />,
           accentColor: 'var(--accent-emerald)',
           badgeColor: 'var(--accent-emerald)',
           badgeBg: 'var(--accent-emerald-subtle)',

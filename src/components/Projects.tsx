@@ -5,18 +5,20 @@ import { ProjectModal } from './ProjectModal';
 import { ScrollReveal } from './ScrollReveal';
 import {
   Award,
-  Smartphone,
   Zap,
   Database,
   Network,
   CheckCircle2,
   ArrowUpRight,
-  Cpu,
   Server,
-  Activity,
   Sparkles,
   Bot,
   BookOpen,
+  Layers,
+  Users,
+  UserCheck,
+  Clock,
+  ShieldAlert,
 } from 'lucide-react';
 
 interface ProjectsProps {
@@ -29,7 +31,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
   // Active preview tab for BenefitOS
   const [benefitTab, setBenefitTab] = useState<'flow' | 'rag' | 'neo4j'>('flow');
   // Active preview tab for JanSetu
-  const [janTab, setJanTab] = useState<'flow' | 'edge' | 'logic'>('logic');
+  const [janTab, setJanTab] = useState<'escalation' | 'sla' | 'arch'>('escalation');
   // Active preview tab for Tron
   const [tronTab, setTronTab] = useState<'flow' | 'decision' | 'memory'>('flow');
 
@@ -206,7 +208,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                   marginBottom: '1.75rem',
                 }}
               >
-                {['React Native', 'Expo', 'TypeScript', 'Node.js', 'Express', 'Neo4j', 'AI / RAG', 'OCR'].map((t, idx) => (
+                {['TypeScript', 'Node.js', 'Express', 'Neo4j', 'AI / RAG', 'OCR', 'React'].map((t, idx) => (
                   <span
                     key={idx}
                     style={{
@@ -271,7 +273,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
             >
               {benefitTab === 'flow' && (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-                  {/* Node 1: React Native / Expo App */}
+                  {/* Node 1: Client Application */}
                   <div
                     style={{
                       width: '100%',
@@ -286,9 +288,9 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                     }}
                   >
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--text-primary)', fontWeight: 650, fontSize: '0.94rem' }}>
-                      <Smartphone size={18} color="var(--accent-cyan)" /> React Native / Expo App
+                      <Layers size={18} color="var(--accent-cyan)" /> Client Application
                     </span>
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>Mobile UI</span>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>Client UI</span>
                   </div>
 
                   {/* Arrow 1 */}
@@ -376,7 +378,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                     <Sparkles size={18} /> OCR Document Extraction &amp; RAG Workflow
                   </div>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-                    1. Mobile user uploads identity/income verification document.<br />
+                    1. Citizen uploads identity/income verification document.<br />
                     2. OCR pipeline extracts structured key-value entities and text fields.<br />
                     3. Semantic embeddings match extracted attributes against national welfare database criteria.<br />
                     4. Vector retrieval ranks qualifying citizen benefits with explainable rationale.
@@ -423,7 +425,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
             }}
           >
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
-              <Award size={16} color="var(--accent-emerald)" /> Built for Qualcomm
+              <Award size={16} color="var(--accent-emerald)" /> Deployed Civic Platform
             </span>
             <span style={{ color: 'var(--border-subtle)' }}>|</span>
             <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1rem' }}>02</span>
@@ -439,58 +441,58 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
             }}
           >
             <button
-              onClick={() => setJanTab('flow')}
+              onClick={() => setJanTab('escalation')}
               style={{
                 padding: '0.45rem 1.15rem',
                 borderRadius: '8px',
-                background: janTab === 'flow' ? 'var(--accent-emerald-subtle)' : 'var(--bg-card)',
+                background: janTab === 'escalation' ? 'var(--accent-emerald-subtle)' : 'var(--bg-card)',
                 border: '1px solid',
-                borderColor: janTab === 'flow' ? 'var(--accent-emerald)' : 'var(--border-card)',
-                color: janTab === 'flow' ? 'var(--accent-emerald)' : 'var(--text-secondary)',
+                borderColor: janTab === 'escalation' ? 'var(--accent-emerald)' : 'var(--border-card)',
+                color: janTab === 'escalation' ? 'var(--accent-emerald)' : 'var(--text-secondary)',
                 fontWeight: 650,
                 fontSize: '0.88rem',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
-                boxShadow: janTab === 'flow' ? '0 0 12px var(--accent-emerald-glow)' : 'none',
+                boxShadow: janTab === 'escalation' ? '0 0 12px var(--accent-emerald-glow)' : 'none',
               }}
             >
-              Edge Topology
+              Escalation Flow
             </button>
             <button
-              onClick={() => setJanTab('edge')}
+              onClick={() => setJanTab('sla')}
               style={{
                 padding: '0.45rem 1.15rem',
                 borderRadius: '8px',
-                background: janTab === 'edge' ? 'var(--accent-cyan-subtle)' : 'var(--bg-card)',
+                background: janTab === 'sla' ? 'var(--accent-amber-subtle)' : 'var(--bg-card)',
                 border: '1px solid',
-                borderColor: janTab === 'edge' ? 'var(--accent-cyan)' : 'var(--border-card)',
-                color: janTab === 'edge' ? 'var(--accent-cyan)' : 'var(--text-secondary)',
+                borderColor: janTab === 'sla' ? 'var(--accent-amber)' : 'var(--border-card)',
+                color: janTab === 'sla' ? 'var(--accent-amber)' : 'var(--text-secondary)',
                 fontWeight: 650,
                 fontSize: '0.88rem',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
-                boxShadow: janTab === 'edge' ? '0 0 12px var(--accent-cyan-glow)' : 'none',
+                boxShadow: janTab === 'sla' ? '0 0 12px var(--accent-amber-glow)' : 'none',
               }}
             >
-              Dual Core Arch
+              48-Hour SLA
             </button>
             <button
-              onClick={() => setJanTab('logic')}
+              onClick={() => setJanTab('arch')}
               style={{
                 padding: '0.45rem 1.15rem',
                 borderRadius: '8px',
-                background: janTab === 'logic' ? 'var(--accent-amber-subtle)' : 'var(--bg-card)',
+                background: janTab === 'arch' ? 'var(--accent-cyan-subtle)' : 'var(--bg-card)',
                 border: '1px solid',
-                borderColor: janTab === 'logic' ? 'var(--accent-amber)' : 'var(--border-card)',
-                color: janTab === 'logic' ? 'var(--accent-amber)' : 'var(--text-secondary)',
+                borderColor: janTab === 'arch' ? 'var(--accent-cyan)' : 'var(--border-card)',
+                color: janTab === 'arch' ? 'var(--accent-cyan)' : 'var(--text-secondary)',
                 fontWeight: 650,
                 fontSize: '0.88rem',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
-                boxShadow: janTab === 'logic' ? '0 0 12px var(--accent-amber-glow)' : 'none',
+                boxShadow: janTab === 'arch' ? '0 0 12px var(--accent-cyan-glow)' : 'none',
               }}
             >
-              Fault Logic
+              Architecture
             </button>
           </div>
 
@@ -521,29 +523,13 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
               }}
               className="project-visual-jansetu"
             >
-              {janTab === 'logic' && (
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '1rem', padding: '0.5rem 0' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--accent-amber)', fontWeight: 700, fontSize: '1.02rem' }}>
-                    <Zap size={19} color="var(--accent-amber)" /> Autonomous Outage &amp; Flicker Diagnostics
-                  </div>
-                  <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.65 }}>
-                    <div style={{ marginBottom: '0.75rem' }}>
-                      • Compares scheduled grid activation cycles against real-time photometric telemetry.
-                    </div>
-                    <div>
-                      • Differentiates between lamp burnout, low-voltage brownout, and dirty sensor lenses.
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {janTab === 'flow' && (
+              {janTab === 'escalation' && (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-                  {/* Node 1 */}
+                  {/* Node 1: Citizen Issue Report */}
                   <div
                     style={{
                       width: '100%',
-                      padding: '0.9rem 1.25rem',
+                      padding: '0.85rem 1.25rem',
                       background: 'var(--accent-emerald-subtle)',
                       border: '1px solid var(--accent-emerald-border)',
                       borderRadius: '10px',
@@ -552,21 +538,21 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--accent-emerald)', fontWeight: 650, fontSize: '0.94rem' }}>
-                      <Cpu size={18} color="var(--accent-emerald)" /> LDR Sensor Light Array
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--accent-emerald)', fontWeight: 650, fontSize: '0.92rem' }}>
+                      <Users size={18} color="var(--accent-emerald)" /> Citizen Issue Report
                     </span>
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>Analog ADC</span>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>Potholes &amp; Streetlights</span>
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--accent-emerald)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>
-                    <span>↓ Embedded C++ MCU Loop</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--accent-emerald)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>
+                    <span>↓ Ingest &amp; Assign to Local Officer</span>
                   </div>
 
-                  {/* Node 2 */}
+                  {/* Node 2: Responsible Officer Assigned */}
                   <div
                     style={{
                       width: '100%',
-                      padding: '0.9rem 1.25rem',
+                      padding: '0.85rem 1.25rem',
                       background: 'var(--accent-cyan-subtle)',
                       border: '1px solid var(--accent-cyan-border)',
                       borderRadius: '10px',
@@ -575,21 +561,21 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--text-primary)', fontWeight: 650, fontSize: '0.94rem' }}>
-                      <Server size={18} color="var(--accent-cyan)" /> Arduino UNO Q Linux MPU
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: 'var(--text-primary)', fontWeight: 650, fontSize: '0.92rem' }}>
+                      <UserCheck size={18} color="var(--accent-cyan)" /> Officer Assigned
                     </span>
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>Python Daemon</span>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>48-Hour Resolution SLA</span>
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--accent-cyan)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)' }}>
-                    <span>↓ Telemetry &amp; Alert Dispatch</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--accent-amber)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>
+                    <span>↓ If Unresolved within 48 Hours</span>
                   </div>
 
-                  {/* Node 3 */}
+                  {/* Node 3: Escalation to Higher Officer */}
                   <div
                     style={{
                       width: '100%',
-                      padding: '1.1rem 1rem',
+                      padding: '1rem 1rem',
                       background: 'var(--accent-amber-subtle)',
                       border: '1px solid var(--accent-amber-border)',
                       borderRadius: '10px',
@@ -599,23 +585,55 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                       gap: '0.6rem',
                       color: 'var(--accent-amber)',
                       fontWeight: 700,
-                      fontSize: '0.9rem',
+                      fontSize: '0.88rem',
                     }}
                   >
-                    <Activity size={18} color="var(--accent-amber)" />
-                    <span>Municipal Monitoring Dashboard Endpoint</span>
+                    <ShieldAlert size={18} color="var(--accent-amber)" />
+                    <span>Automatic Escalation to Higher-Level Officer</span>
                   </div>
                 </div>
               )}
 
-              {janTab === 'edge' && (
+              {janTab === 'sla' && (
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.85rem', padding: '0.25rem 0' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-amber)', fontWeight: 700, fontSize: '1rem' }}>
+                    <Clock size={18} color="var(--accent-amber)" /> 48-Hour Accountability Workflow
+                  </div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: '0.86rem', lineHeight: 1.65 }}>
+                    <div style={{ marginBottom: '0.35rem' }}>
+                      1. A citizen reports a local civic issue through JanSetu.
+                    </div>
+                    <div style={{ marginBottom: '0.35rem' }}>
+                      2. The issue is recorded and tracked by the system.
+                    </div>
+                    <div style={{ marginBottom: '0.35rem' }}>
+                      3. The reported issue is assigned to the responsible officer.
+                    </div>
+                    <div style={{ marginBottom: '0.35rem' }}>
+                      4. The assigned officer is expected to resolve the issue within 48 hours.
+                    </div>
+                    <div style={{ marginBottom: '0.35rem' }}>
+                      5. The system tracks the resolution status in real-time.
+                    </div>
+                    <div style={{ marginBottom: '0.35rem' }}>
+                      6. If unresolved within 48 hours, the complaint escalates to a higher-level officer.
+                    </div>
+                    <div>
+                      7. This creates an accountability workflow for unresolved civic complaints.
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {janTab === 'arch' && (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '1rem' }}>
-                    <Cpu size={18} /> Dual-Core MCU + Linux MPU Architecture
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--accent-cyan)', fontWeight: 700, fontSize: '1rem' }}>
+                    <Server size={18} /> Civic Issue Tracking &amp; Diagnostics Engine
                   </div>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-                    • <strong>MCU Core (Embedded C++):</strong> High-speed ADC reads and ambient lumen baseline calibration.<br />
-                    • <strong>MPU Core (Linux Python):</strong> Asynchronous socket communication, offline telemetry queueing, and failover alerting.
+                    • <strong>Citizen Reporting Pipeline:</strong> Real-time incident intake, geographic tagging, and status verification.<br />
+                    • <strong>Automated SLA Engine:</strong> Background daemon tracking 48-hour resolution windows and triggering hierarchical escalation.<br />
+                    • <strong>Infrastructure Diagnostics:</strong> Telemetry integration for automated streetlight and infrastructure outage monitoring.
                   </p>
                 </div>
               )}
@@ -645,7 +663,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                   marginBottom: '1.25rem',
                 }}
               >
-                Autonomous Streetlight Failure Detection System
+                Deployed Civic Issue Reporting &amp; Escalation Platform
               </div>
 
               <p
@@ -656,26 +674,26 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                   marginBottom: '1.6rem',
                 }}
               >
-                An autonomous streetlight monitoring and failure-detection system designed around an edge device and sensor-based monitoring.
+                A deployed civic issue reporting and tracking platform that enables citizens to report problems in their surrounding neighborhoods with automated 48-hour officer escalation.
               </p>
 
               {/* 4 Capabilities with Checkmarks */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.75rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
                   <CheckCircle2 size={18} color="var(--accent-emerald)" style={{ flexShrink: 0 }} />
-                  <span>Real-Time Streetlight Photometric Outage Detection</span>
+                  <span>Citizen Civic Issue Reporting &amp; Real-Time Tracking</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
                   <CheckCircle2 size={18} color="var(--accent-emerald)" style={{ flexShrink: 0 }} />
-                  <span>Dual-Core Microcontroller + Embedded Linux Architecture</span>
+                  <span>Automated Responsible Officer Assignment &amp; SLA Monitoring</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
                   <CheckCircle2 size={18} color="var(--accent-cyan)" style={{ flexShrink: 0 }} />
-                  <span>Automated Incident Dispatch &amp; Municipal Alerting</span>
+                  <span>48-Hour Resolution SLA with Automatic Hierarchical Escalation</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 550 }}>
                   <CheckCircle2 size={18} color="var(--accent-cyan)" style={{ flexShrink: 0 }} />
-                  <span>Offline Fault Queueing &amp; Edge Telemetry Protocol</span>
+                  <span>Administrative Accountability for Unresolved Civic Complaints</span>
                 </div>
               </div>
 
@@ -688,7 +706,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onRequestCode }) => {
                   marginBottom: '1.75rem',
                 }}
               >
-                {['Arduino UNO Q', 'C++', 'Python', 'IoT', 'Edge Computing', 'Embedded Systems'].map((t, idx) => (
+                {['TypeScript', 'Python', 'Node.js', 'C++', 'IoT', 'Edge Computing'].map((t, idx) => (
                   <span
                     key={idx}
                     style={{

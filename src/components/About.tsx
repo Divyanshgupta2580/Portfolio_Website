@@ -52,7 +52,7 @@ export const About: React.FC<AboutProps> = () => {
       border: 'var(--accent-emerald-border)',
       glow: 'var(--accent-emerald-glow)',
       title: 'Lifelong Learner',
-      desc: 'Always exploring cutting-edge AI and edge technologies',
+      desc: 'Always exploring cutting-edge AI and software systems',
     },
   ];
 
@@ -145,7 +145,7 @@ export const About: React.FC<AboutProps> = () => {
               lineHeight: 1.65,
             }}
           >
-            I am Divyansh Gupta, an engineering student and developer focused on building dependable software systems, intelligent algorithms, and hardware edge solutions.
+            I am Divyansh Gupta, an engineering student and developer focused on building dependable software systems, intelligent algorithms, and practical software solutions.
           </p>
         </ScrollReveal>
 

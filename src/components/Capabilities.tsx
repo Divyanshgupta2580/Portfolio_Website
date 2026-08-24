@@ -1,7 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
-import { Code2, Network, Layers, Cpu, Server, Cloud } from 'lucide-react';
+import { Code2, Network, Layers, Database, Server, Cloud } from 'lucide-react';
 
 export const Capabilities: React.FC = () => {
   const getCardTheme = (num: string) => {
@@ -36,7 +36,7 @@ export const Capabilities: React.FC = () => {
           subtleVar: 'var(--accent-emerald-subtle)',
           borderVar: 'var(--accent-emerald-border)',
           glowVar: 'var(--accent-emerald-glow)',
-          icon: <Cpu size={22} color="var(--accent-emerald)" />,
+          icon: <Database size={22} color="var(--accent-emerald)" />,
         };
       case '05':
         return {
@@ -109,7 +109,7 @@ export const Capabilities: React.FC = () => {
               lineHeight: 1.65,
             }}
           >
-            Core domains of practical software engineering, artificial intelligence systems, and hardware edge solutions I build with.
+            Core domains of practical software engineering, artificial intelligence systems, and scalable backend architectures I build with.
           </p>
         </ScrollReveal>
 
