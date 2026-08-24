@@ -408,7 +408,7 @@ export const PORTFOLIO_DATA = {
     },
     {
       year: "2026",
-      title: "Snapdragon Multiverse Hackathon",
+      title: "JanSetu — Deployed Civic Issue Reporting & Escalation Platform",
       organization: "HACKATHON EXPERIENCE",
       type: "Hackathon",
       badge: "Qualcomm Hackathon",

@@ -40,7 +40,7 @@ export const Journey: React.FC = () => {
             </>
           ),
         };
-      case 2: // Snapdragon Multiverse Hackathon
+      case 2: // JanSetu
         return {
           icon: <Cpu size={18} color="var(--accent-emerald)" />,
           accentColor: 'var(--accent-emerald)',
@@ -51,8 +51,9 @@ export const Journey: React.FC = () => {
           badgeColor: 'var(--accent-emerald)',
           renderTitle: () => (
             <>
-              <span>Snapdragon Multiverse </span>
-              <span style={{ color: 'var(--accent-emerald)' }}>Hackathon</span>
+              <span>Jan</span>
+              <span style={{ color: 'var(--accent-emerald)' }}>Setu</span>
+              <span> — Deployed Civic Issue Reporting &amp; Escalation Platform</span>
             </>
           ),
         };
