@@ -187,7 +187,7 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       { label: "Algorithms & DSA", desc: "Data structures & competitive problem solving in C++" },
       { label: "Practical Projects", desc: "Production-minded engineering for hackathons & real-world problems" }
     ],
-    ctaLabel: "View Skills →"
+    ctaLabel: "View Skills"
   }
 };
 

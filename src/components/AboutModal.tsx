@@ -13,7 +13,6 @@ import {
   Database,
   GitBranch,
   Globe,
-  ArrowRight,
 } from "lucide-react";
 
 export type AboutModalType = "projects" | "tech" | "hackathons" | "learning";
@@ -718,7 +717,6 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                 className="about-modal-action-btn"
               >
                 <span>{ABOUT_MODAL_DATA.learning.ctaLabel}</span>
-                <ArrowRight size={17} />
               </button>
             </div>
           )}
