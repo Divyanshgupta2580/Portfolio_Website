@@ -316,7 +316,7 @@ export const PORTFOLIO_DATA = {
         { label: "AI Reasoning", value: "Gemini Tool Calling over Deterministic Track Graph" }
       ],
       architectureOverview: "RailGuard-AI implements a unified real-time architecture where physical edge telemetry feeds into a Node.js/Socket.IO central state bus. A deterministic 106km track graph model enforces safety clearances and braking physics while a Gemini AI agent uses function-calling tools to evaluate track capacity and issue conflict-free dispatch advisories to driver and conductor interfaces.",
-      githubUrl: "https://github.com/rishav-raj-genx/RailGuard-AI",
+      githubUrl: undefined,
       demoUrl: undefined,
     }
   ] as Project[],
