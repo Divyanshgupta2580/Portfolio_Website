@@ -61,6 +61,136 @@ export interface JourneyItem {
   badge?: string;
 }
 
+
+export interface AboutProjectItem {
+  id: string;
+  title: string;
+  tagline: string;
+  category: string;
+  badge: string;
+  technologies: string[];
+}
+
+export interface AboutHackathonItem {
+  id: string;
+  num: string;
+  name: string;
+  project?: string;
+  focus: string;
+  badge?: string;
+  description?: string;
+}
+
+export interface AboutModalData {
+  projects: AboutProjectItem[];
+  hackathons: AboutHackathonItem[];
+  technologies: string[];
+  learning: {
+    title: string;
+    tagline: string;
+    description: string;
+    pillars: { label: string; desc: string }[];
+    ctaLabel: string;
+  };
+}
+
+export const ABOUT_MODAL_DATA: AboutModalData = {
+  projects: [
+    {
+      id: "benefit-os",
+      title: "BenefitOS",
+      tagline: "AI Citizen Welfare Discovery Platform",
+      category: "Civic Welfare / AI Platform",
+      badge: "HackHazards'26",
+      technologies: ["Neo4j", "Node.js", "TypeScript", "OCR", "RAG"]
+    },
+    {
+      id: "railguard-ai",
+      title: "RailGuard-AI",
+      tagline: "Autonomous Rail Operations & Safety Platform",
+      category: "Autonomous Rail Systems",
+      badge: "FAR AWAY Hackathon",
+      technologies: ["React", "Node.js", "Express", "Socket.IO", "Google Gemini AI"]
+    }
+  ],
+
+  hackathons: [
+    {
+      id: "qualcomm",
+      num: "01",
+      name: "Qualcomm Hackathon",
+      project: "JanSetu",
+      focus: "AI / Edge Computing",
+      badge: "Snapdragon Multiverse",
+      description: "AI-focused project exploring on-device edge computing and device-optimized AI workflows."
+    },
+    {
+      id: "ab-talks",
+      num: "02",
+      name: "AB Talks",
+      project: "Tron",
+      focus: "AI Agent Project",
+      badge: "Autonomous AI",
+      description: "Autonomous AI agent project for automated topic discovery, scoring, and publishing."
+    },
+    {
+      id: "far-away",
+      num: "03",
+      name: "FAR AWAY Hackathon",
+      project: "RailGuard-AI",
+      focus: "Autonomous Rail Systems",
+      badge: "Railways Theme",
+      description: "Autonomous rail infrastructure orchestration with sub-15ms WebSocket state sync and Gemini AI reasoning."
+    },
+    {
+      id: "hackhazards",
+      num: "04",
+      name: "HackHazards'26",
+      project: "BenefitOS",
+      focus: "Civic / AI Platform",
+      badge: "Citizen Welfare",
+      description: "AI-powered welfare scheme discovery platform using graph data structures and OCR document parsing."
+    },
+    {
+      id: "build-with-bharat",
+      num: "05",
+      name: "Build With Bharat 2.0",
+      focus: "Hackathon Experience",
+      badge: "Engineering Challenge",
+      description: "National engineering hackathon exploring high-impact developer and public tech solutions."
+    }
+  ],
+
+  technologies: [
+    "C++",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Firebase",
+    "Neo4j",
+    "Git / GitHub",
+    "Docker",
+    "Vercel"
+  ],
+
+  learning: {
+    title: "Always Learning & Building",
+    tagline: "Continuous Engineering & Systems Growth",
+    description: "Continuously exploring AI engineering, software systems, backend architecture, algorithms, and practical engineering solutions.",
+    pillars: [
+      { label: "AI Systems", desc: "Autonomous AI agents, RAG pipelines & multi-model workflows" },
+      { label: "Software Architecture", desc: "Scalable backend APIs, distributed state & graph databases" },
+      { label: "Algorithms & DSA", desc: "Data structures & competitive problem solving in C++" },
+      { label: "Practical Projects", desc: "Production-minded engineering for hackathons & real-world problems" }
+    ],
+    ctaLabel: "View Skills →"
+  }
+};
+
 export const RESUME_URL = "https://drive.google.com/file/d/1XbqOPOtspT1fE-rc5Om4RG5dNWelJBru/view?usp=sharing";
 
 export const PORTFOLIO_DATA = {

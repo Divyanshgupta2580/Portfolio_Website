@@ -63,7 +63,7 @@ export const App: React.FC = () => {
       <main style={{ flex: 1 }}>
         <Hero onContactClick={scrollToContact} />
         <Capabilities />
-        <About onContactClick={handleOpenHireMe} />
+        <About onContactClick={handleOpenHireMe} onRequestCode={handleRequestCode} />
         <Skills />
         <Projects onRequestCode={handleRequestCode} />
         <Journey />
