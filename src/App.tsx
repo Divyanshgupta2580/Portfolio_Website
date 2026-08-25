@@ -13,7 +13,6 @@ import { Contact } from './components/Contact';
 import { ContactModal } from './components/ContactModal';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
-import { ThemeToggle } from './components/ThemeToggle';
 import { PillNav } from './components/PillNav';
 
 export const App: React.FC = () => {
@@ -77,7 +76,6 @@ export const App: React.FC = () => {
 
       {/* Floating Utilities */}
       <ScrollProgress />
-      <ThemeToggle />
       <PillNav onOpenHireMe={handleOpenHireMe} />
 
       {/* Strictly Styled Reference Contact / Engineering Inquiry Modal */}
