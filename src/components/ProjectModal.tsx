@@ -47,8 +47,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '16px',
+        padding: '24px 16px',
         overflow: 'hidden',
+        overscrollBehavior: 'contain',
       }}
       onClick={onClose}
       role="dialog"
@@ -61,7 +62,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
           border: '1px solid var(--border-cyan)',
           borderRadius: '20px',
           width: 'min(820px, 100%)',
-          maxHeight: 'calc(100dvh - 32px)',
+          maxHeight: 'min(88vh, calc(100dvh - 48px))',
           boxShadow: 'var(--shadow-card-hover)',
           position: 'relative',
           display: 'flex',
@@ -122,7 +123,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             flex: 1,
             overflowY: 'auto',
             minHeight: 0,
-            padding: '0.5rem 2rem 1.75rem 2rem',
+            padding: '0.5rem 2rem 2.25rem 2rem',
+            overscrollBehavior: 'contain',
           }}
         >
           {/* Modal Title */}
@@ -241,7 +243,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
           </div>
 
           {/* Modal Links & Actions */}
-          <div style={{ display: 'flex', gap: '1rem', borderTop: '1px solid var(--border-subtle)', paddingTop: '1.5rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '1rem', borderTop: '1px solid var(--border-subtle)', paddingTop: '1.5rem', paddingBottom: '0.75rem', flexWrap: 'wrap' }}>
             {project.githubUrl ? (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                 <GithubIcon size={18} />
