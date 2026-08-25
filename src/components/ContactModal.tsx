@@ -411,7 +411,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                     }}
                   >
                     <BriefcaseBusiness size={16} color="var(--accent-cyan)" />
-                    <span>Opportunity Type *</span>
+                    <span>What are you looking for? *</span>
                   </label>
                   <select
                     id="modal-opportunity"

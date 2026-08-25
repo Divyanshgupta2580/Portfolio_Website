@@ -761,7 +761,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedOpportunity }) => {
                       marginBottom: '0.4rem',
                     }}
                   >
-                    Opportunity Type *
+                    What are you looking for? *
                   </label>
                   <div style={{ position: 'relative' }}>
                     <BriefcaseBusiness

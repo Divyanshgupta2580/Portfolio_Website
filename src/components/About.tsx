@@ -7,14 +7,13 @@ import type { Project } from "../data/portfolioData";
 import {
   UserRound,
   GraduationCap,
-  Target,
   Layers,
-  TrendingUp,
   Code2,
   Trophy,
   BookOpen,
   Quote,
   ArrowUpRight,
+  Sparkles,
 } from "lucide-react";
 
 interface AboutProps {
@@ -28,40 +27,40 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
 
   const focusPoints = [
     {
-      icon: <GraduationCap size={22} color="var(--accent-cyan)" />,
+      icon: <GraduationCap size={20} color="var(--accent-cyan)" />,
       accent: "var(--accent-cyan)",
       subtle: "var(--accent-cyan-subtle)",
       border: "var(--accent-cyan-border)",
       glow: "var(--accent-cyan-glow)",
-      title: "Engineering Student",
-      desc: "Computer Science & Systems Engineering",
+      title: "Academic Background",
+      desc: "B.Tech CSE (AI & ML) · Mirai School of Tech, AKTU · Grad 2029 (Sem 1: 9.00, Sem 2: 9.43 CGPA)",
     },
     {
-      icon: <Target size={22} color="var(--accent-blue)" />,
+      icon: <Layers size={20} color="var(--accent-blue)" />,
       accent: "var(--accent-blue)",
-      subtle: "rgba(59, 130, 246, 0.10)",
-      border: "rgba(59, 130, 246, 0.35)",
-      glow: "rgba(59, 130, 246, 0.20)",
-      title: "Problem Solver",
-      desc: "Love solving complex real-world engineering problems",
+      subtle: "rgba(59, 130, 246, 0.08)",
+      border: "rgba(59, 130, 246, 0.28)",
+      glow: "rgba(59, 130, 246, 0.16)",
+      title: "Systems Builder",
+      desc: "Architecting backend services, REST APIs, real-time WebSocket state buses, and hardware communication",
     },
     {
-      icon: <Layers size={22} color="var(--accent-purple)" />,
+      icon: <Sparkles size={20} color="var(--accent-purple)" />,
       accent: "var(--accent-purple)",
       subtle: "var(--accent-purple-subtle)",
       border: "var(--accent-purple-border)",
       glow: "var(--accent-purple-glow)",
-      title: "Builder",
-      desc: "Enjoy architecting robust, end-to-end applications",
+      title: "AI & Data Modeling",
+      desc: "Engineering RAG pipelines, graph data structures in Neo4j, and autonomous multi-model agent workflows",
     },
     {
-      icon: <TrendingUp size={22} color="var(--accent-emerald)" />,
+      icon: <Trophy size={20} color="var(--accent-emerald)" />,
       accent: "var(--accent-emerald)",
       subtle: "var(--accent-emerald-subtle)",
       border: "var(--accent-emerald-border)",
       glow: "var(--accent-emerald-glow)",
-      title: "Lifelong Learner",
-      desc: "Always exploring cutting-edge AI and software systems",
+      title: "Hackathon Competitor",
+      desc: "4+ completed hackathons (HackHazards'26, Qualcomm, FAR AWAY, AB Talks) with working software systems",
     },
   ];
 
@@ -70,7 +69,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       id: "projects" as const,
       value: "2+",
       label: "Major Projects",
-      sub: "Built & Deployed",
+      sub: "BenefitOS & RailGuard-AI",
       color: "var(--accent-cyan)",
       subtle: "var(--accent-cyan-subtle)",
       border: "var(--accent-cyan-border)",
@@ -81,7 +80,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       id: "tech" as const,
       value: "10+",
       label: "Technologies",
-      sub: "Worked With",
+      sub: "Languages, Backend & Data",
       color: "var(--accent-blue)",
       subtle: "rgba(59, 130, 246, 0.08)",
       border: "rgba(59, 130, 246, 0.28)",
@@ -90,9 +89,9 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
     },
     {
       id: "hackathons" as const,
-      value: "5+",
-      label: "Hackathons",
-      sub: "Participations",
+      value: "4+",
+      label: "Completed Hackathons",
+      sub: "Qualcomm, FAR AWAY, AB Talks, HackHazards",
       color: "var(--accent-purple)",
       subtle: "var(--accent-purple-subtle)",
       border: "var(--accent-purple-border)",
@@ -103,7 +102,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       id: "learning" as const,
       value: "Always",
       label: "Learning & Building",
-      sub: "Continuously",
+      sub: "Continuous Systems Growth",
       color: "var(--accent-emerald)",
       subtle: "var(--accent-emerald-subtle)",
       border: "var(--accent-emerald-border)",
@@ -167,7 +166,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                 letterSpacing: "-0.02em",
               }}
             >
-              Engineering with Purpose & Precision
+              Engineering with Purpose &amp; Precision
             </h2>
             <p
               style={{
@@ -178,7 +177,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                 lineHeight: 1.6,
               }}
             >
-              A snapshot of who I am, what drives my engineering curiosity, and the core metrics defining my journey.
+              Computer Science engineering student at Mirai School of Technology (AKTU) focused on building dependable software systems, backend architectures, and AI pipelines.
             </p>
           </ScrollReveal>
         </div>
@@ -210,22 +209,22 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     background: "var(--bg-card)",
                     border: "1px solid var(--border-card)",
                     borderRadius: "14px",
-                    padding: "1.25rem 1.5rem",
+                    padding: "1.2rem 1.4rem",
                     display: "flex",
                     alignItems: "center",
-                    gap: "1.25rem",
+                    gap: "1.15rem",
                     transition: "all 0.25s ease",
                     boxShadow: "var(--shadow-card)",
                   }}
                 >
                   <div
                     style={{
-                      width: "48px",
-                      height: "48px",
-                      borderRadius: "12px",
+                      width: "44px",
+                      height: "44px",
+                      borderRadius: "10px",
                       background: item.subtle,
                       border: `1px solid ${item.border}`,
-                      boxShadow: `0 0 16px ${item.glow}`,
+                      boxShadow: `0 0 12px ${item.glow}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -240,7 +239,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                       style={{
                         fontFamily: "var(--font-heading)",
                         fontWeight: 700,
-                        fontSize: "1.08rem",
+                        fontSize: "1.02rem",
                         color: "var(--text-primary)",
                         marginBottom: "0.2rem",
                       }}
@@ -249,7 +248,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     </div>
                     <div
                       style={{
-                        fontSize: "0.88rem",
+                        fontSize: "0.86rem",
                         color: "var(--text-secondary)",
                         lineHeight: 1.45,
                       }}
@@ -289,7 +288,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     background: "var(--bg-card)",
                     border: "1px solid var(--border-card)",
                     borderRadius: "16px",
-                    padding: "1.75rem",
+                    padding: "1.6rem",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -300,19 +299,19 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     userSelect: "none",
                   }}
                 >
-                  {/* Top Row: Big Number & Decorative Upper-Right Icon */}
+                  {/* Top Row: Big Value & Upper-Right Icon */}
                   <div
                     style={{
                       display: "flex",
                       alignItems: "flex-start",
                       justifyContent: "space-between",
-                      marginBottom: "1.25rem",
+                      marginBottom: "1.15rem",
                     }}
                   >
                     <span
                       style={{
                         fontFamily: "var(--font-heading)",
-                        fontSize: stat.value.length > 3 ? "2.15rem" : "2.75rem",
+                        fontSize: stat.value.length > 3 ? "2.1rem" : "2.6rem",
                         fontWeight: 800,
                         color: stat.color,
                         lineHeight: 1,
@@ -323,12 +322,12 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
 
                     <div
                       style={{
-                        width: "42px",
-                        height: "42px",
+                        width: "40px",
+                        height: "40px",
                         borderRadius: "50%",
                         background: stat.subtle,
                         border: `1px solid ${stat.border}`,
-                        boxShadow: `0 0 14px ${stat.glow}`,
+                        boxShadow: `0 0 12px ${stat.glow}`,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -356,7 +355,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                         style={{
                           fontFamily: "var(--font-heading)",
                           fontWeight: 700,
-                          fontSize: "1.05rem",
+                          fontSize: "1.02rem",
                           color: "var(--text-primary)",
                         }}
                       >
@@ -375,8 +374,9 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     </div>
                     <div
                       style={{
-                        fontSize: "0.84rem",
+                        fontSize: "0.82rem",
                         color: "var(--text-secondary)",
+                        lineHeight: 1.35,
                       }}
                     >
                       {stat.sub}
@@ -388,7 +388,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
           </div>
         </div>
 
-        {/* ================= BOTTOM QUOTE STRIP ================= */}
+        {/* ================= BOTTOM ACADEMIC & PHILOSOPHY STRIP ================= */}
         <ScrollReveal
           direction="up"
           delay={150}
@@ -418,16 +418,16 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
               flexShrink: 0,
             }}
           >
-            <Quote size={22} color="var(--accent-cyan)" />
+            <Quote size={20} color="var(--accent-cyan)" />
           </div>
 
-          <div style={{ fontSize: "0.96rem", lineHeight: 1.6 }}>
+          <div style={{ fontSize: "0.95rem", lineHeight: 1.6 }}>
             <span style={{ color: "var(--text-primary)" }}>
-              I build with purpose, solve with curiosity, and learn with consistency.
+              Pursuing B.Tech in Computer Science Engineering (AI &amp; ML) at Mirai School of Technology, AKTU University (Expected 2029).
             </span>
             <br />
             <span style={{ color: "var(--accent-cyan)", fontWeight: 600 }}>
-              Engineering is not just what I study — it's what I live every day.
+              Academic Performance: 9.43 CGPA (Semester 2) · 9.00 CGPA (Semester 1).
             </span>
           </div>
         </ScrollReveal>

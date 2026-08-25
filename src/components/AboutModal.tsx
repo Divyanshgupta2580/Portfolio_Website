@@ -78,7 +78,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
     if (lower.includes("react") || lower.includes("node") || lower.includes("express") || lower.includes("vercel")) {
       return <Globe size={14} color="var(--accent-blue)" />;
     }
-    if (lower.includes("db") || lower.includes("sql") || lower.includes("neo4j") || lower.includes("firebase")) {
+    if (lower.includes("db") || lower.includes("sql") || lower.includes("neo4j") || lower.includes("firebase") || lower.includes("mongo")) {
       return <Database size={14} color="var(--accent-purple)" />;
     }
     if (lower.includes("git") || lower.includes("docker")) {
@@ -198,7 +198,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                     letterSpacing: "0.06em",
                   }}
                 >
-                  HACKATHONS · 05 EXPERIENCES
+                  HACKATHONS · 4 COMPLETED + 1 UPCOMING
                 </span>
               </div>
             </div>
@@ -231,7 +231,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                     letterSpacing: "0.06em",
                   }}
                 >
-                  TECHNOLOGIES · 13+ CORE TOOLS
+                  TECHNOLOGIES · 13 CORE TOOLS
                 </span>
               </div>
             </div>
@@ -321,7 +321,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                   Major Projects
                 </h3>
                 <p style={{ color: "var(--text-secondary)", fontSize: "0.92rem", marginTop: "0.3rem" }}>
-                  Selected flagship platforms engineered and showcased in my portfolio.
+                  Selected flagship platforms engineered and showcased in my portfolio. Click any project to open full technical specifications.
                 </p>
               </div>
 
@@ -351,7 +351,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                   >
                     <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem" }}>
                       <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", flexWrap: "wrap", marginBottom: "0.4rem" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", flexWrap: "wrap", marginBottom: "0.35rem" }}>
                           <span
                             style={{
                               fontFamily: "var(--font-heading)",
@@ -378,11 +378,15 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                           </span>
                         </div>
 
-                        <div style={{ fontSize: "0.94rem", color: "var(--accent-cyan)", fontWeight: 600, marginBottom: "0.5rem" }}>
+                        <div style={{ fontSize: "0.92rem", color: "var(--accent-cyan)", fontWeight: 600, marginBottom: "0.45rem" }}>
                           {proj.tagline}
                         </div>
 
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "0.75rem" }}>
+                        <div style={{ fontSize: "0.86rem", color: "var(--text-secondary)", marginBottom: "0.65rem", lineHeight: 1.45 }}>
+                          <strong style={{ color: "var(--text-primary)" }}>Contribution:</strong> {proj.contribution}
+                        </div>
+
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "0.5rem" }}>
                           {proj.technologies.map((t, tIdx) => (
                             <span
                               key={tIdx}
@@ -443,10 +447,10 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                     lineHeight: 1.2,
                   }}
                 >
-                  Hackathons & Competitions
+                  Hackathons &amp; Competitions
                 </h3>
                 <p style={{ color: "var(--text-secondary)", fontSize: "0.92rem", marginTop: "0.3rem" }}>
-                  Engineering hackathons and projects built under competitive timeframes.
+                  Engineering hackathons and verified contributions built under competitive timeframes.
                 </p>
               </div>
 
@@ -466,15 +470,15 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                     }}
                     className="about-modal-card-item"
                   >
-                    {/* Number Badge */}
+                    {/* Number / Calendar Badge */}
                     <div
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.85rem",
                         fontWeight: 700,
-                        color: "var(--accent-purple)",
-                        background: "var(--accent-purple-subtle)",
-                        border: "1px solid var(--accent-purple-border)",
+                        color: h.isUpcoming ? "var(--accent-amber)" : "var(--accent-purple)",
+                        background: h.isUpcoming ? "var(--accent-amber-subtle)" : "var(--accent-purple-subtle)",
+                        border: `1px solid ${h.isUpcoming ? "var(--accent-amber-border)" : "var(--accent-purple-border)"}`,
                         padding: "0.3rem 0.55rem",
                         borderRadius: "6px",
                         flexShrink: 0,
@@ -497,30 +501,51 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                           {h.name}
                         </span>
 
-                        {h.project && (
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                          {h.project && (
+                            <span
+                              style={{
+                                fontSize: "0.74rem",
+                                fontFamily: "var(--font-mono)",
+                                fontWeight: 600,
+                                color: "var(--accent-cyan)",
+                                background: "var(--accent-cyan-subtle)",
+                                border: "1px solid var(--accent-cyan-border)",
+                                padding: "0.18rem 0.5rem",
+                                borderRadius: "4px",
+                              }}
+                            >
+                              Project: {h.project}
+                            </span>
+                          )}
                           <span
                             style={{
-                              fontSize: "0.74rem",
+                              fontSize: "0.72rem",
                               fontFamily: "var(--font-mono)",
-                              fontWeight: 600,
-                              color: "var(--accent-cyan)",
-                              background: "var(--accent-cyan-subtle)",
-                              border: "1px solid var(--accent-cyan-border)",
-                              padding: "0.2rem 0.55rem",
+                              fontWeight: 700,
+                              color: h.isUpcoming ? "var(--accent-amber)" : "var(--accent-emerald)",
+                              background: h.isUpcoming ? "var(--accent-amber-subtle)" : "var(--accent-emerald-subtle)",
+                              border: `1px solid ${h.isUpcoming ? "var(--accent-amber-border)" : "var(--accent-emerald-border)"}`,
+                              padding: "0.18rem 0.5rem",
                               borderRadius: "4px",
+                              textTransform: "uppercase",
                             }}
                           >
-                            Project: {h.project}
+                            {h.badge}
                           </span>
-                        )}
+                        </div>
                       </div>
 
-                      <div style={{ fontSize: "0.86rem", color: "var(--accent-purple)", fontWeight: 600, marginBottom: "0.35rem" }}>
+                      <div style={{ fontSize: "0.86rem", color: "var(--accent-purple)", fontWeight: 600, marginBottom: "0.3rem" }}>
                         {h.focus}
                       </div>
 
+                      <div style={{ fontSize: "0.84rem", color: "var(--text-secondary)", marginBottom: "0.3rem", lineHeight: 1.45 }}>
+                        <strong style={{ color: "var(--text-primary)" }}>Contribution:</strong> {h.contribution}
+                      </div>
+
                       {h.description && (
-                        <p style={{ fontSize: "0.86rem", color: "var(--text-secondary)", lineHeight: 1.45, margin: 0 }}>
+                        <p style={{ fontSize: "0.84rem", color: "var(--text-secondary)", lineHeight: 1.45, margin: 0 }}>
                           {h.description}
                         </p>
                       )}
@@ -550,7 +575,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                   Core Technologies
                 </h3>
                 <p style={{ color: "var(--text-secondary)", fontSize: "0.92rem", marginTop: "0.3rem" }}>
-                  Languages, frameworks, databases, and infrastructure tools I use.
+                  Verified languages, frameworks, databases, and infrastructure tools in my engineering stack.
                 </p>
               </div>
 
@@ -691,7 +716,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                 ))}
               </div>
 
-              {/* View Skills Action Button */}
+              {/* View Skills Action Button (without trailing arrows) */}
               <button
                 type="button"
                 onClick={handleSkillsNav}
@@ -709,7 +734,6 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "0.5rem",
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                   boxShadow: "0 0 16px var(--accent-emerald-glow)",

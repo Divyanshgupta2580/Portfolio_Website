@@ -1,341 +1,244 @@
-import React, { useState } from 'react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { ScrollReveal } from './ScrollReveal';
-import { Code2, Layers, Sparkles, Database, LayoutGrid } from 'lucide-react';
+import React from "react";
+import { PORTFOLIO_DATA } from "../data/portfolioData";
+import { ScrollReveal } from "./ScrollReveal";
+import {
+  Code2,
+  Globe,
+  Layers,
+  Database,
+  Terminal,
+} from "lucide-react";
 
 export const Skills: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('all');
-
-  const filterTabs = [
-    { id: 'all', label: 'All', icon: <LayoutGrid size={15} /> },
-    { id: 'languages', label: 'Languages', icon: <Code2 size={15} /> },
-    { id: 'ai', label: 'AI / ML', icon: <Sparkles size={15} /> },
-    { id: 'backend', label: 'Backend / Systems', icon: <Layers size={15} /> },
-    { id: 'tools', label: 'Tools', icon: <Database size={15} /> },
-  ];
-
-  // Map category to tab ID
-  const mapCategoryToTab = (title: string) => {
-    if (title.includes('Languages')) return 'languages';
-    if (title.includes('AI')) return 'ai';
-    if (title.includes('Backend') || title.includes('Systems')) return 'backend';
-    if (title.includes('Tools')) return 'tools';
-    return 'all';
+  const getCategoryIcon = (title: string) => {
+    switch (title.toLowerCase()) {
+      case "languages":
+        return <Code2 size={20} color="var(--accent-cyan)" />;
+      case "frontend":
+        return <Globe size={20} color="var(--accent-blue)" />;
+      case "backend":
+        return <Layers size={20} color="var(--accent-purple)" />;
+      case "databases & data":
+        return <Database size={20} color="var(--accent-emerald)" />;
+      default:
+        return <Terminal size={20} color="var(--accent-amber)" />;
+    }
   };
 
-  const getCategoryTheme = (title: string) => {
-    if (title.includes('Languages')) {
-      return {
-        accent: 'var(--accent-cyan)',
-        subtle: 'var(--accent-cyan-subtle)',
-        border: 'var(--accent-cyan-border)',
-        glow: 'var(--accent-cyan-glow)',
-        icon: <Code2 size={20} color="var(--accent-cyan)" />,
-      };
+  const getCategoryAccent = (title: string) => {
+    switch (title.toLowerCase()) {
+      case "languages":
+        return {
+          accent: "var(--accent-cyan)",
+          subtle: "var(--accent-cyan-subtle)",
+          border: "var(--accent-cyan-border)",
+        };
+      case "frontend":
+        return {
+          accent: "var(--accent-blue)",
+          subtle: "rgba(59, 130, 246, 0.08)",
+          border: "rgba(59, 130, 246, 0.28)",
+        };
+      case "backend":
+        return {
+          accent: "var(--accent-purple)",
+          subtle: "var(--accent-purple-subtle)",
+          border: "var(--accent-purple-border)",
+        };
+      case "databases & data":
+        return {
+          accent: "var(--accent-emerald)",
+          subtle: "var(--accent-emerald-subtle)",
+          border: "var(--accent-emerald-border)",
+        };
+      default:
+        return {
+          accent: "var(--accent-amber)",
+          subtle: "var(--accent-amber-subtle)",
+          border: "var(--accent-amber-border)",
+        };
     }
-    if (title.includes('AI')) {
-      return {
-        accent: 'var(--accent-purple)',
-        subtle: 'var(--accent-purple-subtle)',
-        border: 'var(--accent-purple-border)',
-        glow: 'var(--accent-purple-glow)',
-        icon: <Sparkles size={20} color="var(--accent-purple)" />,
-      };
-    }
-    if (title.includes('Backend') || title.includes('Systems')) {
-      return {
-        accent: 'var(--accent-blue)',
-        subtle: 'rgba(59, 130, 246, 0.08)',
-        border: 'rgba(59, 130, 246, 0.28)',
-        glow: 'rgba(59, 130, 246, 0.16)',
-        icon: <Layers size={20} color="var(--accent-blue)" />,
-      };
-    }
-    if (title.includes('Tools')) {
-      return {
-        accent: 'var(--accent-emerald)',
-        subtle: 'var(--accent-emerald-subtle)',
-        border: 'var(--accent-emerald-border)',
-        glow: 'var(--accent-emerald-glow)',
-        icon: <Database size={20} color="var(--accent-emerald)" />,
-      };
-    }
-    return {
-      accent: 'var(--accent-cyan)',
-      subtle: 'var(--accent-cyan-subtle)',
-      border: 'var(--accent-cyan-border)',
-      glow: 'var(--accent-cyan-glow)',
-      icon: <Code2 size={20} color="var(--accent-cyan)" />,
-    };
   };
-
-  const displayedCategories =
-    activeTab === 'all'
-      ? PORTFOLIO_DATA.skills
-      : PORTFOLIO_DATA.skills.filter((cat) => mapCategoryToTab(cat.title) === activeTab);
 
   return (
-    <section id="skills" className="section" style={{ background: 'var(--bg-primary)', padding: '6rem 0' }}>
-      <div className="container" style={{ maxWidth: '1260px', margin: '0 auto', padding: '0 1.5rem', width: '100%' }}>
-        {/* ================= SECTION HEADER ================= */}
-        <ScrollReveal direction="heading" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--accent-cyan)',
-              fontSize: '0.88rem',
-              fontWeight: 700,
-              fontFamily: 'var(--font-mono)',
-              letterSpacing: '0.05em',
-              marginBottom: '0.85rem',
-            }}
-          >
-            &lt;/&gt; Tech Stack
-          </div>
+    <section id="skills" className="section" style={{ background: "var(--bg-secondary)", padding: "6rem 0" }}>
+      <div className="container" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1.5rem", width: "100%" }}>
+        {/* Section Header */}
+        <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+          <ScrollReveal direction="up" delay={0}>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.35rem 0.95rem",
+                borderRadius: "9999px",
+                background: "var(--accent-cyan-subtle)",
+                border: "1px solid var(--accent-cyan-border)",
+                color: "var(--accent-cyan)",
+                fontSize: "0.82rem",
+                fontFamily: "var(--font-mono)",
+                fontWeight: 600,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                marginBottom: "0.85rem",
+              }}
+            >
+              <Code2 size={14} />
+              <span>Technology Stack</span>
+            </div>
+            <h2
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontSize: "clamp(2rem, 4vw, 2.75rem)",
+                fontWeight: 800,
+                color: "var(--text-primary)",
+                lineHeight: 1.15,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Verified Technical Stack
+            </h2>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                fontSize: "1.05rem",
+                maxWidth: "680px",
+                margin: "0.85rem auto 0 auto",
+                lineHeight: 1.6,
+              }}
+            >
+              Languages, backend frameworks, databases, and infrastructure tools utilized across my software systems and hackathons.
+            </p>
+          </ScrollReveal>
+        </div>
 
-          <h2
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(2.4rem, 5vw, 3.4rem)',
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              marginBottom: '1rem',
-              lineHeight: 1.15,
-            }}
-          >
-            <span style={{ color: 'var(--text-primary)' }}>Skills &amp; </span>
-            <span className="text-gradient">Technologies</span>
-          </h2>
-
-          <p
-            style={{
-              fontSize: '1.02rem',
-              color: 'var(--text-secondary)',
-              maxWidth: '680px',
-              margin: '0 auto',
-              lineHeight: 1.65,
-              marginBottom: '2.5rem',
-            }}
-          >
-            A curated breakdown of programming languages, frameworks, AI architectures, and database systems I work with.
-          </p>
-
-          {/* ================= FILTER PILLS ROW ================= */}
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '0.75rem',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            className="skills-filter-container"
-          >
-            {filterTabs.map((tab) => {
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  style={{
-                    padding: '0.5rem 1.15rem',
-                    borderRadius: '10px',
-                    background: isActive ? 'var(--accent-cyan-subtle)' : 'var(--bg-card)',
-                    border: '1px solid',
-                    borderColor: isActive ? 'var(--accent-cyan)' : 'var(--border-card)',
-                    color: isActive ? 'var(--accent-cyan)' : 'var(--text-secondary)',
-                    fontFamily: 'var(--font-main)',
-                    fontSize: '0.86rem',
-                    fontWeight: 650,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    boxShadow: isActive ? '0 0 16px var(--accent-cyan-glow)' : 'none',
-                  }}
-                  className="skills-tab-pill"
-                >
-                  <span style={{ color: isActive ? 'var(--accent-cyan)' : 'inherit', display: 'flex', alignItems: 'center' }}>
-                    {tab.icon}
-                  </span>
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </ScrollReveal>
-
-        {/* ================= PRIMARY SKILLS GRID ================= */}
+        {/* 5-Category Responsive Grid */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns:
-              displayedCategories.length === 1
-                ? 'minmax(320px, 560px)'
-                : 'repeat(2, 1fr)',
-            gap: '1.5rem',
-            justifyContent: 'center',
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "1.5rem",
           }}
           className="skills-main-grid"
         >
-          {displayedCategories.map((category, idx) => {
-            const theme = getCategoryTheme(category.title);
+          {PORTFOLIO_DATA.skills.map((category, idx) => {
+            const theme = getCategoryAccent(category.title);
             return (
-              <ScrollReveal key={category.title} direction="up" delay={idx * 80}>
+              <ScrollReveal key={category.title} direction="up" delay={idx * 60}>
                 <div
                   className="skill-category-box"
                   style={{
-                    background: 'var(--bg-card)',
-                    border: '1px solid var(--border-card)',
-                    borderRadius: '16px',
-                    padding: '1.6rem 1.4rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: 'var(--shadow-card)',
-                    transition: 'all 0.25s ease',
-                    height: '100%',
+                    background: "var(--bg-card)",
+                    border: "1px solid var(--border-card)",
+                    borderRadius: "16px",
+                    padding: "1.5rem 1.4rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    boxShadow: "var(--shadow-card)",
+                    transition: "all 0.25s ease",
+                    height: "100%",
                   }}
                 >
                   <div>
-                    {/* Category Header: Icon + Title */}
+                    {/* Header */}
                     <div
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.85rem',
-                        marginBottom: '0.75rem',
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.75rem",
+                        marginBottom: "0.65rem",
                       }}
                     >
                       <div
                         style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '10px',
+                          width: "38px",
+                          height: "38px",
+                          borderRadius: "10px",
                           background: theme.subtle,
                           border: `1px solid ${theme.border}`,
-                          boxShadow: `0 0 14px ${theme.glow}`,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
                           flexShrink: 0,
                         }}
                       >
-                        {theme.icon}
+                        {getCategoryIcon(category.title)}
                       </div>
 
-                      <h3
-                        style={{
-                          fontFamily: 'var(--font-heading)',
-                          fontSize: '1.15rem',
-                          fontWeight: 700,
-                          color: 'var(--text-primary)',
-                          lineHeight: 1.25,
-                        }}
-                      >
-                        {category.title}
-                      </h3>
+                      <div>
+                        <h3
+                          style={{
+                            fontFamily: "var(--font-heading)",
+                            fontSize: "1.12rem",
+                            fontWeight: 750,
+                            color: "var(--text-primary)",
+                            lineHeight: 1.2,
+                          }}
+                        >
+                          {category.title}
+                        </h3>
+                      </div>
                     </div>
 
-                    {/* Category Description */}
                     <p
                       style={{
-                        fontSize: '0.86rem',
-                        color: 'var(--text-secondary)',
-                        lineHeight: 1.5,
-                        marginBottom: '1.5rem',
-                        minHeight: '2.6rem',
+                        fontSize: "0.86rem",
+                        color: "var(--text-secondary)",
+                        lineHeight: 1.45,
+                        marginBottom: "1.25rem",
                       }}
                     >
                       {category.description}
                     </p>
 
-                    {/* 2-Column Internal Grid of Individual Skill Cards */}
+                    {/* Skill Items */}
                     <div
                       style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(2, 1fr)',
-                        gap: '0.75rem',
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "0.55rem",
                       }}
-                      className="skill-cards-subgrid"
                     >
-                      {category.skills.map((skill, sIdx) => {
-                        const isIntermediate = skill.level?.toLowerCase() === 'intermediate';
-                        const badgeColor = isIntermediate ? 'var(--accent-purple)' : theme.accent;
-                        const badgeBg = isIntermediate
-                          ? 'var(--accent-purple-subtle)'
-                          : theme.subtle;
-                        const badgeBorder = isIntermediate
-                          ? 'var(--accent-purple-border)'
-                          : theme.border;
-
-                        const isLastOdd = category.skills.length % 2 !== 0 && sIdx === category.skills.length - 1;
-
-                        return (
-                          <div
-                            key={sIdx}
-                            className="individual-skill-card"
+                      {category.skills.map((skill, sIdx) => (
+                        <div
+                          key={sIdx}
+                          className="individual-skill-card"
+                          style={{
+                            background: "var(--bg-secondary)",
+                            border: "1px solid var(--border-subtle)",
+                            borderRadius: "8px",
+                            padding: "0.65rem 0.85rem",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: "0.5rem",
+                            transition: "all 0.2s ease",
+                          }}
+                        >
+                          <span
                             style={{
-                              gridColumn: isLastOdd ? 'span 2' : 'auto',
-                              background: 'var(--bg-secondary)',
-                              border: '1px solid var(--border-subtle)',
-                              borderRadius: '10px',
-                              padding: '0.9rem 1rem',
-                              display: 'flex',
-                              flexDirection: 'column',
-                              justifyContent: 'space-between',
-                              minHeight: '92px',
-                              transition: 'all 0.2s ease',
+                              fontWeight: 700,
+                              fontSize: "0.92rem",
+                              color: "var(--text-primary)",
+                              fontFamily: "var(--font-mono)",
                             }}
                           >
-                            <div>
-                              <div
-                                style={{
-                                  fontWeight: 700,
-                                  fontSize: '0.94rem',
-                                  color: 'var(--text-primary)',
-                                  marginBottom: '0.2rem',
-                                }}
-                              >
-                                {skill.name}
-                              </div>
-                              <div
-                                style={{
-                                  fontSize: '0.76rem',
-                                  color: 'var(--text-secondary)',
-                                  lineHeight: 1.35,
-                                  marginBottom: '0.65rem',
-                                }}
-                              >
-                                {skill.tag}
-                              </div>
-                            </div>
-
-                            <div>
-                              <span
-                                style={{
-                                  fontSize: '0.68rem',
-                                  fontFamily: 'var(--font-mono)',
-                                  fontWeight: 700,
-                                  textTransform: 'uppercase',
-                                  letterSpacing: '0.04em',
-                                  padding: '0.2rem 0.55rem',
-                                  borderRadius: '4px',
-                                  color: badgeColor,
-                                  background: badgeBg,
-                                  border: `1px solid ${badgeBorder}`,
-                                  display: 'inline-flex',
-                                }}
-                              >
-                                {skill.level}
-                              </span>
-                            </div>
-                          </div>
-                        );
-                      })}
+                            {skill.name}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: "0.78rem",
+                              color: "var(--text-secondary)",
+                              fontFamily: "var(--font-main)",
+                              textAlign: "right",
+                            }}
+                          >
+                            {skill.tag}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -345,13 +248,7 @@ export const Skills: React.FC = () => {
         </div>
       </div>
 
-      {/* Styles for hover and responsive behavior */}
       <style>{`
-        .skills-tab-pill:hover {
-          border-color: var(--accent-cyan) !important;
-          color: var(--accent-cyan) !important;
-          background: var(--accent-cyan-subtle) !important;
-        }
         .skill-category-box:hover {
           border-color: var(--accent-cyan-border) !important;
           box-shadow: var(--shadow-card-hover) !important;
@@ -360,22 +257,11 @@ export const Skills: React.FC = () => {
         .individual-skill-card:hover {
           border-color: var(--accent-cyan-border) !important;
           background: var(--bg-card-hover) !important;
-          transform: translateY(-2px);
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 640px) {
           .skills-main-grid {
             grid-template-columns: 1fr !important;
-            gap: 1.5rem !important;
-          }
-        }
-
-        @media (max-width: 540px) {
-          .skill-cards-subgrid {
-            grid-template-columns: 1fr !important;
-          }
-          .individual-skill-card {
-            grid-column: auto !important;
           }
         }
       `}</style>

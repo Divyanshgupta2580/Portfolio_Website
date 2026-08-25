@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
               <span style={{ color: 'var(--accent-cyan)' }}>.</span>
             </a>
             <div style={{ color: 'var(--accent-cyan)', fontSize: '0.86rem', fontFamily: 'var(--font-mono)', fontWeight: 600, marginBottom: '0.85rem' }}>
-              Engineering Student · AI & Software Engineering
+              Software Engineer & AI Systems Developer
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
               Building software, AI systems, and engineering solutions that solve practical problems.

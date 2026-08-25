@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageWipe } from './components/PageWipe';
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
@@ -14,9 +14,22 @@ import { ContactModal } from './components/ContactModal';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
 import { PillNav } from './components/PillNav';
+import { NotFound } from './components/NotFound';
 
 export const App: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [isNotFound, setIsNotFound] = useState(false);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path !== "/" && path !== "" && path !== "/index.html") {
+      setIsNotFound(true);
+    }
+  }, []);
+
+  if (isNotFound) {
+    return <NotFound />;
+  }
   const [selectedOpportunity, setSelectedOpportunity] = useState<string>('Internship');
   const [initialDetails, setInitialDetails] = useState<string>('');
 
