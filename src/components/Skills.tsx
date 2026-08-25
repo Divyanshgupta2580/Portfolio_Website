@@ -85,7 +85,7 @@ export const Skills: React.FC = () => {
               }}
             >
               <Code2 size={14} />
-              <span>Technology Stack</span>
+              <span>TECHNICAL TOOLKIT</span>
             </div>
             <h2
               style={{
@@ -97,7 +97,7 @@ export const Skills: React.FC = () => {
                 letterSpacing: "-0.02em",
               }}
             >
-              Verified Technical Stack
+              Tools I Build With
             </h2>
             <p
               style={{
@@ -108,7 +108,7 @@ export const Skills: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              Languages, frameworks, databases, and deployment tools utilized across my software systems and hackathons.
+              Languages, frameworks, databases, and infrastructure used across my projects and engineering work.
             </p>
           </ScrollReveal>
         </div>
