@@ -108,7 +108,7 @@ export const Skills: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              Languages, backend frameworks, databases, and infrastructure tools utilized across my software systems and hackathons.
+              Languages, frameworks, databases, and deployment tools utilized across my software systems and hackathons.
             </p>
           </ScrollReveal>
         </div>
@@ -124,6 +124,8 @@ export const Skills: React.FC = () => {
         >
           {PORTFOLIO_DATA.skills.map((category, idx) => {
             const theme = getCategoryAccent(category.title);
+            const hasCapabilities = category.capabilities && category.capabilities.length > 0;
+
             return (
               <ScrollReveal key={category.title} direction="up" delay={idx * 60}>
                 <div
@@ -193,53 +195,174 @@ export const Skills: React.FC = () => {
                       {category.description}
                     </p>
 
-                    {/* Skill Items */}
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.55rem",
-                      }}
-                    >
-                      {category.skills.map((skill, sIdx) => (
+                    {/* If category has separate capabilities (like Frontend) */}
+                    {hasCapabilities ? (
+                      <div>
+                        {/* Subheader: Technology */}
                         <div
-                          key={sIdx}
-                          className="individual-skill-card"
                           style={{
-                            background: "var(--bg-secondary)",
-                            border: "1px solid var(--border-subtle)",
-                            borderRadius: "8px",
-                            padding: "0.65rem 0.85rem",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            gap: "0.5rem",
-                            transition: "all 0.2s ease",
+                            fontSize: "0.72rem",
+                            fontFamily: "var(--font-mono)",
+                            color: theme.accent,
+                            fontWeight: 700,
+                            letterSpacing: "0.06em",
+                            textTransform: "uppercase",
+                            marginBottom: "0.45rem",
                           }}
                         >
-                          <span
-                            style={{
-                              fontWeight: 700,
-                              fontSize: "0.92rem",
-                              color: "var(--text-primary)",
-                              fontFamily: "var(--font-mono)",
-                            }}
-                          >
-                            {skill.name}
-                          </span>
-                          <span
-                            style={{
-                              fontSize: "0.78rem",
-                              color: "var(--text-secondary)",
-                              fontFamily: "var(--font-main)",
-                              textAlign: "right",
-                            }}
-                          >
-                            {skill.tag}
-                          </span>
+                          Technology
                         </div>
-                      ))}
-                    </div>
+
+                        {/* Technology Cards */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "0.55rem", marginBottom: "1rem" }}>
+                          {category.skills.map((skill, sIdx) => (
+                            <div
+                              key={sIdx}
+                              className="individual-skill-card"
+                              style={{
+                                background: "var(--bg-secondary)",
+                                border: "1px solid var(--border-subtle)",
+                                borderRadius: "8px",
+                                padding: "0.65rem 0.85rem",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "space-between",
+                                gap: "0.5rem",
+                                transition: "all 0.2s ease",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontWeight: 700,
+                                  fontSize: "0.92rem",
+                                  color: "var(--text-primary)",
+                                  fontFamily: "var(--font-mono)",
+                                }}
+                              >
+                                {skill.name}
+                              </span>
+                              <span
+                                style={{
+                                  fontSize: "0.78rem",
+                                  color: "var(--text-secondary)",
+                                  fontFamily: "var(--font-main)",
+                                  textAlign: "right",
+                                }}
+                              >
+                                {skill.tag}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Subheader: Engineering Capabilities */}
+                        <div
+                          style={{
+                            fontSize: "0.72rem",
+                            fontFamily: "var(--font-mono)",
+                            color: "var(--text-secondary)",
+                            fontWeight: 700,
+                            letterSpacing: "0.06em",
+                            textTransform: "uppercase",
+                            marginBottom: "0.45rem",
+                          }}
+                        >
+                          Engineering Capabilities
+                        </div>
+
+                        {/* Capabilities List */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "0.4rem",
+                          }}
+                        >
+                          {category.capabilities?.map((cap, cIdx) => (
+                            <div
+                              key={cIdx}
+                              style={{
+                                background: "rgba(13, 18, 27, 0.6)",
+                                border: "1px solid var(--border-subtle)",
+                                borderRadius: "6px",
+                                padding: "0.42rem 0.75rem",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.55rem",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "5px",
+                                  height: "5px",
+                                  borderRadius: "50%",
+                                  background: theme.accent,
+                                  flexShrink: 0,
+                                }}
+                              />
+                              <span
+                                style={{
+                                  fontSize: "0.82rem",
+                                  color: "var(--text-secondary)",
+                                  fontFamily: "var(--font-main)",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {cap}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      /* Standard Category Skills List */
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "0.55rem",
+                        }}
+                      >
+                        {category.skills.map((skill, sIdx) => (
+                          <div
+                            key={sIdx}
+                            className="individual-skill-card"
+                            style={{
+                              background: "var(--bg-secondary)",
+                              border: "1px solid var(--border-subtle)",
+                              borderRadius: "8px",
+                              padding: "0.65rem 0.85rem",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-between",
+                              gap: "0.5rem",
+                              transition: "all 0.2s ease",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontWeight: 700,
+                                fontSize: "0.92rem",
+                                color: "var(--text-primary)",
+                                fontFamily: "var(--font-mono)",
+                              }}
+                            >
+                              {skill.name}
+                            </span>
+                            <span
+                              style={{
+                                fontSize: "0.78rem",
+                                color: "var(--text-secondary)",
+                                fontFamily: "var(--font-main)",
+                                textAlign: "right",
+                              }}
+                            >
+                              {skill.tag}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </ScrollReveal>

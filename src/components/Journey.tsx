@@ -1,62 +1,70 @@
 import React from "react";
 import { PORTFOLIO_DATA } from "../data/portfolioData";
+import type { JourneyItem } from "../data/portfolioData";
 import { ScrollReveal } from "./ScrollReveal";
 import { Trophy, Shield, Cpu, Bot, CheckCircle2, Calendar } from "lucide-react";
 
 export const Journey: React.FC = () => {
-  const getItemDetails = (idx: number) => {
-    switch (idx) {
-      case 0: // Qualcomm Hackathon / JanSetu
-        return {
-          icon: <Cpu size={18} color="var(--accent-emerald)" />,
-          accentColor: "var(--accent-emerald)",
-          glowShadow: "0 0 14px var(--accent-emerald-glow)",
-          nodeBorder: "1px solid var(--accent-emerald-border)",
-          badgeBg: "var(--accent-emerald-subtle)",
-          badgeBorder: "1px solid var(--accent-emerald-border)",
-          badgeColor: "var(--accent-emerald)",
-        };
-      case 1: // AB Talks / Tron
-        return {
-          icon: <Bot size={18} color="var(--accent-blue)" />,
-          accentColor: "var(--accent-blue)",
-          glowShadow: "0 0 14px rgba(59, 130, 246, 0.22)",
-          nodeBorder: "1px solid rgba(59, 130, 246, 0.40)",
-          badgeBg: "rgba(59, 130, 246, 0.08)",
-          badgeBorder: "1px solid rgba(59, 130, 246, 0.30)",
-          badgeColor: "var(--accent-blue)",
-        };
-      case 2: // FAR AWAY Hackathon / RailGuard-AI
-        return {
-          icon: <Shield size={18} color="var(--accent-cyan)" />,
-          accentColor: "var(--accent-cyan)",
-          glowShadow: "0 0 14px var(--accent-cyan-glow)",
-          nodeBorder: "1px solid var(--accent-cyan-border)",
-          badgeBg: "var(--accent-cyan-subtle)",
-          badgeBorder: "1px solid var(--accent-cyan-border)",
-          badgeColor: "var(--accent-cyan)",
-        };
-      case 3: // HackHazards'26 / BenefitOS
-        return {
-          icon: <Trophy size={18} color="var(--accent-purple)" />,
-          accentColor: "var(--accent-purple)",
-          glowShadow: "0 0 14px var(--accent-purple-glow)",
-          nodeBorder: "1px solid var(--accent-purple-border)",
-          badgeBg: "var(--accent-purple-subtle)",
-          badgeBorder: "1px solid var(--accent-purple-border)",
-          badgeColor: "var(--accent-purple)",
-        };
-      default: // Build With Bharat 2.0 (Upcoming)
-        return {
-          icon: <Calendar size={18} color="var(--accent-amber)" />,
-          accentColor: "var(--accent-amber)",
-          glowShadow: "0 0 14px var(--accent-amber-glow)",
-          nodeBorder: "1px solid var(--accent-amber-border)",
-          badgeBg: "var(--accent-amber-subtle)",
-          badgeBorder: "1px solid var(--accent-amber-border)",
-          badgeColor: "var(--accent-amber)",
-        };
+  const getItemDetails = (item: JourneyItem) => {
+    const text = (item.title + " " + item.projectTitle).toLowerCase();
+
+    if (text.includes("hackhazards") || text.includes("benefit")) {
+      return {
+        icon: <Trophy size={18} color="var(--accent-purple)" />,
+        accentColor: "var(--accent-purple)",
+        glowShadow: "0 0 14px var(--accent-purple-glow)",
+        nodeBorder: "1px solid var(--accent-purple-border)",
+        badgeBg: "var(--accent-purple-subtle)",
+        badgeBorder: "1px solid var(--accent-purple-border)",
+        badgeColor: "var(--accent-purple)",
+      };
     }
+
+    if (text.includes("qualcomm") || text.includes("jansetu")) {
+      return {
+        icon: <Cpu size={18} color="var(--accent-emerald)" />,
+        accentColor: "var(--accent-emerald)",
+        glowShadow: "0 0 14px var(--accent-emerald-glow)",
+        nodeBorder: "1px solid var(--accent-emerald-border)",
+        badgeBg: "var(--accent-emerald-subtle)",
+        badgeBorder: "1px solid var(--accent-emerald-border)",
+        badgeColor: "var(--accent-emerald)",
+      };
+    }
+
+    if (text.includes("ab talks") || text.includes("tron")) {
+      return {
+        icon: <Bot size={18} color="var(--accent-blue)" />,
+        accentColor: "var(--accent-blue)",
+        glowShadow: "0 0 14px rgba(59, 130, 246, 0.22)",
+        nodeBorder: "1px solid rgba(59, 130, 246, 0.40)",
+        badgeBg: "rgba(59, 130, 246, 0.08)",
+        badgeBorder: "1px solid rgba(59, 130, 246, 0.30)",
+        badgeColor: "var(--accent-blue)",
+      };
+    }
+
+    if (text.includes("far away") || text.includes("railguard")) {
+      return {
+        icon: <Shield size={18} color="var(--accent-cyan)" />,
+        accentColor: "var(--accent-cyan)",
+        glowShadow: "0 0 14px var(--accent-cyan-glow)",
+        nodeBorder: "1px solid var(--accent-cyan-border)",
+        badgeBg: "var(--accent-cyan-subtle)",
+        badgeBorder: "1px solid var(--accent-cyan-border)",
+        badgeColor: "var(--accent-cyan)",
+      };
+    }
+
+    return {
+      icon: <Calendar size={18} color="var(--accent-amber)" />,
+      accentColor: "var(--accent-amber)",
+      glowShadow: "0 0 14px var(--accent-amber-glow)",
+      nodeBorder: "1px solid var(--accent-amber-border)",
+      badgeBg: "var(--accent-amber-subtle)",
+      badgeBorder: "1px solid var(--accent-amber-border)",
+      badgeColor: "var(--accent-amber)",
+    };
   };
 
   return (
@@ -122,16 +130,16 @@ export const Journey: React.FC = () => {
               bottom: "40px",
               left: "21px",
               width: "2px",
-              background: "linear-gradient(180deg, var(--accent-emerald) 0%, var(--accent-blue) 25%, var(--accent-cyan) 50%, var(--accent-purple) 75%, var(--accent-amber) 100%)",
+              background: "linear-gradient(180deg, var(--accent-purple) 0%, var(--accent-emerald) 25%, var(--accent-blue) 50%, var(--accent-cyan) 75%, var(--accent-amber) 100%)",
               zIndex: 1,
             }}
             className="journey-vertical-line"
           />
 
-          {/* Timeline Items */}
+          {/* Timeline Items - Rendered in direct declared sequence without any sorting */}
           <div style={{ display: "flex", flexDirection: "column", gap: "3.25rem" }}>
             {PORTFOLIO_DATA.journey.map((item, idx) => {
-              const details = getItemDetails(idx);
+              const details = getItemDetails(item);
 
               return (
                 <ScrollReveal key={idx} direction="up" delay={idx * 70}>

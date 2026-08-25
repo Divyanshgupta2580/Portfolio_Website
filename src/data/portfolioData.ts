@@ -19,11 +19,18 @@ export interface Project {
   featuredImage?: string;
 }
 
+export interface SkillItem {
+  name: string;
+  tag: string;
+  icon?: string;
+}
+
 export interface SkillCategory {
   title: string;
   description: string;
   iconName: string;
-  skills: { name: string; tag: string; icon?: string }[];
+  skills: SkillItem[];
+  capabilities?: string[];
 }
 
 export interface CapabilityItem {
@@ -125,38 +132,8 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
 
   hackathons: [
     {
-      id: "qualcomm",
-      num: "01",
-      name: "Qualcomm Hackathon",
-      project: "JanSetu",
-      focus: "AI / Edge Computing",
-      contribution: "Co-developed the complete backend with a teammate.",
-      badge: "Completed",
-      description: "AI-focused project exploring on-device edge computing and device-optimized AI workflows."
-    },
-    {
-      id: "ab-talks",
-      num: "02",
-      name: "AB Talks",
-      project: "Tron",
-      focus: "AI Agent Project",
-      contribution: "Majorly developed the project with a teammate, with UI development contributed by my teammate.",
-      badge: "Completed",
-      description: "Autonomous AI agent project for automated topic discovery, scoring, and publishing."
-    },
-    {
-      id: "far-away",
-      num: "03",
-      name: "FAR AWAY Hackathon",
-      project: "RailGuard-AI",
-      focus: "Autonomous Rail Systems",
-      contribution: "Built the hardware layer and backend communication system connecting the receiver and signal modules.",
-      badge: "Completed",
-      description: "Autonomous rail infrastructure orchestration with sub-15ms WebSocket state sync and Gemini AI reasoning."
-    },
-    {
       id: "hackhazards",
-      num: "04",
+      num: "01",
       name: "HackHazards'26",
       project: "BenefitOS",
       focus: "Civic / AI Platform",
@@ -165,14 +142,44 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       description: "AI-powered welfare scheme discovery platform using graph data structures and OCR document parsing."
     },
     {
+      id: "qualcomm",
+      num: "02",
+      name: "Qualcomm Hackathon",
+      project: "JanSetu",
+      focus: "AI / Edge Computing",
+      contribution: "Me and my friend built the complete backend.",
+      badge: "Completed",
+      description: "AI-focused project exploring on-device edge computing and device-optimized AI workflows."
+    },
+    {
+      id: "ab-talks",
+      num: "03",
+      name: "AB Talks",
+      project: "Tron",
+      focus: "AI Agent Project",
+      contribution: "Majorly built by me; my friend worked on the UI.",
+      badge: "Completed",
+      description: "Autonomous AI agent project for automated topic discovery, scoring, and publishing."
+    },
+    {
+      id: "far-away",
+      num: "04",
+      name: "FAR AWAY Hackathon",
+      project: "RailGuard-AI",
+      focus: "Autonomous Rail Systems",
+      contribution: "Built the hardware layer and backend communication system connecting the receiver and signal modules.",
+      badge: "Completed",
+      description: "Autonomous rail infrastructure orchestration with sub-15ms WebSocket state sync and Gemini AI reasoning."
+    },
+    {
       id: "build-with-bharat",
       num: "05",
       name: "Build With Bharat 2.0",
-      focus: "National Engineering Challenge",
-      contribution: "Upcoming participation in national engineering challenge.",
+      focus: "Upcoming Engineering Hackathon",
+      contribution: "Upcoming / Event has not taken place yet.",
       badge: "Upcoming",
       isUpcoming: true,
-      description: "National engineering hackathon exploring high-impact developer and public tech solutions."
+      description: "Upcoming national hackathon — details will be added upon participation."
     }
   ],
 
@@ -189,7 +196,8 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
     "Neo4j",
     "Git / GitHub",
     "Docker",
-    "Vercel"
+    "Vercel",
+    "Render"
   ],
 
   learning: {
@@ -318,10 +326,17 @@ export const PORTFOLIO_DATA = {
     },
     {
       title: "Frontend",
-      description: "Modern component-driven web interfaces and client state management.",
+      description: "Modern component-driven web interfaces and application development.",
       iconName: "Globe",
       skills: [
         { name: "React", tag: "Component Architecture & Responsive UI" },
+      ],
+      capabilities: [
+        "Responsive UI",
+        "Component Architecture",
+        "API Integration",
+        "State Management",
+        "Frontend–Backend Integration"
       ],
     },
     {
@@ -345,12 +360,14 @@ export const PORTFOLIO_DATA = {
     },
     {
       title: "Tools & Infrastructure",
-      description: "Containerization, version control, and continuous integration workflows.",
+      description: "Containerization, deployment platforms, and version control workflows.",
       iconName: "Terminal",
       skills: [
         { name: "Docker", tag: "Containerization & Environment Isolation" },
         { name: "Git", tag: "Distributed Version Control" },
-        { name: "GitHub", tag: "Source Code Management & CI/CD" },
+        { name: "GitHub", tag: "Source Code Management & Collaboration" },
+        { name: "Vercel", tag: "Frontend Deployment & Hosting" },
+        { name: "Render", tag: "Backend Deployment & Hosting" },
       ],
     },
   ] as SkillCategory[],
@@ -393,7 +410,7 @@ export const PORTFOLIO_DATA = {
       badge: "Hackathon Project",
       status: "Hackathon Project",
       category: "Software / AI",
-      contribution: "Co-developed the complete backend with a teammate.",
+      contribution: "Me and my friend built the complete backend.",
       shortDescription: "A civic complaint reporting and escalation platform built during the Qualcomm Hackathon, featuring automated officer assignment and 48-hour resolution SLA tracking.",
       problemStatement: "Public grievances and infrastructure faults frequently languish without administrative accountability due to lack of transparent escalation mechanisms.",
       fullDescription: "JanSetu is a civic issue reporting and escalation platform developed during the Qualcomm Hackathon. The platform enables citizens to submit local infrastructure reports, assigns incidents to designated local officers, and enforces a 48-hour resolution SLA with automated hierarchical escalation to ensure administrative accountability.",
@@ -423,7 +440,7 @@ export const PORTFOLIO_DATA = {
       badge: "Hackathon Project",
       status: "Hackathon Project",
       category: "Software / AI",
-      contribution: "Majorly developed the project with a teammate, with UI development contributed by my teammate.",
+      contribution: "Majorly built by me; my friend worked on the UI.",
       shortDescription: "An autonomous AI agent engineered for AB Talks that discovers topics, evaluates candidates, makes editorial decisions, verifies sources, and maintains persistent memory.",
       problemStatement: "Automated content workflows often suffer from hallucinations, source drift, and duplicate outputs without rigorous verification and memory safeguards.",
       fullDescription: "Tron is an autonomous AI agent engineered for AB Talks for intelligent content discovery, editorial scoring, and end-to-end publishing. It features multi-model LLM generation (Gemini with Groq fallback), citation verification against primary sources and arXiv, schema-validated output structuring, and fail-closed duplicate detection via persistent SQLite memory.",
@@ -529,16 +546,32 @@ export const PORTFOLIO_DATA = {
   journey: [
     {
       year: "2026",
+      title: "HACKHAZARDS'26",
+      organization: "HackHazards'26 Hackathon",
+      projectTitle: "BenefitOS",
+      projectSubtitle: "AI Citizen Welfare Discovery Platform",
+      contribution: "Designed and developed the complete platform independently.",
+      type: "Hackathon",
+      badge: "Completed",
+      description: "Designed and built an AI-powered platform to streamline citizen welfare scheme discovery, document verification, and eligibility assessment using graph databases and OCR.",
+      highlights: [
+        "Designed and developed the complete platform independently",
+        "Mapped government scheme prerequisites as Neo4j graph nodes and relationships",
+        "Integrated OCR document parsing with RAG query verification pipelines"
+      ]
+    },
+    {
+      year: "2026",
       title: "QUALCOMM HACKATHON",
       organization: "Qualcomm Snapdragon Multiverse",
       projectTitle: "JanSetu",
       projectSubtitle: "Civic Issue Reporting & Escalation Platform",
-      contribution: "Co-developed the complete backend with a teammate.",
+      contribution: "Me and my friend built the complete backend.",
       type: "Hackathon",
       badge: "Completed",
       description: "Participated in the Qualcomm Snapdragon Multiverse Hackathon, developing an automated civic issue reporting, tracking, and hierarchical escalation platform.",
       highlights: [
-        "Co-developed the complete backend with a teammate",
+        "Me and my friend built the complete backend",
         "Developed automated local officer assignment logic",
         "Engineered 48-hour SLA timer and hierarchical escalation workflows"
       ]
@@ -549,12 +582,12 @@ export const PORTFOLIO_DATA = {
       organization: "AB Talks Hackathon",
       projectTitle: "Tron",
       projectSubtitle: "Autonomous AI Agent",
-      contribution: "Majorly developed the project with a teammate, with UI development contributed by my teammate.",
+      contribution: "Majorly built by me; my friend worked on the UI.",
       type: "Engineering",
       badge: "Completed",
       description: "An autonomous AI agent engineered for intelligent topic discovery, candidate scoring, citation validation, and automated publishing.",
       highlights: [
-        "Majorly developed the project with a teammate (UI by teammate)",
+        "Majorly built by me; my friend worked on the UI",
         "Engineered autonomous topic evaluation and multi-model LLM generation",
         "Built persistent SQLite deduplication memory and arXiv citation verification"
       ]
@@ -576,34 +609,18 @@ export const PORTFOLIO_DATA = {
       ]
     },
     {
-      year: "2026",
-      title: "HACKHAZARDS'26",
-      organization: "HackHazards'26 Hackathon",
-      projectTitle: "BenefitOS",
-      projectSubtitle: "AI Citizen Welfare Discovery Platform",
-      contribution: "Designed and developed the complete platform independently.",
-      type: "Hackathon",
-      badge: "Completed",
-      description: "Designed and built an AI-powered platform to streamline citizen welfare scheme discovery, document verification, and eligibility assessment using graph databases and OCR.",
-      highlights: [
-        "Designed and developed the complete platform independently",
-        "Mapped government scheme prerequisites as Neo4j graph nodes and relationships",
-        "Integrated OCR document parsing with RAG query verification pipelines"
-      ]
-    },
-    {
       year: "Upcoming",
       title: "BUILD WITH BHARAT 2.0",
-      organization: "National Engineering Hackathon",
-      projectTitle: "Engineering Challenge",
-      projectSubtitle: "Public Tech & Developer Tooling",
-      contribution: "Registered / Upcoming participation in national engineering challenge.",
+      organization: "Upcoming Hackathon",
+      projectTitle: "Upcoming Hackathon",
+      projectSubtitle: "Event Not Yet Conducted",
+      contribution: "Upcoming / Event has not taken place yet.",
       type: "Hackathon",
       badge: "Upcoming",
-      description: "Upcoming national engineering hackathon focusing on building high-impact developer and public technology systems.",
+      description: "Upcoming national hackathon — details will be added upon participation.",
       highlights: [
-        "Registered for upcoming national-level engineering competition",
-        "Preparing architectures for scalable civic and public technology systems"
+        "Upcoming hackathon event",
+        "Details and project scope will be updated after the event"
       ]
     }
   ] as JourneyItem[],
