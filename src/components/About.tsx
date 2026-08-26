@@ -29,38 +29,38 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
     {
       icon: <GraduationCap size={20} color="var(--accent-cyan)" />,
       accent: "var(--accent-cyan)",
-      subtle: "var(--accent-cyan-subtle)",
-      border: "var(--accent-cyan-border)",
-      glow: "var(--accent-cyan-glow)",
+      subtle: "rgba(34, 211, 238, 0.08)",
+      border: "rgba(34, 211, 238, 0.28)",
       title: "Academic Background",
-      desc: "B.Tech CSE (AI & ML) · Mirai School of Tech, AKTU · Grad 2029 (Sem 1: 9.00, Sem 2: 9.43 CGPA)",
+      line1: "B.Tech CSE (AI & ML) · Mirai School of Tech, AKTU",
+      line2: "Grad 2029 · Sem 1: 9.00 CGPA · Sem 2: 9.43 CGPA",
     },
     {
       icon: <Layers size={20} color="var(--accent-blue)" />,
       accent: "var(--accent-blue)",
       subtle: "rgba(59, 130, 246, 0.08)",
       border: "rgba(59, 130, 246, 0.28)",
-      glow: "rgba(59, 130, 246, 0.16)",
       title: "Systems Builder",
-      desc: "Architecting backend services, REST APIs, real-time WebSocket state buses, and hardware communication",
+      line1: "Architecting backend services, REST APIs,",
+      line2: "real-time WebSocket state buses, and hardware communication",
     },
     {
       icon: <Sparkles size={20} color="var(--accent-purple)" />,
       accent: "var(--accent-purple)",
-      subtle: "var(--accent-purple-subtle)",
-      border: "var(--accent-purple-border)",
-      glow: "var(--accent-purple-glow)",
+      subtle: "rgba(168, 85, 247, 0.08)",
+      border: "rgba(168, 85, 247, 0.28)",
       title: "AI & Data Modeling",
-      desc: "Engineering RAG pipelines, graph data structures in Neo4j, and autonomous multi-model agent workflows",
+      line1: "Engineering RAG pipelines, graph data structures",
+      line2: "in Neo4j, and autonomous multi-model agent workflows",
     },
     {
       icon: <Trophy size={20} color="var(--accent-emerald)" />,
       accent: "var(--accent-emerald)",
-      subtle: "var(--accent-emerald-subtle)",
-      border: "var(--accent-emerald-border)",
-      glow: "var(--accent-emerald-glow)",
+      subtle: "rgba(16, 185, 129, 0.08)",
+      border: "rgba(16, 185, 129, 0.28)",
       title: "Hackathon Competitor",
-      desc: "4+ completed hackathons (HackHazards'26, Qualcomm, FAR AWAY, AB Talks) with working software systems",
+      line1: "4+ completed hackathons (HackHazards'26, Qualcomm, FAR AWAY, AB Talks) with working",
+      line2: "software systems",
     },
   ];
 
@@ -71,9 +71,8 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       label: "Major Projects",
       sub: "BenefitOS & RailGuard-AI",
       color: "var(--accent-cyan)",
-      subtle: "var(--accent-cyan-subtle)",
-      border: "var(--accent-cyan-border)",
-      glow: "var(--accent-cyan-glow)",
+      subtle: "rgba(34, 211, 238, 0.08)",
+      border: "rgba(34, 211, 238, 0.28)",
       icon: <Code2 size={18} color="var(--accent-cyan)" />,
     },
     {
@@ -84,7 +83,6 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       color: "var(--accent-blue)",
       subtle: "rgba(59, 130, 246, 0.08)",
       border: "rgba(59, 130, 246, 0.28)",
-      glow: "rgba(59, 130, 246, 0.16)",
       icon: <Layers size={18} color="var(--accent-blue)" />,
     },
     {
@@ -93,9 +91,8 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       label: "Completed Hackathons",
       sub: "Qualcomm, FAR AWAY, AB Talks, HackHazards",
       color: "var(--accent-purple)",
-      subtle: "var(--accent-purple-subtle)",
-      border: "var(--accent-purple-border)",
-      glow: "var(--accent-purple-glow)",
+      subtle: "rgba(168, 85, 247, 0.08)",
+      border: "rgba(168, 85, 247, 0.28)",
       icon: <Trophy size={18} color="var(--accent-purple)" />,
     },
     {
@@ -104,9 +101,8 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       label: "Learning & Building",
       sub: "Continuous Systems Growth",
       color: "var(--accent-emerald)",
-      subtle: "var(--accent-emerald-subtle)",
-      border: "var(--accent-emerald-border)",
-      glow: "var(--accent-emerald-glow)",
+      subtle: "rgba(16, 185, 129, 0.08)",
+      border: "rgba(16, 185, 129, 0.28)",
       icon: <BookOpen size={18} color="var(--accent-emerald)" />,
     },
   ];
@@ -117,7 +113,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       className="section"
       style={{
         background: "var(--bg-secondary)",
-        padding: "6rem 0",
+        padding: "5.5rem 0 6rem 0",
         borderTop: "1px solid var(--border-subtle)",
         borderBottom: "1px solid var(--border-subtle)",
         position: "relative",
@@ -126,7 +122,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       <div
         className="container"
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1180px",
           margin: "0 auto",
           padding: "0 1.5rem",
           width: "100%",
@@ -182,49 +178,58 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
           </ScrollReveal>
         </div>
 
-        {/* ================= MAIN TWO-COLUMN SPLIT ================= */}
+        {/* ================= MAIN ASYMMETRIC GRID ================= */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "2rem",
+            gridTemplateColumns: "1.05fr 1fr",
+            gap: "1.25rem",
             alignItems: "stretch",
           }}
-          className="about-two-col-grid"
+          className="about-main-split-grid"
         >
-          {/* ----- LEFT SIDE: 4 FOCUS ITEMS ----- */}
+          {/* ----- LEFT COLUMN: 4 STACKED INFORMATION PANELS ----- */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
               gap: "1rem",
+              height: "100%",
             }}
+            className="about-left-stack"
           >
             {focusPoints.map((item, idx) => (
-              <ScrollReveal key={idx} direction="up" delay={idx * 60}>
+              <ScrollReveal
+                key={idx}
+                direction="up"
+                delay={idx * 50}
+                style={{ flex: 1, display: "flex", flexDirection: "column" }}
+              >
                 <div
-                  className="about-focus-card"
+                  className="about-info-card"
                   style={{
                     background: "var(--bg-card)",
                     border: "1px solid var(--border-card)",
+                    borderLeft: `3px solid ${item.accent}`,
                     borderRadius: "14px",
-                    padding: "1.2rem 1.4rem",
+                    padding: "1.15rem 1.4rem",
                     display: "flex",
                     alignItems: "center",
                     gap: "1.15rem",
-                    transition: "all 0.25s ease",
                     boxShadow: "var(--shadow-card)",
+                    transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                    height: "100%",
+                    boxSizing: "border-box",
                   }}
                 >
+                  {/* Subtle Circular Icon Container */}
                   <div
                     style={{
-                      width: "44px",
-                      height: "44px",
-                      borderRadius: "10px",
+                      width: "46px",
+                      height: "46px",
+                      borderRadius: "50%",
                       background: item.subtle,
                       border: `1px solid ${item.border}`,
-                      boxShadow: `0 0 12px ${item.glow}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -234,26 +239,29 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     {item.icon}
                   </div>
 
-                  <div>
+                  {/* Information Hierarchy */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
                     <div
                       style={{
                         fontFamily: "var(--font-heading)",
                         fontWeight: 700,
                         fontSize: "1.02rem",
                         color: "var(--text-primary)",
-                        marginBottom: "0.2rem",
+                        marginBottom: "0.25rem",
+                        letterSpacing: "-0.01em",
                       }}
                     >
                       {item.title}
                     </div>
                     <div
                       style={{
-                        fontSize: "0.86rem",
+                        fontSize: "0.83rem",
                         color: "var(--text-secondary)",
                         lineHeight: 1.45,
                       }}
                     >
-                      {item.desc}
+                      <div>{item.line1}</div>
+                      <div>{item.line2}</div>
                     </div>
                   </div>
                 </div>
@@ -261,26 +269,26 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
             ))}
           </div>
 
-          {/* ----- RIGHT SIDE: 2x2 EQUAL-DIMENSION STATISTICS GRID (INTERACTIVE) ----- */}
+          {/* ----- RIGHT SIDE: 2x2 METRIC CARDS (INTERACTIVE) ----- */}
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(2, 1fr)",
               gridAutoRows: "1fr",
-              gap: "1.25rem",
-              alignItems: "stretch",
+              gap: "1rem",
+              height: "100%",
             }}
-            className="about-stats-grid"
+            className="about-right-metric-grid"
           >
             {statCards.map((stat, idx) => (
               <ScrollReveal
                 key={idx}
                 direction="up"
-                delay={idx * 60 + 40}
+                delay={idx * 60 + 30}
                 style={{ height: "100%", display: "flex", flexDirection: "column" }}
               >
                 <div
-                  className="about-stat-box"
+                  className="about-metric-card"
                   role="button"
                   tabIndex={0}
                   onClick={() => setActiveModal(stat.id)}
@@ -294,38 +302,38 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                   style={{
                     background: "var(--bg-card)",
                     border: "1px solid var(--border-card)",
-                    borderRadius: "16px",
-                    padding: "1.5rem",
+                    borderRadius: "14px",
+                    padding: "1.4rem 1.35rem 1.25rem 1.35rem",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
-                    transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+                    transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                     boxShadow: "var(--shadow-card)",
                     cursor: "pointer",
                     position: "relative",
                     userSelect: "none",
                     height: "100%",
                     width: "100%",
-                    minHeight: "175px",
                     boxSizing: "border-box",
                   }}
                 >
-                  {/* Top Row: Big Value & Upper-Right Icon */}
+                  {/* Top Row: Big Number & Subtle Icon Container */}
                   <div
                     style={{
                       display: "flex",
                       alignItems: "flex-start",
                       justifyContent: "space-between",
-                      marginBottom: "1rem",
+                      marginBottom: "0.85rem",
                     }}
                   >
                     <span
                       style={{
                         fontFamily: "var(--font-heading)",
-                        fontSize: stat.value.length > 3 ? "2.1rem" : "2.5rem",
+                        fontSize: stat.value.length > 3 ? "2.15rem" : "2.65rem",
                         fontWeight: 800,
                         color: stat.color,
                         lineHeight: 1,
+                        letterSpacing: "-0.03em",
                       }}
                     >
                       {stat.value}
@@ -333,65 +341,76 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
 
                     <div
                       style={{
-                        width: "40px",
-                        height: "40px",
+                        width: "42px",
+                        height: "42px",
                         borderRadius: "50%",
                         background: stat.subtle,
                         border: `1px solid ${stat.border}`,
-                        boxShadow: `0 0 12px ${stat.glow}`,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         flexShrink: 0,
                         transition: "all 0.2s ease",
                       }}
-                      className="about-stat-icon-wrap"
+                      className="about-metric-icon"
                     >
                       {stat.icon}
                     </div>
                   </div>
 
-                  {/* Bottom Labels */}
-                  <div>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        gap: "0.4rem",
-                        marginBottom: "0.25rem",
-                      }}
-                    >
-                      <span
+                  {/* Middle / Bottom Content & Action Indicator */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-end",
+                      justifyContent: "space-between",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <div>
+                      <div
                         style={{
                           fontFamily: "var(--font-heading)",
                           fontWeight: 700,
                           fontSize: "1.02rem",
                           color: "var(--text-primary)",
-                          lineHeight: 1.2,
+                          marginBottom: "0.2rem",
+                          letterSpacing: "-0.01em",
                         }}
                       >
                         {stat.label}
-                      </span>
-                      <ArrowUpRight
-                        size={15}
+                      </div>
+                      <div
                         style={{
-                          color: stat.color,
-                          opacity: 0.65,
-                          transition: "all 0.2s ease",
-                          flexShrink: 0,
+                          fontSize: "0.82rem",
+                          color: "var(--text-secondary)",
+                          lineHeight: 1.35,
+                          whiteSpace: "pre-line",
                         }}
-                        className="about-stat-arrow"
-                      />
+                      >
+                        {stat.sub}
+                      </div>
                     </div>
+
+                    {/* Bottom-right directional arrow */}
                     <div
                       style={{
-                        fontSize: "0.82rem",
-                        color: "var(--text-secondary)",
-                        lineHeight: 1.35,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        paddingBottom: "0.15rem",
                       }}
                     >
-                      {stat.sub}
+                      <ArrowUpRight
+                        size={17}
+                        style={{
+                          color: stat.color,
+                          opacity: 0.75,
+                          transition: "all 0.2s ease",
+                        }}
+                        className="about-metric-arrow"
+                      />
                     </div>
                   </div>
                 </div>
@@ -400,47 +419,53 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
           </div>
         </div>
 
-        {/* ================= BOTTOM ACADEMIC & PHILOSOPHY STRIP ================= */}
+        {/* ================= FULL-WIDTH ACADEMIC SUMMARY CARD ================= */}
         <ScrollReveal
           direction="up"
-          delay={150}
+          delay={120}
           style={{
-            background: "var(--bg-card)",
-            border: "1px solid var(--border-card)",
-            borderRadius: "14px",
-            padding: "1.4rem 2rem",
-            marginTop: "3rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "1.5rem",
-            boxShadow: "var(--shadow-card)",
+            marginTop: "1.25rem",
           }}
-          className="about-quote-strip"
         >
           <div
             style={{
-              width: "44px",
-              height: "44px",
-              borderRadius: "10px",
-              background: "var(--accent-cyan-subtle)",
-              border: "1px solid var(--accent-cyan-border)",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border-card)",
+              borderRadius: "14px",
+              padding: "1.25rem 1.65rem",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
+              gap: "1.35rem",
+              boxShadow: "var(--shadow-card)",
             }}
+            className="about-summary-panel"
           >
-            <Quote size={20} color="var(--accent-cyan)" />
-          </div>
+            {/* Quote Icon Container */}
+            <div
+              style={{
+                width: "44px",
+                height: "44px",
+                borderRadius: "10px",
+                background: "var(--accent-cyan-subtle)",
+                border: "1px solid var(--accent-cyan-border)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <Quote size={20} color="var(--accent-cyan)" />
+            </div>
 
-          <div style={{ fontSize: "0.95rem", lineHeight: 1.6 }}>
-            <span style={{ color: "var(--text-primary)" }}>
-              Pursuing B.Tech in Computer Science Engineering (AI &amp; ML) at Mirai School of Technology, AKTU University (Expected 2029).
-            </span>
-            <br />
-            <span style={{ color: "var(--accent-cyan)", fontWeight: 600 }}>
-              Academic Performance: 9.43 CGPA (Semester 2) · 9.00 CGPA (Semester 1).
-            </span>
+            {/* Academic Credential Text */}
+            <div style={{ fontSize: "0.93rem", lineHeight: 1.55 }}>
+              <div style={{ color: "var(--text-primary)" }}>
+                Pursuing B.Tech in Computer Science Engineering (AI &amp; ML) at Mirai School of Technology, AKTU University (Expected 2029).
+              </div>
+              <div style={{ color: "var(--accent-cyan)", fontWeight: 600, marginTop: "0.2rem" }}>
+                Academic Performance: 9.43 CGPA (Semester 2) · 9.00 CGPA (Semester 1)
+              </div>
+            </div>
           </div>
         </ScrollReveal>
       </div>
@@ -462,62 +487,40 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
       />
 
       <style>{`
-        .about-focus-card:hover {
+        .about-info-card:hover {
+          border-color: rgba(255, 255, 255, 0.16) !important;
           transform: translateY(-2px);
-          border-color: var(--accent-cyan-border) !important;
           box-shadow: var(--shadow-card-hover) !important;
         }
-        .about-stat-box:hover {
-          transform: translateY(-4px);
-          border-color: var(--accent-cyan-border) !important;
-          box-shadow: 0 8px 30px rgba(34, 211, 238, 0.16) !important;
+        .about-metric-card:hover {
+          border-color: rgba(255, 255, 255, 0.18) !important;
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-card-hover) !important;
         }
-        .about-stat-box:hover .about-stat-arrow {
+        .about-metric-card:hover .about-metric-arrow {
           opacity: 1 !important;
           transform: translate(2px, -2px);
         }
-        .about-stat-box:hover .about-stat-icon-wrap {
-          transform: scale(1.06);
-        }
-        .about-stat-box:focus-visible {
+        .about-metric-card:focus-visible {
           outline: 2px solid var(--accent-cyan);
           outline-offset: 3px;
         }
 
-        @media (min-width: 968px) {
-          .about-two-col-grid {
-            grid-template-columns: 1fr 1.05fr !important;
-            gap: 2.5rem !important;
+        @media (max-width: 968px) {
+          .about-main-split-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.25rem !important;
+          }
+          .about-right-metric-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
 
-        .about-stats-grid {
-          display: grid !important;
-          grid-template-columns: repeat(2, 1fr) !important;
-          grid-auto-rows: 1fr !important;
-          gap: 1.25rem !important;
-          align-items: stretch !important;
-        }
-        .about-stats-grid > div {
-          height: 100% !important;
-          display: flex !important;
-          flex-direction: column !important;
-        }
-        .about-stat-box {
-          height: 100% !important;
-          width: 100% !important;
-          min-height: 175px !important;
-          box-sizing: border-box !important;
-        }
-        @media (max-width: 640px) {
-          .about-stats-grid {
+        @media (max-width: 600px) {
+          .about-right-metric-grid {
             grid-template-columns: 1fr !important;
-            grid-auto-rows: auto !important;
           }
-          .about-stat-box {
-            min-height: 165px !important;
-          }
-          .about-quote-strip {
+          .about-summary-panel {
             flex-direction: column !important;
             align-items: flex-start !important;
             padding: 1.25rem !important;
