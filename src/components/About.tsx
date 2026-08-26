@@ -261,17 +261,24 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
             ))}
           </div>
 
-          {/* ----- RIGHT SIDE: 2x2 STATISTICS GRID (INTERACTIVE) ----- */}
+          {/* ----- RIGHT SIDE: 2x2 EQUAL-DIMENSION STATISTICS GRID (INTERACTIVE) ----- */}
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(2, 1fr)",
+              gridAutoRows: "1fr",
               gap: "1.25rem",
+              alignItems: "stretch",
             }}
             className="about-stats-grid"
           >
             {statCards.map((stat, idx) => (
-              <ScrollReveal key={idx} direction="up" delay={idx * 60 + 40}>
+              <ScrollReveal
+                key={idx}
+                direction="up"
+                delay={idx * 60 + 40}
+                style={{ height: "100%", display: "flex", flexDirection: "column" }}
+              >
                 <div
                   className="about-stat-box"
                   role="button"
@@ -288,7 +295,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     background: "var(--bg-card)",
                     border: "1px solid var(--border-card)",
                     borderRadius: "16px",
-                    padding: "1.6rem",
+                    padding: "1.5rem",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -297,6 +304,10 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                     cursor: "pointer",
                     position: "relative",
                     userSelect: "none",
+                    height: "100%",
+                    width: "100%",
+                    minHeight: "175px",
+                    boxSizing: "border-box",
                   }}
                 >
                   {/* Top Row: Big Value & Upper-Right Icon */}
@@ -305,13 +316,13 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                       display: "flex",
                       alignItems: "flex-start",
                       justifyContent: "space-between",
-                      marginBottom: "1.15rem",
+                      marginBottom: "1rem",
                     }}
                   >
                     <span
                       style={{
                         fontFamily: "var(--font-heading)",
-                        fontSize: stat.value.length > 3 ? "2.1rem" : "2.6rem",
+                        fontSize: stat.value.length > 3 ? "2.1rem" : "2.5rem",
                         fontWeight: 800,
                         color: stat.color,
                         lineHeight: 1,
@@ -348,7 +359,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                         alignItems: "center",
                         justifyContent: "space-between",
                         gap: "0.4rem",
-                        marginBottom: "0.2rem",
+                        marginBottom: "0.25rem",
                       }}
                     >
                       <span
@@ -357,6 +368,7 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
                           fontWeight: 700,
                           fontSize: "1.02rem",
                           color: "var(--text-primary)",
+                          lineHeight: 1.2,
                         }}
                       >
                         {stat.label}
@@ -479,9 +491,31 @@ export const About: React.FC<AboutProps> = ({ onRequestCode }) => {
           }
         }
 
-        @media (max-width: 600px) {
+        .about-stats-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, 1fr) !important;
+          grid-auto-rows: 1fr !important;
+          gap: 1.25rem !important;
+          align-items: stretch !important;
+        }
+        .about-stats-grid > div {
+          height: 100% !important;
+          display: flex !important;
+          flex-direction: column !important;
+        }
+        .about-stat-box {
+          height: 100% !important;
+          width: 100% !important;
+          min-height: 175px !important;
+          box-sizing: border-box !important;
+        }
+        @media (max-width: 640px) {
           .about-stats-grid {
             grid-template-columns: 1fr !important;
+            grid-auto-rows: auto !important;
+          }
+          .about-stat-box {
+            min-height: 165px !important;
           }
           .about-quote-strip {
             flex-direction: column !important;

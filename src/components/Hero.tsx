@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { PORTFOLIO_DATA, RESUME_URL } from "../data/portfolioData";
-import { GithubIcon, LinkedinIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon, ProtonMailIcon } from "./Icons";
 import { ScrollReveal } from "./ScrollReveal";
 import {
   Code2,
   GraduationCap,
   Trophy,
   FileText,
-  Send,
   ArrowRight,
   Terminal,
   Layers,
@@ -17,7 +16,7 @@ interface HeroProps {
   onContactClick: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onContactClick: _onContactClick }) => {
   const [imageError, setImageError] = useState(false);
   const p = PORTFOLIO_DATA.personal;
 
@@ -124,121 +123,144 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
               Engineering student building AI-powered systems, backend architectures, real-time applications, and practical software solutions.
             </p>
 
-            {/* Hero Action Buttons Hierarchy */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                flexWrap: "wrap",
-                gap: "1rem",
-                marginBottom: "2.25rem",
-              }}
-              className="hero-buttons-row"
-            >
-              {/* 1. Primary CTA: View Projects */}
-              <a
-                href="#projects"
-                className="btn btn-primary hero-primary-btn"
+            {/* Hero CTA & Social Area: Two Dedicated Rows */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.15rem", marginBottom: "2.25rem" }}>
+              {/* ROW 1 — PRIMARY ACTIONS */}
+              <div
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.55rem",
-                  fontWeight: 750,
-                  fontSize: "0.95rem",
-                  padding: "0.8rem 1.65rem",
-                }}
-              >
-                <span>View Projects</span>
-                <ArrowRight size={16} />
-              </a>
-
-              {/* 2. Secondary CTA: Download Resume */}
-              <a
-                href={RESUME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary hero-secondary-btn"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.55rem",
-                  fontSize: "0.95rem",
-                  padding: "0.8rem 1.45rem",
-                }}
-              >
-                <FileText size={16} color="var(--accent-cyan)" />
-                <span>Download Resume</span>
-              </a>
-
-              {/* 3. Tertiary CTA: Let's Connect */}
-              <button
-                type="button"
-                onClick={onContactClick}
-                className="btn btn-outline hero-tertiary-btn"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5rem",
-                  fontSize: "0.92rem",
-                  padding: "0.8rem 1.25rem",
-                  color: "var(--text-secondary)",
-                }}
-              >
-                <Send size={14} />
-                <span>Let's Connect</span>
-              </button>
-            </div>
-
-            {/* Social Links Row */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
-              <a
-                href={p.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-                style={{
-                  width: "38px",
-                  height: "38px",
-                  borderRadius: "8px",
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border-card)",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--text-secondary)",
-                  transition: "all 0.2s ease",
-                  textDecoration: "none",
+                  gap: "1rem",
                 }}
-                className="hero-social-btn"
+                className="hero-primary-actions-row"
               >
-                <GithubIcon size={18} />
-              </a>
+                {/* 1. Primary CTA: View Projects */}
+                <a
+                  href="#projects"
+                  className="btn btn-primary hero-primary-btn"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.55rem",
+                    fontWeight: 750,
+                    fontSize: "0.95rem",
+                    height: "48px",
+                    padding: "0 1.65rem",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  <span>View Projects</span>
+                  <ArrowRight size={16} />
+                </a>
 
-              <a
-                href={p.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
+                {/* 2. Secondary CTA: Download Resume */}
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary hero-secondary-btn"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.55rem",
+                    fontSize: "0.95rem",
+                    height: "48px",
+                    padding: "0 1.45rem",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  <FileText size={16} color="var(--accent-cyan)" />
+                  <span>Download Resume</span>
+                </a>
+              </div>
+
+              {/* ROW 2 — CONTACT / SOCIAL ACTIONS */}
+              <div
                 style={{
-                  width: "38px",
-                  height: "38px",
-                  borderRadius: "8px",
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border-card)",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--text-secondary)",
-                  transition: "all 0.2s ease",
-                  textDecoration: "none",
+                  gap: "0.85rem",
                 }}
-                className="hero-social-btn"
+                className="hero-social-actions-row"
               >
-                <LinkedinIcon size={18} />
-              </a>
+                {/* 1. Proton Mail */}
+                <a
+                  href={`mailto:${p.email}`}
+                  aria-label="Email (Proton Mail)"
+                  title="Email (Proton Mail)"
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "10px",
+                    background: "var(--bg-card)",
+                    border: "1px solid var(--border-card)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--text-secondary)",
+                    transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                    textDecoration: "none",
+                    flexShrink: 0,
+                  }}
+                  className="hero-social-btn"
+                >
+                  <ProtonMailIcon size={23} />
+                </a>
+
+                {/* 2. GitHub */}
+                <a
+                  href={p.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  title="GitHub Profile"
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "10px",
+                    background: "var(--bg-card)",
+                    border: "1px solid var(--border-card)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--text-secondary)",
+                    transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                    textDecoration: "none",
+                    flexShrink: 0,
+                  }}
+                  className="hero-social-btn"
+                >
+                  <GithubIcon size={23} />
+                </a>
+
+                {/* 3. LinkedIn */}
+                <a
+                  href={p.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  title="LinkedIn Profile"
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "10px",
+                    background: "var(--bg-card)",
+                    border: "1px solid var(--border-card)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--text-secondary)",
+                    transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                    textDecoration: "none",
+                    flexShrink: 0,
+                  }}
+                  className="hero-social-btn"
+                >
+                  <LinkedinIcon size={23} />
+                </a>
+              </div>
             </div>
           </ScrollReveal>
 
@@ -574,10 +596,11 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
 
       <style>{`
         .hero-social-btn:hover {
-          border-color: var(--accent-cyan) !important;
+          border-color: var(--accent-cyan-border) !important;
           color: var(--accent-cyan) !important;
           background: var(--accent-cyan-subtle) !important;
           transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(34, 211, 238, 0.16) !important;
         }
         .hero-primary-btn:hover {
           transform: translateY(-2px);
@@ -587,10 +610,15 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
           color: var(--accent-cyan) !important;
           transform: translateY(-2px);
         }
-        .hero-tertiary-btn:hover {
-          border-color: var(--border-strong) !important;
-          color: var(--text-primary) !important;
-          background: var(--bg-card) !important;
+        @media (max-width: 480px) {
+          .hero-primary-actions-row {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          .hero-primary-btn,
+          .hero-secondary-btn {
+            width: 100% !important;
+          }
         }
         .hero-summary-card:hover {
           border-color: var(--accent-cyan-border) !important;
