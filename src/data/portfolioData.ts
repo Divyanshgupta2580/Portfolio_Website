@@ -91,7 +91,6 @@ export interface AboutHackathonItem {
   focus: string;
   contribution: string;
   badge: string;
-  isUpcoming?: boolean;
   description?: string;
 }
 
@@ -170,16 +169,6 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       contribution: "Built the hardware layer and backend communication system connecting the receiver and signal modules.",
       badge: "Completed",
       description: "Autonomous rail infrastructure orchestration with sub-15ms WebSocket state sync and Gemini AI reasoning."
-    },
-    {
-      id: "build-with-bharat",
-      num: "05",
-      name: "Build With Bharat 2.0",
-      focus: "Upcoming Engineering Hackathon",
-      contribution: "Upcoming / Event has not taken place yet.",
-      badge: "Upcoming",
-      isUpcoming: true,
-      description: "Upcoming national hackathon — details will be added upon participation."
     }
   ],
 
@@ -606,21 +595,6 @@ export const PORTFOLIO_DATA = {
         "Built hardware layer & backend communication between receiver & signal modules",
         "Engineered sub-15ms WebSocket state synchronization across train crew interfaces",
         "Grounded Gemini agent reasoning on deterministic track graphs and G&SR safety rules"
-      ]
-    },
-    {
-      year: "Upcoming",
-      title: "BUILD WITH BHARAT 2.0",
-      organization: "Upcoming Hackathon",
-      projectTitle: "Upcoming Hackathon",
-      projectSubtitle: "Event Not Yet Conducted",
-      contribution: "Upcoming / Event has not taken place yet.",
-      type: "Hackathon",
-      badge: "Upcoming",
-      description: "Upcoming national hackathon — details will be added upon participation.",
-      highlights: [
-        "Upcoming hackathon event",
-        "Details and project scope will be updated after the event"
       ]
     }
   ] as JourneyItem[],

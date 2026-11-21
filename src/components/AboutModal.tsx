@@ -198,7 +198,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                     letterSpacing: "0.06em",
                   }}
                 >
-                  HACKATHONS · 4 COMPLETED + 1 UPCOMING
+                  HACKATHONS · 4 COMPLETED
                 </span>
               </div>
             </div>
@@ -476,9 +476,9 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.85rem",
                         fontWeight: 700,
-                        color: h.isUpcoming ? "var(--accent-amber)" : "var(--accent-purple)",
-                        background: h.isUpcoming ? "var(--accent-amber-subtle)" : "var(--accent-purple-subtle)",
-                        border: `1px solid ${h.isUpcoming ? "var(--accent-amber-border)" : "var(--accent-purple-border)"}`,
+                        color: "var(--accent-purple)",
+                        background: "var(--accent-purple-subtle)",
+                        border: "1px solid var(--accent-purple-border)",
                         padding: "0.3rem 0.55rem",
                         borderRadius: "6px",
                         flexShrink: 0,
@@ -523,9 +523,9 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                               fontSize: "0.72rem",
                               fontFamily: "var(--font-mono)",
                               fontWeight: 700,
-                              color: h.isUpcoming ? "var(--accent-amber)" : "var(--accent-emerald)",
-                              background: h.isUpcoming ? "var(--accent-amber-subtle)" : "var(--accent-emerald-subtle)",
-                              border: `1px solid ${h.isUpcoming ? "var(--accent-amber-border)" : "var(--accent-emerald-border)"}`,
+                              color: "var(--accent-emerald)",
+                              background: "var(--accent-emerald-subtle)",
+                              border: "1px solid var(--accent-emerald-border)",
                               padding: "0.18rem 0.5rem",
                               borderRadius: "4px",
                               textTransform: "uppercase",
