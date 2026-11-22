@@ -262,12 +262,12 @@ export const PORTFOLIO_DATA = {
     highlights: [
       { label: "Academics · 9.43 CGPA", value: "B.Tech CSE (AI & ML)", description: "Mirai School of Tech · AKTU (2029)" },
       { label: "Core Focus", value: "Software & AI Systems", description: "Backend, RAG & Real-Time" },
-      { label: "Competitions", value: "5 Completed Hackathons", description: "HackHazards, Qualcomm, FAR AWAY, AB Talks, Vihaan X" },
+      { label: "Competitions", value: "5+ Completed Hackathons", description: "HackHazards, Qualcomm, FAR AWAY, AB Talks, Vihaan X" },
     ],
     focus: [
       { title: "Systems Builder", description: "Architecting backend services, REST APIs, real-time WebSocket state buses, and hardware communication" },
       { title: "AI & Data Modeling", description: "Engineering RAG pipelines, graph data structures in Neo4j, and autonomous multi-model agent workflows" },
-      { title: "Hackathon Competitor", description: "Built projects at five hackathons, including Vihaan X, HackHazards'26, Qualcomm, FAR AWAY, and AB Talks" },
+      { title: "Hackathon Competitor", description: "Built projects at 5+ hackathons, including Vihaan X, HackHazards'26, Qualcomm, FAR AWAY, and AB Talks" },
     ],
     profileCards: [
       { id: "projects", value: "3", label: "Major Projects", description: "BenefitOS, RailGuard-AI & JEEVIKA" },
@@ -280,7 +280,7 @@ export const PORTFOLIO_DATA = {
       {
         id: "hackathons",
         get value(): string {
-          return String(ABOUT_MODAL_DATA.hackathons.filter(({ badge }) => badge === "Completed").length);
+          return `${ABOUT_MODAL_DATA.hackathons.filter(({ badge }) => badge === "Completed").length}+`;
         },
         label: "Completed Hackathons",
         description: "Qualcomm, FAR AWAY, AB Talks, HackHazards, Vihaan X"
