@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
         name: 'portfolio-metadata',
         transformIndexHtml: () => [
           { tag: 'title', children: metadata.title },
-          { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: metadata.favicon } },
+          { tag: 'link', attrs: { rel: 'icon', type: 'image/png', href: metadata.favicon } },
           { tag: 'link', attrs: { rel: 'canonical', href: metadata.url } },
           ...Object.entries({
             description: metadata.description,

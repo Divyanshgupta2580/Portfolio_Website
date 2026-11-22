@@ -247,7 +247,7 @@ export const PORTFOLIO_DATA = {
     description: "Portfolio of Divyansh Gupta, an engineering student building AI applications and backend systems. Projects include BenefitOS, JEEVIKA, and JanSetu.",
     socialDescription: "Engineering Student · Software Developer · AI/ML Enthusiast. Building practical software, AI systems, and engineering projects.",
     siteName: "Divyansh Gupta Portfolio",
-    favicon: "/favicon.svg",
+    favicon: "/assets/divyansh-pixel-portrait.png",
   },
   personal: {
     name: "Divyansh Gupta",
