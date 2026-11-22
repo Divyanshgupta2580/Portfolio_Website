@@ -227,7 +227,7 @@ export const PORTFOLIO_DATA = {
     headline: "Software Engineer & AI Systems Developer",
     statusBadge: "Engineering Student · Open to Opportunities",
     bio: "Engineering student building AI-powered systems, backend architectures, real-time applications, and practical software solutions.",
-    about: "Computer Science engineering student at Mirai School of Technology (AKTU) focused on building dependable software systems, backend architectures, and AI pipelines.",
+    about: "I’m an AI Engineer and Full-Stack Developer who doesn’t just build demos; I ship production-ready systems that solve real problems. As a computer science engineering student at Mirai School of Technology (AKTU), I focus on designing clear APIs, simplifying workflows, and making information easier to find and use.",
     academic: {
       college: "Mirai School of Technology",
       university: "AKTU University",
