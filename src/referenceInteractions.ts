@@ -121,14 +121,13 @@ export function setupReferenceInteractions() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return
-      entry.target.classList.add('visible')
-      entry.target.querySelectorAll('.reveal-text').forEach((child, index) => {
-        later(() => child.classList.add('visible'), index * 100)
-      })
-      observer.unobserve(entry.target)
+      if (!entry.isIntersecting) {
+        // Reset toward the edge it left so the offset cannot put it back in view.
+        entry.target.classList.toggle('reveal-from-top', entry.boundingClientRect.bottom <= (entry.rootBounds?.top ?? 0))
+      }
+      entry.target.classList.toggle('visible', entry.isIntersecting)
     })
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' })
+  }, { rootMargin: '0px 0px -50px 0px' })
   document.querySelectorAll('.fade-up, .reveal-text').forEach((element) => observer.observe(element))
 
   let lastScrollY = window.scrollY
