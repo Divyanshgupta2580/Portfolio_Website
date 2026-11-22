@@ -1,6 +1,10 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import handler from './api/contact.ts'
+import { PORTFOLIO_DATA } from './src/data/portfolioData.ts'
+
+const { metadata, personal } = PORTFOLIO_DATA
+const socialImage = new URL(personal.portraitPath, metadata.url).href
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -10,6 +14,32 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
+      {
+        name: 'portfolio-metadata',
+        transformIndexHtml: () => [
+          { tag: 'title', children: metadata.title },
+          { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: metadata.favicon } },
+          { tag: 'link', attrs: { rel: 'canonical', href: metadata.url } },
+          ...Object.entries({
+            description: metadata.description,
+            author: personal.name,
+            'twitter:card': 'summary_large_image',
+            'twitter:title': metadata.title,
+            'twitter:description': metadata.socialDescription,
+            'twitter:image': socialImage,
+            'twitter:image:alt': personal.name,
+          }).map(([name, content]) => ({ tag: 'meta', attrs: { name, content } })),
+          ...Object.entries({
+            'og:type': 'website',
+            'og:url': metadata.url,
+            'og:title': metadata.title,
+            'og:description': metadata.socialDescription,
+            'og:site_name': metadata.siteName,
+            'og:image': socialImage,
+            'og:image:alt': personal.name,
+          }).map(([property, content]) => ({ tag: 'meta', attrs: { property, content } })),
+        ],
+      },
       {
         name: 'local-api-contact-handler',
         configureServer(server) {

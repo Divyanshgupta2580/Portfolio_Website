@@ -1,108 +1,71 @@
-import React, { useState, useEffect } from 'react';
-import { PageWipe } from './components/PageWipe';
-import { CustomCursor } from './components/CustomCursor';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Capabilities } from './components/Capabilities';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Journey } from './components/Journey';
-import { Opportunities } from './components/Opportunities';
-import { Contact } from './components/Contact';
-import { ContactModal } from './components/ContactModal';
-import { Footer } from './components/Footer';
-import { ScrollProgress } from './components/ScrollProgress';
-import { PillNav } from './components/PillNav';
-import { NotFound } from './components/NotFound';
+import { useRef, useState } from 'react'
+import { About } from './components/About'
+import { AboutModal } from './components/AboutModal'
+import type { AboutModalType } from './components/AboutModal'
+import { Capabilities } from './components/Capabilities'
+import { Contact } from './components/Contact'
+import { ContactModal } from './components/ContactModal'
+import { Footer } from './components/Footer'
+import { Hero } from './components/Hero'
+import { Journey } from './components/Journey'
+import { Navbar } from './components/Navbar'
+import { NotFound } from './components/NotFound'
+import { Opportunities } from './components/Opportunities'
+import { ProjectModal } from './components/ProjectModal'
+import { Projects } from './components/Projects'
+import { ScrollProgress } from './components/ScrollProgress'
+import { Skills } from './components/Skills'
+import { PORTFOLIO_DATA } from './data/portfolioData'
+import type { Project } from './data/portfolioData'
 
-export const App: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [isNotFound, setIsNotFound] = useState(false);
+type Overlay =
+  | { kind: 'about'; topic: AboutModalType }
+  | { kind: 'project'; project: Project }
+  | { kind: 'contact'; opportunity: string; details?: string }
 
-  useEffect(() => {
-    const path = window.location.pathname;
-    if (path !== "/" && path !== "" && path !== "/index.html") {
-      setIsNotFound(true);
-    }
-  }, []);
-
-  if (isNotFound) {
-    return <NotFound />;
+export const App = () => {
+  const [overlay, setOverlay] = useState<Overlay | null>(null)
+  const trigger = useRef<HTMLElement | null>(null)
+  const open = (next: Overlay) => {
+    if (!overlay && document.activeElement instanceof HTMLElement) trigger.current = document.activeElement
+    setOverlay(next)
   }
-  const [selectedOpportunity, setSelectedOpportunity] = useState<string>('Internship');
-  const [initialDetails, setInitialDetails] = useState<string>('');
+  const close = () => {
+    setOverlay(null)
+    requestAnimationFrame(() => trigger.current?.focus({ preventScroll: true }))
+  }
+  const openProject = (project: Project) => open({ kind: 'project', project })
+  const openContact = (opportunity = PORTFOLIO_DATA.opportunityTypes[0], details = '') =>
+    open({ kind: 'contact', opportunity, details })
 
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleSelectOpportunity = (opportunityType: string) => {
-    setSelectedOpportunity(opportunityType);
-    setInitialDetails('');
-    setModalOpen(true);
-  };
-
-  const handleOpenHireMe = () => {
-    setSelectedOpportunity('Internship');
-    setInitialDetails('');
-    setModalOpen(true);
-  };
-
-  const handleRequestCode = (projectName: string) => {
-    setSelectedOpportunity('Technical Project / Source Code Request');
-    setInitialDetails(`I would like to request access to the source code for ${projectName}.`);
-    setModalOpen(true);
-  };
+  if (!['/', '/index.html'].includes(window.location.pathname)) return <NotFound />
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
-      {/* Intro Page Wipe */}
-      <PageWipe />
-
-      {/* Desktop Custom Smooth Cursor */}
-      <CustomCursor />
-
-      {/* Background Technical Grid Pattern */}
-      <div className="bg-tech-pattern" />
-
-      {/* Top Fixed Header Navbar */}
-      <Navbar onOpenHireMe={handleOpenHireMe} />
-
-      {/* Main Portfolio Content */}
-      <main style={{ flex: 1 }}>
-        <Hero onContactClick={scrollToContact} />
-        <Capabilities />
-        <About onContactClick={handleOpenHireMe} onRequestCode={handleRequestCode} />
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <Navbar onOpenContact={() => openContact()} />
+      <main id="main" tabIndex={-1}>
+        <Hero onOpenContact={() => openContact()} />
+        <About onOpenDetails={(topic) => open({ kind: 'about', topic })} />
+        <Projects onOpenProject={openProject} />
         <Skills />
-        <Projects onRequestCode={handleRequestCode} />
+        <Capabilities />
         <Journey />
-        <Opportunities onSelectOpportunity={handleSelectOpportunity} />
-        <Contact selectedOpportunity={selectedOpportunity} />
+        <Opportunities onSelectOpportunity={openContact} />
+        <Contact />
       </main>
-
-      {/* Footer */}
       <Footer />
-
-      {/* Floating Utilities */}
       <ScrollProgress />
-      <PillNav onOpenHireMe={handleOpenHireMe} />
+      {overlay?.kind === 'about' &&
+        <AboutModal topic={overlay.topic} onClose={close} onOpenProject={openProject} />}
+      {overlay?.kind === 'project' &&
+        <ProjectModal project={overlay.project} onClose={close} onRequestCode={(name) =>
+          openContact(PORTFOLIO_DATA.codeRequestType, 'I would like to request access to the source code for ' + name + '.')
+        } />}
+      {overlay?.kind === 'contact' &&
+        <ContactModal opportunity={overlay.opportunity} details={overlay.details} onClose={close} />}
+    </>
+  )
+}
 
-      {/* Strictly Styled Reference Contact / Engineering Inquiry Modal */}
-      <ContactModal
-        isOpen={modalOpen}
-        onClose={() => {
-          setModalOpen(false);
-          setInitialDetails('');
-        }}
-        initialOpportunity={selectedOpportunity}
-        initialDetails={initialDetails}
-      />
-    </div>
-  );
-};
-
-export default App;
+export default App

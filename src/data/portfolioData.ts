@@ -6,8 +6,6 @@ export interface Project {
   status: string;
   category: "Software / AI";
   contribution: string;
-  shortDescription: string;
-  problemStatement?: string;
   fullDescription: string;
   highlights: string[];
   technologies: string[];
@@ -15,8 +13,20 @@ export interface Project {
   architectureOverview: string;
   githubUrl?: string;
   demoUrl?: string;
-  docsUrl?: string;
-  featuredImage?: string;
+  thumbnail?: string;
+  showcase: {
+    subtitle: string;
+    description: string;
+    highlights: string[];
+    technologies: string[];
+    diagrams: {
+      label: string;
+      title?: string;
+      steps: string[];
+      flow?: true;
+      note?: string;
+    }[];
+  };
 }
 
 export interface SkillItem {
@@ -40,13 +50,6 @@ export interface CapabilityItem {
   description: string;
   iconName: string;
   tags: string[];
-}
-
-export interface AboutCard {
-  iconName: string;
-  label: string;
-  line1: string;
-  line2: string;
 }
 
 export interface OpportunityItem {
@@ -169,6 +172,15 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       contribution: "Built the hardware layer and backend communication system connecting the receiver and signal modules.",
       badge: "Completed",
       description: "Autonomous rail infrastructure orchestration with sub-15ms WebSocket state sync and Gemini AI reasoning."
+    },
+    {
+      id: "build-with-bharat",
+      num: "05",
+      name: "Build With Bharat 2.0",
+      focus: "Upcoming Engineering Hackathon",
+      contribution: "Upcoming / Event has not taken place yet.",
+      badge: "Upcoming",
+      description: "Upcoming national hackathon — details will be added upon participation."
     }
   ],
 
@@ -205,67 +217,70 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
 
 export const RESUME_URL = "https://drive.google.com/file/d/1XbqOPOtspT1fE-rc5Om4RG5dNWelJBru/view?usp=sharing";
 
+export const NAVIGATION = [
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "skills", label: "Skills" },
+  { id: "capabilities", label: "What I Do" },
+  { id: "journey", label: "Journey" },
+  { id: "opportunities", label: "Open to Work" },
+  { id: "contact", label: "Contact" },
+];
+
 export const PORTFOLIO_DATA = {
+  metadata: {
+    url: "https://divyansh-gupta-portfolio-lac.vercel.app/",
+    title: "Divyansh Gupta — Software Developer & AI/ML Enthusiast",
+    description: "Personal portfolio of Divyansh Gupta, an engineering student and software developer building AI/ML platforms, intelligent algorithms, and backend systems. Creator of BenefitOS and JanSetu.",
+    socialDescription: "Engineering Student · Software Developer · AI/ML Enthusiast. Building practical software, AI systems, and engineering projects.",
+    siteName: "Divyansh Gupta Portfolio",
+    favicon: "/favicon.svg",
+  },
   personal: {
     name: "Divyansh Gupta",
     headline: "Software Engineer & AI Systems Developer",
     statusBadge: "Engineering Student · Open to Opportunities",
     bio: "Engineering student building AI-powered systems, backend architectures, real-time applications, and practical software solutions.",
-    aboutP1: "I am Divyansh Gupta, an engineering student at Mirai School of Technology (AKTU University) pursuing B.Tech in Computer Science Engineering (AI & ML), with expected graduation in 2029.",
-    aboutP2: "I engineer production-minded software systems — combining backend architectures, real-time telemetry synchronization, graph data modeling in Neo4j, and multi-model AI workflows.",
-    aboutP3: "From independently designing and developing BenefitOS for HackHazards'26 to co-developing the backend for JanSetu (Qualcomm Hackathon) and building hardware/backend communications for RailGuard-AI (FAR AWAY Hackathon), my focus is on practical, high-impact engineering.",
+    about: "Computer Science engineering student at Mirai School of Technology (AKTU) focused on building dependable software systems, backend architectures, and AI pipelines.",
     academic: {
-      college: "Mirai School of Technology, Ghaziabad",
+      college: "Mirai School of Technology",
       university: "AKTU University",
-      degree: "B.Tech in Computer Science Engineering — AI & ML",
-      graduation: "Expected 2029",
+      degree: "B.Tech in Computer Science Engineering (AI & ML)",
+      graduation: "2029",
       sem1Cgpa: "9.00",
       sem2Cgpa: "9.43"
     },
-    aboutChips: [
-      "C++",
-      "Python",
-      "TypeScript",
-      "React",
-      "Node.js",
-      "Express",
-      "Neo4j",
-      "Docker",
-      "RAG / AI",
-      "REST APIs",
-      "Git & GitHub"
-    ],
-    aboutCards: [
-      {
-        iconName: "GraduationCap",
-        label: "Academics",
-        line1: "9.43 CGPA (Sem 2)",
-        line2: "B.Tech CSE (AI & ML) · AKTU"
-      },
-      {
-        iconName: "Trophy",
-        label: "BenefitOS",
-        line1: "HackHazards'26",
-        line2: "Built Independently"
-      },
-      {
-        iconName: "Network",
-        label: "JanSetu & RailGuard",
-        line1: "Backend & Hardware Comm",
-        line2: "Qualcomm & FAR AWAY"
-      },
-      {
-        iconName: "Code2",
-        label: "Technical Stack",
-        line1: "C++, Python, React, Node",
-        line2: "Docker, Neo4j, MongoDB"
-      }
-    ] as AboutCard[],
     highlights: [
-      { label: "Role", value: "Software Engineer & AI Systems Developer" },
-      { label: "Academics", value: "9.43 CGPA · B.Tech CSE (AI & ML)" },
-      { label: "Focus", value: "AI Systems, Backend & Real-Time" },
+      { label: "Academics · 9.43 CGPA", value: "B.Tech CSE (AI & ML)", description: "Mirai School of Tech · AKTU (2029)" },
+      { label: "Core Focus", value: "Software & AI Systems", description: "Backend, RAG & Real-Time" },
+      { label: "Competitions", value: "4+ Completed Hackathons", description: "HackHazards, Qualcomm, FAR AWAY, AB Talks" },
     ],
+    focus: [
+      { title: "Systems Builder", description: "Architecting backend services, REST APIs, real-time WebSocket state buses, and hardware communication" },
+      { title: "AI & Data Modeling", description: "Engineering RAG pipelines, graph data structures in Neo4j, and autonomous multi-model agent workflows" },
+      { title: "Hackathon Competitor", description: "4+ completed hackathons (HackHazards'26, Qualcomm, FAR AWAY, AB Talks) with working software systems" },
+    ],
+    profileCards: [
+      { id: "projects", value: "2+", label: "Major Projects", description: "BenefitOS & RailGuard-AI" },
+      { id: "tech", value: "10+", label: "Technologies", description: "Languages, Backend & Data" },
+      { id: "hackathons", value: "4+", label: "Completed Hackathons", description: "Qualcomm, FAR AWAY, AB Talks, HackHazards" },
+      { id: "learning", value: "Always", label: "Learning & Building", description: "Continuous Systems Growth" },
+    ] as const,
+    portraitTags: ["C++", "Python", "TypeScript", "Node.js"],
+    footer: {
+      description: "Building software, AI systems, and engineering solutions that solve practical problems.",
+      focus: "Engineering Student · AI & Software Engineering",
+    },
+    contact: {
+      availability: "I am open to engineering internships, freelance technical challenges, AI/ML collaborations, and full-time software developer opportunities.",
+      directChannels: "Have an opportunity, project idea, or technical proposal? Reach out directly.",
+      inquiry: "Submit an inquiry for software engineering internships, AI/ML research collaborations, or technical projects.",
+      notes: [
+        { title: "Quick Response", description: "I typically respond within 24 hours" },
+        { title: "Open to Opportunities", description: "Internships, projects and collaborations" },
+        { title: "Let's Create Impact", description: "Building practical solutions that matter" },
+      ],
+    },
     avatarPlaceholderText: "DG",
     portraitPath: "/assets/divyansh_portrait.jpg",
     resumePath: RESUME_URL,
@@ -370,8 +385,31 @@ export const PORTFOLIO_DATA = {
       status: "Deployed",
       category: "Software / AI",
       contribution: "Designed and developed the complete platform independently.",
-      shortDescription: "A welfare scheme discovery and document verification platform built for HackHazards'26, mapping citizen welfare rules to Neo4j graph nodes and integrating OCR parsing.",
-      problemStatement: "Citizens often struggle to discover relevant government welfare schemes due to fragmented eligibility rules, complex criteria, and cumbersome document verification.",
+      showcase: {
+        subtitle: "AI-Powered Citizen Welfare Discovery Platform",
+        description: "A citizen-focused platform designed to help people discover welfare schemes, understand eligibility, prepare required documents, and navigate application workflows.",
+        highlights: [
+          "AI-Powered Welfare Scheme Recommendation Engine",
+          "Deterministic & Dynamic Eligibility Discovery",
+          "Document Readiness & Verification Workflow via OCR",
+          "Conversational AI Assistant for Scheme Guidance",
+        ],
+        technologies: ["TypeScript", "Node.js", "Express", "Neo4j", "AI / RAG", "OCR", "React"],
+        diagrams: [
+          { label: "System Flow", flow: true, steps: ["Client Application\nClient UI", "REST API Gateway\nExpress Backend · Node.js Runtime", "Graph & AI Inference\nNeo4j Graph DB · RAG + OCR Engine"] },
+          { label: "RAG Pipeline", title: "OCR Document Extraction & RAG Workflow", steps: [
+            "Citizen uploads identity/income verification document.",
+            "OCR pipeline extracts structured key-value entities and text fields.",
+            "Semantic embeddings match extracted attributes against national welfare database criteria.",
+            "Vector retrieval ranks qualifying citizen benefits with explainable rationale.",
+          ] },
+          { label: "Neo4j Graph", title: "Neo4j Graph Relationship Engine", steps: [
+            "(:Citizen)-[:ELIGIBLE_FOR]->(:Scheme)",
+            "(:Scheme)-[:REQUIRES_DOC]->(:Document)",
+            "(:Scheme)-[:ADMINISTERED_BY]->(:Ministry)",
+          ], note: "Traverses multi-hop dependency chains in sub-10ms latency." },
+        ],
+      },
       fullDescription: "BenefitOS is an AI-powered citizen welfare discovery platform engineered for HackHazards'26. The platform models government eligibility criteria as connected graph structures in Neo4j, enabling dynamic traversal of inter-scheme prerequisites and conflicting provisions. It integrates OCR-based document parsing with a Retrieval-Augmented Generation (RAG) query engine to analyze citizen documents against official scheme parameters and deliver clear eligibility assessments.",
       highlights: [
         "Designed and developed the complete platform independently",
@@ -400,8 +438,34 @@ export const PORTFOLIO_DATA = {
       status: "Hackathon Project",
       category: "Software / AI",
       contribution: "Me and my friend built the complete backend.",
-      shortDescription: "A civic complaint reporting and escalation platform built during the Qualcomm Hackathon, featuring automated officer assignment and 48-hour resolution SLA tracking.",
-      problemStatement: "Public grievances and infrastructure faults frequently languish without administrative accountability due to lack of transparent escalation mechanisms.",
+      showcase: {
+        subtitle: "Deployed Civic Issue Reporting & Escalation Platform",
+        description: "A deployed civic issue reporting and tracking platform that enables citizens to report problems in their surrounding neighborhoods with automated 48-hour officer escalation.",
+        highlights: [
+          "Citizen Civic Issue Reporting & Real-Time Tracking",
+          "Automated Responsible Officer Assignment & SLA Monitoring",
+          "48-Hour Resolution SLA with Automatic Hierarchical Escalation",
+          "Administrative Accountability for Unresolved Civic Complaints",
+        ],
+        technologies: ["TypeScript", "Python", "Node.js", "C++", "IoT Edge Computing"],
+        diagrams: [
+          { label: "Escalation Flow", flow: true, steps: ["Citizen Issue Report\nPotholes & Streetlights", "Officer Assigned\n48-Hour Resolution SLA", "Automatic Escalation to Higher-Level Officer\nIf unresolved within 48 hours"] },
+          { label: "48-Hour SLA", title: "48-Hour Accountability Workflow", steps: [
+            "A citizen reports a local civic issue through JanSetu.",
+            "The issue is recorded and tracked by the system.",
+            "The reported issue is assigned to the responsible officer.",
+            "The assigned officer is expected to resolve the issue within 48 hours.",
+            "The system tracks the resolution status in real-time.",
+            "If unresolved within 48 hours, the complaint escalates to a higher-level officer.",
+            "This creates an accountability workflow for unresolved civic complaints.",
+          ] },
+          { label: "Architecture", title: "Civic Issue Tracking & Diagnostics Engine", steps: [
+            "Citizen Reporting Pipeline: Real-time incident intake, geographic tagging, and status verification.",
+            "Automated SLA Engine: Background daemon tracking 48-hour resolution windows and triggering hierarchical escalation.",
+            "Infrastructure Diagnostics: Telemetry integration for automated streetlight and infrastructure outage monitoring.",
+          ] },
+        ],
+      },
       fullDescription: "JanSetu is a civic issue reporting and escalation platform developed during the Qualcomm Hackathon. The platform enables citizens to submit local infrastructure reports, assigns incidents to designated local officers, and enforces a 48-hour resolution SLA with automated hierarchical escalation to ensure administrative accountability.",
       highlights: [
         "Co-developed the complete backend with a teammate",
@@ -430,8 +494,33 @@ export const PORTFOLIO_DATA = {
       status: "Hackathon Project",
       category: "Software / AI",
       contribution: "Majorly built by me; my friend worked on the UI.",
-      shortDescription: "An autonomous AI agent engineered for AB Talks that discovers topics, evaluates candidates, makes editorial decisions, verifies sources, and maintains persistent memory.",
-      problemStatement: "Automated content workflows often suffer from hallucinations, source drift, and duplicate outputs without rigorous verification and memory safeguards.",
+      showcase: {
+        subtitle: "Autonomous AI Agent",
+        description: "An autonomous AI agent that discovers relevant topics, evaluates candidates, makes editorial decisions, generates content, validates sources, maintains persistent memory, and publishes autonomously.",
+        highlights: [
+          "Autonomous Topic Discovery & Candidate Evaluation",
+          "Editorial Decision-Making with Rejection Logic",
+          "Persistent Memory of Publications & Decisions (SQLite)",
+          "Autonomous Scheduling & Publishing",
+          "Structured AI Generation with Schema Validation",
+          "Fail-Closed Duplicate Protection & Source Fallback (Groq / arXiv)",
+        ],
+        technologies: ["Gemini", "Groq", "arXiv", "SQLite", "Python", "Autonomous Agents", "LLMs", "API"],
+        diagrams: [
+          { label: "Agent Flow", flow: true, steps: ["Topic Discovery\nCandidate Engine", "Editorial Scoring & Rejection Filter\nGemini Generation · Groq Fallback", "Source Validation & Memory Check\narXiv & Sources · SQLite Memory", "Schema Validation & Scheduling\nAutonomous Publishing · Scheduled Run"] },
+          { label: "Decision Pipeline", title: "Editorial Scoring & Multi-Model Fallback", steps: [
+            "Candidate Evaluation: Discovered topics are filtered via strict threshold scoring.",
+            "Rejection Logic: Low-relevance or unsupported topics are rejected early.",
+            "Multi-Model Architecture: Primary generation executes via Gemini Pro/Flash with automatic failover to Groq Llama-3.",
+            "Strict Schema: Output is validated against predefined Pydantic JSON schemas.",
+          ] },
+          { label: "Memory & Publishing", title: "Persistent Memory & Source Integrity", steps: [
+            "SQLite Store: Tracks historical publication logs, rejected candidates, and semantic topic clusters.",
+            "Duplicate Protection: Employs fail-closed deduplication hashes before publishing.",
+            "Citation Verification: Cross-checks factual assertions against primary research citations and arXiv API fallbacks.",
+          ] },
+        ],
+      },
       fullDescription: "Tron is an autonomous AI agent engineered for AB Talks for intelligent content discovery, editorial scoring, and end-to-end publishing. It features multi-model LLM generation (Gemini with Groq fallback), citation verification against primary sources and arXiv, schema-validated output structuring, and fail-closed duplicate detection via persistent SQLite memory.",
       highlights: [
         "Majorly developed the project with a teammate (UI by teammate)",
@@ -460,8 +549,32 @@ export const PORTFOLIO_DATA = {
       status: "Deployed",
       category: "Software / AI",
       contribution: "Built the hardware layer and backend communication system connecting the receiver and signal modules.",
-      shortDescription: "An autonomous rail operations and safety platform developed during the FAR AWAY hackathon, combining real-time edge telemetry with sub-15ms WebSocket state synchronization.",
-      problemStatement: "Low-visibility winter fog hazards and fragmented rail communications cause dangerous track conflicts and severe network delays.",
+      showcase: {
+        subtitle: "Autonomous Rail Operations & Safety Platform",
+        description: "An autonomous central rail infrastructure orchestration layer and real-time operations platform developed during the FAR AWAY hackathon, combining edge telemetry with LLM reasoning.",
+        highlights: [
+          "Zero-Optical Cab Signaling & FogSafe Edge Telemetry",
+          "Central Real-Time WebSocket State Synchronization Engine",
+          "Gemini Tool-Calling Agent Grounded in Deterministic Track Graph",
+          "Automated Conflict Prediction & Dynamic Route Arbitration",
+          "Synchronized Loco-Pilot Cab HUD & Conductor Manifest Matrix",
+          "FAR AWAY Hackathon Contributor / Team Member",
+        ],
+        technologies: ["React", "Node.js", "Express", "Socket.IO", "Google Gemini AI", "TypeScript", "IoT / LoRa", "Python"],
+        diagrams: [
+          { label: "System Flow", flow: true, steps: ["FogSafe Edge Telemetry\nESP32 + LoRa 433MHz", "Sub-15ms WebSocket State Bus\nCentral State Bus · Node.js & Socket.IO", "Synchronized Role Broadcasts\nLoco-Pilot Cab HUD · Gemini OCC Agent"] },
+          { label: "Agentic Triage", title: "Deterministic Track Graph & Gemini Function Calling", steps: [
+            "106km Sector Graph: Represents 53 automatic blocks and Clear Standing Room (CSR) loop line capacities.",
+            "Tool-Calling Grounding: Invokes mathematical functions (get_loop_capacity, calculate_braking_distance) to eliminate hallucinations.",
+            "G&SR Rule Enforcement: Enforces Indian Railway safety rules for loop line clearance and dynamic wrong-way overtake advisories.",
+          ] },
+          { label: "FogSafe & Telemetry", title: "Zero-Optical Cab Signaling & Passenger Relay", steps: [
+            "LoRa 433MHz Mesh: Relays signal aspect and visibility telemetry directly into locomotive cabs >3.5 km in advance during severe winter fog.",
+            "Sub-15ms Passenger SOS: Instant WebSocket relay from passenger berth beacons to conductor split-flap matrix.",
+            "Kinetic Deceleration: Physics calculations for heavy freight and passenger express stopping distances.",
+          ] },
+        ],
+      },
       fullDescription: "RailGuard-AI is an autonomous rail infrastructure orchestration platform built during the FAR AWAY hackathon. The system addresses low-visibility winter fog hazards and fragmented rail communications by providing a real-time data bus with sub-15ms WebSocket state synchronization across loco-pilot cabs, ticket examiners, and control centers. It integrates FogSafe edge telemetry with Gemini LLM reasoning grounded in a deterministic railway sector graph and Indian Railway G&SR operating rules.",
       highlights: [
         "Built hardware layer & backend communication between receiver & signal modules",
@@ -519,7 +632,7 @@ export const PORTFOLIO_DATA = {
       id: "opp-backend",
       num: "03",
       title: "Backend & Distributed Systems",
-      opportunityType: "Freelance / Project",
+      opportunityType: "AI / Backend Project",
       badge: "Systems & APIs",
       description: "Engineering collaborations involving backend architectures, API integrations, and scalable database systems.",
       features: [
@@ -599,6 +712,7 @@ export const PORTFOLIO_DATA = {
     }
   ] as JourneyItem[],
 
+  codeRequestType: "Technical Project / Source Code Request",
   opportunityTypes: [
     "Internship",
     "Freelance Development",

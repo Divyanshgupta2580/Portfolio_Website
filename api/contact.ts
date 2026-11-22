@@ -1,3 +1,7 @@
+import { PORTFOLIO_DATA } from '../src/data/portfolioData.ts';
+
+const { personal } = PORTFOLIO_DATA;
+
 function escapeHtml(text: string): string {
   return text
     .replace(/&/g, '&amp;')
@@ -83,13 +87,13 @@ export default async function handler(req: any, res: any) {
 
   // 2. Server Environment Variables
   const resendApiKey = (process.env.RESEND_API_KEY || '').trim();
-  const toEmail = (process.env.CONTACT_TO_EMAIL || 'inbox.divyanshgupta1@protonmail.com').trim().toLowerCase();
+  const toEmail = (process.env.CONTACT_TO_EMAIL || personal.email).trim().toLowerCase();
   const fromEmail = (process.env.CONTACT_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>').trim();
 
   if (!resendApiKey) {
     return res.status(500).json({
       success: false,
-      message: 'Email delivery service is not configured on the server. Please contact Divyansh directly via inbox.DivyanshGupta1@protonmail.com.',
+      message: 'Email delivery service is not configured on the server. Please contact ' + personal.email + ' directly.',
     });
   }
 
@@ -142,7 +146,7 @@ export default async function handler(req: any, res: any) {
               <p style="white-space: pre-wrap; margin: 0; color: #1e293b; font-size: 14px; line-height: 1.65;">${safeMessage}</p>
             </div>
             <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; border-top: 1px solid #f1f5f9; padding-top: 14px;">
-              Sent to ${toEmail} via Divyansh Gupta's Portfolio. Hit 'Reply' to respond directly to ${safeEmail}.
+              Sent to ${escapeHtml(toEmail)} via ${escapeHtml(personal.name)}'s Portfolio. Hit 'Reply' to respond directly to ${safeEmail}.
             </p>
           </div>
         `,
@@ -154,14 +158,14 @@ export default async function handler(req: any, res: any) {
     if (emailResponse.ok) {
       return res.status(200).json({
         success: true,
-        message: 'Your inquiry has been delivered successfully! Divyansh will get back to you shortly.',
+        message: 'Your inquiry has been delivered successfully! ' + personal.name + ' will get back to you shortly.',
         id: data?.id,
       });
     } else {
       console.error('[Resend API Error]:', data);
       return res.status(emailResponse.status || 500).json({
         success: false,
-        message: data?.message || 'Email delivery provider error. Please contact Divyansh directly via inbox.DivyanshGupta1@protonmail.com.',
+        message: data?.message || 'Email delivery provider error. Please contact ' + personal.email + ' directly.',
       });
     }
   } catch (error: any) {
@@ -169,7 +173,7 @@ export default async function handler(req: any, res: any) {
     return res.status(502).json({
       success: false,
       message: error?.message 
-        ? `Communication error with email service (${error.message}). Please reach out directly to inbox.DivyanshGupta1@protonmail.com.`
+        ? `Communication error with email service (${error.message}). Please reach out directly to ${personal.email}.`
         : 'Communication error with email delivery service. Please use the direct email button below.',
     });
   }

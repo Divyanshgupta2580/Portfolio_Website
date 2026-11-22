@@ -1,100 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { useEffect, useState } from 'react'
+import { ArrowUp } from 'lucide-react'
 
-export const ScrollProgress: React.FC = () => {
-  const [scrollPercent, setScrollPercent] = useState(0);
-  const [visible, setVisible] = useState(false);
+export function ScrollProgress() {
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      setScrollPercent(percent);
+    const update = () => {
+      const available = document.documentElement.scrollHeight - window.innerHeight
+      setProgress(available > 0 ? Math.min(1, Math.max(0, window.scrollY / available)) : 0)
+    }
+    const resize = new ResizeObserver(update)
+    resize.observe(document.body)
+    window.addEventListener('scroll', update, { passive: true })
+    update()
 
-      if (scrollTop > 150) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
-  const radius = 20;
-  const circumference = 2 * Math.PI * radius; // ~125.66
-  const strokeDashoffset = circumference - (scrollPercent / 100) * circumference;
+    return () => {
+      window.removeEventListener('scroll', update)
+      resize.disconnect()
+    }
+  }, [])
 
   return (
-    <button
-      onClick={scrollToTop}
-      aria-label="Scroll to top"
-      style={{
-        position: 'fixed',
-        bottom: '2rem',
-        right: '2rem',
-        width: '48px',
-        height: '48px',
-        borderRadius: '50%',
-        background: 'var(--bg-modal)',
-        border: '1.5px solid var(--border-card)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        cursor: 'pointer',
-        zIndex: 90,
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(16px)',
-        pointerEvents: visible ? 'auto' : 'none',
-        transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease',
-        boxShadow: 'var(--shadow-card)',
-      }}
-      className="scroll-progress-btn"
-    >
-      <svg
-        width="48"
-        height="48"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          transform: 'rotate(-90deg)',
-          pointerEvents: 'none',
-        }}
-      >
-        {/* Background track */}
-        <circle
-          cx="24"
-          cy="24"
-          r={radius}
-          fill="none"
-          stroke="var(--border-subtle)"
-          strokeWidth="3"
-        />
-        {/* Progress stroke */}
-        <circle
-          cx="24"
-          cy="24"
-          r={radius}
-          fill="none"
-          stroke="var(--accent-cyan)"
-          strokeWidth="3"
-          strokeDasharray={circumference}
-          strokeDashoffset={strokeDashoffset}
-          strokeLinecap="round"
-          style={{ transition: 'stroke-dashoffset 0.1s linear' }}
-        />
-      </svg>
-      <ArrowUp size={18} color="var(--accent-cyan)" style={{ position: 'relative', zIndex: 2 }} />
-    </button>
-  );
-};
+    <>
+      <div className="scroll-progress" style={{ transform: 'scaleX(' + progress + ')' }} aria-hidden="true" />
+      <a className="scroll-top button button-icon button-primary" href="#home" aria-label="Scroll to top" hidden={progress < 0.09}>
+        <ArrowUp size={20} aria-hidden="true" />
+      </a>
+    </>
+  )
+}

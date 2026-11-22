@@ -1,96 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
-import type { ElementType } from 'react';
+import { useEffect, useRef, useState } from 'react'
+import type { ElementType, ReactNode } from 'react'
 
-export interface ScrollRevealProps {
-  children: React.ReactNode;
-  delay?: number; // Delay in milliseconds (stagger)
-  duration?: number; // Duration in milliseconds (default 550ms)
-  direction?: 'up' | 'fade' | 'heading';
-  className?: string;
-  style?: React.CSSProperties;
-  as?: ElementType;
-  threshold?: number;
-  rootMargin?: string;
-}
+const canAnimate = () =>
+  'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-export const ScrollReveal: React.FC<ScrollRevealProps> = ({
-  children,
-  delay = 0,
-  duration = 550,
-  direction = 'up',
-  className = '',
-  style = {},
-  as: Component = 'div',
-  threshold = 0.1,
-  rootMargin = '0px 0px -40px 0px',
-}) => {
-  const [isRevealed, setIsRevealed] = useState(false);
-  const ref = useRef<HTMLElement | null>(null);
+export function ScrollReveal({ children, as: Component = 'div', className = '', delay = 0, id }: {
+  children: ReactNode
+  as?: ElementType
+  className?: string
+  delay?: number
+  id?: string
+}) {
+  const element = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(() => !canAnimate())
 
   useEffect(() => {
-    // Check if IntersectionObserver is supported
-    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
-      setIsRevealed(true);
-      return;
-    }
+    if (!canAnimate() || !element.current) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setVisible(true)
+      observer.disconnect()
+    }, { threshold: 0.06 })
+    observer.observe(element.current)
 
-    // Respect reduced motion accessibility setting
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) {
-      setIsRevealed(true);
-      return;
-    }
-
-    const element = ref.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // Toggle revealed state whenever the element enters or leaves the viewport
-          setIsRevealed(entry.isIntersecting);
-        });
-      },
-      {
-        threshold,
-        rootMargin,
-      }
-    );
-
-    observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [threshold, rootMargin]);
-
-  const getDirectionClass = () => {
-    switch (direction) {
-      case 'heading':
-        return 'reveal-heading';
-      case 'fade':
-        return 'reveal-fade';
-      case 'up':
-      default:
-        return 'reveal-up';
-    }
-  };
-
-  const combinedStyle: React.CSSProperties = {
-    ...style,
-    transitionDuration: `${duration}ms`,
-    transitionDelay: isRevealed ? `${delay}ms` : '0ms',
-  };
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <Component
-      ref={ref}
-      className={`reveal-init ${getDirectionClass()} ${isRevealed ? 'reveal-visible' : ''} ${className}`.trim()}
-      style={combinedStyle}
-    >
+    <Component ref={element} id={id} className={'reveal ' + className} data-visible={visible}
+      style={{ transitionDelay: visible && delay ? delay + 'ms' : undefined }}>
       {children}
     </Component>
-  );
-};
-
-export default ScrollReveal;
+  )
+}

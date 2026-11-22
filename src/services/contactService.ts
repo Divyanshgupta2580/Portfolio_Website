@@ -1,3 +1,7 @@
+import { PORTFOLIO_DATA } from '../data/portfolioData';
+
+const { personal } = PORTFOLIO_DATA;
+
 export interface ContactFormData {
   name: string;
   email: string;
@@ -91,18 +95,18 @@ export async function submitContactForm(data: ContactFormData): Promise<Submissi
         lastSubmissionTime = Date.now();
         return {
           success: true,
-          message: 'Your message has been sent successfully. Divyansh will get back to you shortly!',
+          message: 'Your message has been sent successfully. ' + personal.name + ' will get back to you shortly!',
         };
       } else {
         return {
           success: false,
-          message: resData.message || resData.error || 'Submission failed. Please use direct email to reach Divyansh.',
+          message: resData.message || resData.error || 'Submission failed. Please use direct email.',
         };
       }
-    } catch (err: any) {
+    } catch {
       return {
         success: false,
-        message: 'Network connection error. Please use direct email to reach Divyansh.',
+        message: 'Network connection error. Please use direct email.',
       };
     }
   }
@@ -135,7 +139,7 @@ export async function submitContactForm(data: ContactFormData): Promise<Submissi
       lastSubmissionTime = Date.now();
       return {
         success: true,
-        message: resData.message || 'Your inquiry has been delivered successfully! Divyansh will get back to you shortly.',
+        message: resData.message || 'Your inquiry has been delivered successfully! ' + personal.name + ' will get back to you shortly.',
       };
     } else {
       return {
@@ -143,10 +147,10 @@ export async function submitContactForm(data: ContactFormData): Promise<Submissi
         message: resData.message || `Delivery failed with status ${res.status}. Please use direct email.`,
       };
     }
-  } catch (err: any) {
+  } catch {
     return {
       success: false,
-      message: 'Unable to connect to the message server. Please send your inquiry directly to inbox.DivyanshGupta1@protonmail.com.',
+      message: 'Unable to connect to the message server. Please send your inquiry directly to ' + personal.email + '.',
     };
   }
 }
