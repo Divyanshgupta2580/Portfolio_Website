@@ -1,7 +1,8 @@
-import { useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { About } from './components/About'
 import { AboutModal } from './components/AboutModal'
 import type { AboutModalType } from './components/AboutModal'
+import { Achievements } from './components/Achievements'
 import { Capabilities } from './components/Capabilities'
 import { Contact } from './components/Contact'
 import { ContactModal } from './components/ContactModal'
@@ -17,6 +18,7 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { Skills } from './components/Skills'
 import { PORTFOLIO_DATA } from './data/portfolioData'
 import type { Project } from './data/portfolioData'
+import { setupReferenceInteractions } from './referenceInteractions'
 
 type Overlay =
   | { kind: 'about'; topic: AboutModalType }
@@ -37,23 +39,27 @@ export const App = () => {
   const openProject = (project: Project) => open({ kind: 'project', project })
   const openContact = (opportunity = PORTFOLIO_DATA.opportunityTypes[0], details = '') =>
     open({ kind: 'contact', opportunity, details })
+  const showPortfolio = ['/', '/index.html'].includes(window.location.pathname)
 
-  if (!['/', '/index.html'].includes(window.location.pathname)) return <NotFound />
+  useLayoutEffect(() => {
+    if (showPortfolio) return setupReferenceInteractions()
+  }, [showPortfolio])
+
+  if (!showPortfolio) return <NotFound />
 
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
-      <Navbar onOpenContact={() => openContact()} />
-      <main id="main" tabIndex={-1}>
-        <Hero onOpenContact={() => openContact()} />
-        <About onOpenDetails={(topic) => open({ kind: 'about', topic })} />
-        <Projects onOpenProject={openProject} />
-        <Skills />
-        <Capabilities />
-        <Journey />
-        <Opportunities onSelectOpportunity={openContact} />
-        <Contact />
-      </main>
+      <div id="cursor" aria-hidden="true" />
+      <Navbar />
+      <Hero />
+      <About onOpenDetails={(topic) => open({ kind: 'about', topic })} />
+      <Journey />
+      <Projects onOpenProject={openProject} />
+      <Skills />
+      <Achievements />
+      <Capabilities />
+      <Opportunities onSelectOpportunity={openContact} />
+      <Contact />
       <Footer />
       <ScrollProgress />
       {overlay?.kind === 'about' &&

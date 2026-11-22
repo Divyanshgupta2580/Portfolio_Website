@@ -1,49 +1,49 @@
-import { Plus } from 'lucide-react'
+import { useState } from 'react'
 import { PORTFOLIO_DATA } from '../data/portfolioData'
 import type { AboutModalType } from './AboutModal'
-import { ScrollReveal } from './ScrollReveal'
+import { SectionHeading } from './SectionHeading'
+
+const { personal } = PORTFOLIO_DATA
+const chipColors = ['var(--cyan)', 'var(--green)', 'var(--yellow)', 'var(--orange)']
 
 export function About({ onOpenDetails }: { onOpenDetails: (topic: AboutModalType) => void }) {
-  const { personal } = PORTFOLIO_DATA
+  const [imageError, setImageError] = useState(false)
   const { academic } = personal
 
   return (
-    <section id="about" className="section" aria-labelledby="about-title">
-      <div className="shell">
-        <ScrollReveal className="section-heading">
-          <p className="eyebrow">About Me</p>
-          <h2 id="about-title">Engineering with Purpose &amp; Precision</h2>
-          <p>{personal.about}</p>
-        </ScrollReveal>
-        <div className="about-grid">
-          <ScrollReveal as="article" className="education-panel" delay={60}>
-            <p className="eyebrow">Academic Background</p>
-            <h3>{academic.degree}</h3>
-            <p>{academic.college} · {academic.university}</p>
-            <p>Expected graduation {academic.graduation}</p>
-            <dl className="education-metrics">
-              <div><dt>Semester 1 CGPA</dt><dd>{academic.sem1Cgpa}</dd></div>
-              <div><dt>Semester 2 CGPA</dt><dd>{academic.sem2Cgpa}</dd></div>
-            </dl>
-          </ScrollReveal>
-          <ScrollReveal as="div" className="focus-list" delay={120}>
-            {personal.focus.map(({ title, description }) => (
-              <article key={title}>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
-            ))}
-          </ScrollReveal>
-        </div>
-        <div className="profile-cards">
-          {personal.profileCards.map(({ id, value, label, description }, index) => (
-            <ScrollReveal key={id} delay={index * 55}>
-              <button type="button" className="profile-card" onClick={() => onOpenDetails(id)}>
-                <strong>{value}</strong><span>{label}</span><small>{description}</small>
-                <Plus size={18} aria-hidden="true" />
-              </button>
-            </ScrollReveal>
-          ))}
+    <section id="about">
+      <div className="container">
+        <SectionHeading number="02" label="About Me" title="Who I" accent="Am." />
+        <div className="about-grid fade-up">
+          <div className="about-left">
+            <div className="about-photo-frame" data-hover>
+              {imageError ? <span className="avatar-emoji">{personal.avatarPlaceholderText}</span> :
+                <img src={personal.portraitPath} alt={personal.name} className="about-photo"
+                  width={personal.portraitSize.width} height={personal.portraitSize.height}
+                  onError={() => setImageError(true)} />}
+            </div>
+            <div className="about-chips">
+              {personal.profileCards.map(({ id, value, label }, index) => (
+                <div className="about-chip" key={id} role="button" tabIndex={0} data-hover
+                  onClick={() => onOpenDetails(id)} onKeyDown={(event) => {
+                    if (event.key !== 'Enter' && event.key !== ' ') return
+                    event.preventDefault()
+                    onOpenDetails(id)
+                  }}>
+                  <div className="chip-dot" style={{ background: chipColors[index] }} />
+                  {value} {label}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="about-right">
+            <div className="about-bio">
+              <p>{personal.about}</p>
+              <p><strong>{academic.degree}</strong> · {academic.college}, {academic.university}. Expected graduation {academic.graduation}. CGPA {academic.sem1Cgpa} in semester 1 and {academic.sem2Cgpa} in semester 2.</p>
+              {personal.focus.map(({ title, description }) => <p key={title}><strong>{title}</strong> {description}.</p>)}
+              <p><a href="#contact" className="accent-link connect-link" data-hover>Connect with me</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

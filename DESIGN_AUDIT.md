@@ -15,4 +15,21 @@ Measured from the live design reference before implementation. The audit records
 | Navigation and footer | A fixed, roughly 75 px header with a scroll state, section anchors, theme control, resume action, and a collapsible menu. Contact uses a full-width accent surface and a two-column form layout. The footer uses a heavy rule, compact monospaced text, and stacked alignment on narrow screens. |
 | Breakpoints | At 1,024 px the hero, about, contact, and work history grids collapse and the custom pointer is removed. Projects become one column at 992 px. At 768 px skill and achievement grids stack, panels tighten, and the hamburger and stacked footer appear. |
 
-The implementation uses an original full-width typographic masthead, portrait and summary strip, olive-black surfaces, lime and coral accents, Barlow Condensed and DM Sans typography, and its own responsive grid. It retains the common interaction patterns of theme switching, scroll reveals, skill badges, section navigation, and a back-to-top control.
+## Source-based rebuild
+
+The reference stylesheet is copied byte for byte into `src/styles/index.css`. The HTML uses the reference font imports. React renders the reference element and class structure for the navigation, hero, profile, timeline, projects, skills, achievements, contact, and footer.
+
+| Previous difference | Rebuild |
+| --- | --- |
+| Different fonts, palette, borders, controls, and spacing | Reference stylesheet and font imports |
+| Full-width masthead, hero portrait, and horizontal summary strip | Split hero, two-line name, tilted tags, four stats, and portrait in About |
+| Different grid templates and breakpoint rules | Reference project, skill, achievement, and contact grids and breakpoints |
+| Sticky navigation and top progress bar | Fixed navigation that hides on downward scroll, active anchor, mobile drawer, and back-to-top button |
+| Single role, basic reveal animations, and no moving background | Reference typing intervals, parallax stars, staggered reveals, marquee, pointer, magnetic buttons, and card tilt |
+| Different icons and form layout | Reference inline SVG shapes and four-field form. Inquiries use the portfolio's existing contact endpoint. |
+
+The portfolio data supplies the headings, projects, stats, social destinations, and pixel portrait. The timeline shows engineering and hackathon milestones. The page omits research entries because the portfolio has no publication data. Capabilities and opportunities use the achievement card layout. Technical details and inquiry dialogs reuse the reference class styles.
+
+The rebuilt page and live reference matched the sampled computed styles at 1,440 and 390 CSS pixels. Differences in name lengths, tag text, links, item counts, portrait, and additional portfolio sections alter individual pixels and some element heights.
+
+At 320 CSS pixels, the second hero action reaches beyond the viewport in both versions. The rebuild uses the original button padding and single-row layout.

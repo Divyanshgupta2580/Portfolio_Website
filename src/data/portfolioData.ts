@@ -206,11 +206,10 @@ export const RESUME_URL = "https://drive.google.com/file/d/1XbqOPOtspT1fE-rc5Om4
 
 export const NAVIGATION = [
   { id: "about", label: "About" },
+  { id: "experience", label: "Journey" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
-  { id: "capabilities", label: "What I Do" },
-  { id: "journey", label: "Journey" },
-  { id: "opportunities", label: "Open to Work" },
+  { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -249,7 +248,12 @@ export const PORTFOLIO_DATA = {
     ],
     profileCards: [
       { id: "projects", value: "2+", label: "Major Projects", description: "BenefitOS & RailGuard-AI" },
-      { id: "tech", value: "10+", label: "Technologies", description: "Languages, Backend & Data" },
+      {
+        id: "tech",
+        get value(): string { return String(ABOUT_MODAL_DATA.technologies.length); },
+        label: "Technologies",
+        description: "Languages, Backend & Data"
+      },
       { id: "hackathons", value: "4+", label: "Completed Hackathons", description: "Qualcomm, FAR AWAY, AB Talks, HackHazards" },
       { id: "learning", value: "Always", label: "Learning & Building", description: "Continuous Systems Growth" },
     ] as const,
@@ -269,7 +273,8 @@ export const PORTFOLIO_DATA = {
       ],
     },
     avatarPlaceholderText: "DG",
-    portraitPath: "/assets/divyansh_portrait.jpg",
+    portraitPath: "/assets/divyansh-pixel-portrait.png",
+    portraitSize: { width: 1122, height: 1402 },
     resumePath: RESUME_URL,
     email: "inbox.DivyanshGupta1@protonmail.com",
     githubUrl: "https://github.com/Divyanshgupta2580",
@@ -324,6 +329,7 @@ export const PORTFOLIO_DATA = {
         { name: "Next.js", tag: "React Applications & Server Rendering" },
         { name: "HTML & CSS", tag: "Semantic Markup & Responsive Layouts" },
         { name: "Vite", tag: "Frontend Development & Builds" },
+        { name: "Redux", tag: "State Management" },
       ],
     },
     {
@@ -334,31 +340,40 @@ export const PORTFOLIO_DATA = {
         { name: "Node.js", tag: "Server Runtime & Asynchronous I/O" },
         { name: "Express", tag: "REST API Microservices & Middleware" },
         { name: "FastAPI", tag: "Python API Development" },
-        { name: "Server-sent events", tag: "Streaming Updates over HTTP" },
+        { name: "Server-Sent Events (SSE)", tag: "Streaming Updates over HTTP" },
       ],
     },
     {
-      title: "Databases & Data",
-      description: "Databases, caching, machine learning, and LLM integrations.",
+      title: "Databases & Caching",
+      description: "Relational databases, document storage, and caching.",
       iconName: "Database",
       skills: [
-        { name: "MongoDB", tag: "Document Datastore & Aggregations" },
         { name: "PostgreSQL", tag: "Relational Databases & SQL" },
+        { name: "MongoDB", tag: "Document Datastore & Aggregations" },
         { name: "Firebase", tag: "Cloud Datastore & Real-Time Sync" },
+        { name: "Supabase", tag: "PostgreSQL Backend Services" },
         { name: "Redis", tag: "In-Memory Data Storage & Caching" },
-        { name: "scikit-learn", tag: "Machine Learning in Python" },
-        { name: "LLM APIs (Groq, OpenAI, Anthropic)", tag: "Language Model Integration" },
       ],
     },
     {
-      title: "Tools & Infrastructure",
+      title: "AI & Machine Learning",
+      description: "Machine learning and LLM integrations.",
+      iconName: "Sparkles",
+      skills: [
+        { name: "scikit-learn", tag: "Machine Learning in Python" },
+        { name: "LLM APIs (Groq, OpenAI, Anthropic, Gemini)", tag: "Language Model Integration" },
+      ],
+    },
+    {
+      title: "Tools & Deployment",
       description: "Containerization, deployment platforms, and version control workflows.",
       iconName: "Terminal",
       skills: [
-        { name: "Docker", tag: "Containerization & Environment Isolation" },
         { name: "Git & GitHub", tag: "Version Control & Collaboration" },
+        { name: "Docker", tag: "Containerization & Environment Isolation" },
         { name: "Vercel", tag: "Frontend Deployment & Hosting" },
         { name: "Railway", tag: "Backend Deployment & Hosting" },
+        { name: "Render", tag: "Backend Deployment & Hosting" },
       ],
     },
   ] as SkillCategory[],

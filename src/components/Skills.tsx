@@ -1,30 +1,45 @@
 import { PORTFOLIO_DATA } from '../data/portfolioData'
-import { ScrollReveal } from './ScrollReveal'
-import { Tags } from './Tags'
+import { BoltMark, CodeMark, ScreenMark, ServerMark, ShieldMark } from './ReferenceIcons'
+import { SectionHeading } from './SectionHeading'
+
+const headers = [
+  { Icon: CodeMark, color: '#ff6b35' },
+  { Icon: ScreenMark, color: '#00ff9d' },
+  { Icon: ServerMark, color: '#00e5ff' },
+  { Icon: ShieldMark, color: '#9D4EDD' },
+  { Icon: BoltMark, color: '#FFE500' },
+]
+const marquee = ['Docker', 'Python', 'React', 'PostgreSQL', 'FastAPI', 'MongoDB', 'Redis', 'Vite']
 
 export function Skills() {
   return (
-    <section id="skills" className="section" aria-labelledby="skills-title">
-      <div className="shell">
-        <ScrollReveal className="section-heading">
-          <p className="eyebrow">Technical Toolkit</p>
-          <h2 id="skills-title">Tools I Build With</h2>
-          <p>Languages, frameworks, databases, and infrastructure used across my projects and engineering work.</p>
-        </ScrollReveal>
-        <div className="card-grid skills-grid">
-          {PORTFOLIO_DATA.skills.map((category, index) => (
-            <ScrollReveal as="article" className="panel skill-card" key={category.title} delay={(index % 2) * 65}>
-              <h3>{category.title}</h3>
-              <p>{category.description}</p>
-              <dl className="skill-list">
-                {category.skills.map((skill) => (
-                  <div key={skill.name}>
-                    <dt>{skill.name}</dt><dd>{skill.tag}</dd>
+    <section id="skills">
+      <div className="container">
+        <SectionHeading number="06" label="Skills" title="My" accent="Toolkit." />
+        <div className="fade-up">
+          <div className="skills-grid">
+            {PORTFOLIO_DATA.skills.map((category, index) => {
+              const { Icon, color } = headers[index % headers.length]
+              return (
+                <div className="skill-category" key={category.title}>
+                  <div className="skill-cat-header no-box">
+                    <div className="skill-cat-icon"><Icon /></div>
+                    <div className="skill-cat-name">{category.title}</div>
+                    <div className="skill-dot" style={{ background: color }} />
                   </div>
-                ))}
-              </dl>
-              {category.capabilities && <Tags items={category.capabilities} />}
-            </ScrollReveal>
+                  <div className="skills-tags">
+                    {category.skills.map(({ name, tag }) => <span className="skill-tag" key={name} title={tag}>{name}</span>)}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="skills-marquee" aria-hidden="true">
+        <div className="marquee-track" id="marqueeTrack">
+          {[...marquee, ...marquee].map((skill, index) => (
+            <span className="marquee-item" key={skill + index}>{skill} <span className="marquee-sep">✦</span></span>
           ))}
         </div>
       </div>

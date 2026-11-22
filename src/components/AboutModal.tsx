@@ -1,7 +1,6 @@
 import { ABOUT_MODAL_DATA, PORTFOLIO_DATA } from '../data/portfolioData'
 import type { Project } from '../data/portfolioData'
 import { Dialog } from './Dialog'
-import { Tags } from './Tags'
 
 const titles = {
   projects: 'Major Projects',
@@ -21,60 +20,61 @@ export function AboutModal({ topic, onClose, onOpenProject }: {
   return (
     <Dialog title={titles[topic]} onClose={onClose}>
       {topic === 'projects' && (
-        <>
-          <p>Selected flagship platforms engineered and showcased in my portfolio. Click any project to open full technical specifications.</p>
-          <div className="dialog-list">
-            {projects.map((entry) => {
-              const project = PORTFOLIO_DATA.projects.find(({ id }) => id === entry.id)
-              return (
-                <article key={entry.id}>
-                  <p className="eyebrow">{entry.badge}</p>
-                  <h3>{entry.title}</h3>
-                  <p className="project-subtitle">{entry.tagline}</p>
-                  <p>{entry.contribution}</p>
-                  <Tags items={entry.technologies} />
-                  {project && <button className="button" type="button" onClick={() => onOpenProject(project)}>
-                    View Technical Specs
-                  </button>}
-                </article>
-              )
-            })}
-          </div>
-        </>
+        <div className="projects-grid">
+          {projects.map((entry) => {
+            const project = PORTFOLIO_DATA.projects.find(({ id }) => id === entry.id)
+            return (
+              <div className="project-card" key={entry.id}>
+                <div className="project-header"><div className="project-featured">{entry.badge}</div></div>
+                <div className="project-body">
+                  <div className="project-title">{entry.title}</div>
+                  <p className="project-desc">{entry.tagline}</p>
+                  <p className="project-impact">{entry.contribution}</p>
+                  <div className="project-tech">
+                    {entry.technologies.map((technology) => <span className="tech-badge" key={technology}>{technology}</span>)}
+                  </div>
+                </div>
+                {project && (
+                  <div className="project-links">
+                    <button className="proj-link" type="button" style={{ color: 'var(--text)' }}
+                      onClick={() => onOpenProject(project)} data-hover>Technical Specs ↗</button>
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
       )}
       {topic === 'tech' && (
-        <>
-          <p>Verified languages, frameworks, databases, and infrastructure tools in my engineering stack.</p>
-          <Tags items={technologies} />
-        </>
+        <div className="skills-tags">
+          {technologies.map((technology) => <span className="skill-tag" key={technology}>{technology}</span>)}
+        </div>
       )}
       {topic === 'hackathons' && (
-        <>
-          <p>Engineering hackathons and verified contributions built under competitive timeframes.</p>
-          <div className="dialog-list">
-            {hackathons.map((entry) => (
-              <article key={entry.id}>
-                <p className="eyebrow">{entry.badge}</p>
-                <h3>{entry.name}</h3>
-                <p className="project-subtitle">{[entry.project, entry.focus].filter(Boolean).join(' · ')}</p>
-                <p>{entry.description}</p>
-                <p><strong>Contribution</strong> {entry.contribution}</p>
-              </article>
-            ))}
-          </div>
-        </>
+        <div className="exp-list">
+          {hackathons.map((entry) => (
+            <div className="exp-item" key={entry.id}>
+              <div className="exp-left">
+                <div className="exp-company">{entry.name}</div>
+                <div className="exp-type-badge">{entry.badge}</div>
+              </div>
+              <div className="exp-right">
+                <h3 className="exp-role">{entry.project ?? entry.focus}</h3>
+                <ul className="exp-bullets">
+                  <li>{entry.description}</li>
+                  <li>{entry.contribution}</li>
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
       {topic === 'learning' && (
-        <>
-          <p className="project-subtitle">{learning.tagline}</p>
-          <p>{learning.description}</p>
-          <dl className="skill-list">
-            {learning.pillars.map(({ label, desc }) => (
-              <div key={label}><dt>{label}</dt><dd>{desc}</dd></div>
-            ))}
-          </dl>
-          <a className="button" href="#skills" onClick={onClose}>{learning.ctaLabel}</a>
-        </>
+        <div className="about-bio">
+          <p><strong>{learning.tagline}</strong> · {learning.description}</p>
+          {learning.pillars.map(({ label, desc }) => <p key={label}><strong>{label}</strong> {desc}</p>)}
+          <a className="connect-link" href="#skills" onClick={onClose} data-hover>{learning.ctaLabel}</a>
+        </div>
       )}
     </Dialog>
   )

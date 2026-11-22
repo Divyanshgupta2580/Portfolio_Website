@@ -1,6 +1,6 @@
 import type { Project } from '../data/portfolioData'
 import { Dialog } from './Dialog'
-import { Tags } from './Tags'
+import { ProjectDiagram } from './Projects'
 
 export function ProjectModal({ project, onClose, onRequestCode }: {
   project: Project
@@ -9,30 +9,35 @@ export function ProjectModal({ project, onClose, onRequestCode }: {
 }) {
   return (
     <Dialog title={project.title} label={project.status + ' · ' + project.category} onClose={onClose}>
-      <p className="project-subtitle">{project.subtitle}</p>
-      <p><strong>My Contribution</strong> {project.contribution}</p>
-      {project.technicalSpecs && (
-        <dl className="specs-grid">
-          {project.technicalSpecs.map(({ label, value }) => (
-            <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
-          ))}
-        </dl>
-      )}
-      <h3>Technical Overview</h3>
-      <p>{project.fullDescription}</p>
-      <h3>What I Built</h3>
-      <ul className="fact-list">{project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
-      <h3>Architecture &amp; Data Flow</h3>
-      <p>{project.architectureOverview}</p>
-      <h3>Stack</h3>
-      <Tags items={project.technologies} />
-      <div className="actions">
+      <div className="about-bio">
+        <p><strong>{project.subtitle}</strong></p>
+        <p><strong>My Contribution</strong> {project.contribution}</p>
+        {project.technicalSpecs && (
+          <ul className="exp-bullets" style={{ marginBlock: 24 }}>
+            {project.technicalSpecs.map(({ label, value }) => <li key={label}><strong>{label}</strong> {value}</li>)}
+          </ul>
+        )}
+        <h3 className="exp-role">Technical Overview</h3>
+        <p>{project.fullDescription}</p>
+        <h3 className="exp-role">What I Built</h3>
+        <ul className="exp-bullets" style={{ marginBlock: 24 }}>
+          {[...new Set([...project.showcase.highlights, ...project.highlights])].map((highlight) =>
+            <li key={highlight}>{highlight}</li>)}
+        </ul>
+        <h3 className="exp-role">Architecture &amp; Data Flow</h3>
+        <p>{project.architectureOverview}</p>
+        <ProjectDiagram project={project} />
+        <h3 className="exp-role" style={{ marginTop: 24 }}>Stack</h3>
+        <div className="project-tech">
+          {project.technologies.map((technology) => <span className="tech-badge" key={technology}>{technology}</span>)}
+        </div>
+      </div>
+      <div className="project-links" style={{ marginTop: 24 }}>
         {project.githubUrl
-          ? <a className="button" href={project.githubUrl} target="_blank" rel="noreferrer">GitHub Repository</a>
-          : <button type="button" className="button button-primary" onClick={() => onRequestCode(project.title)}>
-              Request Code Access
-            </button>}
-        {project.demoUrl && <a className="button" href={project.demoUrl} target="_blank" rel="noreferrer">Live Demonstration</a>}
+          ? <a className="proj-link" href={project.githubUrl} target="_blank" rel="noreferrer" data-hover>GitHub ↗</a>
+          : <button type="button" className="proj-link" style={{ color: 'var(--text)' }}
+              onClick={() => onRequestCode(project.title)} data-hover>Request Code Access ↗</button>}
+        {project.demoUrl && <a className="proj-link" href={project.demoUrl} target="_blank" rel="noreferrer" data-hover>View ↗</a>}
       </div>
     </Dialog>
   )

@@ -1,75 +1,81 @@
-import { useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { PORTFOLIO_DATA } from '../data/portfolioData'
 import { submitContactForm } from '../services/contactService'
 import type { SubmissionResult } from '../services/contactService'
 
-const { personal, opportunityTypes } = PORTFOLIO_DATA
+const defaultOpportunity = PORTFOLIO_DATA.opportunityTypes[0]
 
-export function ContactForm({ opportunity = opportunityTypes[0], details = '' }: {
+export function ContactForm({ opportunity = defaultOpportunity, details = '' }: {
   opportunity?: string
   details?: string
 }) {
   const id = useId()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [type, setType] = useState(opportunity)
-  const [message, setMessage] = useState(details)
+  const formRef = useRef<HTMLFormElement>(null)
   const [pending, setPending] = useState(false)
   const [result, setResult] = useState<SubmissionResult | null>(null)
-  const options = opportunityTypes.includes(opportunity) ? opportunityTypes : [...opportunityTypes, opportunity]
+  const sent = result?.success === true
+
+  useEffect(() => {
+    if (!sent) return
+    const reset = window.setTimeout(() => {
+      formRef.current?.reset()
+      setResult(null)
+    }, 5000)
+    return () => window.clearTimeout(reset)
+  }, [sent])
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (pending) return
-    setPending(true)
+    if (pending || sent) return
+    const fields = new FormData(event.currentTarget)
     setResult(null)
-    const response = await submitContactForm({ name, email, opportunityType: type, message })
+    setPending(true)
+    const response = await submitContactForm({
+      name: String(fields.get('name') ?? ''),
+      email: String(fields.get('email') ?? ''),
+      subject: String(fields.get('subject') ?? ''),
+      message: String(fields.get('message') ?? ''),
+      opportunityType: opportunity,
+    })
     setPending(false)
     setResult(response)
-    if (!response.success) return
-    setName('')
-    setEmail('')
-    setType(opportunity)
-    setMessage('')
   }
 
-  const subject = encodeURIComponent('Inquiry: ' + type + ' - ' + (name || 'Visitor'))
-  const body = encodeURIComponent(
-    'Hi ' + personal.name.split(' ')[0] + ',\n\n' +
-    (message || 'I would like to discuss an opportunity with you.') +
-    '\n\nName: ' + name + '\nEmail: ' + email + '\nOpportunity Type: ' + type,
-  )
-
   return (
-    <form className="inquiry-form" aria-busy={pending} onSubmit={submit}>
-      <div className="form-row">
-        <label htmlFor={id + '-name'}>Your Name *
-          <input id={id + '-name'} name="name" autoComplete="name" placeholder="Recruiter or Lead Engineer"
-            value={name} onChange={(event) => setName(event.target.value)} required />
-        </label>
-        <label htmlFor={id + '-email'}>Your Email *
-          <input id={id + '-email'} name="email" type="email" autoComplete="email" placeholder="email@company.com"
-            maxLength={254} value={email} onChange={(event) => setEmail(event.target.value)} required />
-        </label>
+    <form className="contact-form" ref={formRef} aria-busy={pending} onSubmit={submit}>
+      <div className="form-group">
+        <label className="info-label" htmlFor={id + '-name'}>Name</label>
+        <input type="text" name="name" id={id + '-name'} className="form-input" placeholder="Your Name"
+          autoComplete="name" required />
       </div>
-      <label htmlFor={id + '-type'}>What are you looking for? *
-        <select id={id + '-type'} name="opportunityType" value={type} onChange={(event) => setType(event.target.value)} required>
-          {options.map((option) => <option key={option}>{option}</option>)}
-        </select>
-      </label>
-      <label htmlFor={id + '-details'}>Project / Role Details *
-        <textarea id={id + '-details'} name="message" rows={5} minLength={5} maxLength={5000}
-          placeholder="Brief description of the role, project, or collaboration..."
-          value={message} onChange={(event) => setMessage(event.target.value)} required />
-      </label>
-      <div className="actions">
-        <button type="submit" className="button button-primary" disabled={pending}>
-          {pending ? 'Sending…' : 'Submit Inquiry'}
+      <div className="form-group">
+        <label className="info-label" htmlFor={id + '-email'}>Email</label>
+        <input type="email" name="email" id={id + '-email'} className="form-input" placeholder="your@email.com"
+          autoComplete="email" maxLength={254} required />
+      </div>
+      <div className="form-group">
+        <label className="info-label" htmlFor={id + '-subject'}>Subject</label>
+        <input type="text" name="subject" id={id + '-subject'} className="form-input" placeholder="What's this about?"
+          defaultValue={opportunity === defaultOpportunity ? undefined : opportunity} />
+      </div>
+      <div className="form-group">
+        <label className="info-label" htmlFor={id + '-message'}>Message</label>
+        <textarea name="message" id={id + '-message'} className="form-input" rows={4}
+          placeholder="Feel free to share your thoughts..." defaultValue={details} minLength={5} maxLength={5000} required />
+      </div>
+      {!sent && (
+        <button type="submit" className="contact-email-btn" disabled={pending}
+          style={{ width: '100%', justifyContent: 'center', cursor: 'pointer', border: '2px solid #000' }} data-hover>
+          {pending ? 'SENDING…' : 'SEND MESSAGE'}
         </button>
-        <a className="button" href={'mailto:' + personal.email + '?subject=' + subject + '&body=' + body}>Direct Email</a>
-      </div>
-      {result && <p className="form-result" role={result.success ? 'status' : 'alert'} data-success={result.success}>{result.message}</p>}
+      )}
+      {result && (
+        <div role={sent ? 'status' : 'alert'}
+          style={{ color: sent ? 'var(--text)' : 'var(--red)', fontFamily: "'Space Mono', monospace", marginTop: 15, textAlign: 'center', fontWeight: 'bold' }}>
+          {sent ? '✓ MESSAGE SENT SUCCESSFULLY!' : result.message}
+        </div>
+      )}
     </form>
   )
 }

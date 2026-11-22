@@ -1,13 +1,18 @@
 import { PORTFOLIO_DATA } from '../data/portfolioData'
-import { GithubIcon, LinkedinIcon, ProtonMailIcon } from './Icons'
+import { EmailMark, GitHubMark, LinkedInMark } from './ReferenceIcons'
 
-export function SocialLinks() {
-  const { personal } = PORTFOLIO_DATA
-  return (
-    <ul className="social-links" aria-label="Social and contact links">
-      <li><a href={personal.githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub profile"><GithubIcon /></a></li>
-      <li><a href={personal.linkedinUrl} target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><LinkedinIcon /></a></li>
-      <li><a href={'mailto:' + personal.email} aria-label="Email"><ProtonMailIcon size={18} /></a></li>
-    </ul>
-  )
+const { personal } = PORTFOLIO_DATA
+const channels = [
+  { label: 'GitHub', href: personal.githubUrl, icon: GitHubMark },
+  { label: 'LinkedIn', href: personal.linkedinUrl, icon: LinkedInMark },
+  { label: 'Email', href: 'mailto:' + personal.email, icon: EmailMark },
+]
+
+export function SocialLinks({ contact = false }: { contact?: boolean }) {
+  return channels.map(({ label, href, icon: Icon }) => (
+    <a key={label} href={href} target={label === 'Email' ? undefined : '_blank'} rel="noreferrer"
+      className={contact ? 'social-btn' : 'social-link'} aria-label={label} data-hover>
+      {contact ? <><span className="social-btn-icon"><Icon /></span>{label}</> : <Icon />}
+    </a>
+  ))
 }
