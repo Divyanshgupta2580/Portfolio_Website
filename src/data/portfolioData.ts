@@ -184,22 +184,9 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
     }
   ],
 
-  technologies: [
-    "C++",
-    "Python",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "Firebase",
-    "Neo4j",
-    "Git / GitHub",
-    "Docker",
-    "Vercel",
-    "Render"
-  ],
+  get technologies() {
+    return PORTFOLIO_DATA.skills.flatMap(({ skills }) => skills.map(({ name }) => name));
+  },
 
   learning: {
     title: "Always Learning & Building",
@@ -334,13 +321,9 @@ export const PORTFOLIO_DATA = {
       iconName: "Globe",
       skills: [
         { name: "React", tag: "Component Architecture & Responsive UI" },
-      ],
-      capabilities: [
-        "Responsive UI",
-        "Component Architecture",
-        "API Integration",
-        "State Management",
-        "Frontend–Backend Integration"
+        { name: "Next.js", tag: "React Applications & Server Rendering" },
+        { name: "HTML & CSS", tag: "Semantic Markup & Responsive Layouts" },
+        { name: "Vite", tag: "Frontend Development & Builds" },
       ],
     },
     {
@@ -350,16 +333,21 @@ export const PORTFOLIO_DATA = {
       skills: [
         { name: "Node.js", tag: "Server Runtime & Asynchronous I/O" },
         { name: "Express", tag: "REST API Microservices & Middleware" },
+        { name: "FastAPI", tag: "Python API Development" },
+        { name: "Server-sent events", tag: "Streaming Updates over HTTP" },
       ],
     },
     {
       title: "Databases & Data",
-      description: "Graph databases, document datastores, and cloud storage systems.",
+      description: "Databases, caching, machine learning, and LLM integrations.",
       iconName: "Database",
       skills: [
         { name: "MongoDB", tag: "Document Datastore & Aggregations" },
+        { name: "PostgreSQL", tag: "Relational Databases & SQL" },
         { name: "Firebase", tag: "Cloud Datastore & Real-Time Sync" },
-        { name: "Neo4j", tag: "Graph Nodes & Cypher Relationship Modeling" },
+        { name: "Redis", tag: "In-Memory Data Storage & Caching" },
+        { name: "scikit-learn", tag: "Machine Learning in Python" },
+        { name: "LLM APIs (Groq, OpenAI, Anthropic)", tag: "Language Model Integration" },
       ],
     },
     {
@@ -368,10 +356,9 @@ export const PORTFOLIO_DATA = {
       iconName: "Terminal",
       skills: [
         { name: "Docker", tag: "Containerization & Environment Isolation" },
-        { name: "Git", tag: "Distributed Version Control" },
-        { name: "GitHub", tag: "Source Code Management & Collaboration" },
+        { name: "Git & GitHub", tag: "Version Control & Collaboration" },
         { name: "Vercel", tag: "Frontend Deployment & Hosting" },
-        { name: "Render", tag: "Backend Deployment & Hosting" },
+        { name: "Railway", tag: "Backend Deployment & Hosting" },
       ],
     },
   ] as SkillCategory[],
