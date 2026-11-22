@@ -22,6 +22,10 @@ export function About({ onOpenDetails }: { onOpenDetails: (topic: AboutModalType
                   width={personal.portraitSize.width} height={personal.portraitSize.height}
                   onError={() => setImageError(true)} />}
             </div>
+            <div className="about-education-box" data-hover>
+              <div className="chip-dot" style={{ background: 'var(--purple)' }} />
+              <span>B.Tech from Mirai School of Technology, Ghaziabad</span>
+            </div>
             <div className="about-chips">
               {personal.profileCards.map(({ id, value, label }, index) => (
                 <div className="about-chip" key={id} role="button" tabIndex={0} data-hover
