@@ -660,6 +660,16 @@ nav.hidden { transform: translateY(-100%); }
 .ach-card { padding: 48px 32px; border-right: var(--border-width) solid var(--border-color); border-bottom: var(--border-width) solid var(--border-color); transition: all 0.3s var(--ease-out); }
 .ach-card:nth-child(3n) { border-right: none; }
 .ach-card:nth-last-child(-n+3) { border-bottom: none; }
+@media (width > 768px) {
+  /* Keep the divider above a partial last row. */
+  #achievements .ach-card:nth-last-child(-n+3) {
+    border-bottom: var(--border-width) solid var(--border-color);
+  }
+  #achievements .ach-card:nth-child(3n+1):nth-last-child(-n+3),
+  #achievements .ach-card:nth-child(3n+1):nth-last-child(-n+3) ~ .ach-card {
+    border-bottom: none;
+  }
+}
 .ach-card:hover { background: var(--bg3); transform: translateY(-8px); box-shadow: inset 0 -6px 0 var(--cyan); }
 .ach-icon { font-size: 2.5rem; margin-bottom: 20px; }
 .ach-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; line-height: 1.3; }

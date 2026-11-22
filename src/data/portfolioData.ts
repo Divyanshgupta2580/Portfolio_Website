@@ -113,10 +113,7 @@ export interface AboutModalData {
 }
 
 const benefitOSSubtitle = "Welfare Access & Workforce Compliance Platform";
-const vihaanX = {
-  name: "Vihaan X: Software Track",
-  eventUrl: "https://unstop.com/hackathons/vihaan-x-software-track-dtu-new-delhi-1761841",
-};
+const vihaanXName = "Vihaan X: Software Track";
 const jeevika = {
   id: "jeevika",
   title: "JEEVIKA",
@@ -151,7 +148,7 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       title: jeevika.title,
       tagline: jeevika.subtitle,
       category: "Healthcare Software",
-      badge: vihaanX.name,
+      badge: vihaanXName,
       contribution: jeevika.contribution,
       technologies: jeevika.technologies
     }
@@ -201,13 +198,12 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
     {
       id: "vihaan-x",
       num: "05",
-      name: vihaanX.name,
+      name: vihaanXName,
       project: jeevika.title,
       focus: jeevika.subtitle,
       contribution: jeevika.contribution,
       badge: "Completed",
-      description: jeevika.description,
-      eventUrl: vihaanX.eventUrl
+      description: jeevika.description
     }
   ],
 
@@ -244,17 +240,17 @@ export const PORTFOLIO_DATA = {
   metadata: {
     url: "https://divyansh-gupta-portfolio-lac.vercel.app/",
     title: "Divyansh Gupta — Software Developer & AI/ML Enthusiast",
-    description: "Portfolio of Divyansh Gupta, an engineering student building AI applications and backend systems. Projects include BenefitOS, JEEVIKA, and JanSetu.",
-    socialDescription: "Engineering Student · Software Developer · AI/ML Enthusiast. Building practical software, AI systems, and engineering projects.",
+    description: "Portfolio of Divyansh Gupta, a full-stack developer building AI applications and backend systems. Projects include BenefitOS, JEEVIKA, and JanSetu.",
+    socialDescription: "Full-Stack Developer · AI/ML Enthusiast. Building practical software, AI systems, and engineering projects.",
     siteName: "Divyansh Gupta Portfolio",
     favicon: "/assets/divyansh-pixel-portrait.png",
   },
   personal: {
     name: "Divyansh Gupta",
     headline: "Software Engineer & AI Systems Developer",
-    statusBadge: "Engineering Student · Open to Opportunities",
-    bio: "Engineering student building AI-powered systems, backend architectures, real-time applications, and practical software solutions.",
-    about: "I’m an AI Engineer and Full-Stack Developer who doesn’t just build demos; I ship production-ready systems that solve real problems. As a computer science engineering student at Mirai School of Technology (AKTU), I focus on designing clear APIs, simplifying workflows, and making information easier to find and use.",
+    statusBadge: "Full-Stack Developer · Open to Opportunities",
+    bio: "I build AI-powered systems, backend services, and real-time applications.",
+    about: "I’m an AI Engineer and Full-Stack Developer who doesn’t just build demos; I ship production-ready systems that solve real problems. I’m from Mirai School of Technology. I focus on designing clear APIs, simplifying workflows, and making information easier to find and use.",
     academic: {
       college: "Mirai School of Technology",
       university: "AKTU University",
@@ -294,7 +290,7 @@ export const PORTFOLIO_DATA = {
     portraitTags: ["C++", "Python", "TypeScript", "Node.js"],
     footer: {
       description: "Building software, AI systems, and engineering solutions that solve practical problems.",
-      focus: "Engineering Student · AI & Software Engineering",
+      focus: "Full-Stack Development · AI & Software Engineering",
     },
     contact: {
       availability: "I am open to engineering internships, freelance technical challenges, AI/ML collaborations, and full-time software developer opportunities.",
@@ -675,7 +671,7 @@ export const PORTFOLIO_DATA = {
       ],
       technologies: jeevika.technologies,
       technicalSpecs: [
-        { label: "Event", value: vihaanX.name },
+        { label: "Event", value: vihaanXName },
         { label: "Organizer", value: "IEEE DTU" },
         { label: "Status", value: "Synthetic-data prototype" },
         { label: "Interfaces", value: "React web and Flutter mobile" },
@@ -801,7 +797,7 @@ export const PORTFOLIO_DATA = {
     {
       year: "2026",
       title: "VIHAAN X",
-      organization: vihaanX.name,
+      organization: vihaanXName,
       projectTitle: jeevika.title,
       projectSubtitle: jeevika.subtitle,
       contribution: jeevika.contribution,
@@ -811,8 +807,7 @@ export const PORTFOLIO_DATA = {
       highlights: [
         "Connected multilingual intake, clinician review, and follow-up through a shared patient thread",
         "Demonstrated ward coordination and pharmacy handoffs with synthetic patient data",
-      ],
-      eventUrl: vihaanX.eventUrl
+      ]
     }
   ] as JourneyItem[],
 
