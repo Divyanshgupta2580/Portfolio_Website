@@ -671,6 +671,7 @@ nav.hidden { transform: translateY(-100%); }
   }
 }
 .ach-card:hover { background: var(--bg3); transform: translateY(-8px); box-shadow: inset 0 -6px 0 var(--cyan); }
+#achievements .ach-card:hover { transform: none; }
 .ach-icon { font-size: 2.5rem; margin-bottom: 20px; }
 .ach-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; line-height: 1.3; }
 .ach-subtitle { font-size: 0.95rem; color: var(--text2); line-height: 1.6; }
