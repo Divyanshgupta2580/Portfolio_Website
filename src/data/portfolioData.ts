@@ -225,7 +225,7 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
   }
 };
 
-export const RESUME_URL = "https://drive.google.com/file/d/1XbqOPOtspT1fE-rc5Om4RG5dNWelJBru/view?usp=sharing";
+export const RESUME_URL = "https://drive.google.com/file/d/1BaHmmsNiCMEXFxGmf8r0ukowaDuG69f-/view?usp=sharing";
 
 export const NAVIGATION = [
   { id: "about", label: "About" },
