@@ -74,6 +74,7 @@ export interface JourneyItem {
   badge: string;
   description: string;
   highlights: string[];
+  eventUrl?: string;
 }
 
 export interface AboutProjectItem {
@@ -95,6 +96,7 @@ export interface AboutHackathonItem {
   contribution: string;
   badge: string;
   description?: string;
+  eventUrl?: string;
 }
 
 export interface AboutModalData {
@@ -110,16 +112,30 @@ export interface AboutModalData {
   };
 }
 
+const benefitOSSubtitle = "Welfare Access & Workforce Compliance Platform";
+const vihaanX = {
+  name: "Vihaan X: Software Track",
+  eventUrl: "https://unstop.com/hackathons/vihaan-x-software-track-dtu-new-delhi-1761841",
+};
+const jeevika = {
+  id: "jeevika",
+  title: "JEEVIKA",
+  subtitle: "Continuity-of-Care Prototype",
+  description: "A healthcare workflow prototype that carries patient intake information through clinician review, emergency coordination, ward alerts, pharmacy dispensing, and follow-up.",
+  contribution: "Built JEEVIKA for the Software Track at Vihaan X, organized by IEEE DTU.",
+  technologies: ["React", "TypeScript", "Hono", "Flutter", "Cloudflare D1"],
+};
+
 export const ABOUT_MODAL_DATA: AboutModalData = {
   projects: [
     {
       id: "benefit-os",
       title: "BenefitOS",
-      tagline: "AI Citizen Welfare Discovery Platform",
-      category: "Civic Welfare / AI Platform",
+      tagline: benefitOSSubtitle,
+      category: "Civic Welfare / Workforce Compliance",
       badge: "HackHazards'26",
-      contribution: "Designed and developed the complete platform independently.",
-      technologies: ["Neo4j", "Node.js", "TypeScript", "OCR", "RAG"]
+      contribution: "Designed and built the original BenefitOS platform independently at HackHazards'26.",
+      technologies: ["React", "NestJS", "Prisma", "PostgreSQL", "OCR"]
     },
     {
       id: "railguard-ai",
@@ -129,6 +145,15 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       badge: "FAR AWAY Hackathon",
       contribution: "Built the hardware layer and backend communication system connecting the receiver and signal modules.",
       technologies: ["React", "Node.js", "Express", "Socket.IO", "Google Gemini AI"]
+    },
+    {
+      id: jeevika.id,
+      title: jeevika.title,
+      tagline: jeevika.subtitle,
+      category: "Healthcare Software",
+      badge: vihaanX.name,
+      contribution: jeevika.contribution,
+      technologies: jeevika.technologies
     }
   ],
 
@@ -141,7 +166,7 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       focus: "Civic / AI Platform",
       contribution: "Designed and developed the complete platform independently.",
       badge: "Completed",
-      description: "AI-powered welfare scheme discovery platform using graph data structures and OCR document parsing."
+      description: "BenefitOS began as a welfare discovery project and has expanded into a citizen welfare and employer compliance platform."
     },
     {
       id: "qualcomm",
@@ -174,13 +199,15 @@ export const ABOUT_MODAL_DATA: AboutModalData = {
       description: "Autonomous rail infrastructure orchestration with sub-15ms WebSocket state sync and Gemini AI reasoning."
     },
     {
-      id: "build-with-bharat",
+      id: "vihaan-x",
       num: "05",
-      name: "Build With Bharat 2.0",
-      focus: "Upcoming Engineering Hackathon",
-      contribution: "Upcoming / Event has not taken place yet.",
-      badge: "Upcoming",
-      description: "Upcoming national hackathon — details will be added upon participation."
+      name: vihaanX.name,
+      project: jeevika.title,
+      focus: jeevika.subtitle,
+      contribution: jeevika.contribution,
+      badge: "Completed",
+      description: jeevika.description,
+      eventUrl: vihaanX.eventUrl
     }
   ],
 
@@ -217,7 +244,7 @@ export const PORTFOLIO_DATA = {
   metadata: {
     url: "https://divyansh-gupta-portfolio-lac.vercel.app/",
     title: "Divyansh Gupta — Software Developer & AI/ML Enthusiast",
-    description: "Personal portfolio of Divyansh Gupta, an engineering student and software developer building AI/ML platforms, intelligent algorithms, and backend systems. Creator of BenefitOS and JanSetu.",
+    description: "Portfolio of Divyansh Gupta, an engineering student building AI applications and backend systems. Projects include BenefitOS, JEEVIKA, and JanSetu.",
     socialDescription: "Engineering Student · Software Developer · AI/ML Enthusiast. Building practical software, AI systems, and engineering projects.",
     siteName: "Divyansh Gupta Portfolio",
     favicon: "/favicon.svg",
@@ -239,22 +266,29 @@ export const PORTFOLIO_DATA = {
     highlights: [
       { label: "Academics · 9.43 CGPA", value: "B.Tech CSE (AI & ML)", description: "Mirai School of Tech · AKTU (2029)" },
       { label: "Core Focus", value: "Software & AI Systems", description: "Backend, RAG & Real-Time" },
-      { label: "Competitions", value: "4+ Completed Hackathons", description: "HackHazards, Qualcomm, FAR AWAY, AB Talks" },
+      { label: "Competitions", value: "5 Completed Hackathons", description: "HackHazards, Qualcomm, FAR AWAY, AB Talks, Vihaan X" },
     ],
     focus: [
       { title: "Systems Builder", description: "Architecting backend services, REST APIs, real-time WebSocket state buses, and hardware communication" },
       { title: "AI & Data Modeling", description: "Engineering RAG pipelines, graph data structures in Neo4j, and autonomous multi-model agent workflows" },
-      { title: "Hackathon Competitor", description: "4+ completed hackathons (HackHazards'26, Qualcomm, FAR AWAY, AB Talks) with working software systems" },
+      { title: "Hackathon Competitor", description: "Built projects at five hackathons, including Vihaan X, HackHazards'26, Qualcomm, FAR AWAY, and AB Talks" },
     ],
     profileCards: [
-      { id: "projects", value: "2+", label: "Major Projects", description: "BenefitOS & RailGuard-AI" },
+      { id: "projects", value: "3", label: "Major Projects", description: "BenefitOS, RailGuard-AI & JEEVIKA" },
       {
         id: "tech",
         get value(): string { return String(ABOUT_MODAL_DATA.technologies.length); },
         label: "Technologies",
         description: "Languages, Backend & Data"
       },
-      { id: "hackathons", value: "4+", label: "Completed Hackathons", description: "Qualcomm, FAR AWAY, AB Talks, HackHazards" },
+      {
+        id: "hackathons",
+        get value(): string {
+          return String(ABOUT_MODAL_DATA.hackathons.filter(({ badge }) => badge === "Completed").length);
+        },
+        label: "Completed Hackathons",
+        description: "Qualcomm, FAR AWAY, AB Talks, HackHazards, Vihaan X"
+      },
       { id: "learning", value: "Always", label: "Learning & Building", description: "Continuous Systems Growth" },
     ] as const,
     portraitTags: ["C++", "Python", "TypeScript", "Node.js"],
@@ -382,55 +416,58 @@ export const PORTFOLIO_DATA = {
     {
       id: "benefit-os",
       title: "BenefitOS",
-      subtitle: "AI Citizen Welfare Discovery Platform",
+      subtitle: benefitOSSubtitle,
       badge: "Deployed",
       status: "Deployed",
       category: "Software / AI",
-      contribution: "Designed and developed the complete platform independently.",
+      contribution: "Designed and built the original BenefitOS platform independently at HackHazards'26.",
       showcase: {
-        subtitle: "AI-Powered Citizen Welfare Discovery Platform",
-        description: "A citizen-focused platform designed to help people discover welfare schemes, understand eligibility, prepare required documents, and navigate application workflows.",
+        subtitle: benefitOSSubtitle,
+        description: "A two-sided platform for Indian public welfare. Citizens can check scheme eligibility, prepare documents, and track applications. Employers can onboard workers, check benefit payment readiness, and prepare workforce welfare enrollment records.",
         highlights: [
-          "AI-Powered Welfare Scheme Recommendation Engine",
-          "Deterministic & Dynamic Eligibility Discovery",
-          "Document Readiness & Verification Workflow via OCR",
-          "Conversational AI Assistant for Scheme Guidance",
+          "Citizen welfare and employer compliance portals",
+          "Rules-based scheme eligibility, OCR document vault, and application tracking",
+          "Bulk workforce onboarding and Direct Benefit Transfer readiness checks",
+          "Enrollment records and compliance workflows for workforce welfare schemes",
+          "English and Hindi AI guidance for citizens",
         ],
-        technologies: ["TypeScript", "Node.js", "Express", "Neo4j", "AI / RAG", "OCR", "React"],
+        technologies: ["React", "TypeScript", "NestJS", "Prisma", "PostgreSQL", "OCR"],
         diagrams: [
-          { label: "System Flow", flow: true, steps: ["Client Application\nClient UI", "REST API Gateway\nExpress Backend · Node.js Runtime", "Graph & AI Inference\nNeo4j Graph DB · RAG + OCR Engine"] },
-          { label: "RAG Pipeline", title: "OCR Document Extraction & RAG Workflow", steps: [
-            "Citizen uploads identity/income verification document.",
-            "OCR pipeline extracts structured key-value entities and text fields.",
-            "Semantic embeddings match extracted attributes against national welfare database criteria.",
-            "Vector retrieval ranks qualifying citizen benefits with explainable rationale.",
+          { label: "System Flow", flow: true, steps: [
+            "Citizen Portal and Enterprise Gateway\nSeparate citizen and employer workflows",
+            "NestJS Backend\nEligibility rules, document processing, and workforce services",
+            "Prisma and PostgreSQL\nProfiles, scheme rules, worker rosters, and application records",
           ] },
-          { label: "Neo4j Graph", title: "Neo4j Graph Relationship Engine", steps: [
-            "(:Citizen)-[:ELIGIBLE_FOR]->(:Scheme)",
-            "(:Scheme)-[:REQUIRES_DOC]->(:Document)",
-            "(:Scheme)-[:ADMINISTERED_BY]->(:Ministry)",
-          ], note: "Traverses multi-hop dependency chains in sub-10ms latency." },
+          { label: "Citizen Journey", flow: true, steps: [
+            "Household profile\nCollect the information required for scheme matching",
+            "Rules-based eligibility\nEvaluate those details against scheme rules and document requirements",
+            "Documents and applications\nOrganize paperwork with OCR, track applications, and access bilingual guidance",
+          ] },
+          { label: "Employer Journey", flow: true, steps: [
+            "Import a worker roster\nValidate CSV, Excel, or JSON records",
+            "Review benefit payment readiness\nFlag account-holder name mismatches and outdated bank codes",
+            "Prepare workforce welfare records\nGenerate enrollment paperwork and track compliance activity",
+          ] },
         ],
       },
-      fullDescription: "BenefitOS is an AI-powered citizen welfare discovery platform engineered for HackHazards'26. The platform models government eligibility criteria as connected graph structures in Neo4j, enabling dynamic traversal of inter-scheme prerequisites and conflicting provisions. It integrates OCR-based document parsing with a Retrieval-Augmented Generation (RAG) query engine to analyze citizen documents against official scheme parameters and deliver clear eligibility assessments.",
+      fullDescription: "BenefitOS started at HackHazards'26 as a welfare discovery project. Its current scope connects two workflows. The citizen portal checks household details against scheme rules, organizes documents with OCR, tracks applications, and offers English and Hindi guidance. The employer gateway imports worker rosters, checks readiness for Direct Benefit Transfer (DBT), and helps prepare workforce welfare enrollment and compliance records.",
       highlights: [
-        "Designed and developed the complete platform independently",
-        "Neo4j Graph Database Scheme Dependency Modeling",
-        "OCR Document Parsing with RAG Query Integration",
-        "REST API Microservices & Automated Verification Workflows",
-        "Deployed for HackHazards'26 Challenge"
+        "Distinct citizen and employer interfaces with role-aware access",
+        "Deterministic eligibility rules and application tracking",
+        "OCR document processing and bilingual citizen guidance",
+        "Bulk roster validation and benefit payment readiness checks",
+        "Enrollment and compliance records for employer workflows"
       ],
-      technologies: ["Neo4j", "Node.js", "Express", "TypeScript", "OCR", "RAG", "REST APIs"],
+      technologies: ["React", "NestJS", "Prisma", "PostgreSQL", "TypeScript", "Socket.IO", "OCR"],
       technicalSpecs: [
         { label: "Status", value: "Deployed" },
-        { label: "Event", value: "HackHazards'26" },
-        { label: "Contribution", value: "Built Independently" },
-        { label: "Graph Engine", value: "Neo4j Graph Database" },
-        { label: "Query Architecture", value: "OCR Parsing + RAG Retrieval" }
+        { label: "Origin", value: "HackHazards'26" },
+        { label: "Application", value: "Citizen portal and employer compliance gateway" },
+        { label: "Backend", value: "NestJS, Prisma, and PostgreSQL" },
+        { label: "Eligibility", value: "Deterministic scheme rules" }
       ],
-      architectureOverview: "BenefitOS processes citizen inquiries through an orchestrated pipeline: input documents undergo OCR extraction, extracted attributes are queried against a Neo4j knowledge graph of eligibility criteria, and a RAG pipeline validates scheme requirements to return structured eligibility recommendations.",
-      githubUrl: undefined,
-      demoUrl: undefined,
+      architectureOverview: "The two portals share a NestJS API backed by Prisma and PostgreSQL. A rules engine evaluates citizen profiles and document requirements. Separate employer services validate worker rosters, flag bank-record issues, and generate enrollment records. OCR extracts document fields, and the bilingual copilot explains steps in the citizen workflow.",
+      demoUrl: "https://benifit-os.onrender.com/",
     },
     {
       id: "jansetu",
@@ -596,6 +633,55 @@ export const PORTFOLIO_DATA = {
       architectureOverview: "RailGuard-AI implements a unified architecture where physical hardware telemetry feeds into a Node.js/Socket.IO state bus. A deterministic track graph model calculates braking distances and clearances while a Gemini AI agent evaluates track capacity and issues conflict-free dispatch advisories.",
       githubUrl: undefined,
       demoUrl: undefined,
+    },
+    {
+      id: jeevika.id,
+      title: jeevika.title,
+      subtitle: jeevika.subtitle,
+      badge: "Hackathon Prototype",
+      status: "Hackathon Prototype",
+      category: "Software / AI",
+      contribution: jeevika.contribution,
+      showcase: {
+        subtitle: jeevika.subtitle,
+        description: jeevika.description,
+        highlights: [
+          "One consented patient thread across care handoffs",
+          "Multilingual kiosk and mobile intake",
+          "Clinician review, staff queues, and ward alert coordination",
+          "Pharmacy dispensing and home follow-up workflows",
+        ],
+        technologies: jeevika.technologies,
+        diagrams: [
+          { label: "Patient Thread", flow: true, steps: [
+            "Multilingual intake\nCollect check-in information through the kiosk or mobile app",
+            "Clinician workspace\nReview intake and carry the context into the encounter",
+            "Care handoff\nShare relevant context with ward and pharmacy workflows",
+            "Follow-up\nRoute recovery observations to a staff review queue",
+          ] },
+          { label: "System Architecture", flow: true, steps: [
+            "React web and Flutter mobile\nRole-specific views for intake, review, and coordination",
+            "Hono API and TypeScript rules\nHandle shared workflow records and separate language assistance from rule-based checks",
+            "Cloudflare D1\nPersist synthetic demo records",
+          ] },
+        ],
+      },
+      fullDescription: "JEEVIKA demonstrates how a shared patient thread can carry information across hospital and home-care handoffs. Multilingual intake feeds a clinician workspace. The same thread supports emergency and ward coordination, pharmacy dispensing, and follow-up. The prototype uses synthetic patient data and keeps clinicians responsible for care decisions.",
+      highlights: [
+        "Connected multilingual patient intake to clinician review",
+        "Shared patient context across queues, ward alerts, and pharmacy handoffs",
+        "Included home observations and staff follow-up",
+        "Kept language assistance separate from rule-based workflow checks",
+      ],
+      technologies: jeevika.technologies,
+      technicalSpecs: [
+        { label: "Event", value: vihaanX.name },
+        { label: "Organizer", value: "IEEE DTU" },
+        { label: "Status", value: "Synthetic-data prototype" },
+        { label: "Interfaces", value: "React web and Flutter mobile" },
+        { label: "API and Storage", value: "Hono and Cloudflare D1" },
+      ],
+      architectureOverview: "React and Flutter provide web and mobile interfaces for the care workflow. A Hono API uses shared TypeScript modules and persists demonstration records in Cloudflare D1. Language tools assist intake and communication, while separate workflow rules and staff review govern handoffs.",
     }
   ] as Project[],
 
@@ -653,15 +739,15 @@ export const PORTFOLIO_DATA = {
       title: "HACKHAZARDS'26",
       organization: "HackHazards'26 Hackathon",
       projectTitle: "BenefitOS",
-      projectSubtitle: "AI Citizen Welfare Discovery Platform",
-      contribution: "Designed and developed the complete platform independently.",
+      projectSubtitle: benefitOSSubtitle,
+      contribution: "Designed and built the original BenefitOS platform independently at HackHazards'26.",
       type: "Hackathon",
       badge: "Completed",
-      description: "Designed and built an AI-powered platform to streamline citizen welfare scheme discovery, document verification, and eligibility assessment using graph databases and OCR.",
+      description: "BenefitOS began as a citizen welfare discovery project at HackHazards'26 and later expanded to include workforce enrollment and employer compliance workflows.",
       highlights: [
-        "Designed and developed the complete platform independently",
-        "Mapped government scheme prerequisites as Neo4j graph nodes and relationships",
-        "Integrated OCR document parsing with RAG query verification pipelines"
+        "Designed and built the original platform independently",
+        "Expanded the citizen workflow to cover eligibility, document readiness, and application tracking",
+        "Added an employer gateway for worker onboarding, DBT readiness checks, and workforce welfare records"
       ]
     },
     {
@@ -711,6 +797,22 @@ export const PORTFOLIO_DATA = {
         "Engineered sub-15ms WebSocket state synchronization across train crew interfaces",
         "Grounded Gemini agent reasoning on deterministic track graphs and G&SR safety rules"
       ]
+    },
+    {
+      year: "2026",
+      title: "VIHAAN X",
+      organization: vihaanX.name,
+      projectTitle: jeevika.title,
+      projectSubtitle: jeevika.subtitle,
+      contribution: jeevika.contribution,
+      type: "Hackathon",
+      badge: "Completed",
+      description: "Built the JEEVIKA prototype while participating in the Software Track at Delhi Technological University, New Delhi.",
+      highlights: [
+        "Connected multilingual intake, clinician review, and follow-up through a shared patient thread",
+        "Demonstrated ward coordination and pharmacy handoffs with synthetic patient data",
+      ],
+      eventUrl: vihaanX.eventUrl
     }
   ] as JourneyItem[],
 

@@ -55,7 +55,11 @@ export function AboutModal({ topic, onClose, onOpenProject }: {
           {hackathons.map((entry) => (
             <div className="exp-item" key={entry.id}>
               <div className="exp-left">
-                <div className="exp-company">{entry.name}</div>
+                <div className="exp-company">
+                  {entry.eventUrl
+                    ? <a href={entry.eventUrl} target="_blank" rel="noreferrer" data-hover>{entry.name} ↗</a>
+                    : entry.name}
+                </div>
                 <div className="exp-type-badge">{entry.badge}</div>
               </div>
               <div className="exp-right">
